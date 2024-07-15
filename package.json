@@ -1,0 +1,62 @@
+{
+  "name": "actions-kit",
+  "version": "0.0.0",
+  "description": "An opinionated toolkit for GitHub Actions",
+  "type": "module",
+  "author": {
+    "name": "Lucas Nørgård",
+    "email": "lucasnrgaard@gmail.com",
+    "url": "https://luxass.dev"
+  },
+  "packageManager": "pnpm@9.5.0",
+  "license": "MIT",
+  "homepage": "https://github.com/luxass/actions-kit",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luxass/actions-kit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/luxass/actions-kit/issues"
+  },
+  "keywords": [
+    "actions",
+    "github actions",
+    "toolkit"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint .",
+    "test": "vitest --run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@luxass/eslint-config": "^4.8.3",
+    "@types/node": "^18.19.39",
+    "eslint": "^9.6.0",
+    "eslint-plugin-format": "^0.1.2",
+    "tsup": "^8.1.0",
+    "typescript": "^5.5.3",
+    "vitest": "^2.0.1"
+  }
+}
