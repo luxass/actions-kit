@@ -42,7 +42,7 @@ export const unpluginFactory: UnpluginFactory<ActionsKitOptions | undefined> = (
       }
 
       if (options.injectInputs) {
-        return `globalThis.inputs = ${JSON.stringify(globalInputs, null, 2)};\n${code};`;
+        return `globalThis.ACTION_INPUTS = ${JSON.stringify(globalInputs, null, 2)};\n${code};`;
       }
 
       return code;
@@ -90,7 +90,7 @@ export const unpluginFactory: UnpluginFactory<ActionsKitOptions | undefined> = (
           ? ""
           : /* typescript */`
 declare global {
-  export const inputs: ${JSON.stringify(inputsObject, null, 2)};
+  export const ACTION_INPUTS: ${JSON.stringify(inputsObject, null, 2)};
 }`}
 
 declare module "@actions/core" {
