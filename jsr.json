@@ -1,6 +1,6 @@
 {
   "name": "@luxass/actions-kit",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "exports": {
     ".": "./src/index.ts",
     "./unplugin": "./src/unplugin/index.ts",
