@@ -1,3 +1,3 @@
 # actions-kit
 
-An opinionated toolkit for GitHub Actions
+A toolkit for GitHub Actions (HIGHLY EXPERIMENTAL)
