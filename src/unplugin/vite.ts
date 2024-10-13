@@ -4,8 +4,8 @@
  * @module
  */
 
-import { createVitePlugin } from "unplugin";
 import type unplugin from "./";
+import { createVitePlugin } from "unplugin";
 import { unpluginFactory } from "./";
 
 /**

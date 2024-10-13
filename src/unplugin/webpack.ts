@@ -4,8 +4,8 @@
  * @module
  */
 
-import { createWebpackPlugin } from "unplugin";
 import type unplugin from "./";
+import { createWebpackPlugin } from "unplugin";
 import { unpluginFactory } from "./";
 
 /**

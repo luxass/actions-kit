@@ -1,9 +1,7 @@
-import { readFile } from "node:fs/promises";
-import { dirname, join } from "node:path";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
 import YAML from "js-yaml";
-import { type UnpluginFactory, type UnpluginInstance, createUnplugin } from "unplugin";
-import { createFilter } from "@rollup/pluginutils";
+import { createUnplugin, type UnpluginFactory, type UnpluginInstance } from "unplugin";
 
 export interface ActionsKitOptions {
   actionPath?: string;

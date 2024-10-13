@@ -4,8 +4,8 @@
  * @module
  */
 
-import { createEsbuildPlugin } from "unplugin";
 import type unplugin from "./";
+import { createEsbuildPlugin } from "unplugin";
 import { unpluginFactory } from "./";
 
 /**

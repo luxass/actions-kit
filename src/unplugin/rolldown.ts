@@ -4,8 +4,8 @@
  * @module
  */
 
-import { createRolldownPlugin } from "unplugin";
 import type unplugin from "./";
+import { createRolldownPlugin } from "unplugin";
 import { unpluginFactory } from "./";
 
 /**
