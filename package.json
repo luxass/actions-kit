@@ -1,7 +1,7 @@
 {
   "name": "actions-kit",
   "version": "0.0.0",
-  "description": "An opinionated toolkit for GitHub Actions",
+  "description": "A toolkit for GitHub Actions",
   "type": "module",
   "author": {
     "name": "Lucas Nørgård",
