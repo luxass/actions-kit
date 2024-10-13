@@ -51,7 +51,7 @@ export const unpluginFactory: UnpluginFactory<ActionsKitOptions | undefined> = (
 import "@actions/core";
 
 declare module "@actions/core" {
-  export const inputs = ${JSON.stringify({
+  declare const inputs = ${JSON.stringify({
     ...Object.fromEntries(
       Object.entries(yaml.inputs).map(([name]) => {
         return [name, name];
