@@ -1,0 +1,14 @@
+{
+  "name": "@luxass/actions-kit",
+  "version": "0.0.0",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "exclude": [
+    "tsup.config.ts",
+    "eslint.config.js",
+    "pnpm-lock.yaml",
+    ".github/**",
+    "tsconfig.json"
+  ]
+}
