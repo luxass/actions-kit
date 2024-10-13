@@ -2,7 +2,14 @@
   "name": "@luxass/actions-kit",
   "version": "0.0.2",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./unplugin": "./src/unplugin/index.ts",
+    "./unplugin/esbuild": "./src/unplugin/esbuild.ts",
+    "./unplugin/rolldown": "./src/unplugin/rolldown.ts",
+    "./unplugin/rollup": "./src/unplugin/rollup.ts",
+    "./unplugin/rspack": "./src/unplugin/rspack.ts",
+    "./unplugin/vite": "./src/unplugin/vite.ts",
+    "./unplugin/webpack": "./src/unplugin/webpack.ts"
   },
   "exclude": [
     "tsup.config.ts",
