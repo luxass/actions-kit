@@ -2,18 +2,20 @@ import { defineConfig } from "tsup";
 
 export default defineConfig({
   entry: [
-    "./src/index.ts",
+    "src/**/*.ts",
   ],
-  format: ["cjs", "esm"],
-  platform: "node",
-  target: "es2022",
+  format: [
+    "esm",
+    "cjs",
+  ],
   dts: true,
-  bundle: true,
+  splitting: true,
   clean: true,
+  target: "es2022",
+  bundle: true,
   outExtension(ctx) {
     return {
       js: ctx.format === "cjs" ? ".cjs" : ".mjs",
     };
   },
-  tsconfig: "./tsconfig.json",
 });
