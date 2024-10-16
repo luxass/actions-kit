@@ -170,7 +170,7 @@
     "vite": "^5.4.8",
     "vite-plugin-inspect": "^0.8.7",
     "vitest": "^2.1.2",
-    "vitest-testdirs": "^1.0.0",
+    "vitest-testdirs": "^1.1.0",
     "webpack": "^5.95.0"
   }
 }

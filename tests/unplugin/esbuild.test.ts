@@ -1,23 +1,19 @@
 import { readdir, readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { build } from "esbuild";
 import { expect, it } from "vitest";
-import { testdir } from "vitest-testdirs";
+import { fromFileSystem, testdir } from "vitest-testdirs";
 import ActionKitPlugin from "../../src/unplugin/esbuild";
 
 it("expect `actions-kit.d.ts` to be generated", async () => {
-  const path = await testdir({
-    "file1.txt": "Hello, World!",
-    "file2.txt": "Hello, Vitest!",
-  });
+  const directoryJson = await fromFileSystem("./tests/fixtures/action.yaml");
+  const testdirPath = await testdir(directoryJson);
 
-  expect(path).toBeDefined();
-  expect(path).toContain(".vitest-testdirs/vitest-testdir-isolated-test");
+  expect(testdirPath).toBeDefined();
 
-  const file = await readFile(`${path}/file1.txt`, "utf8");
-  expect(file).toBe("Hello, World!");
   await build({
     entryPoints: [
-      "./tests/fixtures/action.yaml/index.ts",
+      join(testdirPath, "index.ts"),
     ],
     platform: "node",
     format: "cjs",
@@ -26,20 +22,25 @@ it("expect `actions-kit.d.ts` to be generated", async () => {
     minifySyntax: false,
     plugins: [
       ActionKitPlugin({
-        actionPath: "./tests/fixtures/action.yaml/action.yaml",
+        actionPath: join(testdirPath, "action.yaml"),
       }),
     ],
   });
 
-  const dtsOutput = await readFile("./tests/fixtures/action.yaml/actions-kit.d.ts", "utf-8");
+  const dtsOutput = await readFile(join(testdirPath, "actions-kit.d.ts"), "utf-8");
 
   expect(dtsOutput).toMatchSnapshot();
 });
 
-it("expect `actions-kit.d.ts` to be generated with injected inputs", async () => {
+it("expect `actions-kit.d.ts` to include `ACTION_INPUTS`", async () => {
+  const directoryJson = await fromFileSystem("./tests/fixtures/action.yaml");
+  const testdirPath = await testdir(directoryJson);
+
+  expect(testdirPath).toBeDefined();
+
   await build({
     entryPoints: [
-      "./tests/fixtures/action.yaml/index.ts",
+      join(testdirPath, "index.ts"),
     ],
     platform: "node",
     format: "cjs",
@@ -48,13 +49,14 @@ it("expect `actions-kit.d.ts` to be generated with injected inputs", async () =>
     minifySyntax: false,
     plugins: [
       ActionKitPlugin({
-        actionPath: "./tests/fixtures/action.yaml/action.yaml",
+        actionPath: join(testdirPath, "action.yaml"),
         injectInputs: true,
       }),
     ],
   });
 
-  const dtsOutput = await readFile("./tests/fixtures/action.yaml/actions-kit.d.ts", "utf-8");
+  const dtsOutput = await readFile(join(testdirPath, "actions-kit.d.ts"), "utf-8");
 
   expect(dtsOutput).toMatchSnapshot();
+  expect(dtsOutput).toContain("ACTION_INPUTS");
 });
