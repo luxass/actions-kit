@@ -42,7 +42,6 @@ export const unpluginFactory: UnpluginFactory<ActionsKitOptions | undefined> = (
       if (entryPoint == null) {
         throw new Error("entryPoint is not set");
       }
-      console.error({ id, entryPoint });
 
       if (!join(process.cwd(), entryPoint).endsWith(id)) {
         return false;

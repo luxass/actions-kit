@@ -55,8 +55,38 @@ async function rspack(testdirPath: string, config: Configuration): Promise<Stats
   });
 }
 
+it("expect no `actions-kit.d.ts` file generated if plugin not in use", async () => {
+  const directoryJson = await fromFileSystem("./tests/fixtures/basic");
+  const testdirPath = await testdir(directoryJson);
+
+  expect(testdirPath).toBeDefined();
+
+  const result = await rspack(testdirPath, {
+    entry: join(testdirPath, "index.ts"),
+  });
+
+  const json = result?.toJson();
+  expect(json).toBeDefined();
+
+  expect(json?.errors).toBeDefined();
+
+  if ((json?.errors || []).length > 0) {
+    console.error(json?.errors);
+  }
+
+  expect(json?.errors).toHaveLength(0);
+
+  const file = json!.assetsByChunkName!.main;
+  const content = await readFile(path.join(testdirPath, file![0]!), "utf-8");
+
+  expect(content).toMatchSnapshot();
+
+  const files = await readdir(testdirPath);
+  expect(files).not.toContain("actions-kit.d.ts");
+});
+
 it("expect `actions-kit.d.ts` to be generated", async () => {
-  const directoryJson = await fromFileSystem("./tests/fixtures/action.yaml");
+  const directoryJson = await fromFileSystem("./tests/fixtures/basic");
   const testdirPath = await testdir(directoryJson);
 
   expect(testdirPath).toBeDefined();
@@ -91,8 +121,8 @@ it("expect `actions-kit.d.ts` to be generated", async () => {
   expect(dtsOutput).toMatchSnapshot();
 });
 
-it("expect `actions-kit.d.ts` to include `ACTION_INPUTS`", async () => {
-  const directoryJson = await fromFileSystem("./tests/fixtures/action.yaml");
+it("inject inputs", async () => {
+  const directoryJson = await fromFileSystem("./tests/fixtures/without-globals");
   const testdirPath = await testdir(directoryJson);
 
   expect(testdirPath).toBeDefined();

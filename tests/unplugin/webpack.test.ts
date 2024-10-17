@@ -57,7 +57,7 @@ async function webpack(testdirPath: string, config: Configuration): Promise<Stat
 }
 
 it("expect `actions-kit.d.ts` to be generated", async () => {
-  const directoryJson = await fromFileSystem("./tests/fixtures/action.yaml");
+  const directoryJson = await fromFileSystem("./tests/fixtures/without-globals");
   const testdirPath = await testdir(directoryJson);
 
   expect(testdirPath).toBeDefined();
@@ -93,7 +93,7 @@ it("expect `actions-kit.d.ts` to be generated", async () => {
 });
 
 it("expect `actions-kit.d.ts` to include `ACTION_INPUTS`", async () => {
-  const directoryJson = await fromFileSystem("./tests/fixtures/action.yaml");
+  const directoryJson = await fromFileSystem("./tests/fixtures/without-globals");
   const testdirPath = await testdir(directoryJson);
 
   expect(testdirPath).toBeDefined();
