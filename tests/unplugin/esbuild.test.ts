@@ -1,4 +1,4 @@
-import { readdir, readFile } from "node:fs/promises";
+import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { build } from "esbuild";
 import { expect, it } from "vitest";
@@ -11,14 +11,14 @@ it("expect `actions-kit.d.ts` to be generated", async () => {
 
   expect(testdirPath).toBeDefined();
 
-  await build({
+  const result = await build({
     entryPoints: [
       join(testdirPath, "index.ts"),
     ],
     platform: "node",
     format: "cjs",
     write: false,
-    bundle: true,
+    bundle: false,
     minifySyntax: false,
     plugins: [
       ActionKitPlugin({
@@ -29,7 +29,13 @@ it("expect `actions-kit.d.ts` to be generated", async () => {
 
   const dtsOutput = await readFile(join(testdirPath, "actions-kit.d.ts"), "utf-8");
 
+  expect(result).toBeDefined();
+  expect(result.outputFiles).toBeDefined();
+  const output = result.outputFiles[0];
+  expect(output).toBeDefined();
+  expect(output?.text).toBeDefined();
   expect(dtsOutput).toMatchSnapshot();
+  expect(output?.text).toMatchSnapshot();
 });
 
 it("expect `actions-kit.d.ts` to include `ACTION_INPUTS`", async () => {
@@ -38,15 +44,16 @@ it("expect `actions-kit.d.ts` to include `ACTION_INPUTS`", async () => {
 
   expect(testdirPath).toBeDefined();
 
-  await build({
+  const result = await build({
     entryPoints: [
       join(testdirPath, "index.ts"),
     ],
     platform: "node",
     format: "cjs",
     write: false,
-    bundle: true,
+    bundle: false,
     minifySyntax: false,
+    treeShaking: false,
     plugins: [
       ActionKitPlugin({
         actionPath: join(testdirPath, "action.yaml"),
@@ -57,6 +64,14 @@ it("expect `actions-kit.d.ts` to include `ACTION_INPUTS`", async () => {
 
   const dtsOutput = await readFile(join(testdirPath, "actions-kit.d.ts"), "utf-8");
 
+  expect(result).toBeDefined();
+  expect(result.outputFiles).toBeDefined();
+  const output = result.outputFiles[0];
+  expect(output).toBeDefined();
+  expect(output?.text).toBeDefined();
   expect(dtsOutput).toMatchSnapshot();
+  expect(output?.text).toMatchSnapshot();
+
+  expect(output?.text).toContain("ACTION_INPUTS");
   expect(dtsOutput).toContain("ACTION_INPUTS");
 });
