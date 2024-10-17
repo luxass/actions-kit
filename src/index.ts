@@ -11,8 +11,12 @@ import { getInput } from "@actions/core";
  * @param {InputOptions} [options] - Optional settings for retrieving the input.
  * @returns {SafeParseReturnType<unknown, TSchema["_output"]>} The result of the validation, containing either the parsed value or validation errors.
  */
-export function getValidatedInput<TSchema extends ZodType>(inputName: string, schema: TSchema, options?: InputOptions): SafeParseReturnType<unknown, TSchema["_output"]> {
-  const raw = getInput(inputName, options);
+export function getValidatedInput<TSchema extends ZodType>(
+	inputName: string,
+	schema: TSchema,
+	options?: InputOptions,
+): SafeParseReturnType<unknown, TSchema["_output"]> {
+	const raw = getInput(inputName, options);
 
-  return schema.safeParse(raw);
+	return schema.safeParse(raw);
 }

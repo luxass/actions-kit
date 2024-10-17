@@ -6,7 +6,8 @@
   },
   "exclude": [
     "tsup.config.ts",
-    "eslint.config.mjs",
+    "biome.json",
+    "tests",
     "pnpm-lock.yaml",
     ".github/**",
     "tsconfig.json"
