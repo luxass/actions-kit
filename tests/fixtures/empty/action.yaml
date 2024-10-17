@@ -1,6 +1,0 @@
-name: GitHub Action Fixture (Yaml)
-description: A GitHub Action Fixture (Yaml)
-
-runs:
-  using: node20
-  main: dist/index.js

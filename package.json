@@ -34,76 +34,6 @@
         "default": "./dist/index.cjs"
       }
     },
-    "./unplugin": {
-      "import": {
-        "types": "./dist/unplugin/index.d.ts",
-        "default": "./dist/unplugin/index.mjs"
-      },
-      "require": {
-        "types": "./dist/unplugin/index.d.cts",
-        "default": "./dist/unplugin/index.cjs"
-      }
-    },
-    "./unplugin/esbuild": {
-      "import": {
-        "types": "./dist/unplugin/esbuild.d.ts",
-        "default": "./dist/unplugin/esbuild.mjs"
-      },
-      "require": {
-        "types": "./dist/unplugin/esbuild.d.cts",
-        "default": "./dist/unplugin/esbuild.cjs"
-      }
-    },
-    "./unplugin/rolldown": {
-      "import": {
-        "types": "./dist/unplugin/rolldown.d.ts",
-        "default": "./dist/unplugin/rolldown.mjs"
-      },
-      "require": {
-        "types": "./dist/unplugin/rolldown.d.cts",
-        "default": "./dist/unplugin/rolldown.cjs"
-      }
-    },
-    "./unplugin/rollup": {
-      "import": {
-        "types": "./dist/unplugin/rollup.d.ts",
-        "default": "./dist/unplugin/rollup.mjs"
-      },
-      "require": {
-        "types": "./dist/unplugin/rollup.d.cts",
-        "default": "./dist/unplugin/rollup.cjs"
-      }
-    },
-    "./unplugin/rspack": {
-      "import": {
-        "types": "./dist/unplugin/rspack.d.ts",
-        "default": "./dist/unplugin/rspack.mjs"
-      },
-      "require": {
-        "types": "./dist/unplugin/rspack.d.cts",
-        "default": "./dist/unplugin/rspack.cjs"
-      }
-    },
-    "./unplugin/vite": {
-      "import": {
-        "types": "./dist/unplugin/vite.d.ts",
-        "default": "./dist/unplugin/vite.mjs"
-      },
-      "require": {
-        "types": "./dist/unplugin/vite.d.cts",
-        "default": "./dist/unplugin/vite.cjs"
-      }
-    },
-    "./unplugin/webpack": {
-      "import": {
-        "types": "./dist/unplugin/webpack.d.ts",
-        "default": "./dist/unplugin/webpack.mjs"
-      },
-      "require": {
-        "types": "./dist/unplugin/webpack.d.cts",
-        "default": "./dist/unplugin/webpack.cjs"
-      }
-    },
     "./package.json": "./package.json"
   },
   "main": "dist/index.cjs",
@@ -115,64 +45,27 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "lint": "eslint .",
+    "lint": "biome lint",
+    "lint:fix": "biome lint --write",
+    "format": "biome format",
+    "format:fix": "biome format --write",
     "test": "vitest --run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@rspack/core": ">=1.0.0",
-    "esbuild": ">=0.24.0",
-    "rolldown": "0.12.1",
-    "rollup": ">=3",
-    "vite": ">=3",
-    "webpack": "^4 || ^5"
-  },
-  "peerDependenciesMeta": {
-    "esbuild": {
-      "optional": true
-    },
-    "rollup": {
-      "optional": true
-    },
-    "vite": {
-      "optional": true
-    },
-    "webpack": {
-      "optional": true
-    },
-    "@rspack/core": {
-      "optional": true
-    },
-    "rolldown": {
-      "optional": true
-    }
+    "@actions/core": "^1.11.1"
   },
   "dependencies": {
-    "@actions/core": "^1.11.1",
-    "@rollup/pluginutils": "^5.1.2",
     "js-yaml": "^4.1.0",
-    "unplugin": "^1.14.1",
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@luxass/eslint-config": "^4.12.1",
-    "@rollup/plugin-typescript": "^12.1.1",
-    "@rspack/core": "1.0.10",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "20.16.11",
-    "esbuild": "^0.24.0",
-    "eslint": "^9.12.0",
-    "eslint-plugin-format": "^0.1.2",
-    "rolldown": "0.13.2",
-    "rollup": "^4.24.0",
-    "ts-loader": "^9.5.1",
-    "tsup": "^8.3.0",
     "typescript": "^5.6.3",
-    "vite": "^5.4.8",
-    "vite-plugin-inspect": "^0.8.7",
     "vitest": "^2.1.2",
-    "vitest-testdirs": "^1.1.0",
-    "webpack": "^5.95.0"
+    "tsup": "^8.3.0",
+    "@biomejs/biome": "^1.9.3"
   }
 }
