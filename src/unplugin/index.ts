@@ -105,12 +105,6 @@ export const unpluginFactory: UnpluginFactory<ActionsKitOptions | undefined> = (
         const actionYmlPath = join(process.cwd(), "action.yml");
         const actionYamlPath = join(process.cwd(), "action.yaml");
 
-        // eslint-disable-next-line no-console
-        console.log({
-          actionYmlPath,
-          actionYamlPath,
-        });
-
         if (existsSync(actionYmlPath)) {
           options.actionPath = actionYmlPath;
         } else if (existsSync(actionYamlPath)) {
