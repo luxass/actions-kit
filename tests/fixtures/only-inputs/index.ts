@@ -1,8 +1,8 @@
 import * as core from "@actions/core";
 
 async function run(): Promise<void> {
-  const type = core.getInput(ACTION_INPUTS.type);
-  const whoToGreet = core.getInput(ACTION_INPUTS["who-to-greet"]);
+  const type = core.getInput("type");
+  const whoToGreet = core.getInput("who-to-greet");
 
   const message = `Hello ${whoToGreet}!`;
   core.info(message);
@@ -10,8 +10,6 @@ async function run(): Promise<void> {
   if (type === "error") {
     core.setFailed("This is an error!");
   }
-
-  core.setOutput("message", message);
 }
 
 run().catch((err) => {

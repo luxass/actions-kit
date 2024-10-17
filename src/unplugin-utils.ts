@@ -5,7 +5,7 @@ export function writeTypeInjects(yaml: Record<string, unknown>, options: Actions
     return "";
   }
 
-  let code = `declare global {`;
+  let code = `declare global {\n`;
 
   if (options.inject === "inputs") {
     if (yaml.inputs == null) {
@@ -38,10 +38,12 @@ export function writeTypeInjects(yaml: Record<string, unknown>, options: Actions
 }
 
 function writeActionType(code: string, name: string, obj: Record<string, unknown>): string {
-  code += `  export const ${name} = {`;
-  for (const [name, value] of Object.entries(obj)) {
-    code += `    ${name}: "${value}",`;
+  code += `  export const ${name} = {\n`;
+
+  for (const objName of Object.keys(obj)) {
+    code += `    "${objName}": "${objName}",\n`;
   }
+
   code += `  };\n\n`;
   return code;
 }
@@ -50,15 +52,15 @@ export function writeAugmentationTypes(yaml: Record<string, unknown>): string {
   let code = ``;
 
   if (yaml.inputs != null) {
-    code = `type ActionInputName = ${Object.keys(yaml.inputs).map((name) => `"${name}"`).join(" | ")};\n`;
+    code += `  type ActionInputName = ${Object.keys(yaml.inputs).map((name) => `"${name}"`).join(" | ")};\n\n`;
 
-    code += `  export function getInput(name: ActionInputName, options?: core.InputOptions): string;\n`;
+    code += `  export function getInput(name: ActionInputName, options?: core.InputOptions): string;\n\n`;
   }
 
   if (yaml.outputs != null) {
-    code = `type ActionOutputName = ${Object.keys(yaml.outputs).map((name) => `"${name}"`).join(" | ")};\n`;
+    code += `  type ActionOutputName = ${Object.keys(yaml.outputs).map((name) => `"${name}"`).join(" | ")};\n\n`;
 
-    code += `  export function setOutput(name: ActionOutputName, value: any): void;\n`;
+    code += `  export function setOutput(name: ActionOutputName, value: any): void;\n\n`;
   }
 
   return code;

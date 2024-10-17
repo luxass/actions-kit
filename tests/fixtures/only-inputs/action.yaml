@@ -10,10 +10,6 @@ inputs:
     description: Who to greet
     required: true
 
-outputs:
-  message:
-    description: The greeting message
-
 runs:
   using: node20
   main: dist/index.js
