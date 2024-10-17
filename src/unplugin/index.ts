@@ -102,8 +102,8 @@ export const unpluginFactory: UnpluginFactory<ActionsKitOptions | undefined> = (
     buildStart() {
       if (options.actionPath == null) {
         // check if either action.yml or action.yaml exists
-        const actionYmlPath = join(import.meta.dirname, "action.yml");
-        const actionYamlPath = join(import.meta.dirname, "action.yaml");
+        const actionYmlPath = join(process.cwd(), "action.yml");
+        const actionYamlPath = join(process.cwd(), "action.yaml");
 
         // eslint-disable-next-line no-console
         console.log({
