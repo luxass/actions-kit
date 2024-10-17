@@ -53,17 +53,10 @@
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit"
   },
-  "peerDependencies": {
-    "@actions/core": "^1.11.1"
-  },
-  "peerDependenciesMeta": {
-    "@actions/core": {
-      "optional": false
-    }
-  },
   "dependencies": {
     "js-yaml": "^4.1.0",
-    "zod": "^3.23.8"
+    "zod": "^3.23.8",
+    "@actions/core": "^1.11.1"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.3",
