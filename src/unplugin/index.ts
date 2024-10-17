@@ -35,15 +35,32 @@ export const unpluginFactory: UnpluginFactory<ActionsKitOptions | undefined> = (
     resolveId(id, _, options) {
       if (options.isEntry) {
         entryPoint = id;
-        return id;
       }
+      return null;
+    },
+    transformInclude(id) {
+      if (entryPoint == null) {
+        throw new Error("entryPoint is not set");
+      }
+      console.error({ id, entryPoint });
+
+      if (!join(process.cwd(), entryPoint).endsWith(id)) {
+        return false;
+      }
+
+      return true;
     },
     transform(code, id) {
       if (entryPoint == null) {
         throw new Error("entryPoint is not set");
       }
 
-      if (!id.endsWith(join(process.cwd(), entryPoint))) {
+      if (id.startsWith("./")) {
+        // remove the "./" prefix
+        id = id.slice(2);
+      }
+
+      if (!join(process.cwd(), entryPoint).endsWith(id)) {
         return;
       }
 
