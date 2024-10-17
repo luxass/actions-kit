@@ -1,7 +1,9 @@
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
-import { join } from "node:path";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import process from "node:process";
 import YAML from "js-yaml";
 import { createUnplugin, type UnpluginFactory, type UnpluginInstance } from "unplugin";
+import { writeAugmentationTypes, writeTypeInjects } from "../unplugin-utils";
 
 export interface ActionsKitOptions {
   /**
@@ -11,9 +13,15 @@ export interface ActionsKitOptions {
   actionPath?: string;
 
   /**
-   * Inject "inputs" as global variables.
+   * Inject `inputs` and `outputs` into the global scope.
    */
-  injectInputs?: boolean;
+  inject?: boolean | "inputs" | "outputs";
+
+  /**
+   * The output path for the generated typescript file.
+   * If not provided, it will use the directory where the action.yml or action.yaml file is located.
+   */
+  outputPath?: string;
 }
 
 /**
@@ -21,28 +29,72 @@ export interface ActionsKitOptions {
  */
 export const unpluginFactory: UnpluginFactory<ActionsKitOptions | undefined> = (options = {}) => {
   let entryPoint: string | undefined;
-  let globalInputs: Record<string, string> | undefined;
+  let actionInputs: Record<string, string> | undefined;
+  let actionOutputs: Record<string, string> | undefined;
+
   return {
     name: "unplugin-actions-kit",
     enforce: "pre",
     resolveId(id, _, options) {
       if (options.isEntry) {
         entryPoint = id;
-        return id;
       }
+      return null;
+    },
+    transformInclude(id) {
+      if (entryPoint == null) {
+        throw new Error("entryPoint is not set");
+      }
+
+      if (!join(process.cwd(), entryPoint).endsWith(id)) {
+        return false;
+      }
+
+      return true;
     },
     transform(code, id) {
       if (entryPoint == null) {
         throw new Error("entryPoint is not set");
       }
 
-      // eslint-disable-next-line node/prefer-global/process
-      if (!id.endsWith(join(process.cwd(), entryPoint))) {
+      if (id.startsWith("./")) {
+        // remove the "./" prefix
+        id = id.slice(2);
+      }
+
+      if (!join(process.cwd(), entryPoint).endsWith(id)) {
         return;
       }
 
-      if (options.injectInputs) {
-        return `globalThis.ACTION_INPUTS = ${JSON.stringify(globalInputs, null, 2)};\n${code};`;
+      if (options.inject != null && options.inject !== false) {
+        let injectCode = ``;
+
+        if (options.inject === "inputs") {
+          if (actionInputs == null) {
+            throw new Error("no `inputs` found in action file.");
+          }
+
+          injectCode += `globalThis.ACTION_INPUTS = ${JSON.stringify(actionInputs)};\n`;
+        } else if (options.inject === "outputs") {
+          if (actionOutputs == null) {
+            throw new Error("no `outputs` found in action file.");
+          }
+
+          injectCode += `globalThis.ACTION_OUTPUTS = ${JSON.stringify(actionOutputs)};\n`;
+        } else {
+          if (actionInputs == null) {
+            throw new Error("no `inputs` found in action file.");
+          }
+
+          if (actionOutputs == null) {
+            throw new Error("no `outputs` found in action file.");
+          }
+
+          injectCode += `globalThis.ACTION_INPUTS = ${JSON.stringify(actionInputs)};\n`;
+          injectCode += `globalThis.ACTION_OUTPUTS = ${JSON.stringify(actionOutputs)};\n`;
+        }
+
+        return `${injectCode};\n${code};`;
       }
 
       return code;
@@ -52,6 +104,12 @@ export const unpluginFactory: UnpluginFactory<ActionsKitOptions | undefined> = (
         // check if either action.yml or action.yaml exists
         const actionYmlPath = join(import.meta.dirname, "action.yml");
         const actionYamlPath = join(import.meta.dirname, "action.yaml");
+
+        // eslint-disable-next-line no-console
+        console.log({
+          actionYmlPath,
+          actionYamlPath,
+        });
 
         if (existsSync(actionYmlPath)) {
           options.actionPath = actionYmlPath;
@@ -63,7 +121,7 @@ export const unpluginFactory: UnpluginFactory<ActionsKitOptions | undefined> = (
       }
 
       // read the file
-      const yaml = YAML.load(readFileSync(options.actionPath, "utf8"));
+      const yaml = YAML.load(readFileSync(options.actionPath, "utf8")) as Record<string, any>;
 
       if (yaml == null) {
         throw new Error("action.yml or action.yaml is empty");
@@ -73,31 +131,23 @@ export const unpluginFactory: UnpluginFactory<ActionsKitOptions | undefined> = (
         throw new TypeError("action.yml or action.yaml is not an object");
       }
 
-      if (!("inputs" in yaml) || typeof yaml.inputs !== "object" || yaml.inputs == null) {
-        throw new TypeError("action.yml or action.yaml does not have inputs");
+      actionInputs = yaml.inputs;
+      actionOutputs = yaml.outputs;
+
+      const outputPath = options.outputPath == null ? dirname(options.actionPath) : options.outputPath;
+
+      if (!existsSync(outputPath)) {
+        mkdirSync(outputPath, { recursive: true });
       }
 
-      const inputsObject = Object.fromEntries(
-        Object.entries(yaml.inputs).map(([name]) => [name, name]),
-      );
+      writeFileSync(join(outputPath, "actions-kit.d.ts"), /* typescript */`// generated by 'actions-kit'
+import * as core from "@actions/core";
 
-      globalInputs = inputsObject;
-
-      writeFileSync("./actions-kit.d.ts", /* typescript */`// generated by 'actions-kit'
-        import "@actions/core";
-
-        ${!options.injectInputs
-          ? ""
-          : /* typescript */`
-declare global {
-  export const ACTION_INPUTS: ${JSON.stringify(inputsObject, null, 2)};
-}`}
+${writeTypeInjects(yaml, options)}
 
 declare module "@actions/core" {
 
-  type InputNames = ${Object.keys(yaml.inputs).map((name) => JSON.stringify(name)).join(" | ")};
-
-  export function getInput(name: InputNames, options?: InputOptions): string;
+${writeAugmentationTypes(yaml)}
 }
 `);
     },
