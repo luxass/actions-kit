@@ -12,13 +12,13 @@ import { getInput } from "@actions/core";
  * @returns {SafeParseReturnType<unknown, TSchema["_output"]>} The result of the validation, containing either the parsed value or validation errors.
  */
 export function getSafeValidatedInput<TSchema extends ZodType>(
-    inputName: string,
-    schema: TSchema,
-    options?: InputOptions,
+	inputName: string,
+	schema: TSchema,
+	options?: InputOptions,
 ): SafeParseReturnType<unknown, TSchema["_output"]> {
-    const raw = getInput(inputName, options);
+	const raw = getInput(inputName, options);
 
-    return schema.safeParse(raw);
+	return schema.safeParse(raw);
 }
 
 /**
@@ -32,13 +32,13 @@ export function getSafeValidatedInput<TSchema extends ZodType>(
  * @throws {Error} If the validation fails.
  */
 export function getValidatedInput<TSchema extends ZodType>(
-    inputName: string,
-    schema: TSchema,
-    options?: InputOptions,
+	inputName: string,
+	schema: TSchema,
+	options?: InputOptions,
 ): TSchema["_output"] {
-    const raw = getInput(inputName, options);
+	const raw = getInput(inputName, options);
 
-    return schema.parse(raw);
+	return schema.parse(raw);
 }
 
 /**
@@ -51,13 +51,13 @@ export function getValidatedInput<TSchema extends ZodType>(
  * @returns {Promise<SafeParseReturnType<unknown, TSchema["_output"]>>} The result of the validation, containing either the parsed value or validation errors.
  */
 export async function getSafeValidatedInputAsync<TSchema extends ZodType>(
-    inputName: string,
-    schema: TSchema,
-    options?: InputOptions,
+	inputName: string,
+	schema: TSchema,
+	options?: InputOptions,
 ): Promise<SafeParseReturnType<unknown, TSchema["_output"]>> {
-    const raw = getInput(inputName, options);
+	const raw = getInput(inputName, options);
 
-    return schema.safeParseAsync(raw);
+	return schema.safeParseAsync(raw);
 }
 
 /**
@@ -71,11 +71,11 @@ export async function getSafeValidatedInputAsync<TSchema extends ZodType>(
  * @throws {Error} If the validation fails.
  */
 export async function getValidatedInputAsync<TSchema extends ZodType>(
-    inputName: string,
-    schema: TSchema,
-    options?: InputOptions,
+	inputName: string,
+	schema: TSchema,
+	options?: InputOptions,
 ): Promise<TSchema["_output"]> {
-    const raw = getInput(inputName, options);
+	const raw = getInput(inputName, options);
 
-    return schema.parseAsync(raw);
+	return schema.parseAsync(raw);
 }
