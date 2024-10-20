@@ -18,8 +18,8 @@ export default defineConfig({
 			},
 		},
 		runs: {
-			using: "node12",
-			main: "dist/index.js",
+			using: "node20",
+			main: "index.js",
 		},
 	},
 });

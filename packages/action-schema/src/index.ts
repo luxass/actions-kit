@@ -471,24 +471,13 @@ export const ACTION_SCHEMA = z
 		author: z.string().optional().describe("The name of the action's author"),
 		description: z.string().describe("A short description of the action"),
 		inputs: INPUTS_SCHEMA.optional(),
-		runs: z.discriminatedUnion("using", [
+		outputs: z.union([OUTPUTS_SCHEMA, COMPOSITE_OUTPUTS_SCHEMA]).optional(),
+		runs: z.union([
 			RUNS_JAVASCRIPT_SCHEMA,
 			RUNS_COMPOSITE_SCHEMA,
 			RUNS_DOCKER_SCHEMA,
 		]),
 		branding: BRANDING_SCHEMA.optional(),
 	})
-	.and(
-		z.union([
-			z.object({
-				runs: RUNS_JAVASCRIPT_SCHEMA,
-				outputs: OUTPUTS_SCHEMA,
-			}),
-			z.object({
-				runs: RUNS_COMPOSITE_SCHEMA,
-				outputs: COMPOSITE_OUTPUTS_SCHEMA,
-			}),
-		]),
-	);
 
 export type Action = z.infer<typeof ACTION_SCHEMA>;

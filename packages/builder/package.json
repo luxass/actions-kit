@@ -48,6 +48,18 @@
     "dev": "tsup --watch",
     "typecheck": "tsc --noEmit"
   },
+  "peerDependencies": {
+    "@rspack/core": "catalog:",
+    "vite": "catalog:"
+  },
+  "peerDependenciesMeta": {
+    "@rspack/core": {
+      "optional": true
+    },
+    "vite": {
+      "optional": true
+    }
+  },
   "dependencies": {
     "zod": "catalog:"
   },
