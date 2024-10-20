@@ -1,2 +1,7 @@
 packages:
+  - packages/*
   - docs
+
+catalog:
+  cac: ^6.7.14
+  consola: ^3.2.3

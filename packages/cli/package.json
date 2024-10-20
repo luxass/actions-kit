@@ -1,0 +1,42 @@
+{
+  "name": "@actions-kit/cli",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "CLI for Actions Kit",
+  "author": {
+    "name": "Lucas Nørgård",
+    "email": "lucasnrgaard@gmail.com",
+    "url": "https://luxass.dev"
+  },
+  "packageManager": "pnpm@9.12.1",
+  "license": "MIT",
+  "homepage": "https://github.com/luxass/actions-kit",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luxass/actions-kit.git",
+    "directory": "packages/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/luxass/actions-kit/issues"
+  },
+  "keywords": [],
+  "main": "./dist/index.mjs",
+  "bin": {
+    "actions-kit": "./bin/actions-kit.mjs"
+  },
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "unbuild",
+    "stub": "unbuild --stub"
+  },
+  "dependencies": {
+    "cac": "catalog:",
+    "consola": "catalog:"
+  }
+}

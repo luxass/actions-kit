@@ -4,6 +4,15 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+catalogs:
+  default:
+    cac:
+      specifier: ^6.7.14
+      version: 6.7.14
+    consola:
+      specifier: ^3.2.3
+      version: 3.2.3
+
 importers:
 
   .:
@@ -42,6 +51,15 @@ importers:
       vitepress:
         specifier: ^1.4.1
         version: 1.4.1(@algolia/client-search@4.24.0)(@types/node@20.16.11)(postcss@8.4.47)(search-insights@2.17.2)(terser@5.36.0)(typescript@5.6.3)
+
+  packages/cli:
+    dependencies:
+      cac:
+        specifier: 'catalog:'
+        version: 6.7.14
+      consola:
+        specifier: 'catalog:'
+        version: 3.2.3
 
 packages:
 
