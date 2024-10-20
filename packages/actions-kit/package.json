@@ -71,7 +71,8 @@
   "dependencies": {
     "zod": "catalog:",
     "@actions/core": "catalog:",
-    "js-yaml": "catalog:"
+    "js-yaml": "catalog:",
+    "@actions-kit/action-schema": "workspace:*"
   },
   "devDependencies": {
     "@types/js-yaml": "catalog:",

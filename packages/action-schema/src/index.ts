@@ -433,7 +433,7 @@ export const githubActionSchema = z
 			.describe(
 				"Input parameters allow you to specify data that the action expects to use during runtime",
 			),
-		outputs: z.union([outputs, outputsComposite]),
+		outputs: z.union([outputs, outputsComposite]).optional(),
 		runs: runs,
 		branding: brandingSchema.optional(),
 	})

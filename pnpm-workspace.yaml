@@ -1,5 +1,5 @@
 packages:
-  - packages/**
+  - packages/*
   - docs
   - playground
 
@@ -28,3 +28,4 @@ catalog:
   vitest-testdirs: ^1.1.0
   webpack: ^5.95.0
   zod: ^3.23.8
+  c12: ^2.0.1
