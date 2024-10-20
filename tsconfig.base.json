@@ -6,8 +6,9 @@
     "paths": {
       "actions-kit": ["packages/actions-kit/src/index.ts"],
       "actions-kit/*": ["packages/actions-kit/src/*"],
-      "@actions-kit/cli": ["packages/cli/src"],
-      "unplugin-actions-kit": ["packages/unplugin/src"]
+      "@actions-kit/cli": ["packages/cli/src/index.ts"],
+      "unplugin-actions-kit": ["packages/unplugin/src/index.ts"],
+      "@actions-kit/schema": ["packages/action-schema/src/index.ts"]
     }
   }
 }
