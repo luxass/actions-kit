@@ -51,22 +51,38 @@ export const INPUTS_SCHEMA = z
 
 export type InputsSchema = z.infer<typeof INPUTS_SCHEMA>;
 
-// Outputs schemas
-export const outputSchema = z.object({
+export const BASE_OUTPUT_SCHEMA = z.object({
 	description: z.string().describe("A string description of the output parameter"),
 });
 
-export const outputCompositeSchema = outputSchema.extend({
+export type BaseOutputSchema = z.infer<typeof BASE_OUTPUT_SCHEMA>;
+
+export const OUTPUT_SCHEMA = BASE_OUTPUT_SCHEMA.extend({
+	value: z
+		.null()
+		.optional()
+		.describe("We need to null & optional to try and make it work with conditional validations."),
+});
+
+export type OutputSchema = z.infer<typeof OUTPUT_SCHEMA>;
+
+export const COMPOSITE_OUTPUT_SCHEMA = BASE_OUTPUT_SCHEMA.extend({
 	value: z.string().describe("The value that the output parameter will be mapped to"),
 });
 
-export const outputs = z
-	.record(z.string().regex(/^[_a-zA-Z][a-zA-Z0-9_-]*$/), outputSchema)
+export type CompositeOutputSchema = z.infer<typeof OUTPUT_SCHEMA>;
+
+export const OUTPUTS_SCHEMA = z
+	.record(z.string().regex(/^[_a-zA-Z][a-zA-Z0-9_-]*$/), OUTPUT_SCHEMA)
 	.describe("Output parameters for Docker container and JavaScript actions");
 
-export const outputsComposite = z
-	.record(z.string().regex(/^[_a-zA-Z][a-zA-Z0-9_-]*$/), outputCompositeSchema)
+export type OutputsSchema = z.infer<typeof OUTPUTS_SCHEMA>;
+
+export const COMPOSITE_OUTPUTS_SCHEMA = z
+	.record(z.string().regex(/^[_a-zA-Z][a-zA-Z0-9_-]*$/), COMPOSITE_OUTPUT_SCHEMA)
 	.describe("Output parameters for composite actions");
+
+export type CompositeOutputsSchema = z.infer<typeof COMPOSITE_OUTPUTS_SCHEMA>;
 
 export const RUNS_JAVASCRIPT_SCHEMA = z
 	.object({
@@ -83,7 +99,9 @@ export const RUNS_JAVASCRIPT_SCHEMA = z
 		"Configures the path to the action's code and the application used to execute the code",
 	);
 
-export const runsCompositeStep = z
+export type JavaScriptRun = z.infer<typeof RUNS_JAVASCRIPT_SCHEMA>;
+
+export const RUNS_COMPOSITE_STEP_SCHEMA = z
 	.object({
 		run: z.string().optional().describe("The command you want to run"),
 		shell: z.string().optional().describe("The shell where you want to run the command"),
@@ -116,12 +134,18 @@ export const runsCompositeStep = z
 	})
 	.describe("Configures a step in a composite action");
 
-export const runsComposite = z
+export type CompositeRunStep = z.infer<typeof RUNS_COMPOSITE_STEP_SCHEMA>;
+
+export const RUNS_COMPOSITE_SCHEMA = z
 	.object({
 		using: z.literal("composite").describe("Indicates that this is a composite action"),
-		steps: z.array(runsCompositeStep).describe("The run steps that you plan to run in this action"),
+		steps: z
+			.array(RUNS_COMPOSITE_STEP_SCHEMA)
+			.describe("The run steps that you plan to run in this action"),
 	})
 	.describe("Configures the path to the composite action");
+
+export type CompositeRun = z.infer<typeof RUNS_COMPOSITE_SCHEMA>;
 
 export const RUNS_DOCKER_SCHEMA = z
 	.object({
@@ -154,9 +178,13 @@ export const RUNS_DOCKER_SCHEMA = z
 	})
 	.describe("Configures the image used for the Docker action");
 
+export type DockerRun = z.infer<typeof RUNS_DOCKER_SCHEMA>;
+
 export const RUNS_SCHEMA = z
-	.union([RUNS_JAVASCRIPT_SCHEMA, runsComposite, RUNS_DOCKER_SCHEMA])
+	.union([RUNS_JAVASCRIPT_SCHEMA, RUNS_COMPOSITE_SCHEMA, RUNS_DOCKER_SCHEMA])
 	.describe("Configures the action's runtime");
+
+export type Runs = z.infer<typeof RUNS_SCHEMA>;
 
 export const BRANDING_COLOR_SCHEMA = z
 	.enum(["white", "yellow", "blue", "green", "orange", "red", "purple", "gray-dark"])
@@ -443,35 +471,24 @@ export const ACTION_SCHEMA = z
 		author: z.string().optional().describe("The name of the action's author"),
 		description: z.string().describe("A short description of the action"),
 		inputs: INPUTS_SCHEMA.optional(),
-		outputs: z.union([outputs, outputsComposite]).optional(),
-		runs: RUNS_SCHEMA,
+		runs: z.discriminatedUnion("using", [
+			RUNS_JAVASCRIPT_SCHEMA,
+			RUNS_COMPOSITE_SCHEMA,
+			RUNS_DOCKER_SCHEMA,
+		]),
 		branding: BRANDING_SCHEMA.optional(),
 	})
-	.refine(
-		(data) => {
-			if (data.runs.using === "composite") {
-				return outputsComposite.safeParse(data.outputs).success;
-			}
-			return outputs.safeParse(data.outputs).success;
-		},
-		{
-			message: "Outputs schema must match the type of 'runs'",
-			path: ["outputs"],
-		},
+	.and(
+		z.union([
+			z.object({
+				runs: RUNS_JAVASCRIPT_SCHEMA,
+				outputs: OUTPUTS_SCHEMA,
+			}),
+			z.object({
+				runs: RUNS_COMPOSITE_SCHEMA,
+				outputs: COMPOSITE_OUTPUTS_SCHEMA,
+			}),
+		]),
 	);
 
-
-const A = {
-	name: "test",
-	description: "test",
-	outputs: {
-		"hello": {
-			description: "test",
-			value: "aa"
-		}
-	},
-	runs: {
-		using: "node20",
-		main: "index.js"
-	}
-} satisfies z.infer<typeof ACTION_SCHEMA>;
+export type Action = z.infer<typeof ACTION_SCHEMA>;
