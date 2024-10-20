@@ -16,45 +16,7 @@ pnpm install actions-kit
 
 ## 🚀 Usage
 
-This package contains a set of utilities to help you build GitHub Actions.
-
-### `getSafeValidatedInput`
-
-This utility helps you get the input from the action and validate it using [Zod](https://zod.dev)'s `safeParse` method.
-
-```typescript
-import { getSafeValidatedInput } from "actions-kit";
-import { z } from "zod";
-
-const schema = z.string().min(1);
-const input = getSafeValidatedInput("example_input", schema);
-
-if (input.success) {
-  console.log("Valid input:", input.data);
-} else {
-  console.error("Validation errors:", input.error);
-}
-```
-
-> [!NOTE]
-> There is also exported `getSafeValidatedInputAsync` which is an async version of `getSafeValidatedInput`.
-
-### `getSafeValidatedInput`
-
-This utility helps you get the input from the action and validate it using [Zod](https://zod.dev)'s `parse` method.
-
-```typescript
-import { getValidatedInput } from "actions-kit";
-import { z } from "zod";
-
-const schema = z.string().min(1);
-const input = getValidatedInput("example_input", schema);
-
-console.log("Valid input:", input.data);
-```
-
-> [!NOTE]
-> There is also exported `getValidatedInputAsync` which is an async version of `getValidatedInput`.
+Please refer to the documentation: https://actions-kit.pages.dev
 
 ## 📄 License
 
