@@ -1,6 +1,8 @@
 packages:
   - packages/*
   - docs
+  - playground
+
 catalog:
   "@actions/core": ^1.11.1
   "@biomejs/biome": ^1.9.3

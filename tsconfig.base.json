@@ -1,21 +1,12 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
+  "$schema": "http://json.schemastore.org/tsconfig",
+  "extends": "./tsconfig.base.build.json",
   "compilerOptions": {
-    "target": "ES2022",
-    "lib": ["ES2022"],
-    "useDefineForClassFields": true,
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "resolveJsonModule": true,
-    "allowJs": true,
-    "strict": true,
-    "noUncheckedIndexedAccess": true,
-    "declaration": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "verbatimModuleSyntax": true,
-    "skipLibCheck": true
-  },
-  "exclude": ["node_modules", "dist"]
+    "baseUrl": "./",
+    "paths": {
+      "actions-kit": ["packages/actions-kit/src"],
+      "@actions-kit/cli": ["packages/cli/src"],
+      "unplugin-actions-kit": ["packages/unplugin/src"],
+    }
+  }
 }

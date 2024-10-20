@@ -32,7 +32,7 @@
     "node": ">=18"
   },
   "scripts": {
-    "build": "tsup",
+    "build": "tsup --tsconfig tsconfig.build.json",
     "dev": "tsup --watch",
     "typecheck": "tsc --noEmit"
   },

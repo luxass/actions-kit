@@ -54,15 +54,17 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup",
+    "build": "tsup --tsconfig tsconfig.build.json",
     "dev": "tsup --watch",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "zod": "catalog:",
-    "@actions/core": "catalog:"
+    "@actions/core": "catalog:",
+    "js-yaml": "catalog:"
   },
   "devDependencies": {
+    "@types/js-yaml": "catalog:",
     "@types/node": "catalog:",
     "tsup": "catalog:",
     "typescript": "catalog:",
