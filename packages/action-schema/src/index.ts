@@ -1,34 +1,34 @@
 import { z } from "zod";
 
-// Helper schemas
-export const expressionSyntax = z
+export const EXPRESSION_SYNTAX_SCHEMA = z
 	.string()
 	.regex(/^\$\{\{(.|[\r\n])*\}\}$/)
 	.describe("A string that matches the expression syntax pattern");
 
-export const stringContainingExpressionSyntax = z
+export type ExpressionSyntax = z.infer<typeof EXPRESSION_SYNTAX_SCHEMA>;
+
+export const STRING_CONTAINING_EXPRESSION_SYNTAX_SCHEMA = z
 	.string()
 	.regex(/^.*\$\{\{(.|[\r\n])*\}\}.*$/)
 	.describe("A string that contains the expression syntax pattern");
 
-export const preIf = z
+export type StringContainingExpressionSyntax = z.infer<
+	typeof STRING_CONTAINING_EXPRESSION_SYNTAX_SCHEMA
+>;
+
+export const PRE_IF_SCHEMA = z
 	.string()
 	.describe("Allows you to define conditions for the `pre:` action execution");
 
-export const postIf = z
+export type PreIf = z.infer<typeof PRE_IF_SCHEMA>;
+
+export const POST_IF_SCHEMA = z
 	.string()
 	.describe("Allows you to define conditions for the `post:` action execution");
 
-// Custom string type for input and output keys
-export const validIdentifier = z
-	.string()
-	.regex(/^[_a-zA-Z][a-zA-Z0-9_-]*$/)
-	.describe(
-		"A string identifier that starts with a letter or underscore and contains only alphanumeric characters, hyphens, or underscores",
-	);
+export type PostIf = z.infer<typeof POST_IF_SCHEMA>;
 
-// Input schema
-export const inputSchema = z.object({
+export const INPUT_SCHEMA = z.object({
 	description: z.string().describe("A string description of the input parameter"),
 	deprecationMessage: z
 		.string()
@@ -41,6 +41,16 @@ export const inputSchema = z.object({
 	default: z.string().optional().describe("A string representing the default value"),
 });
 
+export type InputSchema = z.infer<typeof INPUT_SCHEMA>;
+
+export const INPUTS_SCHEMA = z
+	.record(z.string().regex(/^[_a-zA-Z][a-zA-Z0-9_-]*$/), INPUT_SCHEMA)
+	.describe(
+		"Input parameters allow you to specify data that the action expects to use during runtime",
+	);
+
+export type InputsSchema = z.infer<typeof INPUTS_SCHEMA>;
+
 // Outputs schemas
 export const outputSchema = z.object({
 	description: z.string().describe("A string description of the output parameter"),
@@ -51,24 +61,23 @@ export const outputCompositeSchema = outputSchema.extend({
 });
 
 export const outputs = z
-	.record(validIdentifier, outputSchema)
+	.record(z.string().regex(/^[_a-zA-Z][a-zA-Z0-9_-]*$/), outputSchema)
 	.describe("Output parameters for Docker container and JavaScript actions");
 
 export const outputsComposite = z
-	.record(validIdentifier, outputCompositeSchema)
+	.record(z.string().regex(/^[_a-zA-Z][a-zA-Z0-9_-]*$/), outputCompositeSchema)
 	.describe("Output parameters for composite actions");
 
-// Runs schemas
-export const runsJavascript = z
+export const RUNS_JAVASCRIPT_SCHEMA = z
 	.object({
 		using: z
 			.enum(["node12", "node16", "node20"])
 			.describe("The application used to execute the code"),
 		main: z.string().describe("The file that contains your action code"),
 		pre: z.string().optional().describe("Allows you to run a script at the start of a job"),
-		"pre-if": preIf.optional(),
+		"pre-if": PRE_IF_SCHEMA.optional(),
 		post: z.string().optional().describe("Allows you to run a script at the end of a job"),
-		"post-if": postIf.optional(),
+		"post-if": POST_IF_SCHEMA.optional(),
 	})
 	.describe(
 		"Configures the path to the action's code and the application used to execute the code",
@@ -89,12 +98,12 @@ export const runsCompositeStep = z
 		env: z
 			.union([
 				z.record(z.union([z.string(), z.number(), z.boolean()])),
-				stringContainingExpressionSyntax,
+				STRING_CONTAINING_EXPRESSION_SYNTAX_SCHEMA,
 			])
 			.optional()
 			.describe("Sets a map of environment variables for only that step"),
 		"continue-on-error": z
-			.union([z.boolean(), expressionSyntax])
+			.union([z.boolean(), EXPRESSION_SYNTAX_SCHEMA])
 			.optional()
 			.describe("Prevents a job from failing when a step fails"),
 		"working-directory": z
@@ -114,14 +123,14 @@ export const runsComposite = z
 	})
 	.describe("Configures the path to the composite action");
 
-export const runsDocker = z
+export const RUNS_DOCKER_SCHEMA = z
 	.object({
 		using: z.literal("docker").describe("Indicates that this is a Docker container action"),
 		image: z.string().describe("The Docker image to use as the container to run the action"),
 		env: z
 			.union([
 				z.record(z.union([z.string(), z.number(), z.boolean()])),
-				stringContainingExpressionSyntax,
+				STRING_CONTAINING_EXPRESSION_SYNTAX_SCHEMA,
 			])
 			.optional()
 			.describe(
@@ -132,12 +141,12 @@ export const runsDocker = z
 			.string()
 			.optional()
 			.describe("Allows you to run a script before the entrypoint action begins"),
-		"pre-if": preIf.optional(),
+		"pre-if": PRE_IF_SCHEMA.optional(),
 		"post-entrypoint": z
 			.string()
 			.optional()
 			.describe("Allows you to run a cleanup script once the runs.entrypoint action has completed"),
-		"post-if": postIf.optional(),
+		"post-if": POST_IF_SCHEMA.optional(),
 		args: z
 			.array(z.string())
 			.optional()
@@ -145,297 +154,298 @@ export const runsDocker = z
 	})
 	.describe("Configures the image used for the Docker action");
 
-export const runs = z
-	.union([runsJavascript, runsComposite, runsDocker])
+export const RUNS_SCHEMA = z
+	.union([RUNS_JAVASCRIPT_SCHEMA, runsComposite, RUNS_DOCKER_SCHEMA])
 	.describe("Configures the action's runtime");
 
-// Branding schema
-export const brandingSchema = z
+export const BRANDING_COLOR_SCHEMA = z
+	.enum(["white", "yellow", "blue", "green", "orange", "red", "purple", "gray-dark"])
+	.describe("The background color of the badge");
+
+export type BrandingColor = z.infer<typeof BRANDING_COLOR_SCHEMA>;
+
+export const BRANDING_ICON_SCHEMA = z
+	.enum([
+		"activity",
+		"airplay",
+		"alert-circle",
+		"alert-octagon",
+		"alert-triangle",
+		"align-center",
+		"align-justify",
+		"align-left",
+		"align-right",
+		"anchor",
+		"aperture",
+		"archive",
+		"arrow-down-circle",
+		"arrow-down-left",
+		"arrow-down-right",
+		"arrow-down",
+		"arrow-left-circle",
+		"arrow-left",
+		"arrow-right-circle",
+		"arrow-right",
+		"arrow-up-circle",
+		"arrow-up-left",
+		"arrow-up-right",
+		"arrow-up",
+		"at-sign",
+		"award",
+		"bar-chart-2",
+		"bar-chart",
+		"battery-charging",
+		"battery",
+		"bell-off",
+		"bell",
+		"bluetooth",
+		"bold",
+		"book-open",
+		"book",
+		"bookmark",
+		"box",
+		"briefcase",
+		"calendar",
+		"camera-off",
+		"camera",
+		"cast",
+		"check-circle",
+		"check-square",
+		"check",
+		"chevron-down",
+		"chevron-left",
+		"chevron-right",
+		"chevron-up",
+		"chevrons-down",
+		"chevrons-left",
+		"chevrons-right",
+		"chevrons-up",
+		"circle",
+		"clipboard",
+		"clock",
+		"cloud-drizzle",
+		"cloud-lightning",
+		"cloud-off",
+		"cloud-rain",
+		"cloud-snow",
+		"cloud",
+		"code",
+		"command",
+		"compass",
+		"copy",
+		"corner-down-left",
+		"corner-down-right",
+		"corner-left-down",
+		"corner-left-up",
+		"corner-right-down",
+		"corner-right-up",
+		"corner-up-left",
+		"corner-up-right",
+		"cpu",
+		"credit-card",
+		"crop",
+		"crosshair",
+		"database",
+		"delete",
+		"disc",
+		"dollar-sign",
+		"download-cloud",
+		"download",
+		"droplet",
+		"edit-2",
+		"edit-3",
+		"edit",
+		"external-link",
+		"eye-off",
+		"eye",
+		"fast-forward",
+		"feather",
+		"file-minus",
+		"file-plus",
+		"file-text",
+		"file",
+		"film",
+		"filter",
+		"flag",
+		"folder-minus",
+		"folder-plus",
+		"folder",
+		"gift",
+		"git-branch",
+		"git-commit",
+		"git-merge",
+		"git-pull-request",
+		"globe",
+		"grid",
+		"hard-drive",
+		"hash",
+		"headphones",
+		"heart",
+		"help-circle",
+		"home",
+		"image",
+		"inbox",
+		"info",
+		"italic",
+		"layers",
+		"layout",
+		"life-buoy",
+		"link-2",
+		"link",
+		"list",
+		"loader",
+		"lock",
+		"log-in",
+		"log-out",
+		"mail",
+		"map-pin",
+		"map",
+		"maximize-2",
+		"maximize",
+		"menu",
+		"message-circle",
+		"message-square",
+		"mic-off",
+		"mic",
+		"minimize-2",
+		"minimize",
+		"minus-circle",
+		"minus-square",
+		"minus",
+		"monitor",
+		"moon",
+		"more-horizontal",
+		"more-vertical",
+		"move",
+		"music",
+		"navigation-2",
+		"navigation",
+		"octagon",
+		"package",
+		"paperclip",
+		"pause-circle",
+		"pause",
+		"percent",
+		"phone-call",
+		"phone-forwarded",
+		"phone-incoming",
+		"phone-missed",
+		"phone-off",
+		"phone-outgoing",
+		"phone",
+		"pie-chart",
+		"play-circle",
+		"play",
+		"plus-circle",
+		"plus-square",
+		"plus",
+		"pocket",
+		"power",
+		"printer",
+		"radio",
+		"refresh-ccw",
+		"refresh-cw",
+		"repeat",
+		"rewind",
+		"rotate-ccw",
+		"rotate-cw",
+		"rss",
+		"save",
+		"scissors",
+		"search",
+		"send",
+		"server",
+		"settings",
+		"share-2",
+		"share",
+		"shield-off",
+		"shield",
+		"shopping-bag",
+		"shopping-cart",
+		"shuffle",
+		"sidebar",
+		"skip-back",
+		"skip-forward",
+		"slash",
+		"sliders",
+		"smartphone",
+		"speaker",
+		"square",
+		"star",
+		"stop-circle",
+		"sun",
+		"sunrise",
+		"sunset",
+		"table",
+		"tablet",
+		"tag",
+		"target",
+		"terminal",
+		"thermometer",
+		"thumbs-down",
+		"thumbs-up",
+		"toggle-left",
+		"toggle-right",
+		"trash-2",
+		"trash",
+		"trending-down",
+		"trending-up",
+		"triangle",
+		"truck",
+		"tv",
+		"type",
+		"umbrella",
+		"underline",
+		"unlock",
+		"upload-cloud",
+		"upload",
+		"user-check",
+		"user-minus",
+		"user-plus",
+		"user-x",
+		"user",
+		"users",
+		"video-off",
+		"video",
+		"voicemail",
+		"volume-1",
+		"volume-2",
+		"volume-x",
+		"volume",
+		"watch",
+		"wifi-off",
+		"wifi",
+		"wind",
+		"x-circle",
+		"x-square",
+		"x",
+		"zap-off",
+		"zap",
+		"zoom-in",
+		"zoom-out",
+	])
+	.describe("The name of the Feather icon to use");
+
+export type BrandingIcon = z.infer<typeof BRANDING_ICON_SCHEMA>;
+
+export const BRANDING_SCHEMA = z
 	.object({
-		color: z
-			.enum(["white", "yellow", "blue", "green", "orange", "red", "purple", "gray-dark"])
-			.optional()
-			.describe("The background color of the badge"),
-		icon: z
-			.enum([
-				"activity",
-				"airplay",
-				"alert-circle",
-				"alert-octagon",
-				"alert-triangle",
-				"align-center",
-				"align-justify",
-				"align-left",
-				"align-right",
-				"anchor",
-				"aperture",
-				"archive",
-				"arrow-down-circle",
-				"arrow-down-left",
-				"arrow-down-right",
-				"arrow-down",
-				"arrow-left-circle",
-				"arrow-left",
-				"arrow-right-circle",
-				"arrow-right",
-				"arrow-up-circle",
-				"arrow-up-left",
-				"arrow-up-right",
-				"arrow-up",
-				"at-sign",
-				"award",
-				"bar-chart-2",
-				"bar-chart",
-				"battery-charging",
-				"battery",
-				"bell-off",
-				"bell",
-				"bluetooth",
-				"bold",
-				"book-open",
-				"book",
-				"bookmark",
-				"box",
-				"briefcase",
-				"calendar",
-				"camera-off",
-				"camera",
-				"cast",
-				"check-circle",
-				"check-square",
-				"check",
-				"chevron-down",
-				"chevron-left",
-				"chevron-right",
-				"chevron-up",
-				"chevrons-down",
-				"chevrons-left",
-				"chevrons-right",
-				"chevrons-up",
-				"circle",
-				"clipboard",
-				"clock",
-				"cloud-drizzle",
-				"cloud-lightning",
-				"cloud-off",
-				"cloud-rain",
-				"cloud-snow",
-				"cloud",
-				"code",
-				"command",
-				"compass",
-				"copy",
-				"corner-down-left",
-				"corner-down-right",
-				"corner-left-down",
-				"corner-left-up",
-				"corner-right-down",
-				"corner-right-up",
-				"corner-up-left",
-				"corner-up-right",
-				"cpu",
-				"credit-card",
-				"crop",
-				"crosshair",
-				"database",
-				"delete",
-				"disc",
-				"dollar-sign",
-				"download-cloud",
-				"download",
-				"droplet",
-				"edit-2",
-				"edit-3",
-				"edit",
-				"external-link",
-				"eye-off",
-				"eye",
-				"fast-forward",
-				"feather",
-				"file-minus",
-				"file-plus",
-				"file-text",
-				"file",
-				"film",
-				"filter",
-				"flag",
-				"folder-minus",
-				"folder-plus",
-				"folder",
-				"gift",
-				"git-branch",
-				"git-commit",
-				"git-merge",
-				"git-pull-request",
-				"globe",
-				"grid",
-				"hard-drive",
-				"hash",
-				"headphones",
-				"heart",
-				"help-circle",
-				"home",
-				"image",
-				"inbox",
-				"info",
-				"italic",
-				"layers",
-				"layout",
-				"life-buoy",
-				"link-2",
-				"link",
-				"list",
-				"loader",
-				"lock",
-				"log-in",
-				"log-out",
-				"mail",
-				"map-pin",
-				"map",
-				"maximize-2",
-				"maximize",
-				"menu",
-				"message-circle",
-				"message-square",
-				"mic-off",
-				"mic",
-				"minimize-2",
-				"minimize",
-				"minus-circle",
-				"minus-square",
-				"minus",
-				"monitor",
-				"moon",
-				"more-horizontal",
-				"more-vertical",
-				"move",
-				"music",
-				"navigation-2",
-				"navigation",
-				"octagon",
-				"package",
-				"paperclip",
-				"pause-circle",
-				"pause",
-				"percent",
-				"phone-call",
-				"phone-forwarded",
-				"phone-incoming",
-				"phone-missed",
-				"phone-off",
-				"phone-outgoing",
-				"phone",
-				"pie-chart",
-				"play-circle",
-				"play",
-				"plus-circle",
-				"plus-square",
-				"plus",
-				"pocket",
-				"power",
-				"printer",
-				"radio",
-				"refresh-ccw",
-				"refresh-cw",
-				"repeat",
-				"rewind",
-				"rotate-ccw",
-				"rotate-cw",
-				"rss",
-				"save",
-				"scissors",
-				"search",
-				"send",
-				"server",
-				"settings",
-				"share-2",
-				"share",
-				"shield-off",
-				"shield",
-				"shopping-bag",
-				"shopping-cart",
-				"shuffle",
-				"sidebar",
-				"skip-back",
-				"skip-forward",
-				"slash",
-				"sliders",
-				"smartphone",
-				"speaker",
-				"square",
-				"star",
-				"stop-circle",
-				"sun",
-				"sunrise",
-				"sunset",
-				"table",
-				"tablet",
-				"tag",
-				"target",
-				"terminal",
-				"thermometer",
-				"thumbs-down",
-				"thumbs-up",
-				"toggle-left",
-				"toggle-right",
-				"trash-2",
-				"trash",
-				"trending-down",
-				"trending-up",
-				"triangle",
-				"truck",
-				"tv",
-				"type",
-				"umbrella",
-				"underline",
-				"unlock",
-				"upload-cloud",
-				"upload",
-				"user-check",
-				"user-minus",
-				"user-plus",
-				"user-x",
-				"user",
-				"users",
-				"video-off",
-				"video",
-				"voicemail",
-				"volume-1",
-				"volume-2",
-				"volume-x",
-				"volume",
-				"watch",
-				"wifi-off",
-				"wifi",
-				"wind",
-				"x-circle",
-				"x-square",
-				"x",
-				"zap-off",
-				"zap",
-				"zoom-in",
-				"zoom-out",
-			])
-			.optional()
-			.describe("The name of the Feather icon to use"),
+		color: BRANDING_COLOR_SCHEMA.optional(),
+		icon: BRANDING_ICON_SCHEMA.optional(),
 	})
 	.describe("Configures the badge for the action");
 
-// Main schema
-export const githubActionSchema = z
+export type Branding = z.infer<typeof BRANDING_SCHEMA>;
+
+export const ACTION_SCHEMA = z
 	.object({
 		name: z.string().describe("The name of your action"),
 		author: z.string().optional().describe("The name of the action's author"),
 		description: z.string().describe("A short description of the action"),
-		inputs: z
-			.record(validIdentifier, inputSchema)
-			.optional()
-			.describe(
-				"Input parameters allow you to specify data that the action expects to use during runtime",
-			),
+		inputs: INPUTS_SCHEMA.optional(),
 		outputs: z.union([outputs, outputsComposite]).optional(),
-		runs: runs,
-		branding: brandingSchema.optional(),
+		runs: RUNS_SCHEMA,
+		branding: BRANDING_SCHEMA.optional(),
 	})
 	.refine(
 		(data) => {
@@ -448,5 +458,20 @@ export const githubActionSchema = z
 			message: "Outputs schema must match the type of 'runs'",
 			path: ["outputs"],
 		},
-	)
-	.describe("GitHub Action metadata schema");
+	);
+
+
+const A = {
+	name: "test",
+	description: "test",
+	outputs: {
+		"hello": {
+			description: "test",
+			value: "aa"
+		}
+	},
+	runs: {
+		using: "node20",
+		main: "index.js"
+	}
+} satisfies z.infer<typeof ACTION_SCHEMA>;
