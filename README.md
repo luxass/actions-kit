@@ -16,7 +16,7 @@ pnpm install actions-kit
 
 ## 🚀 Usage
 
-Please refer to the documentation: https://actions-kit.vercel.app
+Please refer to the documentation: https://actions-kit.pages.dev
 
 ## 📄 License
 
