@@ -6,7 +6,7 @@
     "paths": {
       "actions-kit": ["packages/actions-kit/src"],
       "@actions-kit/cli": ["packages/cli/src"],
-      "unplugin-actions-kit": ["packages/unplugin/src"],
+      "unplugin-actions-kit": ["packages/unplugin/src"]
     }
   }
 }
