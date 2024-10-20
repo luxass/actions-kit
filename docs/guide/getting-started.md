@@ -31,4 +31,4 @@ const input = getSafeValidatedInput("input-name", { required: true });
 ```
 
 > [!NOTE]
-> Browse the [API Reference](/api.md) for more information.
+> Browse the [API Reference](../api/index.md) for more information.
