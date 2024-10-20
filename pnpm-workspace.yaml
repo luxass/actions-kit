@@ -29,3 +29,4 @@ catalog:
   webpack: ^5.95.0
   zod: ^3.23.8
   c12: ^2.0.1
+  defu: ^6.1.4

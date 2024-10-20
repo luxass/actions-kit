@@ -9,9 +9,7 @@
       "@actions-kit/action-utils": ["packages/action-utils/src/index.ts"],
       "@actions-kit/action-utils/*": ["packages/action-utils/src/*"],
       "unplugin-actions-kit": ["packages/unplugin/src/index.ts"],
-      "@actions-kit/action-schema": ["packages/action-schema/src/index.ts"],
-      "@actions-kit/builder": ["packages/builder/src/index.ts"],
-      "@actions-kit/builder/*": ["packages/builder/src/*"],
+      "@actions-kit/action-schema": ["packages/action-schema/src/index.ts"]
     }
   }
 }

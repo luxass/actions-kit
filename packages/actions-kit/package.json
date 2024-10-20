@@ -61,15 +61,30 @@
     "dev": "tsup --watch",
     "typecheck": "tsc --noEmit"
   },
+  "peerDependencies": {
+    "@rspack/core": "catalog:",
+    "vite": "catalog:"
+  },
+  "peerDependenciesMeta": {
+    "@rspack/core": {
+      "optional": true
+    },
+    "vite": {
+      "optional": true
+    }
+  },
   "dependencies": {
     "zod": "catalog:",
     "@actions-kit/action-schema": "workspace:*",
-    "@actions-kit/builder": "workspace:*",
     "cac": "catalog:",
     "consola": "catalog:",
-    "c12": "catalog:"
+    "c12": "catalog:",
+    "defu": "catalog:",
+    "unplugin-actions-kit": "workspace:*",
+    "js-yaml": "catalog:"
   },
   "devDependencies": {
+    "@types/js-yaml": "catalog:",
     "@types/node": "catalog:",
     "tsup": "catalog:",
     "typescript": "catalog:",

@@ -1,16 +1,21 @@
 import cac, { type CAC, type Command } from "cac";
-
+import { loadConfig} from "./config";
 const cli = cac("actions-kit");
 
 cli
 	.command("build", "Build the project")
-	.option("--cwd <cwd>", "The working directory")
+	.option("--cwd <cwd>", "The working directory", {
+		default: process.cwd(),
+	})
 	.option("--config <config>", "The configuration file")
 	.action(async (args) => {
 		try {
-			const builder = await import("./build").then((mod) => mod);
+			// load configuration file.
+			const config = await loadConfig(args.cwd, args.config);
 
-			// await builder.build(args);
+			const builder = await import("./builder").then((mod) => mod);
+
+			await builder.build(args.cwd, config);
 		} catch (err) {
 			console.error(err);
 			process.exit(1);

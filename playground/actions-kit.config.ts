@@ -3,7 +3,7 @@ import { defineConfig } from "actions-kit/config";
 export default defineConfig({
 	writeYaml: true,
 	action: {
-		name: "Actions Kit Playground",
+		name: "Actions Kit Playground 2",
 		description: "An Action built using Actions Kit",
 		author: "luxass",
 		branding: {
