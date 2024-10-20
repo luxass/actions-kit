@@ -32,11 +32,17 @@
     "node": ">=18"
   },
   "scripts": {
-    "build": "unbuild",
-    "stub": "unbuild --stub"
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "cac": "catalog:",
     "consola": "catalog:"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "tsup": "catalog:",
+    "typescript": "catalog:"
   }
 }

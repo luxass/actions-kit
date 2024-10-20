@@ -4,6 +4,18 @@
   "private": true,
   "packageManager": "pnpm@9.12.0",
   "scripts": {
-
+    "docs:dev": "pnpm --parallel --filter docs... dev",
+    "docs:build": "pnpm--filter docs... build",
+    "docs:preview": "pnpm -C docs preview",
+    "typecheck": "pnpm -r --parallel typecheck",
+    "lint": "biome lint",
+    "lint:fix": "biome lint --write",
+    "format": "biome format",
+    "format:fix": "biome format --write"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "catalog:",
+    "@types/node": "catalog:",
+    "typescript": "catalog:"
   }
 }

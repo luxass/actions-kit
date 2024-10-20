@@ -1,5 +1,5 @@
 {
-  "name": "docs",
+  "name": "@actions-kit/docs",
   "private": true,
   "scripts": {
     "dev": "vitepress dev",

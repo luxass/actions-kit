@@ -1,0 +1,71 @@
+{
+  "name": "actions-kit",
+  "version": "0.1.0",
+  "description": "A toolkit for GitHub Actions",
+  "type": "module",
+  "author": {
+    "name": "Lucas Nørgård",
+    "email": "lucasnrgaard@gmail.com",
+    "url": "https://luxass.dev"
+  },
+  "packageManager": "pnpm@9.12.1",
+  "license": "MIT",
+  "homepage": "https://github.com/luxass/actions-kit",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luxass/actions-kit.git",
+    "directory": "packages/actions-kit"
+  },
+  "bugs": {
+    "url": "https://github.com/luxass/actions-kit/issues"
+  },
+  "keywords": [
+    "actions",
+    "github actions",
+    "toolkit"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./utils": {
+      "import": {
+        "types": "./dist/utils.d.ts",
+        "default": "./dist/utils.mjs"
+      },
+      "require": {
+        "types": "./dist/utils.d.cts",
+        "default": "./dist/utils.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "zod": "catalog:",
+    "@actions/core": "catalog:"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "tsup": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}
