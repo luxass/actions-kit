@@ -1,7 +1,3 @@
-import type {
-  Configuration
-} from "@rspack/core";
+import type { Configuration } from "@rspack/core";
 
-export async function build(config: Configuration) {
-
-}
+export async function build(config: Configuration) {}

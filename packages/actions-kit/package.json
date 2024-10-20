@@ -24,6 +24,9 @@
     "github actions",
     "toolkit"
   ],
+  "bin": {
+    "actions-kit": "./bin/actions-kit.mjs"
+  },
   "exports": {
     ".": {
       "import": {
@@ -33,16 +36,6 @@
       "require": {
         "types": "./dist/index.d.cts",
         "default": "./dist/index.cjs"
-      }
-    },
-    "./utils": {
-      "import": {
-        "types": "./dist/utils.d.ts",
-        "default": "./dist/utils.mjs"
-      },
-      "require": {
-        "types": "./dist/utils.d.cts",
-        "default": "./dist/utils.cjs"
       }
     },
     "./config": {
@@ -70,12 +63,13 @@
   },
   "dependencies": {
     "zod": "catalog:",
-    "@actions/core": "catalog:",
-    "js-yaml": "catalog:",
-    "@actions-kit/action-schema": "workspace:*"
+    "@actions-kit/action-schema": "workspace:*",
+    "@actions-kit/builder": "workspace:*",
+    "cac": "catalog:",
+    "consola": "catalog:",
+    "c12": "catalog:"
   },
   "devDependencies": {
-    "@types/js-yaml": "catalog:",
     "@types/node": "catalog:",
     "tsup": "catalog:",
     "typescript": "catalog:",

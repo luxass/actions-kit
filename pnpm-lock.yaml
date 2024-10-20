@@ -151,19 +151,22 @@ importers:
       '@actions-kit/action-schema':
         specifier: workspace:*
         version: link:../action-schema
-      '@actions/core':
+      '@actions-kit/builder':
+        specifier: workspace:*
+        version: link:../builder
+      c12:
         specifier: 'catalog:'
-        version: 1.11.1
-      js-yaml:
+        version: 2.0.1
+      cac:
         specifier: 'catalog:'
-        version: 4.1.0
+        version: 6.7.14
+      consola:
+        specifier: 'catalog:'
+        version: 3.2.3
       zod:
         specifier: 'catalog:'
         version: 3.23.8
     devDependencies:
-      '@types/js-yaml':
-        specifier: 'catalog:'
-        version: 4.0.9
       '@types/node':
         specifier: 'catalog:'
         version: 20.16.11
@@ -201,28 +204,6 @@ importers:
       vitest:
         specifier: 'catalog:'
         version: 2.1.3(@types/node@20.16.11)(terser@5.36.0)
-
-  packages/cli:
-    dependencies:
-      c12:
-        specifier: 'catalog:'
-        version: 2.0.1
-      cac:
-        specifier: 'catalog:'
-        version: 6.7.14
-      consola:
-        specifier: 'catalog:'
-        version: 3.2.3
-    devDependencies:
-      '@types/node':
-        specifier: 'catalog:'
-        version: 20.16.11
-      tsup:
-        specifier: 'catalog:'
-        version: 8.3.0(jiti@2.3.3)(postcss@8.4.47)(typescript@5.6.3)
-      typescript:
-        specifier: 'catalog:'
-        version: 5.6.3
 
   packages/unplugin:
     dependencies:
@@ -297,9 +278,9 @@ importers:
         specifier: 'catalog:'
         version: 1.11.1
     devDependencies:
-      '@actions-kit/cli':
+      '@actions-kit/action-utils':
         specifier: workspace:*
-        version: link:../packages/cli
+        version: link:../packages/action-utils
       '@types/node':
         specifier: 'catalog:'
         version: 20.16.11

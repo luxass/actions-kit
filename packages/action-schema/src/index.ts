@@ -465,19 +465,14 @@ export const BRANDING_SCHEMA = z
 
 export type Branding = z.infer<typeof BRANDING_SCHEMA>;
 
-export const ACTION_SCHEMA = z
-	.object({
-		name: z.string().describe("The name of your action"),
-		author: z.string().optional().describe("The name of the action's author"),
-		description: z.string().describe("A short description of the action"),
-		inputs: INPUTS_SCHEMA.optional(),
-		outputs: z.union([OUTPUTS_SCHEMA, COMPOSITE_OUTPUTS_SCHEMA]).optional(),
-		runs: z.union([
-			RUNS_JAVASCRIPT_SCHEMA,
-			RUNS_COMPOSITE_SCHEMA,
-			RUNS_DOCKER_SCHEMA,
-		]),
-		branding: BRANDING_SCHEMA.optional(),
-	})
+export const ACTION_SCHEMA = z.object({
+	name: z.string().describe("The name of your action"),
+	author: z.string().optional().describe("The name of the action's author"),
+	description: z.string().describe("A short description of the action"),
+	inputs: INPUTS_SCHEMA.optional(),
+	outputs: z.union([OUTPUTS_SCHEMA, COMPOSITE_OUTPUTS_SCHEMA]).optional(),
+	runs: z.union([RUNS_JAVASCRIPT_SCHEMA, RUNS_COMPOSITE_SCHEMA, RUNS_DOCKER_SCHEMA]),
+	branding: BRANDING_SCHEMA.optional(),
+});
 
 export type Action = z.infer<typeof ACTION_SCHEMA>;

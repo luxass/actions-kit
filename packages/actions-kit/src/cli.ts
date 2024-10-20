@@ -10,7 +10,7 @@ cli
 		try {
 			const builder = await import("./build").then((mod) => mod);
 
-			await builder.build(args);
+			// await builder.build(args);
 		} catch (err) {
 			console.error(err);
 			process.exit(1);
