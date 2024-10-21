@@ -1,3 +1,8 @@
+
+// TODO: remove this at some point
+//       will need to debug why the dev build fails
+//       when its not there.
+import "zod";
 import type { Configuration as RspackConfig, Stats } from "@rspack/core";
 import { rspack } from "@rspack/core";
 import { resolve } from "node:path";

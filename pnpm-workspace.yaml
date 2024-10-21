@@ -12,6 +12,7 @@ catalog:
   "@types/js-yaml": ^4.0.9
   "@types/node": ^20.16.11
   cac: ^6.7.14
+  turbo: ^2.2.1
   consola: ^3.2.3
   esbuild: ^0.24.0
   js-yaml: ^4.1.0

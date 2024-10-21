@@ -60,6 +60,9 @@ catalogs:
     tsup:
       specifier: ^8.3.0
       version: 8.3.0
+    turbo:
+      specifier: ^2.2.1
+      version: 2.2.1
     typescript:
       specifier: ^5.6.3
       version: 5.6.3
@@ -95,6 +98,9 @@ importers:
       '@types/node':
         specifier: 'catalog:'
         version: 20.16.11
+      turbo:
+        specifier: 'catalog:'
+        version: 2.2.1
       typescript:
         specifier: 'catalog:'
         version: 5.6.3
@@ -154,9 +160,6 @@ importers:
       '@actions-kit/action-schema':
         specifier: workspace:*
         version: link:../action-schema
-      '@rspack/core':
-        specifier: 'catalog:'
-        version: 1.0.13
       c12:
         specifier: 'catalog:'
         version: 2.0.1
@@ -175,13 +178,13 @@ importers:
       unplugin-actions-kit:
         specifier: workspace:*
         version: link:../unplugin
-      vite:
-        specifier: 'catalog:'
-        version: 5.4.9(@types/node@20.16.11)(terser@5.36.0)
       zod:
         specifier: 'catalog:'
         version: 3.23.8
     devDependencies:
+      '@rspack/core':
+        specifier: 'catalog:'
+        version: 1.0.13
       '@types/js-yaml':
         specifier: 'catalog:'
         version: 4.0.9
@@ -194,6 +197,9 @@ importers:
       typescript:
         specifier: 'catalog:'
         version: 5.6.3
+      vite:
+        specifier: 'catalog:'
+        version: 5.4.9(@types/node@20.16.11)(terser@5.36.0)
       vitest:
         specifier: 'catalog:'
         version: 2.1.3(@types/node@20.16.11)(terser@5.36.0)
@@ -2340,6 +2346,40 @@ packages:
     resolution: {integrity: sha512-1h/Lnq9yajKY2PEbBadPXj3VxsDDu844OnaAo52UVmIzIvwwtBPIuNvkjuzBlTWpfJyUbG3ez0KSBibQkj4ojg==}
     engines: {node: '>=0.6.11 <=0.7.0 || >=0.7.3'}
 
+  turbo-darwin-64@2.2.1:
+    resolution: {integrity: sha512-jltMdSQ+7rQDVaorjW729PCw6fwAn1MgZSdoa0Gil7GZCOF3SnR/ok0uJw6G5mdm6F5XM8ZTlz+mdGzBLuBRaA==}
+    cpu: [x64]
+    os: [darwin]
+
+  turbo-darwin-arm64@2.2.1:
+    resolution: {integrity: sha512-RHW0c1NonsJXXlutlZeunmhLanf0/WbeizFfYgWuTEaJE4MbbhyD/RG4Fm/7iob5kxQ4Es2TzfDPqyMqpIO0GA==}
+    cpu: [arm64]
+    os: [darwin]
+
+  turbo-linux-64@2.2.1:
+    resolution: {integrity: sha512-RasrjV+i2B90hoR8r6B2Btf2/ebNT5MJbhkpY0G1EN06E1IkjCKfAXj/1Dwmjy9+Zo0NC2r69L3HxRrtpar8jQ==}
+    cpu: [x64]
+    os: [linux]
+
+  turbo-linux-arm64@2.2.1:
+    resolution: {integrity: sha512-LNkUUJuu1gNkhlo7Ky/zilXEiajLoGlWLiKT1XV5neEf+x1s+aU9Hzd/+HhSVMiyI8l7z6zLbrM1a6+v4co/SQ==}
+    cpu: [arm64]
+    os: [linux]
+
+  turbo-windows-64@2.2.1:
+    resolution: {integrity: sha512-Mn5tlFrLzlQ6tW6wTWNlyT1osXuDUg0VT1VAjRpmRXlK2Zi3oKVVG0rs0nkkq4rmuheryD1xyuGPN9nFKbAn/A==}
+    cpu: [x64]
+    os: [win32]
+
+  turbo-windows-arm64@2.2.1:
+    resolution: {integrity: sha512-bvYOJ3SMN00yiem+uAqwRMbUMau/KiMzJYxnD0YkFo6INc08z8gZi5g0GLZAR7g/L3JegktX3UQW2cJvryjvLg==}
+    cpu: [arm64]
+    os: [win32]
+
+  turbo@2.2.1:
+    resolution: {integrity: sha512-clZFkh6U6NpsLKBVZYRjlZjRTfju1Z5STqvFVaOGu5443uM75alJe1nCYH9pQ9YJoiOvXAqA2rDHWN5kLS9JMg==}
+    hasBin: true
+
   typescript@5.6.3:
     resolution: {integrity: sha512-hjcS1mhfuyi4WW8IWtjP7brDrG2cuDZukyrYrSauoXGNgx0S7zceP07adYkJycEr56BOUTNPzbInooiN3fn1qw==}
     engines: {node: '>=14.17'}
@@ -4446,6 +4486,33 @@ snapshots:
       - yaml
 
   tunnel@0.0.6: {}
+
+  turbo-darwin-64@2.2.1:
+    optional: true
+
+  turbo-darwin-arm64@2.2.1:
+    optional: true
+
+  turbo-linux-64@2.2.1:
+    optional: true
+
+  turbo-linux-arm64@2.2.1:
+    optional: true
+
+  turbo-windows-64@2.2.1:
+    optional: true
+
+  turbo-windows-arm64@2.2.1:
+    optional: true
+
+  turbo@2.2.1:
+    optionalDependencies:
+      turbo-darwin-64: 2.2.1
+      turbo-darwin-arm64: 2.2.1
+      turbo-linux-64: 2.2.1
+      turbo-linux-arm64: 2.2.1
+      turbo-windows-64: 2.2.1
+      turbo-windows-arm64: 2.2.1
 
   typescript@5.6.3: {}
 

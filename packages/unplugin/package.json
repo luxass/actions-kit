@@ -111,7 +111,7 @@
   ],
   "scripts": {
     "build": "tsup --tsconfig tsconfig.build.json",
-    "dev": "tsup --watch",
+    "dev": "tsup",
     "test": "vitest --run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit"
