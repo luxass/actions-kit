@@ -4,11 +4,11 @@
   "private": true,
   "packageManager": "pnpm@9.12.0",
   "scripts": {
-    "build": "pnpm -r --filter './packages/**' run build",
-    "dev": "pnpm -r --filter './packages/**' run dev",
+    "build": "turbo run build --filter \"./packages/*\" --concurrency=15",
+    "dev": "turbo watch dev --filter \"./packages/*\"",
     "docs:dev": "pnpm -C '@actions-kit/docs' run dev",
     "docs:build": "pnpm -C '@actions-kit/docs' run build",
-    "typecheck": "pnpm -r --parallel typecheck",
+    "typecheck": "turbo run typecheck",
     "lint": "biome lint",
     "lint:fix": "biome lint --write",
     "format": "biome format",
@@ -20,6 +20,7 @@
     "@biomejs/biome": "catalog:",
     "@types/node": "catalog:",
     "typescript": "catalog:",
-    "vitest": "catalog:"
+    "vitest": "catalog:",
+    "turbo": "catalog:"
   }
 }

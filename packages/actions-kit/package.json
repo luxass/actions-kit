@@ -58,7 +58,7 @@
   ],
   "scripts": {
     "build": "tsup --tsconfig tsconfig.build.json",
-    "dev": "tsup --watch",
+    "dev": "tsup",
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
@@ -84,6 +84,8 @@
     "js-yaml": "catalog:"
   },
   "devDependencies": {
+    "@rspack/core": "catalog:",
+    "vite": "catalog:",
     "@types/js-yaml": "catalog:",
     "@types/node": "catalog:",
     "tsup": "catalog:",
