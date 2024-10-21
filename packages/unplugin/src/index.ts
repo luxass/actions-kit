@@ -65,16 +65,13 @@ export const unpluginFactory: UnpluginFactory<ActionsKitOptions | undefined> = (
 
 					injectCode += `globalThis.ACTION_OUTPUTS = ${JSON.stringify(actionOutputs)};\n`;
 				} else {
-					if (actionInputs == null) {
-						throw new Error("no `inputs` found in action file.");
+					if (actionInputs != null) {
+						injectCode += `globalThis.ACTION_INPUTS = ${JSON.stringify(actionInputs)};\n`;
 					}
 
-					if (actionOutputs == null) {
-						throw new Error("no `outputs` found in action file.");
+					if (actionOutputs != null) {
+						injectCode += `globalThis.ACTION_OUTPUTS = ${JSON.stringify(actionOutputs)};\n`;
 					}
-
-					injectCode += `globalThis.ACTION_INPUTS = ${JSON.stringify(actionInputs)};\n`;
-					injectCode += `globalThis.ACTION_OUTPUTS = ${JSON.stringify(actionOutputs)};\n`;
 				}
 
 				return `${injectCode};\n${code};`;
@@ -116,19 +113,25 @@ export const unpluginFactory: UnpluginFactory<ActionsKitOptions | undefined> = (
 				throw new TypeError("action.yml or action.yaml is not an object");
 			}
 
-			const a = Object.entries(yaml).map(([key, value]) => {
-				return {
-					key,
-					value,
-				};
-			});
+			const inputEntries = Object.entries(yaml.inputs ?? {});
+			actionInputs =
+				inputEntries.length > 0
+					? Object.fromEntries(inputEntries.map(([name]) => [name, name]))
+					: undefined;
 
-			actionInputs = Object.fromEntries(
-				Object.entries(yaml.inputs || {}).map(([name]) => [name, name]),
-			);
-			actionOutputs = Object.fromEntries(
-				Object.entries(yaml.outputs || {}).map(([name]) => [name, name]),
-			);
+			const outputEntries = Object.entries(yaml.outputs ?? {});
+			actionOutputs =
+				outputEntries.length > 0
+					? Object.fromEntries(outputEntries.map(([name]) => [name, name]))
+					: undefined;
+
+			if (actionInputs == null) {
+				console.warn("inputs is not defined in `action.yml` file");
+			}
+
+			if (actionOutputs == null) {
+				console.warn("outputs is not defined in `action.yml` file");
+			}
 
 			const outputPath =
 				options.outputPath == null ? dirname(options.actionPath) : options.outputPath;

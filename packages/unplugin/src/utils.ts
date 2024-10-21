@@ -29,16 +29,13 @@ export function writeTypeInjects(
 
 		code += writeActionType("ACTION_OUTPUTS", yaml.outputs);
 	} else {
-		if (yaml.inputs == null) {
-			throw new Error("inputs is not defined in action.yml");
+		if (yaml.inputs != null) {
+			code += writeActionType("ACTION_INPUTS", yaml.inputs as Record<string, unknown>);
 		}
 
-		if (yaml.outputs == null) {
-			throw new Error("outputs is not defined in action.yml");
+		if (yaml.outputs != null) {
+			code += writeActionType("ACTION_OUTPUTS", yaml.outputs as Record<string, unknown>);
 		}
-
-		code += writeActionType("ACTION_INPUTS", yaml.inputs as Record<string, unknown>);
-		code += writeActionType("ACTION_OUTPUTS", yaml.outputs as Record<string, unknown>);
 	}
 
 	code += "}";

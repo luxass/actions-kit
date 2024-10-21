@@ -81,10 +81,10 @@
     "c12": "catalog:",
     "defu": "catalog:",
     "unplugin-actions-kit": "workspace:*",
-    "js-yaml": "catalog:"
+    "js-yaml": "catalog:",
+    "@rspack/core": "catalog:"
   },
   "devDependencies": {
-    "@rspack/core": "catalog:",
     "vite": "catalog:",
     "@types/js-yaml": "catalog:",
     "@types/node": "catalog:",

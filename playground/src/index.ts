@@ -1,7 +1,9 @@
-import core from "@actions/core";
-import { defineAction } from "actions-kit";
+import * as core from "@actions/core";
 
-defineAction(({ inputs, outputs }) => {
-	// biome-ignore lint/style/noNonNullAssertion: <explanation>
-	const name = core.getInput(inputs.name!);
+async function run() {
+	core.info("Hello, World!");
+}
+
+run().catch((err) => {
+	core.setFailed(err);
 });
