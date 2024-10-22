@@ -10,8 +10,15 @@ import actionsKit from "unplugin-actions-kit/rspack";
 import type { Config } from "../config";
 import { writeFile } from "node:fs/promises";
 import fs from "node:fs";
+import { inferModuleType, inferOutputFilename } from "../utils";
 
 export async function build(config: Config) {
+
+	const outputFileName = await inferOutputFilename(config);
+	const libraryType = await inferModuleType(config, outputFileName);
+
+	console.log("Building with outputFileName", outputFileName, "and libraryType", libraryType);
+
 	const rspackConfig = config.rspack;
 	const rspackOptions = defu(rspackConfig, {
 		target: "node",
@@ -19,9 +26,9 @@ export async function build(config: Config) {
 		entry: "./src/index.ts",
 		output: {
 			path: resolve(process.cwd(), "dist"),
-			filename: "index.cjs",
+			filename: outputFileName,
 			library: {
-				type: "commonjs2",
+				type: libraryType,
 			},
 		},
 		resolve: {
