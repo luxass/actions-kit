@@ -7,12 +7,12 @@ import { loadConfig as _loadConfig } from "c12";
 const CONFIG_SCHEMA = z.object({
 	writeYaml: z.boolean().default(false),
 	action: ACTION_SCHEMA.optional(),
-	builder: z.enum(["rspack", "vite"]).default("rspack"),
+	builder: z.enum(["esbuild", "rolldown", "rollup", "rspack", "vite", "webpack"]).default("rspack"),
 });
 
 export type Config = z.input<typeof CONFIG_SCHEMA> & {
-	rspack?: RspackConfig;
-	vite?: ViteConfig;
+	rspack?: Pick<RspackConfig, "plugins">;
+	vite?: Pick<ViteConfig, "plugins">;
 };
 
 export function defineConfig(config: Config): Config {
@@ -29,6 +29,5 @@ export async function loadConfig(cwd = process.cwd(), configFile?: string) {
 		configFile: configFile || "actions-kit.config.ts",
 	});
 
-	console.log("loadConfig", result);
 	return CONFIG_SCHEMA.parse(result.config);
 }

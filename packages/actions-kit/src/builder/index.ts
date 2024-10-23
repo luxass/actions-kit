@@ -7,7 +7,6 @@ import { join } from "node:path";
 import Yaml from "js-yaml";
 
 export async function build(cwd: string, config: Config) {
-	console.log("build", cwd, config);
 	if (config?.writeYaml) {
 		consola.info("writing action.yml...");
 		const action = config.action;
@@ -32,6 +31,22 @@ export async function build(cwd: string, config: Config) {
 
 	if (config.builder === "vite") {
 		return buildVite(config);
+	}
+
+	if (config.builder === "esbuild") {
+		throw new Error("esbuild builder is not implemented yet.");
+	}
+
+	if (config.builder === "rolldown") {
+		throw new Error("rolldown builder is not implemented yet.");
+	}
+
+	if (config.builder === "rollup") {
+		throw new Error("rollup builder is not implemented yet.");
+	}
+
+	if (config.builder === "webpack") {
+		throw new Error("webpack builder is not implemented yet.");
 	}
 
 	throw new Error(`Unknown builder: ${config.builder}`);

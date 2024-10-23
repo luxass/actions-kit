@@ -2,7 +2,6 @@ import { inferModuleType, inferOutputFilename } from "../utils";
 import type { Config } from "../config";
 import { build as viteBuild } from "vite";
 
-
 export async function build(config: Config) {
 	const outputFileName = await inferOutputFilename(config);
 	const libraryType = await inferModuleType(config, outputFileName);
@@ -41,7 +40,7 @@ export async function build(config: Config) {
 			// Anything NOT 'node:' will be bundled.
 			noExternal: /^(?!node:)/,
 		},
-	})
+	});
 
-	console.log(result)
+	console.log(result);
 }
