@@ -1,4 +1,8 @@
 import { build as buildRspack } from "./rspack";
+import { build as buildWebpack } from "./webpack";
+import { build as buildRolldown } from "./rolldown";
+import { build as buildRollup } from "./rollup";
+import { build as buildEsbuild } from "./esbuild";
 import { build as buildVite } from "./vite";
 import type { Config } from "../config";
 import consola from "consola";
@@ -34,19 +38,19 @@ export async function build(cwd: string, config: Config) {
 	}
 
 	if (config.builder === "esbuild") {
-		throw new Error("esbuild builder is not implemented yet.");
+		return buildEsbuild(config);
 	}
 
 	if (config.builder === "rolldown") {
-		throw new Error("rolldown builder is not implemented yet.");
+		return buildRolldown(config);
 	}
 
 	if (config.builder === "rollup") {
-		throw new Error("rollup builder is not implemented yet.");
+		return buildRollup(config);
 	}
 
 	if (config.builder === "webpack") {
-		throw new Error("webpack builder is not implemented yet.");
+		return buildWebpack(config);
 	}
 
 	throw new Error(`Unknown builder: ${config.builder}`);

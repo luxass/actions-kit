@@ -1,26 +1,12 @@
 import { inferModuleType, inferOutputFilename } from "../utils";
 import type { Config } from "../config";
-import { build as viteBuild } from "vite";
+import actionsKit from "unplugin-actions-kit/vite";
+import { join } from "node:path";
 
 export async function build(config: Config) {
+	const viteBuild = await import("vite").then((m) => m.build);
 	const outputFileName = await inferOutputFilename(config);
 	const libraryType = await inferModuleType(config, outputFileName);
-
-	const viteConfig = config.vite;
-
-	const viteOptions = {
-		mode: "production",
-		...viteConfig,
-		build: {
-			outDir: "dist",
-			rollupOptions: {
-				output: {
-					fileName: outputFileName,
-					format: libraryType,
-				},
-			},
-		},
-	};
 
 	const result = await viteBuild({
 		build: {
@@ -40,7 +26,16 @@ export async function build(config: Config) {
 			// Anything NOT 'node:' will be bundled.
 			noExternal: /^(?!node:)/,
 		},
+		plugins: [
+			actionsKit({
+				// TODO: allow users to specify it.
+				actionPath: join(process.cwd(), "./action.yml"),
+				inject: true,
+			}),
+		],
 	});
 
-	console.log(result);
+	const results = Array.isArray(result) ? result : [result];
+
+	// TODO: show build output
 }

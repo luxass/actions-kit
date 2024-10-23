@@ -2,20 +2,20 @@
 //       will need to debug why the dev build fails
 //       when its not there.
 import "zod";
-import type { Configuration as RspackConfig, Stats } from "@rspack/core";
+import type { Configuration as WebpackConfig, Stats } from "webpack";
 import { join, resolve } from "node:path";
 import { defu } from "defu";
-import actionsKit from "unplugin-actions-kit/rspack";
+import actionsKit from "unplugin-actions-kit/webpack";
 import type { Config } from "../config";
 import { inferModuleType, inferOutputFilename } from "../utils";
 
 export async function build(config: Config) {
-	const rspack = await import("@rspack/core").then((m) => m.rspack);
+	const webpack = await import("webpack").then((m) => m.default);
 	const outputFileName = await inferOutputFilename(config);
 	const libraryType = await inferModuleType(config, outputFileName);
 
-	const rspackConfig = config.rspack;
-	const rspackOptions = defu(rspackConfig, {
+	const webpackConfig = config.webpack;
+	const webpackOptions = defu(webpackConfig, {
 		target: "node",
 		mode: "production",
 		entry: "./src/index.ts",
@@ -50,13 +50,6 @@ export async function build(config: Config) {
 				},
 			],
 		},
-		experiments: {
-			rspackFuture: {
-				bundlerInfo: {
-					force: true,
-				},
-			},
-		},
 		plugins: [
 			actionsKit({
 				// TODO: allow users to specify it.
@@ -67,8 +60,9 @@ export async function build(config: Config) {
 		externals: {
 			keytar: "commonjs keytar",
 		},
-	} satisfies RspackConfig);
-	const compiler = rspack(rspackOptions);
+	} satisfies WebpackConfig);
+
+	const compiler = webpack.webpack(webpackOptions);
 
 	const stats = await new Promise<Stats | undefined>((resolve, reject) =>
 		compiler.run((err, stats) => {
@@ -88,6 +82,4 @@ export async function build(config: Config) {
 		chunks: true,
 		colors: true,
 	});
-
-	// const json = stats.toJson()
 }

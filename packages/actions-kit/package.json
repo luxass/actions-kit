@@ -63,13 +63,29 @@
   },
   "peerDependencies": {
     "@rspack/core": "catalog:",
-    "vite": "catalog:"
+    "vite": "catalog:",
+    "esbuild": "catalog:",
+    "rollup": "catalog:",
+    "rolldown": "catalog:",
+    "webpack": "catalog:"
   },
   "peerDependenciesMeta": {
     "@rspack/core": {
       "optional": true
     },
     "vite": {
+      "optional": true
+    },
+    "esbuild": {
+      "optional": true
+    },
+    "rollup": {
+      "optional": true
+    },
+    "rolldown": {
+      "optional": true
+    },
+    "webpack": {
       "optional": true
     }
   },
@@ -82,10 +98,10 @@
     "defu": "catalog:",
     "unplugin-actions-kit": "workspace:*",
     "js-yaml": "catalog:",
-    "@rspack/core": "catalog:"
+    "@rspack/core": "catalog:",
+    "vite": "catalog:"
   },
   "devDependencies": {
-    "vite": "catalog:",
     "@types/js-yaml": "catalog:",
     "@types/node": "catalog:",
     "tsup": "catalog:",
