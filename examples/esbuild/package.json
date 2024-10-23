@@ -1,0 +1,17 @@
+{
+  "name": "@actions-kit/esbuild-example",
+  "private": true,
+  "scripts": {
+    "build": "actions-kit build"
+  },
+  "dependencies": {
+    "@actions/core": "catalog:"
+  },
+  "devDependencies": {
+    "@actions-kit/action-utils": "workspace:*",
+    "actions-kit": "workspace:*",
+    "typescript": "catalog:",
+    "@types/node": "catalog:",
+    "unplugin-actions-kit": "workspace:*"
+  }
+}

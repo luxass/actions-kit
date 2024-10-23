@@ -2,6 +2,7 @@ packages:
   - packages/*
   - docs
   - playground
+  - examples/*
 
 catalog:
   "@actions/core": ^1.11.1
