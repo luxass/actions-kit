@@ -5,8 +5,6 @@ import Yaml from "js-yaml";
 import { ACTION_SCHEMA, type Action } from "@actions-kit/action-schema"
 
 export async function inferOutputFilename(config: Config): Promise<string> {
-  // check if action is defined, if not find action.yaml file.
-
   if ((config.action != null && config.writeYaml) && (config.action?.runs.using !== "composite" && config.action?.runs.using !== "docker")) {
     return config.action.runs.main;
   }
@@ -48,8 +46,8 @@ async function readYaml(path: string): Promise<Action | null> {
   }
 }
 
-export async function inferModuleType(config: Config, outputFileName: string): Promise<string> {
-  if (outputFileName.endsWith(".cjs")) return "commonjs2";
-  if (outputFileName.endsWith(".mjs")) return "module";
-  return "commonjs2"
+export async function inferModuleType(config: Config, outputFileName: string): Promise<"esm" | "cjs"> {
+  if (outputFileName.endsWith(".cjs")) return "cjs";
+  if (outputFileName.endsWith(".mjs")) return "esm";
+  return "cjs"
 }

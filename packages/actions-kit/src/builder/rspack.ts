@@ -8,16 +8,11 @@ import { join, resolve } from "node:path";
 import { defu } from "defu";
 import actionsKit from "unplugin-actions-kit/rspack";
 import type { Config } from "../config";
-import { writeFile } from "node:fs/promises";
-import fs from "node:fs";
 import { inferModuleType, inferOutputFilename } from "../utils";
 
 export async function build(config: Config) {
-
 	const outputFileName = await inferOutputFilename(config);
 	const libraryType = await inferModuleType(config, outputFileName);
-
-	console.log("Building with outputFileName", outputFileName, "and libraryType", libraryType);
 
 	const rspackConfig = config.rspack;
 	const rspackOptions = defu(rspackConfig, {
@@ -28,7 +23,7 @@ export async function build(config: Config) {
 			path: resolve(process.cwd(), "dist"),
 			filename: outputFileName,
 			library: {
-				type: libraryType,
+				type: libraryType === "esm" ? "module" : "commonjs2",
 			},
 		},
 		resolve: {
