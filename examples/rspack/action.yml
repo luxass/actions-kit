@@ -1,5 +1,5 @@
-name: Actions Kit Vite Example
-description: An Action built using Actions Kit with Vite Builder
+name: Actions Kit Rspack Example
+description: An Action built using Actions Kit with Rspack Builder
 author: luxass
 branding:
   color: purple
