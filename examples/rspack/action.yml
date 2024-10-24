@@ -1,0 +1,14 @@
+name: Actions Kit Rspack Example
+description: An Action built using Actions Kit with Rspack Builder
+author: luxass
+branding:
+  color: purple
+  icon: package
+inputs:
+  name:
+    required: true
+    default: World
+    description: Your name
+runs:
+  using: node20
+  main: index.cjs
