@@ -82,6 +82,12 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4.1.7
 
+      - name: debug
+        run: |
+          ls -la ./examples
+          ls -la ./examples/vite
+
+
       - name: Hello World (vite)
         uses: ./examples/vite
 
