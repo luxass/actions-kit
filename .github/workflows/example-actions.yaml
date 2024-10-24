@@ -24,11 +24,25 @@ jobs:
         with:
           node-version: 20
 
+      - name: cache pnpm dependencies
+        uses: actions/cache@v4.1.2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
       - name: install dependencies
         run: pnpm install
 
       - name: build
         run: pnpm build:all
+
+      - name: upload dist folder
+        uses: actions/upload-artifact@v4.4.3
+        with:
+          name: dist
+          path: dist
 
   esbuild:
     runs-on: ubuntu-latest
@@ -37,6 +51,20 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4.1.7
+
+      - name: restore pnpm cache
+        uses: actions/cache@v4.1.2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: download dist folder
+        uses: actions/download-artifact@v4.1.8
+        with:
+          name: dist
+          path: dist
 
       - name: Hello World (esbuild)
         uses: ./examples/esbuild
@@ -49,6 +77,20 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4.1.7
 
+      - name: restore pnpm cache
+        uses: actions/cache@v4.1.2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: download dist folder
+        uses: actions/download-artifact@v4.1.8
+        with:
+          name: dist
+          path: dist
+
       - name: Hello World (rolldown)
         uses: ./examples/rolldown
 
@@ -59,6 +101,20 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4.1.7
+
+      - name: restore pnpm cache
+        uses: actions/cache@v4.1.2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: download dist folder
+        uses: actions/download-artifact@v4.1.8
+        with:
+          name: dist
+          path: dist
 
       - name: Hello World (rollup)
         uses: ./examples/rollup
@@ -71,6 +127,20 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4.1.7
 
+      - name: restore pnpm cache
+        uses: actions/cache@v4.1.2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: download dist folder
+        uses: actions/download-artifact@v4.1.8
+        with:
+          name: dist
+          path: dist
+
       - name: Hello World (rspack)
         uses: ./examples/rspack
 
@@ -82,11 +152,19 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4.1.7
 
-      - name: debug
-        run: |
-          ls -la ./examples
-          ls -la ./examples/vite
+      - name: restore pnpm cache
+        uses: actions/cache@v4.1.2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
 
+      - name: download dist folder
+        uses: actions/download-artifact@v4.1.8
+        with:
+          name: dist
+          path: dist
 
       - name: Hello World (vite)
         uses: ./examples/vite
@@ -98,6 +176,20 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4.1.7
+
+      - name: restore pnpm cache
+        uses: actions/cache@v4.1.2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: download dist folder
+        uses: actions/download-artifact@v4.1.8
+        with:
+          name: dist
+          path: dist
 
       - name: Hello World (webpack)
         uses: ./examples/webpack
