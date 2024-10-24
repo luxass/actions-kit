@@ -5,6 +5,7 @@
   "packageManager": "pnpm@9.12.0",
   "scripts": {
     "build": "turbo run build --filter \"./packages/*\" --concurrency=15",
+    "build:all": "turbo run build --concurrency=15",
     "dev": "turbo watch dev --filter \"./packages/*\"",
     "docs:dev": "pnpm -C '@actions-kit/docs' run dev",
     "docs:build": "pnpm -C '@actions-kit/docs' run build",

@@ -28,7 +28,7 @@ jobs:
         run: pnpm install
 
       - name: build
-        run: pnpm build
+        run: pnpm build:all
 
   esbuild:
     runs-on: ubuntu-latest
