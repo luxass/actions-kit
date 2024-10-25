@@ -1,0 +1,53 @@
+# See https://github.com/actions/labeler
+
+"📚 documentation":
+  - changed-files:
+      - any-glob-to-any-file: docs/**
+
+"pkg: action-schema":
+  - changed-files:
+      - any-glob-to-any-file: packages/action-schema/**
+
+"pkg: actions-utils":
+  - changed-files:
+      - any-glob-to-any-file: packages/actions-utils/**
+
+"pkg: actions-kit":
+  - changed-files:
+      - any-glob-to-any-file: packages/actions-kit/**
+
+"pkg: esbuild-builder":
+  - changed-files:
+      - any-glob-to-any-file: packages/builders/esbuild/**
+
+"pkg: rolldown-builder":
+  - changed-files:
+      - any-glob-to-any-file: packages/builders/rolldown/**
+
+"pkg: rollup-builder":
+  - changed-files:
+      - any-glob-to-any-file: packages/builders/rollup/**
+
+"pkg: rspack-builder":
+  - changed-files:
+      - any-glob-to-any-file: packages/builders/rspack/**
+
+"pkg: vite-builder":
+  - changed-files:
+      - any-glob-to-any-file: packages/builders/vite/**
+
+"pkg: webpack-builder":
+  - changed-files:
+      - any-glob-to-any-file: packages/builders/webpack/**
+
+"pkg: config":
+  - changed-files:
+      - any-glob-to-any-file: packages/config/**
+
+"pkg: create-action":
+  - changed-files:
+      - any-glob-to-any-file: packages/create-action/**
+
+"pkg: unplugin":
+  - changed-files:
+      - any-glob-to-any-file: packages/unplugin/**
