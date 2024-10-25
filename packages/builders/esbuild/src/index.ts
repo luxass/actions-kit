@@ -40,7 +40,7 @@ export async function build({ cwd, config, libraryType, outputFileName }: Builde
 
 	const result = await build(
 		// TODO: fix later
-		esbuildOptions as ESBuildBuildOptions
+		esbuildOptions as ESBuildBuildOptions,
 	);
 
 	consola.info("Build complete", result);

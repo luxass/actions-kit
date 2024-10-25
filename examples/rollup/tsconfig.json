@@ -1,9 +1,7 @@
 {
   "extends": ["../../tsconfig.base.json"],
   "compilerOptions": {
-    "types": [
-      "@actions-kit/rollup-builder/types"
-    ]
+    "types": ["@actions-kit/rollup-builder/types"]
   },
   "include": ["*.ts"]
 }

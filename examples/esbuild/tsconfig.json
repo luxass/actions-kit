@@ -1,9 +1,7 @@
 {
   "extends": ["../../tsconfig.base.json"],
   "compilerOptions": {
-    "types": [
-      "@actions-kit/esbuild-builder/types"
-    ]
+    "types": ["@actions-kit/esbuild-builder/types"]
   },
   "include": ["*.ts"]
 }

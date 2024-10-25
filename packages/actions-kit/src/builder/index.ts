@@ -25,19 +25,17 @@ export async function build(cwd: string, config: ActionsKitConfig) {
 
 	// TODO: fail if builder is not installed, with a pretty error message :)!
 
-
 	consola.info(`building with ${config.builder}...`);
 
 	const outputFileName = await inferOutputFilename(config);
 	const libraryType = await inferModuleType(config, outputFileName);
-
 
 	const options = {
 		config,
 		cwd,
 		libraryType,
 		outputFileName,
-	}
+	};
 
 	if (config.builder === "rspack") {
 		const { build } = await import("@actions-kit/rspack-builder").then((m) => m);

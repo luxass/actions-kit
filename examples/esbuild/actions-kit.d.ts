@@ -4,13 +4,8 @@
 
 import type * as core from "@actions/core";
 
-
-
 declare module "@actions/core" {
+	type ActionInputName = "name";
 
-  type ActionInputName = "name";
-
-  export function getInput(name: ActionInputName, options?: core.InputOptions): string;
-
-
+	export function getInput(name: ActionInputName, options?: core.InputOptions): string;
 }

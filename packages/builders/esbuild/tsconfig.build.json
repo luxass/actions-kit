@@ -1,7 +1,4 @@
 {
   "extends": ["../../../tsconfig.base.build.json"],
-  "include": [
-    "./esbuild.d.ts",
-    "src/**/*.ts"
-  ]
+  "include": ["./esbuild.d.ts", "src/**/*.ts"]
 }
