@@ -11,7 +11,7 @@ export interface BuilderOptions {
 }
 
 export async function build({ cwd, config, libraryType, outputFileName }: BuilderOptions) {
-	const webpack = await import("webpack").then((m) => m.webpack);
+	const webpack = await import("webpack").then((m) => m.default);
 	const webpackActionsKit = await import("unplugin-actions-kit/webpack").then((m) => m.default);
 
 	const webpackOptions = defu(config.webpack, {
@@ -55,7 +55,7 @@ export async function build({ cwd, config, libraryType, outputFileName }: Builde
 		},
 	} satisfies Configuration);
 
-	const compiler = webpack(webpackOptions);
+	const compiler = webpack.webpack(webpackOptions);
 
 	const stats = await new Promise<Stats | undefined>((resolve, reject) =>
 		compiler.run((err, stats) => {
