@@ -36,6 +36,7 @@
         "default": "./dist/index.cjs"
       }
     },
+    "./types": "./rspack.d.ts",
     "./package.json": "./package.json"
   },
   "main": "dist/index.cjs",
