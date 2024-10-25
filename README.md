@@ -3,10 +3,10 @@
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 
-A tiny toolkit for GitHub Actions.
+A toolkit for GitHub Actions.
 
 > [!WARNING]
-> This package is still in development, and can change at any time.
+> This package is under going huge refactoring, to see the old version, please refer to the [2a16e8b9d5b2154bdbde21c814ca1b90ceb8ed3c](https://github.com/luxass/actions-kit/tree/2a16e8b9d5b2154bdbde21c814ca1b90ceb8ed3c).
 
 ## 📦 Installation
 
