@@ -1,8 +1,8 @@
 import { join } from "node:path";
-import type { ActionsKitConfig } from "@actions-kit/config";
+import type { ActionsKitConfig } from "@actions-sdk/config";
 import { readFile } from "node:fs/promises";
 import Yaml from "js-yaml";
-import { ACTION_SCHEMA, type Action } from "@actions-kit/action-schema";
+import { ACTION_SCHEMA, type Action } from "@actions-sdk/action-schema";
 
 export async function inferOutputFilename(config: ActionsKitConfig): Promise<string> {
 	if (

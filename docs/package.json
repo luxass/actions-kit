@@ -1,5 +1,5 @@
 {
-  "name": "@actions-kit/docs",
+  "name": "@actions-sdk/docs",
   "private": true,
   "scripts": {
     "dev": "vitepress dev",
@@ -7,6 +7,7 @@
     "preview": "vitepress preview"
   },
   "dependencies": {
-    "vitepress": "catalog:"
+    "vitepress": "catalog:",
+    "vitepress-plugin-group-icons": "catalog:"
   }
 }

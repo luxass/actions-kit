@@ -1,5 +1,5 @@
 {
-  "name": "@actions-kit/config",
+  "name": "@actions-sdk/config",
   "version": "0.1.0",
   "description": "Config module for Actions Kit",
   "type": "module",
@@ -50,7 +50,7 @@
   },
   "dependencies": {
     "zod": "catalog:",
-    "@actions-kit/action-schema": "workspace:*",
+    "@actions-sdk/action-schema": "workspace:*",
     "c12": "catalog:"
   },
   "devDependencies": {

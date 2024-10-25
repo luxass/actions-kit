@@ -1,6 +1,6 @@
 /// <reference types="../vite.d.ts" />
 
-import type { ActionsKitConfig } from "@actions-kit/config";
+import type { ActionsKitConfig } from "@actions-sdk/config";
 import { defu } from "defu";
 import type { InlineConfig } from "vite";
 import { join, resolve } from "node:path";

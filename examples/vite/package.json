@@ -1,5 +1,5 @@
 {
-  "name": "@actions-kit/vite-example",
+  "name": "@actions-sdk/vite-example",
   "private": true,
   "scripts": {
     "build": "actions-kit build"
@@ -8,7 +8,7 @@
     "@actions/core": "catalog:"
   },
   "devDependencies": {
-    "@actions-kit/action-utils": "workspace:*",
+    "@actions-sdk/action-utils": "workspace:*",
     "actions-kit": "workspace:*",
     "typescript": "catalog:",
     "@types/node": "catalog:",

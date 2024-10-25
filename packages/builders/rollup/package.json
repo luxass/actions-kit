@@ -1,5 +1,5 @@
 {
-  "name": "@actions-kit/rollup-builder",
+  "name": "@actions-sdk/rollup-builder",
   "version": "0.1.0",
   "description": "Rollup builder for Actions Kit",
   "type": "module",
@@ -74,6 +74,6 @@
     "@rollup/plugin-typescript": "catalog:",
     "@rollup/plugin-node-resolve": "catalog:",
     "@rollup/plugin-commonjs": "catalog:",
-    "@actions-kit/config": "workspace:*"
+    "@actions-sdk/config": "workspace:*"
   }
 }

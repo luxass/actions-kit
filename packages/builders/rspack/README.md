@@ -1,3 +1,3 @@
-# @actions-kit/rspack-builder
+# @actions-sdk/rspack-builder
 
 Rspack builder for Actions Kit.

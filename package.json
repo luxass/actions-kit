@@ -1,5 +1,5 @@
 {
-  "name": "@actions-kit/monorepo",
+  "name": "@actions-sdk/monorepo",
   "type": "module",
   "private": true,
   "packageManager": "pnpm@9.12.0",
@@ -22,6 +22,8 @@
     "@types/node": "catalog:",
     "typescript": "catalog:",
     "vitest": "catalog:",
-    "turbo": "catalog:"
+    "turbo": "catalog:",
+    "@changesets/changelog-github": "catalog:",
+    "@changesets/cli": "catalog:"
   }
 }

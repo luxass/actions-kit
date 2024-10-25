@@ -38,37 +38,37 @@ export async function build(cwd: string, config: ActionsKitConfig) {
 	};
 
 	if (config.builder === "rspack") {
-		const { build } = await import("@actions-kit/rspack-builder").then((m) => m);
+		const { build } = await import("@actions-sdk/rspack-builder").then((m) => m);
 
 		return build(options);
 	}
 
 	if (config.builder === "vite") {
-		const { build } = await import("@actions-kit/vite-builder").then((m) => m);
+		const { build } = await import("@actions-sdk/vite-builder").then((m) => m);
 
 		return build(options);
 	}
 
 	if (config.builder === "esbuild") {
-		const { build } = await import("@actions-kit/esbuild-builder").then((m) => m);
+		const { build } = await import("@actions-sdk/esbuild-builder").then((m) => m);
 
 		return build(options);
 	}
 
 	if (config.builder === "rolldown") {
-		const { build } = await import("@actions-kit/rolldown-builder").then((m) => m);
+		const { build } = await import("@actions-sdk/rolldown-builder").then((m) => m);
 
 		return build(options);
 	}
 
 	if (config.builder === "rollup") {
-		const { build } = await import("@actions-kit/rollup-builder").then((m) => m);
+		const { build } = await import("@actions-sdk/rollup-builder").then((m) => m);
 
 		return build(options);
 	}
 
 	if (config.builder === "webpack") {
-		const { build } = await import("@actions-kit/webpack-builder").then((m) => m);
+		const { build } = await import("@actions-sdk/webpack-builder").then((m) => m);
 
 		return build(options);
 	}

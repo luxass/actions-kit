@@ -1,5 +1,5 @@
 {
-  "name": "@actions-kit/rspack-builder",
+  "name": "@actions-sdk/rspack-builder",
   "version": "0.1.0",
   "description": "Rspack builder for Actions Kit",
   "type": "module",
@@ -68,6 +68,6 @@
     "typescript": "catalog:",
     "vitest": "catalog:",
     "@rspack/core": "catalog:",
-    "@actions-kit/config": "workspace:*"
+    "@actions-sdk/config": "workspace:*"
   }
 }

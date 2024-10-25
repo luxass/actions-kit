@@ -1,3 +1,3 @@
-# @actions-kit/vite-builder
+# @actions-sdk/vite-builder
 
 Vite builder for Actions Kit.

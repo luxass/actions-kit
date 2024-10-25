@@ -1,7 +1,7 @@
 {
   "extends": ["../../tsconfig.base.json"],
   "compilerOptions": {
-    "types": ["@actions-kit/rolldown-builder/types"]
+    "types": ["@actions-sdk/rolldown-builder/types"]
   },
   "include": ["*.ts"]
 }

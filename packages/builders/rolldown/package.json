@@ -1,5 +1,5 @@
 {
-  "name": "@actions-kit/rolldown-builder",
+  "name": "@actions-sdk/rolldown-builder",
   "version": "0.1.0",
   "description": "Rolldown builder for Actions Kit",
   "type": "module",
@@ -68,6 +68,6 @@
     "typescript": "catalog:",
     "vitest": "catalog:",
     "rolldown": "catalog:",
-    "@actions-kit/config": "workspace:*"
+    "@actions-sdk/config": "workspace:*"
   }
 }

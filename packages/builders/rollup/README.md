@@ -1,3 +1,3 @@
-# @actions-kit/rollup-builder
+# @actions-sdk/rollup-builder
 
 Rollup builder for Actions Kit.

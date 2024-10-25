@@ -1,1 +1,1 @@
-export { defineConfig, type ActionsKitConfig } from "@actions-kit/config";
+export { defineConfig, type ActionsKitConfig } from "@actions-sdk/config";

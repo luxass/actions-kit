@@ -62,41 +62,41 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@actions-kit/esbuild-builder": "workspace:*",
-    "@actions-kit/rolldown-builder": "workspace:*",
-    "@actions-kit/rollup-builder": "workspace:*",
-    "@actions-kit/rspack-builder": "workspace:*",
-    "@actions-kit/vite-builder": "workspace:*",
-    "@actions-kit/webpack-builder": "workspace:*"
+    "@actions-sdk/esbuild-builder": "workspace:*",
+    "@actions-sdk/rolldown-builder": "workspace:*",
+    "@actions-sdk/rollup-builder": "workspace:*",
+    "@actions-sdk/rspack-builder": "workspace:*",
+    "@actions-sdk/vite-builder": "workspace:*",
+    "@actions-sdk/webpack-builder": "workspace:*"
   },
   "peerDependenciesMeta": {
-    "@actions-kit/esbuild-builder": {
+    "@actions-sdk/esbuild-builder": {
       "optional": true
     },
-    "@actions-kit/rolldown-builder": {
+    "@actions-sdk/rolldown-builder": {
       "optional": true
     },
-    "@actions-kit/rollup-builder": {
+    "@actions-sdk/rollup-builder": {
       "optional": true
     },
-    "@actions-kit/rspack-builder": {
+    "@actions-sdk/rspack-builder": {
       "optional": true
     },
-    "@actions-kit/vite-builder": {
+    "@actions-sdk/vite-builder": {
       "optional": true
     },
-    "@actions-kit/webpack-builder": {
+    "@actions-sdk/webpack-builder": {
       "optional": true
     }
   },
   "dependencies": {
     "zod": "catalog:",
-    "@actions-kit/config": "workspace:*",
+    "@actions-sdk/config": "workspace:*",
     "cac": "catalog:",
     "consola": "catalog:",
     "defu": "catalog:",
     "unplugin-actions-kit": "workspace:*",
-    "@actions-kit/action-schema": "workspace:*",
+    "@actions-sdk/action-schema": "workspace:*",
     "js-yaml": "catalog:"
   },
   "devDependencies": {

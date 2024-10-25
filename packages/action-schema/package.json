@@ -1,5 +1,5 @@
 {
-  "name": "@actions-kit/action-schema",
+  "name": "@actions-sdk/action-schema",
   "version": "0.1.0",
   "description": "Zod Schema for GitHub Actions",
   "type": "module",
