@@ -30,11 +30,24 @@ const CONFIG_SCHEMA = z.object({
 
 export interface ActionsKitConfig extends z.input<typeof CONFIG_SCHEMA> {}
 
+/**
+ * Defines and returns an ActionsKit configuration.
+ *
+ * @param {ActionsKitConfig} config - The configuration object for ActionsKit.
+ * @returns {ActionsKitConfig} The provided configuration object.
+ */
 export function defineConfig(config: ActionsKitConfig): ActionsKitConfig {
 	return config;
 }
 
-export async function loadConfig(cwd = process.cwd(), configFile?: string) {
+/**
+ * Loads the configuration for the actions-kit package.
+ *
+ * @param {string} [cwd=process.cwd()] - The current working directory from which to load the configuration.
+ * @param {string} [configFile] - Optional path to a specific configuration file. Defaults to "actions-kit.config.ts".
+ * @returns {Promise<ActionsKitConfig>} - A promise that resolves to the parsed configuration object.
+ */
+export async function loadConfig(cwd: string = process.cwd(), configFile?: string): Promise<ActionsKitConfig> {
 	const result = await _loadConfig({
 		cwd,
 		dotenv: false,
@@ -44,5 +57,5 @@ export async function loadConfig(cwd = process.cwd(), configFile?: string) {
 		configFile: configFile || "actions-kit.config.ts",
 	});
 
-	return CONFIG_SCHEMA.parse(result.config);
+	return CONFIG_SCHEMA.parse(result.config ?? {});
 }
