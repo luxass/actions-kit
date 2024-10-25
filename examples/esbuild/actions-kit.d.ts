@@ -4,8 +4,18 @@
 
 import type * as core from "@actions/core";
 
-declare module "@actions/core" {
-	type ActionInputName = "name";
+declare global {
+  export const ACTION_INPUTS = {
+    "name": "name",
+  };
 
-	export function getInput(name: ActionInputName, options?: core.InputOptions): string;
+}
+
+declare module "@actions/core" {
+
+  type ActionInputName = "name";
+
+  export function getInput(name: ActionInputName, options?: core.InputOptions): string;
+
+
 }
