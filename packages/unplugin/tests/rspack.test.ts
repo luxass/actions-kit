@@ -58,8 +58,6 @@ it("expect no `actions-kit.d.ts` file generated if plugin not in use", async () 
 	const directoryJson = await fromFileSystem(join(import.meta.dirname, "fixtures/basic"));
 	const testdirPath = await testdir(directoryJson);
 
-	console.log(testdirPath);
-
 	expect(testdirPath).toBeDefined();
 
 	const result = await rspack(testdirPath, {
