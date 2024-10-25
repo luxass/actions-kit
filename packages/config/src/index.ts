@@ -47,7 +47,10 @@ export function defineConfig(config: ActionsKitConfig): ActionsKitConfig {
  * @param {string} [configFile] - Optional path to a specific configuration file. Defaults to "actions-kit.config.ts".
  * @returns {Promise<ActionsKitConfig>} - A promise that resolves to the parsed configuration object.
  */
-export async function loadConfig(cwd: string = process.cwd(), configFile?: string): Promise<ActionsKitConfig> {
+export async function loadConfig(
+	cwd: string = process.cwd(),
+	configFile?: string,
+): Promise<ActionsKitConfig> {
 	const result = await _loadConfig({
 		cwd,
 		dotenv: false,
