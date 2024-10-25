@@ -32,7 +32,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4.0.4
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Get pnpm store directory
         id: pnpm-cache
@@ -51,7 +51,7 @@ jobs:
         run: pnpm install
 
       - name: Check packages for common errors
-        run: pnpm turbo --filter "./packages/**" build lint test typecheck
+        run: pnpm turbo --filter "./packages/**" lint test typecheck
 
       - name: Create Release
         id: changeset
