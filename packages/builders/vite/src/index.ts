@@ -1,3 +1,5 @@
+/// <reference types="../vite.d.ts" />
+
 import type { ActionsKitConfig } from "@actions-kit/config";
 import { defu } from "defu";
 import type { InlineConfig } from "vite";

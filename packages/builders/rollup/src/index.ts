@@ -1,3 +1,4 @@
+/// <reference types="../rollup.d.ts" />
 import type { ActionsKitConfig } from "@actions-kit/config";
 import { defu } from "defu";
 import type { RollupOptions } from "rollup";

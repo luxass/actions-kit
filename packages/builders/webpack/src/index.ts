@@ -1,3 +1,5 @@
+/// <reference types="../webpack.d.ts" />
+
 import type { ActionsKitConfig } from "@actions-kit/config";
 import { defu } from "defu";
 import type { Configuration, Stats } from "webpack";

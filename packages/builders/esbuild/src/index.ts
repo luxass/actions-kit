@@ -1,3 +1,4 @@
+/// <reference types="../esbuild.d.ts" />
 import type { ActionsKitConfig } from "@actions-kit/config";
 import { defu } from "defu";
 import type { BuildOptions as ESBuildBuildOptions } from "esbuild";
