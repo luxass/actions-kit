@@ -1,0 +1,109 @@
+{
+  "name": "actions-kit",
+  "version": "0.1.0",
+  "description": "A toolkit for GitHub Actions",
+  "type": "module",
+  "author": {
+    "name": "Lucas Nørgård",
+    "email": "lucasnrgaard@gmail.com",
+    "url": "https://luxass.dev"
+  },
+  "packageManager": "pnpm@9.12.1",
+  "license": "MIT",
+  "homepage": "https://github.com/luxass/actions-kit",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luxass/actions-kit.git",
+    "directory": "packages/actions-kit"
+  },
+  "bugs": {
+    "url": "https://github.com/luxass/actions-kit/issues"
+  },
+  "keywords": [
+    "actions",
+    "github actions",
+    "toolkit"
+  ],
+  "bin": {
+    "actions-kit": "./bin/actions-kit.mjs"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./config": {
+      "import": {
+        "types": "./dist/config.d.ts",
+        "default": "./dist/config.mjs"
+      },
+      "require": {
+        "types": "./dist/config.d.cts",
+        "default": "./dist/config.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup --tsconfig tsconfig.build.json",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@actions-kit/esbuild-builder": "workspace:*",
+    "@actions-kit/rolldown-builder": "workspace:*",
+    "@actions-kit/rollup-builder": "workspace:*",
+    "@actions-kit/rspack-builder": "workspace:*",
+    "@actions-kit/vite-builder": "workspace:*",
+    "@actions-kit/webpack-builder": "workspace:*"
+  },
+  "peerDependenciesMeta": {
+    "@actions-kit/esbuild-builder": {
+      "optional": true
+    },
+    "@actions-kit/rolldown-builder": {
+      "optional": true
+    },
+    "@actions-kit/rollup-builder": {
+      "optional": true
+    },
+    "@actions-kit/rspack-builder": {
+      "optional": true
+    },
+    "@actions-kit/vite-builder": {
+      "optional": true
+    },
+    "@actions-kit/webpack-builder": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "zod": "catalog:",
+    "@actions-kit/config": "workspace:*",
+    "cac": "catalog:",
+    "consola": "catalog:",
+    "defu": "catalog:",
+    "unplugin-actions-kit": "workspace:*",
+    "@actions-kit/action-schema": "workspace:*",
+    "js-yaml": "catalog:"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "catalog:",
+    "@types/node": "catalog:",
+    "tsup": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}
