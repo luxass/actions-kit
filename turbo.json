@@ -1,6 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "ui": "tui",
+  "ui": "stream",
   "globalDependencies": ["**/.env.*local"],
   "globalPassThroughEnv": ["NODE", "NODE_ENV", "CI"],
   "tasks": {
@@ -17,8 +17,7 @@
     },
     "dev": {
       "cache": false,
-      "persistent": true,
-      "interactive": true
+      "persistent": true
     },
     "clean": {
       "cache": false

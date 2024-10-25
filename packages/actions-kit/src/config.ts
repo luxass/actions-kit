@@ -1,30 +1,36 @@
 import { z } from "zod";
 import { ACTION_SCHEMA } from "@actions-kit/action-schema";
-import type { Configuration as RspackConfig } from "@rspack/core";
-import type { UserConfig as ViteConfig } from "vite";
-import type { BuildOptions } from "esbuild";
-import type { InputOptions as RolldownInputOptions } from "rolldown";
-import type { InputOptions as RollupInputOptions } from "rollup";
-import type { Configuration as WebpackConfig } from "webpack";
-
 import { loadConfig as _loadConfig } from "c12";
 
 const CONFIG_SCHEMA = z.object({
+	/**
+	 * Whether to write the action.yml file, should be updated based
+	 * on the `action` field.
+	 *
+	 * @default false
+	 */
 	writeYaml: z.boolean().default(false),
+
+	/**
+	 * The GitHub Action configuration.
+	 */
 	action: ACTION_SCHEMA.optional(),
+
+	/**
+	 * Inject `inputs` and `outputs` into the global scope.
+	 */
+	inject: z.enum(["inputs", "outputs"]).or(z.literal(true)).optional(),
+
+	/**
+	 * The "builder" to use for building the action.
+	 * @default "rspack"
+	 */
 	builder: z.enum(["esbuild", "rolldown", "rollup", "rspack", "vite", "webpack"]).default("rspack"),
 });
 
-export type Config = z.input<typeof CONFIG_SCHEMA> & {
-	rspack?: Pick<RspackConfig, "plugins">;
-	vite?: Pick<ViteConfig, "plugins">;
-	esbuild?: Pick<BuildOptions, "plugins">;
-	rolldown?: Pick<RolldownInputOptions, "plugins">;
-	rollup?: Pick<RollupInputOptions, "plugins">;
-	webpack?: Pick<WebpackConfig, "plugins">;
-};
+export interface ActionsKitConfig extends z.input<typeof CONFIG_SCHEMA> {}
 
-export function defineConfig(config: Config): Config {
+export function defineConfig(config: ActionsKitConfig): ActionsKitConfig {
 	return config;
 }
 

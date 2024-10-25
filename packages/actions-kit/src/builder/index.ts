@@ -1,16 +1,11 @@
-import { build as buildRspack } from "./rspack";
-import { build as buildWebpack } from "./webpack";
-import { build as buildRolldown } from "./rolldown";
-import { build as buildRollup } from "./rollup";
-import { build as buildEsbuild } from "./esbuild";
-import { build as buildVite } from "./vite";
-import type { Config } from "../config";
+import type { ActionsKitConfig } from "../config";
 import consola from "consola";
 import { writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import Yaml from "js-yaml";
+import { inferOutputFilename, inferModuleType } from "../utils";
 
-export async function build(cwd: string, config: Config) {
+export async function build(cwd: string, config: ActionsKitConfig) {
 	if (config?.writeYaml) {
 		consola.info("writing action.yml...");
 		const action = config.action;
@@ -28,29 +23,56 @@ export async function build(cwd: string, config: Config) {
 		await writeFile(join(cwd, "action.yml"), actionYaml);
 	}
 
+	// TODO: fail if builder is not installed, with a pretty error message :)!
+
+
 	consola.info(`building with ${config.builder}...`);
+
+	const outputFileName = await inferOutputFilename(config);
+	const libraryType = await inferModuleType(config, outputFileName);
+
+
+	const options = {
+		config,
+		cwd,
+		libraryType,
+		outputFileName,
+	}
+
 	if (config.builder === "rspack") {
-		return buildRspack(config);
+		const { build } = await import("@actions-kit/rspack-builder").then((m) => m);
+
+		return build(options);
 	}
 
 	if (config.builder === "vite") {
-		return buildVite(config);
+		const { build } = await import("@actions-kit/vite-builder").then((m) => m);
+
+		return build(options);
 	}
 
 	if (config.builder === "esbuild") {
-		return buildEsbuild(config);
+		const { build } = await import("@actions-kit/esbuild-builder").then((m) => m);
+
+		return build(options);
 	}
 
 	if (config.builder === "rolldown") {
-		return buildRolldown(config);
+		const { build } = await import("@actions-kit/rolldown-builder").then((m) => m);
+
+		return build(options);
 	}
 
 	if (config.builder === "rollup") {
-		return buildRollup(config);
+		const { build } = await import("@actions-kit/rollup-builder").then((m) => m);
+
+		return build(options);
 	}
 
 	if (config.builder === "webpack") {
-		return buildWebpack(config);
+		const { build } = await import("@actions-kit/webpack-builder").then((m) => m);
+
+		return build(options);
 	}
 
 	throw new Error(`Unknown builder: ${config.builder}`);

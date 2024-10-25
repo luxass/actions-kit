@@ -8,6 +8,7 @@
     "@actions/core": "catalog:"
   },
   "devDependencies": {
+    "@actions-kit/esbuild-builder": "workspace:*",
     "@actions-kit/action-utils": "workspace:*",
     "actions-kit": "workspace:*",
     "typescript": "catalog:",

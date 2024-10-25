@@ -1,10 +1,10 @@
 import { join } from "node:path";
-import type { Config } from "./config";
+import type { ActionsKitConfig } from "./config";
 import { readFile } from "node:fs/promises";
 import Yaml from "js-yaml";
 import { ACTION_SCHEMA, type Action } from "@actions-kit/action-schema";
 
-export async function inferOutputFilename(config: Config): Promise<string> {
+export async function inferOutputFilename(config: ActionsKitConfig): Promise<string> {
 	if (
 		config.action != null &&
 		config.writeYaml &&
@@ -52,7 +52,7 @@ async function readYaml(path: string): Promise<Action | null> {
 }
 
 export async function inferModuleType(
-	config: Config,
+	config: ActionsKitConfig,
 	outputFileName: string,
 ): Promise<"esm" | "cjs"> {
 	if (outputFileName.endsWith(".cjs")) return "cjs";

@@ -1,4 +1,9 @@
 {
   "extends": ["../../tsconfig.base.json"],
+  "compilerOptions": {
+    "types": [
+      "@actions-kit/vite-builder/types"
+    ]
+  },
   "include": ["*.ts"]
 }

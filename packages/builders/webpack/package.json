@@ -1,0 +1,76 @@
+{
+  "name": "@actions-kit/webpack-builder",
+  "version": "0.1.0",
+  "description": "Webpack builder for Actions Kit",
+  "type": "module",
+  "author": {
+    "name": "Lucas Nørgård",
+    "email": "lucasnrgaard@gmail.com",
+    "url": "https://luxass.dev"
+  },
+  "packageManager": "pnpm@9.12.1",
+  "license": "MIT",
+  "homepage": "https://github.com/luxass/actions-kit",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luxass/actions-kit.git",
+    "directory": "packages/builders/webpack"
+  },
+  "bugs": {
+    "url": "https://github.com/luxass/actions-kit/issues"
+  },
+  "keywords": [
+    "webpack",
+    "actions-kit",
+    "github actions",
+    "actions"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./types": "./webpack.d.ts",
+    "./package.json": "./package.json"
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "webpack.d.ts"
+  ],
+  "scripts": {
+    "build": "tsup --tsconfig tsconfig.build.json",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "webpack": "catalog:",
+    "actions-kit": "workspace:*"
+  },
+  "dependencies": {
+    "zod": "catalog:",
+    "consola": "catalog:",
+    "defu": "catalog:",
+    "unplugin-actions-kit": "workspace:*",
+    "js-yaml": "catalog:",
+    "@swc/core": "catalog:",
+    "swc-loader": "catalog:"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "catalog:",
+    "@types/node": "catalog:",
+    "tsup": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:",
+    "webpack": "catalog:",
+    "actions-kit": "workspace:*"
+  }
+}

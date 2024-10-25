@@ -4,12 +4,7 @@
 
 import type * as core from "@actions/core";
 
-declare global {
-  export const ACTION_INPUTS = {
-    "name": "name",
-  };
 
-}
 
 declare module "@actions/core" {
 

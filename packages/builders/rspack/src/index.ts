@@ -1,26 +1,25 @@
-// TODO: remove this at some point
-//       will need to debug why the dev build fails
-//       when its not there.
-import "zod";
-import type { Configuration as WebpackConfig, Stats } from "webpack";
-import { join, resolve } from "node:path";
+import type { ActionsKitConfig } from "actions-kit/config";
 import { defu } from "defu";
-import actionsKit from "unplugin-actions-kit/webpack";
-import type { Config } from "../config";
-import { inferModuleType, inferOutputFilename } from "../utils";
+import type { Configuration, Stats } from "@rspack/core";
+import { join, resolve } from "node:path";
 
-export async function build(config: Config) {
-	const webpack = await import("webpack").then((m) => m.default);
-	const outputFileName = await inferOutputFilename(config);
-	const libraryType = await inferModuleType(config, outputFileName);
+export interface BuilderOptions {
+	cwd: string;
+	config: ActionsKitConfig;
+	libraryType: "esm" | "cjs";
+	outputFileName: string;
+}
 
-	const webpackConfig = config.webpack;
-	const webpackOptions = defu(webpackConfig, {
+export async function build({ cwd, config, libraryType, outputFileName }: BuilderOptions) {
+	const rspack = await import("@rspack/core").then((m) => m.rspack);
+	const rspackActionsKit = await import("unplugin-actions-kit/rspack").then((m) => m.default);
+
+	const rspackOptions = defu(config.rspack, {
 		target: "node",
 		mode: "production",
 		entry: "./src/index.ts",
 		output: {
-			path: resolve(process.cwd(), "dist"),
+			path: resolve(cwd, "dist"),
 			filename: outputFileName,
 			library: {
 				type: libraryType === "esm" ? "module" : "commonjs2",
@@ -50,26 +49,33 @@ export async function build(config: Config) {
 				},
 			],
 		},
+		experiments: {
+			rspackFuture: {
+				bundlerInfo: {
+					force: true,
+				},
+			},
+		},
 		plugins: [
-			actionsKit({
+			rspackActionsKit({
 				// TODO: allow users to specify it.
-				actionPath: join(process.cwd(), "./action.yml"),
-				inject: true,
+				actionPath: join(cwd, "./action.yml"),
+				inject: config.inject,
 			}),
 		],
 		externals: {
 			keytar: "commonjs keytar",
 		},
-	} satisfies WebpackConfig);
+	} satisfies Configuration);
 
-	const compiler = webpack.webpack(webpackOptions);
+	const compiler = rspack(rspackOptions);
 
 	const stats = await new Promise<Stats | undefined>((resolve, reject) =>
 		compiler.run((err, stats) => {
 			if (err) {
 				reject(err);
 			} else {
-				resolve(stats as Stats);
+				resolve(stats as unknown as Stats);
 			}
 		}),
 	);

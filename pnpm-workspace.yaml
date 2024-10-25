@@ -1,5 +1,5 @@
 packages:
-  - packages/*
+  - packages/**
   - docs
   - playground
   - examples/*
@@ -34,3 +34,5 @@ catalog:
   zod: ^3.23.8
   c12: ^2.0.1
   defu: ^6.1.4
+  "@swc/core": ^1.7.39
+  "swc-loader": ^0.2.6

@@ -58,46 +58,34 @@
   ],
   "scripts": {
     "build": "tsup --tsconfig tsconfig.build.json",
-    "dev": "tsup",
+    "dev": "tsup --watch",
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@rspack/core": "catalog:",
-    "vite": "catalog:",
-    "esbuild": "catalog:",
-    "rollup": "catalog:",
-    "rolldown": "catalog:",
-    "webpack": "catalog:",
-    "@rollup/plugin-typescript": "catalog:",
-    "@rollup/plugin-node-resolve": "catalog:",
-    "@rollup/plugin-commonjs": "catalog:"
+    "@actions-kit/esbuild-builder": "workspace:*",
+    "@actions-kit/rolldown-builder": "workspace:*",
+    "@actions-kit/rollup-builder": "workspace:*",
+    "@actions-kit/rspack-builder": "workspace:*",
+    "@actions-kit/vite-builder": "workspace:*",
+    "@actions-kit/webpack-builder": "workspace:*"
   },
   "peerDependenciesMeta": {
-    "@rspack/core": {
+    "@actions-kit/esbuild-builder": {
       "optional": true
     },
-    "vite": {
+    "@actions-kit/rolldown-builder": {
       "optional": true
     },
-    "esbuild": {
+    "@actions-kit/rollup-builder": {
       "optional": true
     },
-    "rollup": {
+    "@actions-kit/rspack-builder": {
       "optional": true
     },
-    "rolldown": {
+    "@actions-kit/vite-builder": {
       "optional": true
     },
-    "webpack": {
-      "optional": true
-    },
-    "@rollup/plugin-typescript": {
-      "optional": true
-    },
-    "@rollup/plugin-node-resolve": {
-      "optional": true
-    },
-    "@rollup/plugin-commonjs": {
+    "@actions-kit/webpack-builder": {
       "optional": true
     }
   },
@@ -116,15 +104,6 @@
     "@types/node": "catalog:",
     "tsup": "catalog:",
     "typescript": "catalog:",
-    "vitest": "catalog:",
-    "@rspack/core": "catalog:",
-    "vite": "catalog:",
-    "esbuild": "catalog:",
-    "rollup": "catalog:",
-    "rolldown": "catalog:",
-    "webpack": "catalog:",
-    "@rollup/plugin-typescript": "catalog:",
-    "@rollup/plugin-node-resolve": "catalog:",
-    "@rollup/plugin-commonjs": "catalog:"
+    "vitest": "catalog:"
   }
 }
