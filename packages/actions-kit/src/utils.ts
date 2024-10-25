@@ -1,5 +1,5 @@
 import { join } from "node:path";
-import type { ActionsKitConfig } from "./config";
+import type { ActionsKitConfig } from "@actions-kit/config";
 import { readFile } from "node:fs/promises";
 import Yaml from "js-yaml";
 import { ACTION_SCHEMA, type Action } from "@actions-kit/action-schema";

@@ -52,8 +52,7 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@rspack/core": "catalog:",
-    "actions-kit": "workspace:*"
+    "@rspack/core": "catalog:"
   },
   "dependencies": {
     "zod": "catalog:",
@@ -69,6 +68,6 @@
     "typescript": "catalog:",
     "vitest": "catalog:",
     "@rspack/core": "catalog:",
-    "actions-kit": "workspace:*"
+    "@actions-kit/config": "workspace:*"
   }
 }

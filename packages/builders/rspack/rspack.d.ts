@@ -1,4 +1,4 @@
-declare module "actions-kit/config" {
+declare module "@actions-kit/config" {
 	import type { Configuration } from "@rspack/core";
 
 	interface ActionsKitConfig {

@@ -1,5 +1,5 @@
 import cac, { type CAC, type Command } from "cac";
-import { loadConfig } from "./config";
+import { loadConfig } from "@actions-kit/config";
 const cli = cac("actions-kit");
 
 cli

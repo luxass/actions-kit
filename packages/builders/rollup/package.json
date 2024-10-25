@@ -53,7 +53,6 @@
   },
   "peerDependencies": {
     "rollup": "catalog:",
-    "actions-kit": "workspace:*",
     "@rollup/plugin-typescript": "catalog:",
     "@rollup/plugin-node-resolve": "catalog:",
     "@rollup/plugin-commonjs": "catalog:"
@@ -75,6 +74,6 @@
     "@rollup/plugin-typescript": "catalog:",
     "@rollup/plugin-node-resolve": "catalog:",
     "@rollup/plugin-commonjs": "catalog:",
-    "actions-kit": "workspace:*"
+    "@actions-kit/config": "workspace:*"
   }
 }

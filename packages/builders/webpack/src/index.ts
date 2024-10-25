@@ -1,4 +1,4 @@
-import type { ActionsKitConfig } from "actions-kit/config";
+import type { ActionsKitConfig } from "@actions-kit/config";
 import { defu } from "defu";
 import type { Configuration, Stats } from "webpack";
 import { join, resolve } from "node:path";

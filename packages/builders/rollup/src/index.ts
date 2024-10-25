@@ -1,4 +1,4 @@
-import type { ActionsKitConfig } from "actions-kit/config";
+import type { ActionsKitConfig } from "@actions-kit/config";
 import { defu } from "defu";
 import type { RollupOptions } from "rollup";
 import { join } from "node:path";

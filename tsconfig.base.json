@@ -9,7 +9,14 @@
       "@actions-kit/action-utils": ["packages/action-utils/src/index.ts"],
       "@actions-kit/action-utils/*": ["packages/action-utils/src/*"],
       "unplugin-actions-kit": ["packages/unplugin/src/index.ts"],
-      "@actions-kit/action-schema": ["packages/action-schema/src/index.ts"]
+      "@actions-kit/action-schema": ["packages/action-schema/src/index.ts"],
+      "@actions-kit/config": ["packages/config/src/index.ts"],
+      "@actions-kit/esbuild-builder": ["packages/builders/esbuild/src/index.ts"],
+      "@actions-kit/rolldown-builder": ["packages/builders/rolldown/src/index.ts"],
+      "@actions-kit/rollup-builder": ["packages/builders/rollup/src/index.ts"],
+      "@actions-kit/rspack-builder": ["packages/builders/rspack/src/index.ts"],
+      "@actions-kit/vite-builder": ["packages/builders/vite/src/index.ts"],
+      "@actions-kit/webpack-builder": ["packages/builders/webpack/src/index.ts"]
     }
   }
 }

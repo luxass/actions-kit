@@ -1,7 +1,7 @@
 {
-  "name": "@actions-kit/webpack-builder",
+  "name": "@actions-kit/config",
   "version": "0.1.0",
-  "description": "Webpack builder for Actions Kit",
+  "description": "Config module for Actions Kit",
   "type": "module",
   "author": {
     "name": "Lucas Nørgård",
@@ -14,16 +14,15 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/luxass/actions-kit.git",
-    "directory": "packages/builders/webpack"
+    "directory": "packages/config"
   },
   "bugs": {
     "url": "https://github.com/luxass/actions-kit/issues"
   },
   "keywords": [
-    "webpack",
-    "actions-kit",
+    "actions",
     "github actions",
-    "actions"
+    "toolkit"
   ],
   "exports": {
     ".": {
@@ -36,40 +35,28 @@
         "default": "./dist/index.cjs"
       }
     },
-    "./types": "./webpack.d.ts",
     "./package.json": "./package.json"
   },
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
-    "dist",
-    "webpack.d.ts"
+    "dist"
   ],
   "scripts": {
     "build": "tsup --tsconfig tsconfig.build.json",
     "dev": "tsup --watch",
     "typecheck": "tsc --noEmit"
   },
-  "peerDependencies": {
-    "webpack": "catalog:"
-  },
   "dependencies": {
     "zod": "catalog:",
-    "consola": "catalog:",
-    "defu": "catalog:",
-    "unplugin-actions-kit": "workspace:*",
-    "js-yaml": "catalog:",
-    "@swc/core": "catalog:",
-    "swc-loader": "catalog:"
+    "@actions-kit/action-schema": "workspace:*",
+    "c12": "catalog:"
   },
   "devDependencies": {
-    "@types/js-yaml": "catalog:",
     "@types/node": "catalog:",
     "tsup": "catalog:",
     "typescript": "catalog:",
-    "vitest": "catalog:",
-    "webpack": "catalog:",
-    "@actions-kit/config": "workspace:*"
+    "vitest": "catalog:"
   }
 }

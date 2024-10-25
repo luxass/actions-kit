@@ -52,8 +52,7 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "vite": "catalog:",
-    "actions-kit": "workspace:*"
+    "vite": "catalog:"
   },
   "dependencies": {
     "zod": "catalog:",
@@ -69,6 +68,6 @@
     "typescript": "catalog:",
     "vitest": "catalog:",
     "vite": "catalog:",
-    "actions-kit": "workspace:*"
+    "@actions-kit/config": "workspace:*"
   }
 }
