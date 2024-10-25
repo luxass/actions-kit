@@ -19,7 +19,7 @@ async function webpack(testdirPath: string, config: Configuration): Promise<Stat
 				rules: [
 					{
 						test: /\.tsx?$/,
-						loader: "ts-loader",
+						loader: require.resolve("ts-loader"),
 						exclude: /node_modules/,
 						options: {
 							transpileOnly: true,
@@ -57,7 +57,7 @@ async function webpack(testdirPath: string, config: Configuration): Promise<Stat
 }
 
 it("expect no `actions-kit.d.ts` file generated if plugin not in use", async () => {
-	const directoryJson = await fromFileSystem("./tests/fixtures/basic");
+	const directoryJson = await fromFileSystem(join(import.meta.dirname, "fixtures/basic"));
 	const testdirPath = await testdir(directoryJson);
 
 	expect(testdirPath).toBeDefined();
@@ -89,7 +89,7 @@ it("expect no `actions-kit.d.ts` file generated if plugin not in use", async () 
 });
 
 it("expect `actions-kit.d.ts` to be generated", async () => {
-	const directoryJson = await fromFileSystem("./tests/fixtures/basic");
+	const directoryJson = await fromFileSystem(join(import.meta.dirname, "fixtures/basic"));
 	const testdirPath = await testdir(directoryJson);
 
 	expect(testdirPath).toBeDefined();
@@ -128,7 +128,7 @@ it("expect `actions-kit.d.ts` to be generated", async () => {
 
 describe("augmentations", () => {
 	it("expect only inputs to be augmented", async () => {
-		const directoryJson = await fromFileSystem("./tests/fixtures/only-inputs");
+		const directoryJson = await fromFileSystem(join(import.meta.dirname, "fixtures/only-inputs"));
 		const testdirPath = await testdir(directoryJson);
 
 		expect(testdirPath).toBeDefined();
@@ -169,7 +169,7 @@ describe("augmentations", () => {
 	});
 
 	it("expect only outputs to be augmented", async () => {
-		const directoryJson = await fromFileSystem("./tests/fixtures/only-outputs");
+		const directoryJson = await fromFileSystem(join(import.meta.dirname, "fixtures/only-outputs"));
 		const testdirPath = await testdir(directoryJson);
 
 		expect(testdirPath).toBeDefined();
@@ -210,7 +210,7 @@ describe("augmentations", () => {
 	});
 
 	it("expect no augmentations", async () => {
-		const directoryJson = await fromFileSystem("./tests/fixtures/empty");
+		const directoryJson = await fromFileSystem(join(import.meta.dirname, "fixtures/empty"));
 		const testdirPath = await testdir(directoryJson);
 
 		expect(testdirPath).toBeDefined();
@@ -253,7 +253,7 @@ describe("augmentations", () => {
 
 describe("inject", () => {
 	it("expect `ACTION_INPUTS` in global scope", async () => {
-		const directoryJson = await fromFileSystem("./tests/fixtures/only-inputs");
+		const directoryJson = await fromFileSystem(join(import.meta.dirname, "fixtures/only-inputs"));
 		const testdirPath = await testdir(directoryJson);
 
 		expect(testdirPath).toBeDefined();
@@ -297,7 +297,7 @@ describe("inject", () => {
 	});
 
 	it("expect `ACTION_OUTPUTS` in global scope", async () => {
-		const directoryJson = await fromFileSystem("./tests/fixtures/only-outputs");
+		const directoryJson = await fromFileSystem(join(import.meta.dirname, "fixtures/only-outputs"));
 		const testdirPath = await testdir(directoryJson);
 
 		expect(testdirPath).toBeDefined();
@@ -341,7 +341,7 @@ describe("inject", () => {
 	});
 
 	it("expect `ACTION_INPUTS` & `ACTION_OUTPUTS` in global scope", async () => {
-		const directoryJson = await fromFileSystem("./tests/fixtures/basic");
+		const directoryJson = await fromFileSystem(join(import.meta.dirname, "fixtures/basic"));
 		const testdirPath = await testdir(directoryJson);
 
 		expect(testdirPath).toBeDefined();
@@ -385,7 +385,7 @@ describe("inject", () => {
 	});
 
 	it("expect no change in global scope", async () => {
-		const directoryJson = await fromFileSystem("./tests/fixtures/basic");
+		const directoryJson = await fromFileSystem(join(import.meta.dirname, "fixtures/basic"));
 		const testdirPath = await testdir(directoryJson);
 
 		expect(testdirPath).toBeDefined();
@@ -430,7 +430,7 @@ describe("inject", () => {
 });
 
 it("custom output path", async () => {
-	const directoryJson = await fromFileSystem("./tests/fixtures/basic");
+	const directoryJson = await fromFileSystem(join(import.meta.dirname, "fixtures/basic"));
 	const testdirPath = await testdir(directoryJson);
 
 	expect(testdirPath).toBeDefined();

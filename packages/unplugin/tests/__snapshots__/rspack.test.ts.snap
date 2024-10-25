@@ -32,13 +32,13 @@ return module.exports;
 // webpack/runtime/rspack_version
 (() => {
 __webpack_require__.rv = function () {
-	return "1.0.10";
+	return "1.0.14";
 };
 
 })();
 // webpack/runtime/rspack_unique_id
 (() => {
-__webpack_require__.ruid = "bundler=rspack@1.0.10";
+__webpack_require__.ruid = "bundler=rspack@1.0.14";
 
 })();
 /************************************************************************/
@@ -242,13 +242,13 @@ return module.exports;
 // webpack/runtime/rspack_version
 (() => {
 __webpack_require__.rv = function () {
-	return "1.0.10";
+	return "1.0.14";
 };
 
 })();
 // webpack/runtime/rspack_unique_id
 (() => {
-__webpack_require__.ruid = "bundler=rspack@1.0.10";
+__webpack_require__.ruid = "bundler=rspack@1.0.14";
 
 })();
 /************************************************************************/
@@ -463,13 +463,13 @@ return module.exports;
 // webpack/runtime/rspack_version
 (() => {
 __webpack_require__.rv = function () {
-	return "1.0.10";
+	return "1.0.14";
 };
 
 })();
 // webpack/runtime/rspack_unique_id
 (() => {
-__webpack_require__.ruid = "bundler=rspack@1.0.10";
+__webpack_require__.ruid = "bundler=rspack@1.0.14";
 
 })();
 /************************************************************************/
@@ -677,13 +677,13 @@ return module.exports;
 // webpack/runtime/rspack_version
 (() => {
 __webpack_require__.rv = function () {
-	return "1.0.10";
+	return "1.0.14";
 };
 
 })();
 // webpack/runtime/rspack_unique_id
 (() => {
-__webpack_require__.ruid = "bundler=rspack@1.0.10";
+__webpack_require__.ruid = "bundler=rspack@1.0.14";
 
 })();
 /************************************************************************/
@@ -903,13 +903,13 @@ return module.exports;
 // webpack/runtime/rspack_version
 (() => {
 __webpack_require__.rv = function () {
-	return "1.0.10";
+	return "1.0.14";
 };
 
 })();
 // webpack/runtime/rspack_unique_id
 (() => {
-__webpack_require__.ruid = "bundler=rspack@1.0.10";
+__webpack_require__.ruid = "bundler=rspack@1.0.14";
 
 })();
 /************************************************************************/
@@ -1129,13 +1129,13 @@ return module.exports;
 // webpack/runtime/rspack_version
 (() => {
 __webpack_require__.rv = function () {
-	return "1.0.10";
+	return "1.0.14";
 };
 
 })();
 // webpack/runtime/rspack_unique_id
 (() => {
-__webpack_require__.ruid = "bundler=rspack@1.0.10";
+__webpack_require__.ruid = "bundler=rspack@1.0.14";
 
 })();
 /************************************************************************/
@@ -1331,13 +1331,13 @@ return module.exports;
 // webpack/runtime/rspack_version
 (() => {
 __webpack_require__.rv = function () {
-	return "1.0.10";
+	return "1.0.14";
 };
 
 })();
 // webpack/runtime/rspack_unique_id
 (() => {
-__webpack_require__.ruid = "bundler=rspack@1.0.10";
+__webpack_require__.ruid = "bundler=rspack@1.0.14";
 
 })();
 /************************************************************************/
@@ -1574,13 +1574,13 @@ return module.exports;
 // webpack/runtime/rspack_version
 (() => {
 __webpack_require__.rv = function () {
-	return "1.0.10";
+	return "1.0.14";
 };
 
 })();
 // webpack/runtime/rspack_unique_id
 (() => {
-__webpack_require__.ruid = "bundler=rspack@1.0.10";
+__webpack_require__.ruid = "bundler=rspack@1.0.14";
 
 })();
 /************************************************************************/
@@ -1805,13 +1805,13 @@ return module.exports;
 // webpack/runtime/rspack_version
 (() => {
 __webpack_require__.rv = function () {
-	return "1.0.10";
+	return "1.0.14";
 };
 
 })();
 // webpack/runtime/rspack_unique_id
 (() => {
-__webpack_require__.ruid = "bundler=rspack@1.0.10";
+__webpack_require__.ruid = "bundler=rspack@1.0.14";
 
 })();
 /************************************************************************/
@@ -2027,13 +2027,13 @@ return module.exports;
 // webpack/runtime/rspack_version
 (() => {
 __webpack_require__.rv = function () {
-	return "1.0.10";
+	return "1.0.14";
 };
 
 })();
 // webpack/runtime/rspack_unique_id
 (() => {
-__webpack_require__.ruid = "bundler=rspack@1.0.10";
+__webpack_require__.ruid = "bundler=rspack@1.0.14";
 
 })();
 /************************************************************************/
