@@ -1,0 +1,14 @@
+name: Actions Kit Playground 2
+description: An Action built using Actions Kit
+author: luxass
+branding:
+  color: purple
+  icon: package
+inputs:
+  name:
+    required: true
+    default: World
+    description: Your name
+runs:
+  using: node20
+  main: index.cjs

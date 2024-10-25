@@ -1,0 +1,79 @@
+{
+  "name": "@actions-kit/rollup-builder",
+  "version": "0.1.0",
+  "description": "Rollup builder for Actions Kit",
+  "type": "module",
+  "author": {
+    "name": "Lucas Nørgård",
+    "email": "lucasnrgaard@gmail.com",
+    "url": "https://luxass.dev"
+  },
+  "packageManager": "pnpm@9.12.1",
+  "license": "MIT",
+  "homepage": "https://github.com/luxass/actions-kit",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luxass/actions-kit.git",
+    "directory": "packages/builders/rollup"
+  },
+  "bugs": {
+    "url": "https://github.com/luxass/actions-kit/issues"
+  },
+  "keywords": [
+    "rollup",
+    "actions-kit",
+    "github actions",
+    "actions"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./types": "./rollup.d.ts",
+    "./package.json": "./package.json"
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "rollup.d.ts"
+  ],
+  "scripts": {
+    "build": "tsup --tsconfig tsconfig.build.json",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "rollup": "catalog:",
+    "@rollup/plugin-typescript": "catalog:",
+    "@rollup/plugin-node-resolve": "catalog:",
+    "@rollup/plugin-commonjs": "catalog:"
+  },
+  "dependencies": {
+    "zod": "catalog:",
+    "consola": "catalog:",
+    "defu": "catalog:",
+    "unplugin-actions-kit": "workspace:*",
+    "js-yaml": "catalog:"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "catalog:",
+    "@types/node": "catalog:",
+    "tsup": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:",
+    "rollup": "catalog:",
+    "@rollup/plugin-typescript": "catalog:",
+    "@rollup/plugin-node-resolve": "catalog:",
+    "@rollup/plugin-commonjs": "catalog:",
+    "@actions-kit/config": "workspace:*"
+  }
+}

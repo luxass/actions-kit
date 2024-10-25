@@ -1,0 +1,7 @@
+{
+  "extends": ["../../tsconfig.base.json"],
+  "compilerOptions": {
+    "types": ["@actions-kit/rspack-builder/types"]
+  },
+  "include": ["*.ts"]
+}
