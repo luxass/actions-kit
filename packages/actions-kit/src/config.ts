@@ -19,7 +19,7 @@ const CONFIG_SCHEMA = z.object({
 	/**
 	 * Inject `inputs` and `outputs` into the global scope.
 	 */
-	inject: z.enum(["inputs", "outputs"]).or(z.literal(true)).optional(),
+	inject: z.enum(["inputs", "outputs"]).or(z.literal(true)).default(true),
 
 	/**
 	 * The "builder" to use for building the action.
