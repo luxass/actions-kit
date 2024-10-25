@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { ACTION_SCHEMA } from "@actions-kit/action-schema";
+import { ACTION_SCHEMA } from "@actions-sdk/action-schema";
 import { loadConfig as _loadConfig } from "c12";
 
 const CONFIG_SCHEMA = z.object({

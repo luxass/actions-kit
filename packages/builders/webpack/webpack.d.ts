@@ -1,4 +1,4 @@
-declare module "@actions-kit/config" {
+declare module "@actions-sdk/config" {
 	import type { Configuration } from "webpack";
 
 	interface ActionsKitConfig {

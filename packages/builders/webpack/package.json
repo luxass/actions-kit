@@ -1,5 +1,5 @@
 {
-  "name": "@actions-kit/webpack-builder",
+  "name": "@actions-sdk/webpack-builder",
   "version": "0.1.0",
   "description": "Webpack builder for Actions Kit",
   "type": "module",
@@ -70,6 +70,6 @@
     "typescript": "catalog:",
     "vitest": "catalog:",
     "webpack": "catalog:",
-    "@actions-kit/config": "workspace:*"
+    "@actions-sdk/config": "workspace:*"
   }
 }

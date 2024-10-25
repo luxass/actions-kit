@@ -6,18 +6,18 @@ Build GitHub Actions using ESBuild.
 
 ::: code-group
   ```bash [pnpm]
-  pnpm add -D actions-kit @actions-kit/esbuild-builder
+  pnpm add -D actions-kit @actions-sdk/esbuild-builder
   ```
 
   ```bash [yarn]
-  yarn add -D actions-kit @actions-kit/esbuild-builder
+  yarn add -D actions-kit @actions-sdk/esbuild-builder
   ```
 
   ```bash [npm]
-  npm install -D actions-kit @actions-kit/esbuild-builder
+  npm install -D actions-kit @actions-sdk/esbuild-builder
   ```
 
   ```bash [bun]
-  bun install -D actions-kit @actions-kit/esbuild-builder
+  bun install -D actions-kit @actions-sdk/esbuild-builder
   ```
 :::

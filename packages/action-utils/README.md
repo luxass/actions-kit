@@ -1,2 +1,2 @@
-# @actions-kit/action-utils
+# @actions-sdk/action-utils
 

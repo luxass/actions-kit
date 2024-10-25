@@ -1,5 +1,5 @@
 {
-  "name": "@actions-kit/esbuild-example",
+  "name": "@actions-sdk/esbuild-example",
   "private": true,
   "scripts": {
     "build": "actions-kit build"
@@ -8,8 +8,8 @@
     "@actions/core": "catalog:"
   },
   "devDependencies": {
-    "@actions-kit/esbuild-builder": "workspace:*",
-    "@actions-kit/action-utils": "workspace:*",
+    "@actions-sdk/esbuild-builder": "workspace:*",
+    "@actions-sdk/action-utils": "workspace:*",
     "actions-kit": "workspace:*",
     "typescript": "catalog:",
     "@types/node": "catalog:",

@@ -1,3 +1,3 @@
-# @actions-kit/rolldown-builder
+# @actions-sdk/rolldown-builder
 
 Rolldown builder for Actions Kit.

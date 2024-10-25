@@ -6,18 +6,18 @@ Build GitHub Actions using Rolldown.
 
 ::: code-group
   ```bash [pnpm]
-  pnpm add -D actions-kit @actions-kit/rolldown-builder
+  pnpm add -D actions-kit @actions-sdk/rolldown-builder
   ```
 
   ```bash [yarn]
-  yarn add -D actions-kit @actions-kit/rolldown-builder
+  yarn add -D actions-kit @actions-sdk/rolldown-builder
   ```
 
   ```bash [npm]
-  npm install -D actions-kit @actions-kit/rolldown-builder
+  npm install -D actions-kit @actions-sdk/rolldown-builder
   ```
 
   ```bash [bun]
-  bun install -D actions-kit @actions-kit/rolldown-builder
+  bun install -D actions-kit @actions-sdk/rolldown-builder
   ```
 :::

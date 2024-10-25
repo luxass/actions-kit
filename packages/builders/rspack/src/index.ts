@@ -1,5 +1,5 @@
 /// <reference types="../rspack.d.ts" />
-import type { ActionsKitConfig } from "@actions-kit/config";
+import type { ActionsKitConfig } from "@actions-sdk/config";
 import { defu } from "defu";
 import type { Configuration, Stats } from "@rspack/core";
 import { join, resolve } from "node:path";

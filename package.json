@@ -1,5 +1,5 @@
 {
-  "name": "@actions-kit/monorepo",
+  "name": "@actions-sdk/monorepo",
   "type": "module",
   "private": true,
   "packageManager": "pnpm@9.12.0",

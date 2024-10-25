@@ -135,10 +135,10 @@ importers:
         specifier: 'catalog:'
         version: 1.11.1
     devDependencies:
-      '@actions-kit/action-utils':
+      '@actions-sdk/action-utils':
         specifier: workspace:*
         version: link:../../packages/action-utils
-      '@actions-kit/esbuild-builder':
+      '@actions-sdk/esbuild-builder':
         specifier: workspace:*
         version: link:../../packages/builders/esbuild
       '@types/node':
@@ -160,7 +160,7 @@ importers:
         specifier: 'catalog:'
         version: 1.11.1
     devDependencies:
-      '@actions-kit/action-utils':
+      '@actions-sdk/action-utils':
         specifier: workspace:*
         version: link:../../packages/action-utils
       '@types/node':
@@ -182,7 +182,7 @@ importers:
         specifier: 'catalog:'
         version: 1.11.1
     devDependencies:
-      '@actions-kit/action-utils':
+      '@actions-sdk/action-utils':
         specifier: workspace:*
         version: link:../../packages/action-utils
       '@types/node':
@@ -204,7 +204,7 @@ importers:
         specifier: 'catalog:'
         version: 1.11.1
     devDependencies:
-      '@actions-kit/action-utils':
+      '@actions-sdk/action-utils':
         specifier: workspace:*
         version: link:../../packages/action-utils
       '@types/node':
@@ -226,7 +226,7 @@ importers:
         specifier: 'catalog:'
         version: 1.11.1
     devDependencies:
-      '@actions-kit/action-utils':
+      '@actions-sdk/action-utils':
         specifier: workspace:*
         version: link:../../packages/action-utils
       '@types/node':
@@ -248,7 +248,7 @@ importers:
         specifier: 'catalog:'
         version: 1.11.1
     devDependencies:
-      '@actions-kit/action-utils':
+      '@actions-sdk/action-utils':
         specifier: workspace:*
         version: link:../../packages/action-utils
       '@types/node':
@@ -307,28 +307,28 @@ importers:
 
   packages/actions-kit:
     dependencies:
-      '@actions-kit/action-schema':
+      '@actions-sdk/action-schema':
         specifier: workspace:*
         version: link:../action-schema
-      '@actions-kit/config':
+      '@actions-sdk/config':
         specifier: workspace:*
         version: link:../config
-      '@actions-kit/esbuild-builder':
+      '@actions-sdk/esbuild-builder':
         specifier: workspace:*
         version: link:../builders/esbuild
-      '@actions-kit/rolldown-builder':
+      '@actions-sdk/rolldown-builder':
         specifier: workspace:*
         version: link:../builders/rolldown
-      '@actions-kit/rollup-builder':
+      '@actions-sdk/rollup-builder':
         specifier: workspace:*
         version: link:../builders/rollup
-      '@actions-kit/rspack-builder':
+      '@actions-sdk/rspack-builder':
         specifier: workspace:*
         version: link:../builders/rspack
-      '@actions-kit/vite-builder':
+      '@actions-sdk/vite-builder':
         specifier: workspace:*
         version: link:../builders/vite
-      '@actions-kit/webpack-builder':
+      '@actions-sdk/webpack-builder':
         specifier: workspace:*
         version: link:../builders/webpack
       cac:
@@ -384,7 +384,7 @@ importers:
         specifier: 'catalog:'
         version: 3.23.8
     devDependencies:
-      '@actions-kit/config':
+      '@actions-sdk/config':
         specifier: workspace:*
         version: link:../../config
       '@types/js-yaml':
@@ -424,7 +424,7 @@ importers:
         specifier: 'catalog:'
         version: 3.23.8
     devDependencies:
-      '@actions-kit/config':
+      '@actions-sdk/config':
         specifier: workspace:*
         version: link:../../config
       '@types/js-yaml':
@@ -464,7 +464,7 @@ importers:
         specifier: 'catalog:'
         version: 3.23.8
     devDependencies:
-      '@actions-kit/config':
+      '@actions-sdk/config':
         specifier: workspace:*
         version: link:../../config
       '@rollup/plugin-commonjs':
@@ -513,7 +513,7 @@ importers:
         specifier: 'catalog:'
         version: 3.23.8
     devDependencies:
-      '@actions-kit/config':
+      '@actions-sdk/config':
         specifier: workspace:*
         version: link:../../config
       '@rspack/core':
@@ -553,7 +553,7 @@ importers:
         specifier: 'catalog:'
         version: 3.23.8
     devDependencies:
-      '@actions-kit/config':
+      '@actions-sdk/config':
         specifier: workspace:*
         version: link:../../config
       '@types/js-yaml':
@@ -599,7 +599,7 @@ importers:
         specifier: 'catalog:'
         version: 3.23.8
     devDependencies:
-      '@actions-kit/config':
+      '@actions-sdk/config':
         specifier: workspace:*
         version: link:../../config
       '@types/js-yaml':
@@ -623,7 +623,7 @@ importers:
 
   packages/config:
     dependencies:
-      '@actions-kit/action-schema':
+      '@actions-sdk/action-schema':
         specifier: workspace:*
         version: link:../action-schema
       c12:
@@ -719,7 +719,7 @@ importers:
         specifier: 'catalog:'
         version: 1.11.1
     devDependencies:
-      '@actions-kit/action-utils':
+      '@actions-sdk/action-utils':
         specifier: workspace:*
         version: link:../packages/action-utils
       '@types/node':

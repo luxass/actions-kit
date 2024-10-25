@@ -6,18 +6,18 @@ Build GitHub Actions using Rspack.
 
 ::: code-group
   ```bash [pnpm]
-  pnpm add -D actions-kit @actions-kit/rspack-builder
+  pnpm add -D actions-kit @actions-sdk/rspack-builder
   ```
 
   ```bash [yarn]
-  yarn add -D actions-kit @actions-kit/rspack-builder
+  yarn add -D actions-kit @actions-sdk/rspack-builder
   ```
 
   ```bash [npm]
-  npm install -D actions-kit @actions-kit/rspack-builder
+  npm install -D actions-kit @actions-sdk/rspack-builder
   ```
 
   ```bash [bun]
-  bun install -D actions-kit @actions-kit/rspack-builder
+  bun install -D actions-kit @actions-sdk/rspack-builder
   ```
 :::

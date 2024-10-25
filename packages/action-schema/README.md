@@ -1,2 +1,2 @@
-# @actions-kit/action-schema
+# @actions-sdk/action-schema
 

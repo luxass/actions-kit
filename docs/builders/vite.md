@@ -6,18 +6,18 @@ Build GitHub Actions using Vite.
 
 ::: code-group
   ```bash [pnpm]
-  pnpm add -D actions-kit @actions-kit/vite-builder
+  pnpm add -D actions-kit @actions-sdk/vite-builder
   ```
 
   ```bash [yarn]
-  yarn add -D actions-kit @actions-kit/vite-builder
+  yarn add -D actions-kit @actions-sdk/vite-builder
   ```
 
   ```bash [npm]
-  npm install -D actions-kit @actions-kit/vite-builder
+  npm install -D actions-kit @actions-sdk/vite-builder
   ```
 
   ```bash [bun]
-  bun install -D actions-kit @actions-kit/vite-builder
+  bun install -D actions-kit @actions-sdk/vite-builder
   ```
 :::

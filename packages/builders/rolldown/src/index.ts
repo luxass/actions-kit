@@ -1,5 +1,5 @@
 /// <reference types="../rolldown.d.ts" />
-import type { ActionsKitConfig } from "@actions-kit/config";
+import type { ActionsKitConfig } from "@actions-sdk/config";
 import { defu } from "defu";
 import type { RolldownOptions } from "rolldown";
 import { join } from "node:path";
