@@ -1,48 +1,82 @@
 name: Release
-
 on:
   push:
-    tags:
-      - "v*"
+    branches:
+      - main
+
+env:
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   release:
-    permissions:
-      id-token: write
-      contents: write
+    name: Changelog PR or Release
+    if: ${{ github.repository == 'luxass/lesetid' }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
     steps:
       - uses: actions/checkout@v4.1.7
         with:
           fetch-depth: 0
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4.0.0
 
-      - name: Setup node
+      - name: Setup Node
         uses: actions/setup-node@v4.0.4
         with:
-          registry-url: "https://registry.npmjs.org"
-          node-version: 20
+          node-version: 18
 
-      - run: pnpx changelogithub
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: |
+          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-      - name: Install dependencies
+      - name: Setup pnpm cache
+        uses: actions/cache@v4.0.2
+        with:
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install deps (with cache)
         run: pnpm install
 
-      - name: Build
-        run: pnpm build
+      - name: Check packages for common errors
+        run: pnpm turbo --filter "./packages/**" build lint test typecheck
 
-      - name: Publish to NPM
-        run: npm publish --access public --no-git-checks
+      - name: Create Release
+        id: changeset
+        uses: changesets/action@v1.4.8
+        with:
+          commit: "chore(release): 📦 version packages"
+          title: "chore(release): 📦  version packages"
+          publish: npx changeset publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
 
-      - name: Publish to JSR
-        run: npx jsr publish --allow-dirty
+      # Changeset has some issues with pnpm so we sync it up manually
+      - name: Sync lockfile if necessary
+        if: steps.changeset.outputs.hasChangesets == 'true'
+        run: |
+          git checkout changeset-release/main
+          pnpm install --no-frozen-lockfile
 
-      - name: Print Dirty Files
-        run: git status --porcelain
+          # Check for changes and only commit if there are any
+          if git diff --exit-code; then
+            echo "No changes to commit."
+          else
+            git add .
+            git commit -m "chore(release): 📦 sync lockfile"
+            git push origin changeset-release/main
+          fi

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@3.0.0/schema.json",
+  "changelog": [
+    "@changesets/changelog-github",
+    {
+      "repo": "luxass/actions-kit"
+    }
+  ],
+  "commit": ["@changesets/cli/commit", { "skipCI": false }],
+  "linked": [],
+  "access": "public",
+  "baseBranch": "main",
+  "updateInternalDependencies": "patch",
+  "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
+    "onlyUpdatePeerDependentsWhenOutOfRange": true
+  },
+  "ignore": [
+    "@actions-sdk/docs",
+    "@actions-sdk/*-example",
+    "@actions-sdk/playground"
+  ]
+}
