@@ -7,6 +7,7 @@ export interface ActionsKitOptions {
 
 	/**
 	 * Inject `inputs` and `outputs` into the global scope.
+	 * @default `null`
 	 */
 	inject?: boolean | "inputs" | "outputs";
 

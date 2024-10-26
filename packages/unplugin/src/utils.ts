@@ -55,7 +55,7 @@ function writeActionType(name: string, obj: Record<string, unknown>): string {
 }
 
 export function writeAugmentationTypes(yaml: Record<string, unknown>): string {
-	let code = `declare module "@actions/core" {`;
+	let code = `declare module "@actions/core" {\n\n`;
 
 	if (yaml.inputs != null) {
 		code += `  type ActionInputName = ${Object.keys(yaml.inputs)
