@@ -14,7 +14,7 @@ export const unpluginFactory: UnpluginFactory<ActionsKitOptions | undefined> = (
 	let actionInputs: Record<string, string> | undefined;
 	let actionOutputs: Record<string, string> | undefined;
 
-	const inject = options.inject ?? null;
+	const inject = options.inject ?? false;
 	const autocomplete = options.autocomplete ?? true;
 
 	return {
