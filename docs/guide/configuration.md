@@ -38,4 +38,4 @@ export default defineConfig({
 });
 ```
 
-For the full list of supported configuration options, please refer to the [Configuration Reference](/config).
+For the full list of supported configuration options, please refer to the [Configuration Reference](../config/index.md).
