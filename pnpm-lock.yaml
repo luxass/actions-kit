@@ -392,22 +392,13 @@ importers:
       defu:
         specifier: 'catalog:'
         version: 6.1.4
-      js-yaml:
-        specifier: 'catalog:'
-        version: 4.1.0
       unplugin-actions-kit:
         specifier: workspace:*
         version: link:../../unplugin
-      zod:
-        specifier: 'catalog:'
-        version: 3.23.8
     devDependencies:
       '@actions-sdk/config':
         specifier: workspace:*
         version: link:../../config
-      '@types/js-yaml':
-        specifier: 'catalog:'
-        version: 4.0.9
       '@types/node':
         specifier: 'catalog:'
         version: 20.17.0
