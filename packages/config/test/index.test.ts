@@ -168,7 +168,7 @@ describe("loadConfig", () => {
 			writeYaml: false,
 			inject: true,
 			builder: "rspack",
-			autocomplete: true
+			autocomplete: true,
 		});
 	});
 
