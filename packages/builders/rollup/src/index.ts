@@ -56,8 +56,7 @@ export async function build({
 	]);
 
 	const rollupOptions = defu(config.rollup, {
-		// FIX: input should be inferred from the config
-		input: "./src/index.ts",
+		input: config.build?.input || join(cwd, "src/index.ts"),
 		external: [...builtinModules, ...builtinModules.map((m) => `node:${m}`)],
 		output: {
 			file: join(cwd, "dist", outputFileName),

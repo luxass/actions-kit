@@ -48,7 +48,7 @@ export async function build({
 	const build = await import("esbuild").then((m) => m.build);
 	const esbuildActionsKit = await import("unplugin-actions-kit/esbuild").then((m) => m.default);
 
-	const defaultEntryPoint = join(cwd, "src/index.ts");
+	const defaultEntryPoint = config.build?.input || join(cwd, "src/index.ts");
 	const entryPoints = getESBuildEntryPoint(config.esbuild?.entryPoints, defaultEntryPoint);
 
 	if (config.esbuild?.entryPoints) {
