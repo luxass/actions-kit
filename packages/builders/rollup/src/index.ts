@@ -1,10 +1,13 @@
 /// <reference types="../rollup.d.ts" />
+
 import type { ActionsKitConfig } from "@actions-sdk/config";
 import { defu } from "defu";
 import type { RollupOptions } from "rollup";
 import { join } from "node:path";
 import consola from "consola";
 import { builtinModules } from "node:module";
+import { stat } from "node:fs/promises";
+import { colors } from "consola/utils";
 
 export interface BuilderOptions {
 	cwd: string;
@@ -48,15 +51,45 @@ export async function build({ cwd, config, libraryType, outputFileName }: Builde
 				autocomplete: config.autocomplete,
 			}),
 		],
+		onwarn: (warning) => {
+			if (
+				warning.code === 'UNRESOLVED_IMPORT' ||
+				warning.code === 'CIRCULAR_DEPENDENCY' ||
+				warning.code === 'EMPTY_BUNDLE'
+			) {
+				return
+			}
+
+			// TODO: pretty print warnings
+		}
 	} satisfies RollupOptions);
+
+	const startTime = performance.now();
 
 	const builder = await build(rollupOptions);
 
-	const result = await builder.write({
-		file: join(cwd, "dist", outputFileName),
+	const output = await builder.write({
 		format: libraryType,
 		sourcemap: false,
+		dir: join(cwd, "dist"),
+		entryFileNames: outputFileName,
 	});
 
-	consola.info("Build complete", result);
+	const buildTime = performance.now() - startTime;
+
+	if (Array.isArray(output) && output.length > 1) {
+		consola.warn("Multiple outputs detected. Only the first output will be displayed.");
+	}
+
+	const result = Array.isArray(output) ? output[0] : output;
+
+	consola.success("Build completed successfully! 🎉");
+	consola.info(`Build time: ${buildTime}ms`);
+
+	consola.info("Build details:");
+	for (const _result of result.output) {
+		const stats = await stat(join(cwd, "dist", _result.fileName));
+		consola.info(`- ${join(cwd, "dist", _result.fileName)}`);
+		consola.info(`  - size: ${colors.yellow(`${(stats.size / 1024).toFixed(2)} KB`)} (${colors.yellow(stats.size)} bytes)`);
+	}
 }

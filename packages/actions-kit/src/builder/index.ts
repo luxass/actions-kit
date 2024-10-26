@@ -6,6 +6,9 @@ import Yaml from "js-yaml";
 import { inferOutputFilename, inferModuleType } from "./utils";
 
 export async function build(cwd: string, config: ActionsKitConfig) {
+	// TODO: prevent issues with input & output
+
+
 	if (config?.writeYaml) {
 		consola.info("writing action.yml...");
 		const action = config.action;
@@ -29,6 +32,13 @@ export async function build(cwd: string, config: ActionsKitConfig) {
 
 	const outputFileName = await inferOutputFilename(config);
 	const libraryType = await inferModuleType(config, outputFileName);
+
+	console.log({
+		cwd,
+		config,
+		libraryType,
+		outputFileName,
+	})
 
 	const options = {
 		config,

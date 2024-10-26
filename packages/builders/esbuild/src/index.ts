@@ -8,7 +8,6 @@ import { join } from "node:path";
 import consola from "consola";
 import { colors } from "consola/utils";
 
-
 export interface BuilderOptions {
 	/**
 	 * The current working directory.
@@ -72,14 +71,14 @@ export async function build({ cwd, config, libraryType, outputFileName }: Builde
 		],
 	} satisfies ESBuildBuildOptions);
 
-	const startTime = Date.now();
+	const startTime = performance.now();
 
 	const result = await build(
 		// TODO: fix later
 		esbuildOptions as ESBuildBuildOptions,
 	);
 
-	const buildTime = Date.now() - startTime;
+	const buildTime = performance.now() - startTime;
 
 	const metafile = result.metafile;
 

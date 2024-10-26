@@ -1,8 +1,6 @@
 declare module "@actions-sdk/config" {
-	import type { RollupOptions } from "rollup";
-
 	interface ActionsKitConfig {
-		rollup?: RollupOptions;
+		rollup?: import("rollup").RollupOptions;
 	}
 }
 
