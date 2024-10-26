@@ -125,14 +125,6 @@ export const unpluginFactory: UnpluginFactory<ActionsKitOptions | undefined> = (
 					? Object.fromEntries(outputEntries.map(([name]) => [name, name]))
 					: undefined;
 
-			if (actionInputs == null) {
-				console.warn("inputs is not defined in `action.yml` file");
-			}
-
-			if (actionOutputs == null) {
-				console.warn("outputs is not defined in `action.yml` file");
-			}
-
 			const outputPath =
 				options.outputPath == null ? dirname(options.actionPath) : options.outputPath;
 
