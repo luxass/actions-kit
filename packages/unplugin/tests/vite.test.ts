@@ -230,6 +230,55 @@ describe("augmentations", () => {
 		expect(dtsOutput).not.toContain("ActionInputName");
 		expect(dtsOutput).toMatchSnapshot();
 	});
+
+	it("expect no augmentation when `autocomplete` is disabled", async () => {
+		const directoryJson = await fromFileSystem(join(import.meta.dirname, "fixtures/basic"));
+		const testdirPath = await testdir(directoryJson);
+
+		expect(testdirPath).toBeDefined();
+
+		const result = await build({
+			build: {
+				lib: {
+					entry: join(testdirPath, "index.ts"),
+					formats: ["cjs"],
+					fileName: "bundle",
+					name: "bundle",
+				},
+				rollupOptions: {
+					external: ["@actions/core"],
+				},
+				minify: false,
+			},
+			plugins: [
+				ActionKitPlugin({
+					actionPath: join(testdirPath, "action.yaml"),
+					autocomplete: false,
+				}),
+			],
+		});
+
+		if (!Array.isArray(result)) {
+			expect.fail("result is not an array");
+		}
+
+		expect(result).toBeDefined();
+
+		const firstResult = result[0];
+
+		expect(firstResult).toBeDefined();
+		expect(firstResult?.output).toBeDefined();
+		expect(firstResult?.output[0]).toBeDefined();
+		expect(firstResult?.output[0].code).toBeDefined();
+		expect(firstResult?.output[0].code).toMatchSnapshot();
+
+		const dtsOutput = await readFile(join(testdirPath, "actions-kit.d.ts"), "utf-8");
+
+		expect(dtsOutput).not.toContain("@actions/core");
+		expect(dtsOutput).not.toContain("ActionOutputName");
+		expect(dtsOutput).not.toContain("ActionInputName");
+		expect(dtsOutput).toMatchSnapshot();
+	});
 });
 
 describe("inject", () => {

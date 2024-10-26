@@ -247,6 +247,49 @@ describe("augmentations", () => {
 
 		expect(dtsOutput).toMatchSnapshot();
 	});
+
+	it("expect no augmentation when `autocomplete` is disabled", async () => {
+		const directoryJson = await fromFileSystem(join(import.meta.dirname, "fixtures/basic"));
+		const testdirPath = await testdir(directoryJson);
+
+		expect(testdirPath).toBeDefined();
+
+		const result = await rspack(testdirPath, {
+			entry: join(testdirPath, "index.ts"),
+			plugins: [
+				ActionKitPlugin({
+					actionPath: join(testdirPath, "action.yaml"),
+					autocomplete: false
+				}),
+			],
+		});
+
+		const json = result?.toJson();
+		expect(json).toBeDefined();
+
+		expect(json?.errors).toBeDefined();
+
+		if ((json?.errors || []).length > 0) {
+			console.error(json?.errors);
+		}
+
+		expect(json?.errors).toHaveLength(0);
+
+		// biome-ignore lint/style/noNonNullAssertion: <explanation>
+		const file = json!.assetsByChunkName!.main;
+		// biome-ignore lint/style/noNonNullAssertion: <explanation>
+		const content = await readFile(path.join(testdirPath, file![0]!), "utf-8");
+
+		expect(content).toMatchSnapshot();
+
+		const dtsOutput = await readFile(join(testdirPath, "actions-kit.d.ts"), "utf-8");
+
+		expect(dtsOutput).not.toContain("@actions/core");
+		expect(dtsOutput).not.toContain("ActionOutputName");
+		expect(dtsOutput).not.toContain("ActionInputName");
+
+		expect(dtsOutput).toMatchSnapshot();
+	});
 });
 
 describe("inject", () => {
