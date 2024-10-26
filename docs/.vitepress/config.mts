@@ -1,6 +1,6 @@
 import { defineConfig } from "vitepress";
 import { groupIconMdPlugin } from "vitepress-plugin-group-icons";
-import { groupIconVitePlugin } from 'vitepress-plugin-group-icons'
+import { groupIconVitePlugin } from "vitepress-plugin-group-icons";
 
 const defaultSidebar = [
 	{
@@ -95,12 +95,12 @@ export default defineConfig({
 			"/guide/": defaultSidebar,
 			"/builders/": defaultSidebar,
 			"/config/": [
-					{ text: 'Overview', link: '/config/' },
-					{ text: 'Action', link: '/config/action' },
-					{ text: 'Builders', link: '/config/builders' },
-					{ text: 'Autocomplete', link: '/config/autocomplete' },
-			]
-		}
+				{ text: "Overview", link: "/config/" },
+				{ text: "Action", link: "/config/action" },
+				{ text: "Builders", link: "/config/builders" },
+				{ text: "Autocomplete", link: "/config/autocomplete" },
+			],
+		},
 	},
 	markdown: {
 		config(md) {
@@ -108,8 +108,6 @@ export default defineConfig({
 		},
 	},
 	vite: {
-		plugins: [
-			groupIconVitePlugin()
-		]
-	}
+		plugins: [groupIconVitePlugin()],
+	},
 });
