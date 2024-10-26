@@ -64,9 +64,9 @@ describe("loadConfig", () => {
 			writeYaml: false,
 			inject: true,
 			builder: "rspack",
+			autocomplete: true,
 		});
 
-		// Mock the c12 loadConfig to return our test config
 		const { loadConfig: mockC12LoadConfig } = await import("c12");
 		vi.mocked(mockC12LoadConfig).mockResolvedValue({
 			config: mockConfig,
@@ -100,6 +100,7 @@ describe("loadConfig", () => {
 					main: "dist/index.js",
 				},
 			},
+			autocomplete: true,
 		});
 
 		const { loadConfig: mockC12LoadConfig } = await import("c12");
@@ -150,6 +151,7 @@ describe("loadConfig", () => {
 			writeYaml: false,
 			inject: true,
 			builder: "rspack",
+			autocomplete: true,
 		});
 	});
 
@@ -166,6 +168,7 @@ describe("loadConfig", () => {
 			writeYaml: false,
 			inject: true,
 			builder: "rspack",
+			autocomplete: true
 		});
 	});
 
@@ -182,6 +185,7 @@ describe("loadConfig", () => {
 			},
 			builder: "rspack",
 			inject: true,
+			autocomplete: true,
 		});
 
 		const { loadConfig: mockC12LoadConfig } = await import("c12");
