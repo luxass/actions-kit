@@ -1,53 +1,70 @@
-/// <reference types="../vite.d.ts" />
-
-import type { ActionsKitConfig } from "@actions-sdk/config";
 import { defu } from "defu";
 import type { InlineConfig } from "vite";
 import { join, resolve } from "node:path";
-import { consola } from "consola";
+import { defineBuilder, type BuildOutput } from "actions-kit/builder";
+import { inferModuleType, inferOutputFilename } from "actions-kit/builder-utils";
+import { build } from "vite";
+import ViteActionsKit from "unplugin-actions-kit/vite";
+import { stat } from "node:fs/promises";
 
-export interface BuilderOptions {
-	cwd: string;
-	config: ActionsKitConfig;
-	libraryType: "esm" | "cjs";
-	outputFileName: string;
-}
+export default function viteBuilder(options: InlineConfig = {}) {
+	return defineBuilder({
+		name: "vite",
+		build: async ({ cwd, config }) => {
+			const outputFileName = await inferOutputFilename(config);
+			const libraryType = await inferModuleType(config, outputFileName);
 
-export async function build({ cwd, config, libraryType, outputFileName }: BuilderOptions) {
-	const viteBuild = await import("vite").then((m) => m.build);
-	const viteActionsKit = await import("unplugin-actions-kit/vite").then((m) => m.default);
-
-	const viteOptions = defu(config.vite, {
-		build: {
-			minify: false,
-			target: "node20",
-			ssr: true,
-			rollupOptions: {
-				input: ["src/index.ts"],
-				output: {
-					entryFileNames: outputFileName,
-					format: libraryType,
-					exports: "auto",
+			const viteOptions = defu(options, {
+				build: {
+					minify: false,
+					target: "node20",
+					ssr: true,
+					rollupOptions: {
+						input: ["src/index.ts"],
+						output: {
+							entryFileNames: outputFileName,
+							format: libraryType,
+							exports: "auto",
+						},
+					},
 				},
-			},
+				ssr: {
+					// Anything NOT 'node:' will be bundled.
+					noExternal: /^(?!node:)/,
+				},
+				plugins: [
+					ViteActionsKit({
+						// TODO: allow users to specify it.
+						actionPath: join(cwd, "./action.yml"),
+						inject: config.inject,
+						autocomplete: config.autocomplete,
+					}),
+				],
+			} satisfies InlineConfig);
+
+			const output = await build(viteOptions);
+			const result = Array.isArray(output) ? output[0] : output;
+
+			if (result != null && !("output" in result)) {
+				throw new Error("Invalid output");
+			}
+
+			const outputs: BuildOutput[] = [];
+
+			if (result?.output == null) {
+				throw new Error("Invalid output");
+			}
+
+			for (const _result of result.output) {
+				const stats = await stat(join(cwd, "dist", _result.fileName));
+				outputs.push({
+					name: _result.fileName,
+					path: join(cwd, "dist", _result.fileName),
+					size: stats.size,
+				});
+			}
+
+			return outputs;
 		},
-		ssr: {
-			// Anything NOT 'node:' will be bundled.
-			noExternal: /^(?!node:)/,
-		},
-		plugins: [
-			viteActionsKit({
-				// TODO: allow users to specify it.
-				actionPath: join(cwd, "./action.yml"),
-				inject: config.inject,
-				autocomplete: config.autocomplete,
-			}),
-		],
-	} satisfies InlineConfig);
-
-	const result = await viteBuild(viteOptions);
-
-	const results = Array.isArray(result) ? result : [result];
-
-	consola.info("Build output: ", results);
+	});
 }

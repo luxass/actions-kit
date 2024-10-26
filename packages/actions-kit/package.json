@@ -58,6 +58,26 @@
         "default": "./dist/utils.cjs"
       }
     },
+    "./builder": {
+      "import": {
+        "types": "./dist/builder/index.d.ts",
+        "default": "./dist/builder/index.mjs"
+      },
+      "require": {
+        "types": "./dist/builder/index.d.cts",
+        "default": "./dist/builder/index.cjs"
+      }
+    },
+    "./builder-utils": {
+      "import": {
+        "types": "./dist/builder/utils.d.ts",
+        "default": "./dist/builder/utils.mjs"
+      },
+      "require": {
+        "types": "./dist/builder/utils.d.cts",
+        "default": "./dist/builder/utils.cjs"
+      }
+    },
     "./package.json": "./package.json"
   },
   "main": "dist/index.cjs",
@@ -71,44 +91,16 @@
     "dev": "tsup --watch",
     "typecheck": "tsc --noEmit"
   },
-  "peerDependencies": {
-    "@actions-sdk/esbuild-builder": "workspace:*",
-    "@actions-sdk/rolldown-builder": "workspace:*",
-    "@actions-sdk/rollup-builder": "workspace:*",
-    "@actions-sdk/rspack-builder": "workspace:*",
-    "@actions-sdk/vite-builder": "workspace:*",
-    "@actions-sdk/webpack-builder": "workspace:*"
-  },
-  "peerDependenciesMeta": {
-    "@actions-sdk/esbuild-builder": {
-      "optional": true
-    },
-    "@actions-sdk/rolldown-builder": {
-      "optional": true
-    },
-    "@actions-sdk/rollup-builder": {
-      "optional": true
-    },
-    "@actions-sdk/rspack-builder": {
-      "optional": true
-    },
-    "@actions-sdk/vite-builder": {
-      "optional": true
-    },
-    "@actions-sdk/webpack-builder": {
-      "optional": true
-    }
-  },
   "dependencies": {
     "zod": "catalog:",
-    "@actions-sdk/config": "workspace:*",
     "cac": "catalog:",
     "consola": "catalog:",
     "defu": "catalog:",
     "unplugin-actions-kit": "workspace:*",
     "@actions-sdk/action-utils": "workspace:*",
     "@actions-sdk/action-schema": "workspace:*",
-    "js-yaml": "catalog:"
+    "js-yaml": "catalog:",
+    "c12": "catalog:"
   },
   "devDependencies": {
     "@types/js-yaml": "catalog:",

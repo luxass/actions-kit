@@ -36,15 +36,13 @@
         "default": "./dist/index.cjs"
       }
     },
-    "./types": "./rollup.d.ts",
     "./package.json": "./package.json"
   },
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
-    "dist",
-    "rollup.d.ts"
+    "dist"
   ],
   "scripts": {
     "build": "tsup --tsconfig tsconfig.build.json",
@@ -55,10 +53,10 @@
     "rollup": "catalog:",
     "@rollup/plugin-typescript": "catalog:",
     "@rollup/plugin-node-resolve": "catalog:",
-    "@rollup/plugin-commonjs": "catalog:"
+    "@rollup/plugin-commonjs": "catalog:",
+    "actions-kit": "workspace:*"
   },
   "dependencies": {
-    "consola": "catalog:",
     "defu": "catalog:",
     "unplugin-actions-kit": "workspace:*"
   },
@@ -70,7 +68,6 @@
     "rollup": "catalog:",
     "@rollup/plugin-typescript": "catalog:",
     "@rollup/plugin-node-resolve": "catalog:",
-    "@rollup/plugin-commonjs": "catalog:",
-    "@actions-sdk/config": "workspace:*"
+    "@rollup/plugin-commonjs": "catalog:"
   }
 }

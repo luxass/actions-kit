@@ -1,109 +1,73 @@
-/// <reference types="../esbuild.d.ts" />
-
-import type { ActionsKitConfig } from "@actions-sdk/config";
 import { defu } from "defu";
 import type { BuildOptions as ESBuildBuildOptions } from "esbuild";
 import { getESBuildEntryPoint } from "./utils";
 import { join } from "node:path";
-import consola from "consola";
-import { colors } from "consola/utils";
+import { defineBuilder, type BuildOutput } from "actions-kit/builder";
+import { inferModuleType, inferOutputFilename } from "actions-kit/builder-utils";
+import { build } from "esbuild";
+import ESBuildActionsKit from "unplugin-actions-kit/esbuild";
 
-export interface BuilderOptions {
-	/**
-	 * The current working directory.
-	 * @type {string}
-	 */
-	cwd: string;
+export default function esbuildBuilder(options: ESBuildBuildOptions = {}) {
+	return defineBuilder({
+		name: "esbuild",
+		build: async ({ cwd, config }) => {
+			const defaultEntryPoint = config.build?.input || join(cwd, "src/index.ts");
+			const entryPoints = getESBuildEntryPoint(options.entryPoints, defaultEntryPoint);
 
-	/**
-	 * The configuration object for the ActionsKit project.
-	 * @type {ActionsKitConfig}
-	 */
-	config: ActionsKitConfig;
+			if (options.entryPoints) {
+				options.entryPoints = undefined;
+			}
 
-	/**
-	 * The output type for the action.
-	 * @type {"esm" | "cjs"}
-	 */
-	libraryType: "esm" | "cjs";
+			const outputFileName = await inferOutputFilename(config);
+			const libraryType = await inferModuleType(config, outputFileName);
 
-	/**
-	 * The name of the output file.
-	 * @type {string}
-	 */
-	outputFileName: string;
-}
+			const esbuildOptions = defu(
+				{
+					...options,
+					// metafile should always be true
+					metafile: true,
+				},
+				{
+					entryPoints: [entryPoints],
+					platform: "node",
+					target: "node20",
+					format: libraryType,
+					bundle: true,
+					outfile: join(cwd, "dist", outputFileName),
+					metafile: true,
+					plugins: [
+						ESBuildActionsKit({
+							actionPath: join(cwd, "./action.yml"),
+							inject: config.inject,
+							autocomplete: config.autocomplete,
+						}),
+					],
+				} satisfies ESBuildBuildOptions,
+			);
 
-/**
- * Builds the project using esbuild with the specified configuration.
- * @param {BuilderOptions} options - The build options.
- * @returns {Promise<void>} A promise that resolves when the build is complete.
- */
-export async function build({
-	cwd,
-	config,
-	libraryType,
-	outputFileName,
-}: BuilderOptions): Promise<void> {
-	const build = await import("esbuild").then((m) => m.build);
-	const esbuildActionsKit = await import("unplugin-actions-kit/esbuild").then((m) => m.default);
+			const result = await build(
+				// TODO: fix later
+				esbuildOptions as ESBuildBuildOptions,
+			);
 
-	const defaultEntryPoint = config.build?.input || join(cwd, "src/index.ts");
-	const entryPoints = getESBuildEntryPoint(config.esbuild?.entryPoints, defaultEntryPoint);
+			const metafile = result.metafile;
 
-	if (config.esbuild?.entryPoints) {
-		config.esbuild.entryPoints = undefined;
-	}
+			if (!metafile) {
+				throw new Error("metafile didn't generate");
+			}
 
-	const esbuildOptions = defu(
-		{
-			...config.esbuild,
-			// metafile should always be true
-			metafile: true,
+			const outputFiles = Object.entries(metafile.outputs);
+
+			const output: BuildOutput[] = [];
+			for (const [outputFile, outputMeta] of outputFiles) {
+				output.push({
+					name: outputFile,
+					path: join(cwd, outputFile),
+					size: outputMeta.bytes,
+				});
+			}
+
+			return output;
 		},
-		{
-			entryPoints: [entryPoints],
-			platform: "node",
-			target: "node20",
-			format: libraryType,
-			bundle: true,
-			outfile: join(cwd, "dist", outputFileName),
-			metafile: true,
-			plugins: [
-				esbuildActionsKit({
-					actionPath: join(cwd, "./action.yml"),
-					inject: config.inject,
-					autocomplete: config.autocomplete,
-				}),
-			],
-		} satisfies ESBuildBuildOptions,
-	);
-
-	const startTime = performance.now();
-
-	const result = await build(
-		// TODO: fix later
-		esbuildOptions as ESBuildBuildOptions,
-	);
-
-	const buildTime = performance.now() - startTime;
-
-	const metafile = result.metafile;
-
-	if (!metafile) {
-		throw new Error("metafile didn't generate");
-	}
-
-	const outputFiles = Object.entries(metafile.outputs);
-
-	consola.success("Build completed successfully! 🎉");
-	consola.info(`Build time: ${buildTime}ms`);
-
-	consola.info("Build details:");
-	for (const [outputFile, outputMeta] of outputFiles) {
-		consola.info(`- ${outputFile}`);
-		consola.info(
-			`  - size: ${colors.yellow(`${(outputMeta.bytes / 1024).toFixed(2)} KB`)} (${colors.yellow(outputMeta.bytes)} bytes)`,
-		);
-	}
+	});
 }

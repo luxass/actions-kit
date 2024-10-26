@@ -40,10 +40,6 @@
   - changed-files:
       - any-glob-to-any-file: packages/builders/webpack/**
 
-"pkg: config":
-  - changed-files:
-      - any-glob-to-any-file: packages/config/**
-
 "pkg: create-action":
   - changed-files:
       - any-glob-to-any-file: packages/create-action/**

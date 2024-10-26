@@ -36,15 +36,13 @@
         "default": "./dist/index.cjs"
       }
     },
-    "./types": "./rolldown.d.ts",
     "./package.json": "./package.json"
   },
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
-    "dist",
-    "rolldown.d.ts"
+    "dist"
   ],
   "scripts": {
     "build": "tsup --tsconfig tsconfig.build.json",
@@ -52,10 +50,10 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "rolldown": "catalog:"
+    "rolldown": "catalog:",
+    "actions-kit": "workspace:*"
   },
   "dependencies": {
-    "consola": "catalog:",
     "defu": "catalog:",
     "unplugin-actions-kit": "workspace:*"
   },
@@ -64,7 +62,6 @@
     "tsup": "catalog:",
     "typescript": "catalog:",
     "vitest": "catalog:",
-    "rolldown": "catalog:",
-    "@actions-sdk/config": "workspace:*"
+    "rolldown": "catalog:"
   }
 }

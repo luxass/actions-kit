@@ -8,7 +8,6 @@
 "@actions-sdk/rspack-builder": minor
 "@actions-sdk/vite-builder": minor
 "@actions-sdk/webpack-builder": minor
-"@actions-sdk/config": minor
 "unplugin-actions-kit": minor
 ---
 

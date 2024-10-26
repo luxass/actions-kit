@@ -1,81 +1,98 @@
-/// <reference types="../webpack.d.ts" />
-
-import type { ActionsKitConfig } from "@actions-sdk/config";
 import { defu } from "defu";
 import type { Configuration, Stats } from "webpack";
 import { join, resolve } from "node:path";
+import { defineBuilder, type BuildOutput } from "actions-kit/builder";
+import { inferModuleType, inferOutputFilename } from "actions-kit/builder-utils";
+import { webpack } from "webpack";
+import WebpackActionsKit from "unplugin-actions-kit/webpack";
 
-export interface BuilderOptions {
-	cwd: string;
-	config: ActionsKitConfig;
-	libraryType: "esm" | "cjs";
-	outputFileName: string;
-}
+export default function webpackBuilder(options: Configuration = {}) {
+	return defineBuilder({
+		name: "webpack",
+		build: async ({ cwd, config }) => {
+			const outputFileName = await inferOutputFilename(config);
+			const libraryType = await inferModuleType(config, outputFileName);
 
-export async function build({ cwd, config, libraryType, outputFileName }: BuilderOptions) {
-	const webpack = await import("webpack").then((m) => m.default);
-	const webpackActionsKit = await import("unplugin-actions-kit/webpack").then((m) => m.default);
-
-	const webpackOptions = defu(config.webpack, {
-		target: "node",
-		mode: "production",
-		entry: "./src/index.ts",
-		output: {
-			path: resolve(cwd, "dist"),
-			filename: outputFileName,
-			library: {
-				type: libraryType === "esm" ? "module" : "commonjs2",
-			},
-		},
-		resolve: {
-			extensions: [".ts", ".js"],
-		},
-		optimization: {
-			minimize: false,
-		},
-		devtool: false,
-		module: {
-			rules: [
-				{
-					test: /\.m?js$/,
-					exclude: /(node_modules)/,
-					use: {
-						loader: "swc-loader",
+			const webpackOptions = defu(options, {
+				target: "node",
+				mode: "production",
+				entry: "./src/index.ts",
+				output: {
+					path: resolve(cwd, "dist"),
+					filename: outputFileName,
+					library: {
+						type: libraryType === "esm" ? "module" : "commonjs2",
 					},
 				},
-			],
-		},
-		plugins: [
-			webpackActionsKit({
-				// TODO: allow users to specify it.
-				actionPath: join(cwd, "./action.yml"),
-				inject: config.inject,
-				autocomplete: config.autocomplete,
-			}),
-		],
-		externals: {
-			keytar: "commonjs keytar",
-		},
-	} satisfies Configuration);
+				resolve: {
+					extensions: [".ts", ".js"],
+				},
+				optimization: {
+					minimize: false,
+				},
+				devtool: false,
+				module: {
+					rules: [
+						{
+							test: /\.m?js$/,
+							exclude: /(node_modules)/,
+							use: {
+								loader: "swc-loader",
+							},
+						},
+					],
+				},
+				plugins: [
+					WebpackActionsKit({
+						// TODO: allow users to specify it.
+						actionPath: join(cwd, "./action.yml"),
+						inject: config.inject,
+						autocomplete: config.autocomplete,
+					}),
+				],
+				externals: {
+					keytar: "commonjs keytar",
+				},
+			} satisfies Configuration);
 
-	const compiler = webpack.webpack(webpackOptions);
+			const compiler = webpack(webpackOptions);
 
-	const stats = await new Promise<Stats | undefined>((resolve, reject) =>
-		compiler.run((err, stats) => {
-			if (err) {
-				reject(err);
-			} else {
-				resolve(stats as unknown as Stats);
+			const stats = await new Promise<Stats | undefined>((resolve, reject) =>
+				compiler.run((err, stats) => {
+					if (err) {
+						reject(err);
+					} else {
+						resolve(stats as unknown as Stats);
+					}
+				}),
+			);
+
+			if (!stats) {
+				throw new Error("could not build");
 			}
-		}),
-	);
 
-	if (!stats) {
-		throw new Error("could not build");
-	}
+			const json = stats.toJson({
+				all: false,
+				assets: true,
+			});
 
-	stats.toString({
-		chunks: true,
-		colors: true,
+			const output: BuildOutput[] = [];
+
+			if (json.assets == null) {
+				throw new Error("could not gather bundle information");
+			}
+
+			const assets = json.assets;
+
+			for (const asset of assets) {
+				output.push({
+					name: asset.name,
+					path: join(cwd, asset.name),
+					size: asset.size,
+				});
+			}
+
+			return output;
+		},
 	});
 }
