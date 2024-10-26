@@ -8,21 +8,23 @@ Build GitHub Actions using Rolldown.
 ## Installation
 
 ::: code-group
-  ```bash [pnpm]
-  pnpm add -D actions-kit @actions-sdk/rolldown-builder
-  ```
 
-  ```bash [yarn]
-  yarn add -D actions-kit @actions-sdk/rolldown-builder
-  ```
+```bash [pnpm]
+pnpm add -D actions-kit @actions-sdk/rolldown-builder
+```
 
-  ```bash [npm]
-  npm install -D actions-kit @actions-sdk/rolldown-builder
-  ```
+```bash [yarn]
+yarn add -D actions-kit @actions-sdk/rolldown-builder
+```
 
-  ```bash [bun]
-  bun install -D actions-kit @actions-sdk/rolldown-builder
-  ```
+```bash [npm]
+npm install -D actions-kit @actions-sdk/rolldown-builder
+```
+
+```bash [bun]
+bun install -D actions-kit @actions-sdk/rolldown-builder
+```
+
 :::
 
 Set the `builder` in your `actions-kit.config.ts` file:
@@ -40,7 +42,7 @@ export default defineConfig({
 
 ```ts
 /// <reference types="@actions-sdk/rolldown-builder/types" />
-``` 
+```
 
 ### Customizing Rolldown
 
@@ -53,6 +55,6 @@ export default defineConfig({
   builder: "rolldown",
   rolldown: {
     plugins: [],
-  }
+  },
 });
 ```

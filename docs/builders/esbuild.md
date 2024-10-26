@@ -39,7 +39,7 @@ export default defineConfig({
 
 ```ts
 /// <reference types="@actions-sdk/esbuild-builder/types" />
-``` 
+```
 
 ### Customizing ESBuild
 

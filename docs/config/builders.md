@@ -16,4 +16,3 @@ The following builders are available:
 - [Rspack](/builders/rspack) - Build the action using Rspack.
 - [Vite](/builders/vite) - Build the action using Vite.
 - [Webpack](/builders/webpack) - Build the action using Webpack.
-
