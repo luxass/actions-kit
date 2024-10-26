@@ -6,7 +6,7 @@ import type { RolldownOptions } from "rolldown";
 import { join } from "node:path";
 import consola from "consola";
 import { builtinModules } from "node:module";
-import { stat } from "node:fs/promises"
+import { stat } from "node:fs/promises";
 import { colors } from "consola/utils";
 
 export interface BuilderOptions {
@@ -40,7 +40,12 @@ export interface BuilderOptions {
  * @param {BuilderOptions} options - The build options.
  * @returns {Promise<void>} A promise that resolves when the build is complete.
  */
-export async function build({ cwd, config, libraryType, outputFileName }: BuilderOptions): Promise<void> {
+export async function build({
+	cwd,
+	config,
+	libraryType,
+	outputFileName,
+}: BuilderOptions): Promise<void> {
 	const build = await import("rolldown").then((m) => m.rolldown);
 	const rolldownActionsKit = await import("unplugin-actions-kit/rolldown").then((m) => m.default);
 
@@ -64,15 +69,15 @@ export async function build({ cwd, config, libraryType, outputFileName }: Builde
 		},
 		onwarn: (warning) => {
 			if (
-				warning.code === 'UNRESOLVED_IMPORT' ||
-				warning.code === 'CIRCULAR_DEPENDENCY' ||
-				warning.code === 'EMPTY_BUNDLE'
+				warning.code === "UNRESOLVED_IMPORT" ||
+				warning.code === "CIRCULAR_DEPENDENCY" ||
+				warning.code === "EMPTY_BUNDLE"
 			) {
-				return
+				return;
 			}
 
 			// TODO: pretty print warnings
-		}
+		},
 	} satisfies RolldownOptions);
 
 	const startTime = performance.now();
@@ -101,6 +106,8 @@ export async function build({ cwd, config, libraryType, outputFileName }: Builde
 	for (const _result of result.output) {
 		const stats = await stat(join(cwd, "dist", _result.fileName));
 		consola.info(`- ${join(cwd, "dist", _result.fileName)}`);
-		consola.info(`  - size: ${colors.yellow(`${(stats.size / 1024).toFixed(2)} KB`)} (${colors.yellow(stats.size)} bytes)`);
+		consola.info(
+			`  - size: ${colors.yellow(`${(stats.size / 1024).toFixed(2)} KB`)} (${colors.yellow(stats.size)} bytes)`,
+		);
 	}
 }

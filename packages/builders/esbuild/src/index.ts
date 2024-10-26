@@ -39,7 +39,12 @@ export interface BuilderOptions {
  * @param {BuilderOptions} options - The build options.
  * @returns {Promise<void>} A promise that resolves when the build is complete.
  */
-export async function build({ cwd, config, libraryType, outputFileName }: BuilderOptions): Promise<void> {
+export async function build({
+	cwd,
+	config,
+	libraryType,
+	outputFileName,
+}: BuilderOptions): Promise<void> {
 	const build = await import("esbuild").then((m) => m.build);
 	const esbuildActionsKit = await import("unplugin-actions-kit/esbuild").then((m) => m.default);
 
@@ -50,26 +55,29 @@ export async function build({ cwd, config, libraryType, outputFileName }: Builde
 		config.esbuild.entryPoints = undefined;
 	}
 
-	const esbuildOptions = defu({
-		...config.esbuild,
-		// metafile should always be true
-		metafile: true,
-	}, {
-		entryPoints: [entryPoints],
-		platform: "node",
-		target: "node20",
-		format: libraryType,
-		bundle: true,
-		outfile: join(cwd, "dist", outputFileName),
-		metafile: true,
-		plugins: [
-			esbuildActionsKit({
-				actionPath: join(cwd, "./action.yml"),
-				inject: config.inject,
-				autocomplete: config.autocomplete,
-			}),
-		],
-	} satisfies ESBuildBuildOptions);
+	const esbuildOptions = defu(
+		{
+			...config.esbuild,
+			// metafile should always be true
+			metafile: true,
+		},
+		{
+			entryPoints: [entryPoints],
+			platform: "node",
+			target: "node20",
+			format: libraryType,
+			bundle: true,
+			outfile: join(cwd, "dist", outputFileName),
+			metafile: true,
+			plugins: [
+				esbuildActionsKit({
+					actionPath: join(cwd, "./action.yml"),
+					inject: config.inject,
+					autocomplete: config.autocomplete,
+				}),
+			],
+		} satisfies ESBuildBuildOptions,
+	);
 
 	const startTime = performance.now();
 
@@ -83,7 +91,7 @@ export async function build({ cwd, config, libraryType, outputFileName }: Builde
 	const metafile = result.metafile;
 
 	if (!metafile) {
-		throw new Error("metafile didn't generate")
+		throw new Error("metafile didn't generate");
 	}
 
 	const outputFiles = Object.entries(metafile.outputs);
@@ -94,6 +102,8 @@ export async function build({ cwd, config, libraryType, outputFileName }: Builde
 	consola.info("Build details:");
 	for (const [outputFile, outputMeta] of outputFiles) {
 		consola.info(`- ${outputFile}`);
-		consola.info(`  - size: ${colors.yellow(`${(outputMeta.bytes / 1024).toFixed(2)} KB`)} (${colors.yellow(outputMeta.bytes)} bytes)`);
+		consola.info(
+			`  - size: ${colors.yellow(`${(outputMeta.bytes / 1024).toFixed(2)} KB`)} (${colors.yellow(outputMeta.bytes)} bytes)`,
+		);
 	}
 }

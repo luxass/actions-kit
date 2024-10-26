@@ -15,10 +15,12 @@ const CONFIG_SCHEMA = z.object({
 	 * The "build" configuration for the project.
 	 * @default {input:"./src/index.ts"}
 	 */
-	build: z.object({
-		input: z.string().optional().default("./src/index.ts"),
-		// TODO: add more here
-	}).optional(),
+	build: z
+		.object({
+			input: z.string().optional().default("./src/index.ts"),
+			// TODO: add more here
+		})
+		.optional(),
 
 	/**
 	 * The GitHub Action configuration.
