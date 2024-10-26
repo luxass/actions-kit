@@ -10,13 +10,37 @@ import { stat } from "node:fs/promises";
 import { colors } from "consola/utils";
 
 export interface BuilderOptions {
+	/**
+	 * The current working directory.
+	 * @type {string}
+	 */
 	cwd: string;
+
+	/**
+	 * The configuration object for the ActionsKit project.
+	 * @type {ActionsKitConfig}
+	 */
 	config: ActionsKitConfig;
+
+	/**
+	 * The output type for the action.
+	 * @type {"esm" | "cjs"}
+	 */
 	libraryType: "esm" | "cjs";
+
+	/**
+	 * The name of the output file.
+	 * @type {string}
+	 */
 	outputFileName: string;
 }
 
-export async function build({ cwd, config, libraryType, outputFileName }: BuilderOptions) {
+/**
+ * Builds the project using esbuild with the specified configuration.
+ * @param {BuilderOptions} options - The build options.
+ * @returns {Promise<void>} A promise that resolves when the build is complete.
+ */
+export async function build({ cwd, config, libraryType, outputFileName }: BuilderOptions): Promise<void> {
 	const build = await import("rollup").then((m) => m.rollup);
 	const rollupActionsKit = await import("unplugin-actions-kit/rollup").then((m) => m.default);
 
