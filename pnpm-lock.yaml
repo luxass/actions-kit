@@ -467,6 +467,9 @@ importers:
       unplugin-actions-kit:
         specifier: workspace:*
         version: link:../../unplugin
+      zod:
+        specifier: 'catalog:'
+        version: 3.23.8
     devDependencies:
       '@rspack/core':
         specifier: 'catalog:'

@@ -54,6 +54,7 @@
     "actions-kit": "workspace:*"
   },
   "dependencies": {
+    "zod": "catalog:",
     "defu": "catalog:",
     "unplugin-actions-kit": "workspace:*"
   },

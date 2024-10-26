@@ -1,3 +1,4 @@
+import "zod";
 import { defu } from "defu";
 import type { Configuration, Stats } from "@rspack/core";
 import { join, resolve } from "node:path";
