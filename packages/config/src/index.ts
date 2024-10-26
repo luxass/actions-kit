@@ -22,6 +22,12 @@ const CONFIG_SCHEMA = z.object({
 	inject: z.enum(["inputs", "outputs"]).or(z.literal(true)).default(true),
 
 	/**
+	 * Enable Autocomplete
+	 * @default true
+	 */
+	autocomplete: z.boolean().default(true),
+
+	/**
 	 * The "builder" to use for building the action.
 	 * @default "rspack"
 	 */

@@ -50,6 +50,7 @@ export async function build({ cwd, config, libraryType, outputFileName }: Builde
 				// TODO: allow users to specify it.
 				actionPath: join(cwd, "./action.yml"),
 				inject: config.inject,
+				autocomplete: config.autocomplete
 			}),
 		],
 		externals: {

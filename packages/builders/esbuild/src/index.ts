@@ -35,6 +35,7 @@ export async function build({ cwd, config, libraryType, outputFileName }: Builde
 			esbuildActionsKit({
 				actionPath: join(cwd, "./action.yml"),
 				inject: config.inject,
+				autocomplete: config.autocomplete,
 			}),
 		],
 	} satisfies ESBuildBuildOptions);
