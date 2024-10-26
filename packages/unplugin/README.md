@@ -3,7 +3,10 @@
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 
-A typesafety for your GitHub Action inputs & outputs. Powered by [unplugin](https://github.com/unjs/unplugin).
+Generate TypeSafety for GitHub Actions. Powered by [unplugin](https://github.com/unjs/unplugin).
+
+> [!NOTE]
+> Documentation is available [here](https://actions-kit.pages.dev)
 
 ## Installation
 
@@ -12,7 +15,6 @@ pnpm install -D unplugin-actions-kit
 ```
 
 ## Usage
-
 
 <details>
 <summary>Vite</summary><br/>
@@ -23,7 +25,9 @@ import ActionsKitPlugin from "unplugin-actions-kit/vite";
 
 export default defineConfig({
   plugins: [
-    ActionsKitPlugin({ /* options */ }),
+    ActionsKitPlugin({
+      /* options */
+    }),
   ],
 });
 ```
@@ -39,7 +43,9 @@ import ActionsKitPlugin from "unplugin-actions-kit/rollup";
 
 export default {
   plugins: [
-    ActionsKitPlugin({ /* options */ }),
+    ActionsKitPlugin({
+      /* options */
+    }),
   ],
 };
 ```
@@ -54,7 +60,9 @@ export default {
 module.exports = {
   /* ... */
   plugins: [
-    require("unplugin-actions-kit/webpack").default({ /* options */ }),
+    require("unplugin-actions-kit/webpack").default({
+      /* options */
+    }),
   ],
 };
 ```
@@ -86,7 +94,7 @@ build({
 
 ```ts
 // rspack.config.mjs
-import ActionsKitPlugin from "unplugin-actions-kit/rspack"
+import ActionsKitPlugin from "unplugin-actions-kit/rspack";
 
 /** @type {import("@rspack/core").Configuration} */
 export default {
@@ -122,27 +130,35 @@ export default defineConfig({
 
 ## Configuration
 
-```typescript
-ActionsKitPlugin({
-	/**
-	 * The path to the action.yml or action.yaml file.
-	 * If not provided, it will look for action.yml or action.yaml in the root directory.
-	 */
-	actionPath?: string;
+### `actionPath`
 
-	/**
-	 * Inject `inputs` and `outputs` into the global scope.
-	 */
-	inject?: boolean | "inputs" | "outputs";
+The path to the `action.yml` or `action.yaml` file.  
+If not provided, it will look for `action.yml` or `action.yaml` in the root directory.
 
-	/**
-	 * The output path for the generated typescript file.
-	 * If not provided, it will use the directory where the action.yml or action.yaml file is located.
-	 */
-	outputPath?: string;
-});
-```
+- **Type:** `string`
+- **Default:** `null`
 
+### `inject`
+
+Inject `inputs` and `outputs` into the global scope.
+
+- **Type:** `boolean | "inputs" | "outputs"`
+- **Default:** `null`
+
+### `autocomplete`
+
+Enable Autocomplete.
+
+- **Type:** `boolean`
+- **Default:** `true`
+
+### `outputPath`
+
+The output path for the generated TypeScript file.  
+If not provided, it will use the directory where the `action.yml` or `action.yaml` file is located.
+
+- **Type:** `string`
+- **Default:** `null`
 
 ## 📄 License
 
