@@ -259,7 +259,7 @@ describe("augmentations", () => {
 			plugins: [
 				ActionKitPlugin({
 					actionPath: join(testdirPath, "action.yaml"),
-					autocomplete: false
+					autocomplete: false,
 				}),
 			],
 		});
