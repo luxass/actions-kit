@@ -3,7 +3,7 @@ import consola from "consola";
 import { writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import Yaml from "js-yaml";
-import { inferOutputFilename, inferModuleType } from "../utils";
+import { inferOutputFilename, inferModuleType } from "./utils";
 
 export async function build(cwd: string, config: ActionsKitConfig) {
 	if (config?.writeYaml) {

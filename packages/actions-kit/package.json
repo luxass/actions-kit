@@ -48,6 +48,16 @@
         "default": "./dist/config.cjs"
       }
     },
+    "./utils": {
+      "import": {
+        "types": "./dist/utils.d.ts",
+        "default": "./dist/utils.mjs"
+      },
+      "require": {
+        "types": "./dist/utils.d.cts",
+        "default": "./dist/utils.cjs"
+      }
+    },
     "./package.json": "./package.json"
   },
   "main": "dist/index.cjs",
@@ -96,6 +106,7 @@
     "consola": "catalog:",
     "defu": "catalog:",
     "unplugin-actions-kit": "workspace:*",
+    "@actions-sdk/action-utils": "workspace:*",
     "@actions-sdk/action-schema": "workspace:*",
     "js-yaml": "catalog:"
   },

@@ -325,6 +325,9 @@ importers:
       '@actions-sdk/action-schema':
         specifier: workspace:*
         version: link:../action-schema
+      '@actions-sdk/action-utils':
+        specifier: workspace:*
+        version: link:../action-utils
       '@actions-sdk/config':
         specifier: workspace:*
         version: link:../config
