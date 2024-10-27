@@ -48,7 +48,7 @@ const defaultSidebar = [
 	{
 		text: "Examples",
 		link: "/examples/",
-	}
+	},
 ];
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
