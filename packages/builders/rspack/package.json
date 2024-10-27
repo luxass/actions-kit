@@ -1,6 +1,6 @@
 {
   "name": "@actions-sdk/rspack-builder",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Rspack builder for Actions Kit",
   "type": "module",
   "author": {
