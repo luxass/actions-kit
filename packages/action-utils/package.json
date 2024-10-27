@@ -1,6 +1,6 @@
 {
   "name": "@actions-sdk/action-utils",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Utils for GitHub Actions",
   "type": "module",
   "author": {
