@@ -28,19 +28,19 @@ export async function overrideYaml(cwd: string, config: ActionsKitConfig) {
 		return;
 	}
 
-		console.info("writing action.yml...");
-		const action = config.action;
+	console.info("writing action.yml...");
+	const action = config.action;
 
-		if (!action) {
-			throw new Error("action is required.");
-		}
+	if (!action) {
+		throw new Error("action is required.");
+	}
 
-		const actionYaml = Yaml.dump(action, {
-			sortKeys(a, b) {
-				const order = ["name", "description", "author", "branding", "inputs", "outputs", "runs"];
-				return order.indexOf(a) - order.indexOf(b);
-			},
-		});
+	const actionYaml = Yaml.dump(action, {
+		sortKeys(a, b) {
+			const order = ["name", "description", "author", "branding", "inputs", "outputs", "runs"];
+			return order.indexOf(a) - order.indexOf(b);
+		},
+	});
 
-		await writeFile(join(cwd, "action.yml"), actionYaml);
+	await writeFile(join(cwd, "action.yml"), actionYaml);
 }

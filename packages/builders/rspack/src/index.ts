@@ -11,7 +11,7 @@ export default function rspackBuilder(options: Configuration = {}) {
 	return defineBuilder({
 		name: "rspack",
 		build: async ({ cwd, config }) => {
-			const { filename, dir} = await inferOutput(config);
+			const { filename, dir } = await inferOutput(config);
 			const libraryType = await inferModuleType(config, filename);
 
 			const rspackOptions = defu(options, {

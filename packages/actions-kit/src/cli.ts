@@ -29,7 +29,7 @@ cli
 
 			const output = await builder.build({
 				cwd: args.cwd,
-				config: config
+				config: config,
 			});
 
 			console.log(output);

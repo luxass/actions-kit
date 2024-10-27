@@ -41,22 +41,21 @@ const BASE_CONFIG_SCHEMA = z.object({
 
 export type BaseActionsKitConfig = z.input<typeof BASE_CONFIG_SCHEMA>;
 
-
 const CONFIG_SCHEMA = BASE_CONFIG_SCHEMA.extend({
 	builder: z
-	.object({
-		name: z.string(),
-		build: z
-			.function()
-			.args(
-				z.object({
-					cwd: z.string(),
-					config: z.custom<BaseActionsKitConfig>(),
-				}),
-			)
-			.returns(z.any()),
-	})
-	.optional()
+		.object({
+			name: z.string(),
+			build: z
+				.function()
+				.args(
+					z.object({
+						cwd: z.string(),
+						config: z.custom<BaseActionsKitConfig>(),
+					}),
+				)
+				.returns(z.any()),
+		})
+		.optional(),
 });
 
 export type ActionsKitConfig = z.input<typeof CONFIG_SCHEMA>;

@@ -11,7 +11,7 @@ import RollupActionsKit from "unplugin-actions-kit/rollup";
 export default function rollupBuilder(options: RollupOptions = {}) {
 	return defineBuilder({
 		name: "rollup",
-		build: async ({ cwd, config}) => {
+		build: async ({ cwd, config }) => {
 			const { filename, dir } = await inferOutput(config);
 			const libraryType = await inferModuleType(config, filename);
 
