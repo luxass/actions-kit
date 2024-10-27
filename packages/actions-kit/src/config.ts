@@ -2,7 +2,7 @@ import { z } from "zod";
 import { ACTION_SCHEMA } from "@actions-sdk/action-schema";
 import { loadConfig as _loadConfig } from "c12";
 
-const CONFIG_SCHEMA = z.object({
+const BASE_CONFIG_SCHEMA = z.object({
 	/**
 	 * Whether to write the action.yml file, should be updated based
 	 * on the `action` field.
@@ -37,30 +37,29 @@ const CONFIG_SCHEMA = z.object({
 	 * @default true
 	 */
 	autocomplete: z.boolean().default(true),
-
-	/**
-	 * The "builder" to use for building the action.
-	 * @default "rspack"
-	 */
-	// builder: z.enum(["esbuild", "rolldown", "rollup", "rspack", "vite", "webpack"]).default("rspack"),
-
-	builder: z
-		.object({
-			name: z.string(),
-			build: z
-				.function()
-				.args(
-					z.object({
-						cwd: z.string(),
-						config: z.object({}),
-					}),
-				)
-				.returns(z.any()),
-		})
-		.optional(),
 });
 
-export interface ActionsKitConfig extends z.input<typeof CONFIG_SCHEMA> {}
+export type BaseActionsKitConfig = z.input<typeof BASE_CONFIG_SCHEMA>;
+
+
+const CONFIG_SCHEMA = BASE_CONFIG_SCHEMA.extend({
+	builder: z
+	.object({
+		name: z.string(),
+		build: z
+			.function()
+			.args(
+				z.object({
+					cwd: z.string(),
+					config: z.custom<BaseActionsKitConfig>(),
+				}),
+			)
+			.returns(z.any()),
+	})
+	.optional()
+});
+
+export type ActionsKitConfig = z.input<typeof CONFIG_SCHEMA>;
 
 /**
  * Defines and returns an ActionsKit configuration.

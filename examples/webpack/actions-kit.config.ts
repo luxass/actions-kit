@@ -20,7 +20,7 @@ export default defineConfig({
 		},
 		runs: {
 			using: "node20",
-			main: "index.cjs",
+			main: "dist/index.cjs",
 		},
 	},
 	builder: webpack({}),

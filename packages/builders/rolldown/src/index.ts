@@ -2,7 +2,7 @@ import { stat } from "node:fs/promises";
 import { builtinModules } from "node:module";
 import { join } from "node:path";
 import { type BuildOutput, defineBuilder } from "actions-kit/builder";
-import { inferModuleType, inferOutputFilename } from "actions-kit/builder-utils";
+import { inferModuleType, inferOutput } from "actions-kit/builder-utils";
 import { defu } from "defu";
 import type { RolldownOptions } from "rolldown";
 import { rolldown } from "rolldown";
@@ -12,8 +12,9 @@ export default function rolldownBuilder(options: RolldownOptions = {}) {
 	return defineBuilder({
 		name: "rolldown",
 		build: async ({ cwd, config }) => {
-			const outputFileName = await inferOutputFilename(config);
-			const libraryType = await inferModuleType(config, outputFileName);
+			const { filename, dir } = await inferOutput(config);
+			const libraryType = await inferModuleType(config, filename);
+
 			const rolldownOptions = defu(options, {
 				input: config.build?.input || join(cwd, "src/index.ts"),
 				external: [...builtinModules, ...builtinModules.map((m) => `node:${m}`)],
@@ -29,7 +30,6 @@ export default function rolldownBuilder(options: RolldownOptions = {}) {
 					}),
 				],
 				output: {
-					name: outputFileName,
 					format: libraryType,
 				},
 				onwarn: (warning) => {
@@ -46,12 +46,11 @@ export default function rolldownBuilder(options: RolldownOptions = {}) {
 			} satisfies RolldownOptions);
 
 			const builder = await rolldown(rolldownOptions);
-
 			const output = await builder.write({
 				format: libraryType,
 				sourcemap: false,
-				dir: join(cwd, "dist"),
-				entryFileNames: outputFileName,
+				dir: dir,
+				entryFileNames: filename,
 			});
 
 			if (Array.isArray(output) && output.length > 1) {

@@ -1,11 +1,11 @@
+import { defineBuilder, type BuildOutput } from "actions-kit/builder";
+import { inferModuleType, inferOutput } from "actions-kit/builder-utils";
 import { defu } from "defu";
 import type { BuildOptions as ESBuildBuildOptions } from "esbuild";
-import { getESBuildEntryPoint } from "./utils";
-import { join } from "node:path";
-import { defineBuilder, type BuildOutput } from "actions-kit/builder";
-import { inferModuleType, inferOutputFilename } from "actions-kit/builder-utils";
 import { build } from "esbuild";
+import { join } from "node:path";
 import ESBuildActionsKit from "unplugin-actions-kit/esbuild";
+import { getESBuildEntryPoint } from "./utils";
 
 export default function esbuildBuilder(options: ESBuildBuildOptions = {}) {
 	return defineBuilder({
@@ -18,8 +18,8 @@ export default function esbuildBuilder(options: ESBuildBuildOptions = {}) {
 				options.entryPoints = undefined;
 			}
 
-			const outputFileName = await inferOutputFilename(config);
-			const libraryType = await inferModuleType(config, outputFileName);
+			const { filename, dir } = await inferOutput(config);
+			const libraryType = await inferModuleType(config, filename);
 
 			const esbuildOptions = defu(
 				{
@@ -33,7 +33,7 @@ export default function esbuildBuilder(options: ESBuildBuildOptions = {}) {
 					target: "node20",
 					format: libraryType,
 					bundle: true,
-					outfile: join(cwd, "dist", outputFileName),
+					outfile: join(dir, filename),
 					metafile: true,
 					plugins: [
 						ESBuildActionsKit({

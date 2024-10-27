@@ -2,7 +2,7 @@ import { defu } from "defu";
 import type { Configuration, Stats } from "webpack";
 import { join, resolve } from "node:path";
 import { defineBuilder, type BuildOutput } from "actions-kit/builder";
-import { inferModuleType, inferOutputFilename } from "actions-kit/builder-utils";
+import { inferModuleType, inferOutput } from "actions-kit/builder-utils";
 import { webpack } from "webpack";
 import WebpackActionsKit from "unplugin-actions-kit/webpack";
 
@@ -10,16 +10,16 @@ export default function webpackBuilder(options: Configuration = {}) {
 	return defineBuilder({
 		name: "webpack",
 		build: async ({ cwd, config }) => {
-			const outputFileName = await inferOutputFilename(config);
-			const libraryType = await inferModuleType(config, outputFileName);
+			const { filename, dir } = await inferOutput(config);
+			const libraryType = await inferModuleType(config, filename);
 
 			const webpackOptions = defu(options, {
 				target: "node",
 				mode: "production",
 				entry: "./src/index.ts",
 				output: {
-					path: resolve(cwd, "dist"),
-					filename: outputFileName,
+					path: dir,
+					filename: filename,
 					library: {
 						type: libraryType === "esm" ? "module" : "commonjs2",
 					},
@@ -50,9 +50,6 @@ export default function webpackBuilder(options: Configuration = {}) {
 						autocomplete: config.autocomplete,
 					}),
 				],
-				externals: {
-					keytar: "commonjs keytar",
-				},
 			} satisfies Configuration);
 
 			const compiler = webpack(webpackOptions);

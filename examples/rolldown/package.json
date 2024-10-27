@@ -8,7 +8,7 @@
     "@actions/core": "catalog:"
   },
   "devDependencies": {
-    "@actions-sdk/esbuild-builder": "workspace:*",
+    "@actions-sdk/rolldown-builder": "workspace:*",
     "@actions-sdk/action-utils": "workspace:*",
     "actions-kit": "workspace:*",
     "typescript": "catalog:",
