@@ -34,10 +34,6 @@ export async function inferOutputFilename(config: ActionsKitConfig): Promise<str
 	) {
 		return config.action.runs.main;
 	}
-	console.log({
-		config,
-	});
-	console.log("reading");
 
 	const actionYmlPath = join(process.cwd(), "action.yml");
 	const actionYamlPath = join(process.cwd(), "action.yaml");
