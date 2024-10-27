@@ -63,6 +63,7 @@
     "tsup": "catalog:",
     "typescript": "catalog:",
     "vitest": "catalog:",
-    "@rspack/core": "catalog:"
+    "@rspack/core": "catalog:",
+    "actions-kit": "workspace:*"
   }
 }

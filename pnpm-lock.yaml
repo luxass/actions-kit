@@ -365,9 +365,6 @@ importers:
 
   packages/builders/esbuild:
     dependencies:
-      actions-kit:
-        specifier: workspace:*
-        version: link:../../actions-kit
       defu:
         specifier: 'catalog:'
         version: 6.1.4
@@ -378,6 +375,9 @@ importers:
       '@types/node':
         specifier: 'catalog:'
         version: 20.17.0
+      actions-kit:
+        specifier: workspace:*
+        version: link:../../actions-kit
       esbuild:
         specifier: 'catalog:'
         version: 0.24.0
@@ -393,9 +393,6 @@ importers:
 
   packages/builders/rolldown:
     dependencies:
-      actions-kit:
-        specifier: workspace:*
-        version: link:../../actions-kit
       defu:
         specifier: 'catalog:'
         version: 6.1.4
@@ -406,6 +403,9 @@ importers:
       '@types/node':
         specifier: 'catalog:'
         version: 20.17.0
+      actions-kit:
+        specifier: workspace:*
+        version: link:../../actions-kit
       rolldown:
         specifier: 'catalog:'
         version: 0.13.2
@@ -421,9 +421,6 @@ importers:
 
   packages/builders/rollup:
     dependencies:
-      actions-kit:
-        specifier: workspace:*
-        version: link:../../actions-kit
       defu:
         specifier: 'catalog:'
         version: 6.1.4
@@ -443,6 +440,9 @@ importers:
       '@types/node':
         specifier: 'catalog:'
         version: 20.17.0
+      actions-kit:
+        specifier: workspace:*
+        version: link:../../actions-kit
       rollup:
         specifier: 'catalog:'
         version: 4.24.0
@@ -458,9 +458,6 @@ importers:
 
   packages/builders/rspack:
     dependencies:
-      actions-kit:
-        specifier: workspace:*
-        version: link:../../actions-kit
       defu:
         specifier: 'catalog:'
         version: 6.1.4
@@ -477,6 +474,9 @@ importers:
       '@types/node':
         specifier: 'catalog:'
         version: 20.17.0
+      actions-kit:
+        specifier: workspace:*
+        version: link:../../actions-kit
       tsup:
         specifier: 'catalog:'
         version: 8.3.4(@swc/core@1.7.39)(jiti@2.3.3)(postcss@8.4.47)(typescript@5.6.3)
@@ -489,9 +489,6 @@ importers:
 
   packages/builders/vite:
     dependencies:
-      actions-kit:
-        specifier: workspace:*
-        version: link:../../actions-kit
       defu:
         specifier: 'catalog:'
         version: 6.1.4
@@ -502,6 +499,9 @@ importers:
       '@types/node':
         specifier: 'catalog:'
         version: 20.17.0
+      actions-kit:
+        specifier: workspace:*
+        version: link:../../actions-kit
       tsup:
         specifier: 'catalog:'
         version: 8.3.4(@swc/core@1.7.39)(jiti@2.3.3)(postcss@8.4.47)(typescript@5.6.3)
@@ -520,9 +520,6 @@ importers:
       '@swc/core':
         specifier: 'catalog:'
         version: 1.7.39
-      actions-kit:
-        specifier: workspace:*
-        version: link:../../actions-kit
       defu:
         specifier: 'catalog:'
         version: 6.1.4
@@ -536,6 +533,9 @@ importers:
       '@types/node':
         specifier: 'catalog:'
         version: 20.17.0
+      actions-kit:
+        specifier: workspace:*
+        version: link:../../actions-kit
       tsup:
         specifier: 'catalog:'
         version: 8.3.4(@swc/core@1.7.39)(jiti@2.3.3)(postcss@8.4.47)(typescript@5.6.3)

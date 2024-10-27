@@ -68,6 +68,7 @@
     "rollup": "catalog:",
     "@rollup/plugin-typescript": "catalog:",
     "@rollup/plugin-node-resolve": "catalog:",
-    "@rollup/plugin-commonjs": "catalog:"
+    "@rollup/plugin-commonjs": "catalog:",
+    "actions-kit": "workspace:*"
   }
 }

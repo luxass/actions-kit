@@ -62,6 +62,7 @@
     "tsup": "catalog:",
     "typescript": "catalog:",
     "vitest": "catalog:",
-    "rolldown": "catalog:"
+    "rolldown": "catalog:",
+    "actions-kit": "workspace:*"
   }
 }
