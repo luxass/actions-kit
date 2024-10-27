@@ -1,5 +1,11 @@
 # unplugin-actions-kit
 
+## 0.2.3
+
+### Patch Changes
+
+- [`ae1a6ec`](https://github.com/luxass/actions-kit/commit/ae1a6ec04ad71f0adda06439877d65182719ba9a) Thanks [@luxass](https://github.com/luxass)! - prevent overriding dist folder in test step
+
 ## 0.2.2
 
 ### Patch Changes
