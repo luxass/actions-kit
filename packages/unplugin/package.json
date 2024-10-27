@@ -10,13 +10,14 @@
   },
   "packageManager": "pnpm@9.12.1",
   "license": "MIT",
-  "homepage": "https://github.com/luxass/unplugin-actions-kit",
+  "homepage": "https://github.com/luxass/actions-kit",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luxass/unplugin-actions-kit.git"
+    "url": "git+https://github.com/luxass/actions-kit.git",
+    "directory": "packages/unplugin"
   },
   "bugs": {
-    "url": "https://github.com/luxass/unplugin-actions-kit/issues"
+    "url": "https://github.com/luxass/actions-kit/issues"
   },
   "keywords": [
     "actions",
