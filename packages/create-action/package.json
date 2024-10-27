@@ -24,12 +24,12 @@
     "github actions",
     "toolkit"
   ],
-  "main": "./bin/create-actions-kit.mjs",
+  "main": "./create-actions-kit.mjs",
   "exports": {
-    ".": "./bin/create-actions-kit.mjs"
+    ".": "./create-actions-kit.mjs"
   },
   "bin": {
-    "create-actions-kit": "./bin/create-actions-kit.mjs"
+    "create-actions-kit": "./create-actions-kit.mjs"
   },
   "files": [
     "dist",
