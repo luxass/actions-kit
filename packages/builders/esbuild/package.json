@@ -36,15 +36,13 @@
         "default": "./dist/index.cjs"
       }
     },
-    "./types": "./esbuild.d.ts",
     "./package.json": "./package.json"
   },
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
-    "dist",
-    "esbuild.d.ts"
+    "dist"
   ],
   "scripts": {
     "build": "tsup --tsconfig tsconfig.build.json",
@@ -52,22 +50,19 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "esbuild": "catalog:"
+    "esbuild": "catalog:",
+    "actions-kit": "workspace:*"
   },
   "dependencies": {
-    "zod": "catalog:",
-    "consola": "catalog:",
     "defu": "catalog:",
-    "unplugin-actions-kit": "workspace:*",
-    "js-yaml": "catalog:"
+    "unplugin-actions-kit": "workspace:*"
   },
   "devDependencies": {
-    "@types/js-yaml": "catalog:",
     "@types/node": "catalog:",
     "tsup": "catalog:",
     "typescript": "catalog:",
     "vitest": "catalog:",
     "esbuild": "catalog:",
-    "@actions-sdk/config": "workspace:*"
+    "actions-kit": "workspace:*"
   }
 }

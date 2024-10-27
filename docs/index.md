@@ -8,7 +8,7 @@ hero:
     - theme: brand
       text: "Getting Started"
       link: "/guide/getting-started"
-    
+
     - text: "View on GitHub"
       link: "https://github.com/luxass/actions-kit"
 
@@ -25,4 +25,3 @@ features:
     details: Actions Kit provides better IntelliSense for TypeScript users.
     icon: "🔍"
 ---
-

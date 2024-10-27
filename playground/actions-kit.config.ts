@@ -1,4 +1,5 @@
 import { defineConfig } from "actions-kit/config";
+import rspack from "@actions-sdk/rspack-builder";
 
 export default defineConfig({
 	writeYaml: true,
@@ -22,4 +23,5 @@ export default defineConfig({
 			main: "index.cjs",
 		},
 	},
+	builder: rspack({}),
 });

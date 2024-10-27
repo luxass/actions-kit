@@ -1,48 +1,73 @@
-/// <reference types="../esbuild.d.ts" />
-import type { ActionsKitConfig } from "@actions-sdk/config";
 import { defu } from "defu";
 import type { BuildOptions as ESBuildBuildOptions } from "esbuild";
 import { getESBuildEntryPoint } from "./utils";
 import { join } from "node:path";
-import consola from "consola";
+import { defineBuilder, type BuildOutput } from "actions-kit/builder";
+import { inferModuleType, inferOutputFilename } from "actions-kit/builder-utils";
+import { build } from "esbuild";
+import ESBuildActionsKit from "unplugin-actions-kit/esbuild";
 
-export interface BuilderOptions {
-	cwd: string;
-	config: ActionsKitConfig;
-	libraryType: "esm" | "cjs";
-	outputFileName: string;
-}
+export default function esbuildBuilder(options: ESBuildBuildOptions = {}) {
+	return defineBuilder({
+		name: "esbuild",
+		build: async ({ cwd, config }) => {
+			const defaultEntryPoint = config.build?.input || join(cwd, "src/index.ts");
+			const entryPoints = getESBuildEntryPoint(options.entryPoints, defaultEntryPoint);
 
-export async function build({ cwd, config, libraryType, outputFileName }: BuilderOptions) {
-	const build = await import("esbuild").then((m) => m.build);
-	const esbuildActionsKit = await import("unplugin-actions-kit/esbuild").then((m) => m.default);
+			if (options.entryPoints) {
+				options.entryPoints = undefined;
+			}
 
-	const defaultEntryPoint = join(cwd, "src/index.ts");
-	const entryPoints = getESBuildEntryPoint(config.esbuild?.entryPoints, defaultEntryPoint);
+			const outputFileName = await inferOutputFilename(config);
+			const libraryType = await inferModuleType(config, outputFileName);
 
-	if (config.esbuild?.entryPoints) {
-		config.esbuild.entryPoints = undefined;
-	}
+			const esbuildOptions = defu(
+				{
+					...options,
+					// metafile should always be true
+					metafile: true,
+				},
+				{
+					entryPoints: [entryPoints],
+					platform: "node",
+					target: "node20",
+					format: libraryType,
+					bundle: true,
+					outfile: join(cwd, "dist", outputFileName),
+					metafile: true,
+					plugins: [
+						ESBuildActionsKit({
+							actionPath: join(cwd, "./action.yml"),
+							inject: config.inject,
+							autocomplete: config.autocomplete,
+						}),
+					],
+				} satisfies ESBuildBuildOptions,
+			);
 
-	const esbuildOptions = defu(config.esbuild, {
-		entryPoints: [entryPoints],
-		platform: "node",
-		target: "node20",
-		format: libraryType,
-		bundle: true,
-		outfile: join(cwd, "dist", outputFileName),
-		plugins: [
-			esbuildActionsKit({
-				actionPath: join(cwd, "./action.yml"),
-				inject: config.inject,
-			}),
-		],
-	} satisfies ESBuildBuildOptions);
+			const result = await build(
+				// TODO: fix later
+				esbuildOptions as ESBuildBuildOptions,
+			);
 
-	const result = await build(
-		// TODO: fix later
-		esbuildOptions as ESBuildBuildOptions,
-	);
+			const metafile = result.metafile;
 
-	consola.info("Build complete", result);
+			if (!metafile) {
+				throw new Error("metafile didn't generate");
+			}
+
+			const outputFiles = Object.entries(metafile.outputs);
+
+			const output: BuildOutput[] = [];
+			for (const [outputFile, outputMeta] of outputFiles) {
+				output.push({
+					name: outputFile,
+					path: join(cwd, outputFile),
+					size: outputMeta.bytes,
+				});
+			}
+
+			return output;
+		},
+	});
 }

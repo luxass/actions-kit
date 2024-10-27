@@ -10,7 +10,6 @@
       "@actions-sdk/action-utils/*": ["packages/action-utils/src/*"],
       "unplugin-actions-kit": ["packages/unplugin/src/index.ts"],
       "@actions-sdk/action-schema": ["packages/action-schema/src/index.ts"],
-      "@actions-sdk/config": ["packages/config/src/index.ts"],
       "@actions-sdk/esbuild-builder": ["packages/builders/esbuild/src/index.ts"],
       "@actions-sdk/rolldown-builder": ["packages/builders/rolldown/src/index.ts"],
       "@actions-sdk/rollup-builder": ["packages/builders/rollup/src/index.ts"],

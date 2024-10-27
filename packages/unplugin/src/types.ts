@@ -7,8 +7,18 @@ export interface ActionsKitOptions {
 
 	/**
 	 * Inject `inputs` and `outputs` into the global scope.
+	 * @default false
 	 */
 	inject?: boolean | "inputs" | "outputs";
+
+	/**
+	 * Enable Autocomplete
+	 * @default true
+	 *
+	 * NOTE:
+	 * This will overload some functions of `@actions/core`, to provide better code-completion.
+	 */
+	autocomplete?: boolean;
 
 	/**
 	 * The output path for the generated typescript file.

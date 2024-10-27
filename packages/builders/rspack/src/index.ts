@@ -1,92 +1,113 @@
-/// <reference types="../rspack.d.ts" />
-import type { ActionsKitConfig } from "@actions-sdk/config";
+import "zod";
 import { defu } from "defu";
 import type { Configuration, Stats } from "@rspack/core";
 import { join, resolve } from "node:path";
+import { defineBuilder, type BuildOutput } from "actions-kit/builder";
+import { inferModuleType, inferOutputFilename } from "actions-kit/builder-utils";
+import { rspack } from "@rspack/core";
+import RspackActionsKit from "unplugin-actions-kit/rspack";
 
-export interface BuilderOptions {
-	cwd: string;
-	config: ActionsKitConfig;
-	libraryType: "esm" | "cjs";
-	outputFileName: string;
-}
+export default function rspackBuilder(options: Configuration = {}) {
+	return defineBuilder({
+		name: "rspack",
+		build: async ({ cwd, config }) => {
+			const outputFileName = await inferOutputFilename(config);
+			const libraryType = await inferModuleType(config, outputFileName);
 
-export async function build({ cwd, config, libraryType, outputFileName }: BuilderOptions) {
-	const rspack = await import("@rspack/core").then((m) => m.rspack);
-	const rspackActionsKit = await import("unplugin-actions-kit/rspack").then((m) => m.default);
-
-	const rspackOptions = defu(config.rspack, {
-		target: "node",
-		mode: "production",
-		entry: "./src/index.ts",
-		output: {
-			path: resolve(cwd, "dist"),
-			filename: outputFileName,
-			library: {
-				type: libraryType === "esm" ? "module" : "commonjs2",
-			},
-		},
-		resolve: {
-			extensions: [".ts", ".js"],
-		},
-		optimization: {
-			minimize: false,
-		},
-		devtool: false,
-		module: {
-			rules: [
-				{
-					test: /\.ts$/,
-					exclude: [/node_modules/],
-					loader: "builtin:swc-loader",
-					options: {
-						jsc: {
-							parser: {
-								syntax: "typescript",
+			const rspackOptions = defu(options, {
+				target: "node",
+				mode: "production",
+				entry: "./src/index.ts",
+				output: {
+					path: resolve(cwd, "dist"),
+					filename: outputFileName,
+					library: {
+						type: libraryType === "esm" ? "module" : "commonjs2",
+					},
+				},
+				resolve: {
+					extensions: [".ts", ".js"],
+				},
+				optimization: {
+					minimize: false,
+				},
+				devtool: false,
+				module: {
+					rules: [
+						{
+							test: /\.ts$/,
+							exclude: [/node_modules/],
+							loader: "builtin:swc-loader",
+							options: {
+								jsc: {
+									parser: {
+										syntax: "typescript",
+									},
+								},
 							},
+							type: "javascript/auto",
+						},
+					],
+				},
+				experiments: {
+					rspackFuture: {
+						bundlerInfo: {
+							force: true,
 						},
 					},
-					type: "javascript/auto",
 				},
-			],
-		},
-		experiments: {
-			rspackFuture: {
-				bundlerInfo: {
-					force: true,
+				plugins: [
+					RspackActionsKit({
+						// TODO: allow users to specify it.
+						actionPath: join(cwd, "./action.yml"),
+						inject: config.inject,
+						autocomplete: config.autocomplete,
+					}),
+				],
+				externals: {
+					keytar: "commonjs keytar",
 				},
-			},
-		},
-		plugins: [
-			rspackActionsKit({
-				// TODO: allow users to specify it.
-				actionPath: join(cwd, "./action.yml"),
-				inject: config.inject,
-			}),
-		],
-		externals: {
-			keytar: "commonjs keytar",
-		},
-	} satisfies Configuration);
+			} satisfies Configuration);
 
-	const compiler = rspack(rspackOptions);
+			const compiler = rspack(rspackOptions);
 
-	const stats = await new Promise<Stats | undefined>((resolve, reject) =>
-		compiler.run((err, stats) => {
-			if (err) {
-				reject(err);
-			} else {
-				resolve(stats as unknown as Stats);
+			const stats = await new Promise<Stats | undefined>((resolve, reject) =>
+				compiler.run((err, stats) => {
+					if (err) {
+						// TODO: handle errors better
+						reject(err);
+					} else {
+						resolve(stats as unknown as Stats);
+					}
+				}),
+			);
+
+			if (!stats) {
+				throw new Error("could not build");
 			}
-		}),
-	);
 
-	if (!stats) {
-		throw new Error("could not build");
-	}
+			const json = stats.toJson({
+				all: false,
+				assets: true,
+			});
 
-	stats.toString({
-		chunks: true,
-		colors: true,
+			const output: BuildOutput[] = [];
+
+			if (json.assets == null) {
+				throw new Error("could not gather bundle information");
+			}
+
+			const assets = json.assets;
+
+			for (const asset of assets) {
+				output.push({
+					name: asset.name,
+					path: join(cwd, asset.name),
+					size: asset.size,
+				});
+			}
+
+			return output;
+		},
 	});
 }

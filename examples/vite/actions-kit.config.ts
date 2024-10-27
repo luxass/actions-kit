@@ -1,4 +1,5 @@
 import { defineConfig } from "actions-kit/config";
+import vite from "@actions-sdk/vite-builder";
 
 export default defineConfig({
 	writeYaml: true,
@@ -22,5 +23,5 @@ export default defineConfig({
 			main: "index.cjs",
 		},
 	},
-	builder: "vite",
+	builder: vite({}),
 });

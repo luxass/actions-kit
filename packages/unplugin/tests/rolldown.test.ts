@@ -161,6 +161,41 @@ describe("augmentations", () => {
 		expect(dtsOutput).toMatchSnapshot();
 		expect(output[0].code).toMatchSnapshot();
 	});
+
+	it("expect no augmentation when `autocomplete` is disabled", async () => {
+		const directoryJson = await fromFileSystem(join(import.meta.dirname, "fixtures/basic"));
+		const testdirPath = await testdir(directoryJson);
+
+		expect(testdirPath).toBeDefined();
+
+		const bundle = await rolldown({
+			input: join(testdirPath, "index.ts"),
+			platform: "node",
+			external: ["@actions/core"],
+			plugins: [
+				ActionKitPlugin({
+					actionPath: join(testdirPath, "action.yaml"),
+					autocomplete: false,
+				}),
+			],
+		});
+
+		const { output } = await bundle.generate({
+			format: "cjs",
+			sourcemap: false,
+		});
+
+		const dtsOutput = await readFile(join(testdirPath, "actions-kit.d.ts"), "utf-8");
+		expect(output[0]).toBeDefined();
+		expect(output[0].code).toBeDefined();
+
+		expect(dtsOutput).not.toContain("@actions/core");
+		expect(dtsOutput).not.toContain("ActionOutputName");
+		expect(dtsOutput).not.toContain("ActionInputName");
+
+		expect(dtsOutput).toMatchSnapshot();
+		expect(output[0].code).toMatchSnapshot();
+	});
 });
 
 describe("inject", () => {

@@ -4,7 +4,6 @@ title: Action
 
 # Action
 
-
 The `action` configuration is where you define the metadata for your action, such as its name, description, author, and more.
 
 > [!IMPORTANT]
@@ -99,7 +98,6 @@ runs:
 The main file of the action.
 
 ```yaml
-
 runs:
   main: "index.cjs"
 ```

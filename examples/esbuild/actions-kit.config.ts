@@ -1,4 +1,5 @@
 import { defineConfig } from "actions-kit/config";
+import esbuild from "@actions-sdk/esbuild-builder";
 
 export default defineConfig({
 	writeYaml: true,
@@ -22,5 +23,7 @@ export default defineConfig({
 			main: "index.cjs",
 		},
 	},
-	builder: "esbuild",
+	builder: esbuild({
+		format: "cjs",
+	}),
 });

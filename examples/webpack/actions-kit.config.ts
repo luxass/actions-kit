@@ -1,4 +1,5 @@
 import { defineConfig } from "actions-kit/config";
+import webpack from "@actions-sdk/webpack-builder";
 
 export default defineConfig({
 	writeYaml: true,
@@ -22,5 +23,5 @@ export default defineConfig({
 			main: "index.cjs",
 		},
 	},
-	builder: "webpack",
+	builder: webpack({}),
 });

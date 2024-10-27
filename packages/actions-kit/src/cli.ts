@@ -1,5 +1,6 @@
-import cac, { type CAC, type Command } from "cac";
-import { loadConfig } from "@actions-sdk/config";
+import cac from "cac";
+import { loadConfig } from "./config";
+
 const cli = cac("actions-kit");
 
 cli
@@ -13,9 +14,20 @@ cli
 			// load configuration file.
 			const config = await loadConfig(args.cwd, args.config);
 
-			const builder = await import("./builder").then((mod) => mod);
+			if (config.builder == null) {
+				// todo: fix output
+				throw new Error("No builder found in the configuration file");
+			}
 
-			await builder.build(args.cwd, config);
+			const builder = config.builder;
+			console.log("using builder", builder.name);
+
+			const output = await builder.build({
+				cwd: args.cwd,
+				config: config,
+			});
+
+			console.log(output);
 		} catch (err) {
 			console.error(err);
 			process.exit(1);

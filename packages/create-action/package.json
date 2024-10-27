@@ -1,0 +1,55 @@
+{
+  "name": "create-actions-kit",
+  "version": "0.1.0",
+  "description": "A toolkit for GitHub Actions",
+  "type": "module",
+  "author": {
+    "name": "Lucas Nørgård",
+    "email": "lucasnrgaard@gmail.com",
+    "url": "https://luxass.dev"
+  },
+  "packageManager": "pnpm@9.12.1",
+  "license": "MIT",
+  "homepage": "https://github.com/luxass/actions-kit",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luxass/actions-kit.git",
+    "directory": "packages/actions-kit"
+  },
+  "bugs": {
+    "url": "https://github.com/luxass/actions-kit/issues"
+  },
+  "keywords": [
+    "actions",
+    "github actions",
+    "toolkit"
+  ],
+  "main": "./bin/create-actions-kit.mjs",
+  "exports": {
+    ".": "./bin/create-actions-kit.mjs"
+  },
+  "bin": {
+    "create-actions-kit": "./bin/create-actions-kit.mjs"
+  },
+  "files": [
+    "dist",
+    "create-actions-kit.mjs"
+  ],
+  "scripts": {
+    "build": "tsup --tsconfig tsconfig.build.json",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit"
+  },
+
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "tsup": "catalog:",
+    "typescript": "catalog:",
+    "cac": "catalog:",
+    "@clack/prompts": "^0.7.0",
+    "farver": "^0.2.0"
+  },
+  "engines": {
+    "node": "^18.17.1 || ^20.3.0 || >=21.0.0"
+  }
+}

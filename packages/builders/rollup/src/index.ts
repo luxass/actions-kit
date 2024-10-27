@@ -1,61 +1,84 @@
-/// <reference types="../rollup.d.ts" />
-import type { ActionsKitConfig } from "@actions-sdk/config";
+import { rollup } from "rollup";
+
+import { defineBuilder, type BuildOutput } from "actions-kit/builder";
+import { inferModuleType, inferOutputFilename } from "actions-kit/builder-utils";
 import { defu } from "defu";
-import type { RollupOptions } from "rollup";
-import { join } from "node:path";
-import consola from "consola";
+import { stat } from "node:fs/promises";
 import { builtinModules } from "node:module";
+import { join } from "node:path";
+import type { RollupOptions } from "rollup";
+import RollupActionsKit from "unplugin-actions-kit/rollup";
 
-export interface BuilderOptions {
-	cwd: string;
-	config: ActionsKitConfig;
-	libraryType: "esm" | "cjs";
-	outputFileName: string;
-}
+export default function rollupBuilder(options: RollupOptions = {}) {
+	return defineBuilder({
+		name: "rollup",
+		build: async ({ cwd, config }) => {
+			const outputFileName = await inferOutputFilename(config);
+			const libraryType = await inferModuleType(config, outputFileName);
 
-export async function build({ cwd, config, libraryType, outputFileName }: BuilderOptions) {
-	const build = await import("rollup").then((m) => m.rollup);
-	const rollupActionsKit = await import("unplugin-actions-kit/rollup").then((m) => m.default);
+			const [commonjs, resolve, typescript] = await Promise.all([
+				import("@rollup/plugin-commonjs").then((m) => m.default),
+				import("@rollup/plugin-node-resolve").then((m) => m.default),
+				import("@rollup/plugin-typescript").then((m) => m.default),
+			]);
 
-	const [commonjs, resolve, typescript] = await Promise.all([
-		import("@rollup/plugin-commonjs").then((m) => m.default),
-		import("@rollup/plugin-node-resolve").then((m) => m.default),
-		import("@rollup/plugin-typescript").then((m) => m.default),
-	]);
+			const rollupOptions = defu(options, {
+				input: config.build?.input || join(cwd, "src/index.ts"),
+				external: [...builtinModules, ...builtinModules.map((m) => `node:${m}`)],
+				output: {
+					file: join(cwd, "dist", outputFileName),
+					format: libraryType,
+					exports: "auto",
+				},
+				plugins: [
+					typescript({
+						tsconfig: "./tsconfig.json",
+						declaration: false,
+					}),
+					resolve({
+						preferBuiltins: true,
+					}),
+					commonjs(),
+					RollupActionsKit({
+						// TODO: allow users to specify it.
+						actionPath: join(cwd, "./action.yml"),
+						inject: config.inject,
+						autocomplete: config.autocomplete,
+					}),
+				],
+				onwarn: (warning) => {
+					if (
+						warning.code === "UNRESOLVED_IMPORT" ||
+						warning.code === "CIRCULAR_DEPENDENCY" ||
+						warning.code === "EMPTY_BUNDLE"
+					) {
+						return;
+					}
 
-	const rollupOptions = defu(config.rollup, {
-		// FIX: input should be inferred from the config
-		input: "./src/index.ts",
-		external: [...builtinModules, ...builtinModules.map((m) => `node:${m}`)],
-		output: {
-			file: join(cwd, "dist", outputFileName),
-			format: libraryType,
-			exports: "auto",
+					// TODO: pretty print warnings
+				},
+			} satisfies RollupOptions);
+
+			const builder = await rollup(rollupOptions);
+
+			const result = await builder.write({
+				format: libraryType,
+				sourcemap: false,
+				dir: join(cwd, "dist"),
+				entryFileNames: outputFileName,
+			});
+
+			const outputs: BuildOutput[] = [];
+			for (const _result of result.output) {
+				const stats = await stat(join(cwd, "dist", _result.fileName));
+				outputs.push({
+					name: _result.fileName,
+					path: join(cwd, "dist", _result.fileName),
+					size: stats.size,
+				});
+			}
+
+			return outputs;
 		},
-		plugins: [
-			typescript({
-				tsconfig: "./tsconfig.json",
-				declaration: false,
-			}),
-			resolve({
-				preferBuiltins: true,
-			}),
-			commonjs(),
-			rollupActionsKit({
-				// TODO: allow users to specify it.
-				actionPath: join(cwd, "./action.yml"),
-				inject: config.inject,
-			}),
-		],
-	} satisfies RollupOptions);
-
-	const builder = await build(rollupOptions);
-
-	const result = await builder.write({
-		file: join(cwd, "dist", outputFileName),
-		format: libraryType,
-		sourcemap: false,
 	});
-
-	consola.info("Build complete", result);
 }

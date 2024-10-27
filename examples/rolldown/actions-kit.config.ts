@@ -1,4 +1,5 @@
 import { defineConfig } from "actions-kit/config";
+import rolldown from "@actions-sdk/rolldown-builder";
 
 export default defineConfig({
 	writeYaml: true,
@@ -22,5 +23,5 @@ export default defineConfig({
 			main: "index.cjs",
 		},
 	},
-	builder: "rolldown",
+	builder: rolldown({}),
 });

@@ -36,15 +36,13 @@
         "default": "./dist/index.cjs"
       }
     },
-    "./types": "./webpack.d.ts",
     "./package.json": "./package.json"
   },
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
-    "dist",
-    "webpack.d.ts"
+    "dist"
   ],
   "scripts": {
     "build": "tsup --tsconfig tsconfig.build.json",
@@ -52,24 +50,21 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "webpack": "catalog:"
+    "webpack": "catalog:",
+    "actions-kit": "workspace:*"
   },
   "dependencies": {
-    "zod": "catalog:",
-    "consola": "catalog:",
     "defu": "catalog:",
     "unplugin-actions-kit": "workspace:*",
-    "js-yaml": "catalog:",
     "@swc/core": "catalog:",
     "swc-loader": "catalog:"
   },
   "devDependencies": {
-    "@types/js-yaml": "catalog:",
     "@types/node": "catalog:",
     "tsup": "catalog:",
     "typescript": "catalog:",
     "vitest": "catalog:",
     "webpack": "catalog:",
-    "@actions-sdk/config": "workspace:*"
+    "actions-kit": "workspace:*"
   }
 }

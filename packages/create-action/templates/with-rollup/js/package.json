@@ -1,0 +1,14 @@
+{
+  "name": "actions-kit-rollup-starter",
+  "private": true,
+  "scripts": {
+    "build": "actions-kit build"
+  },
+  "dependencies": {
+    "@actions/core": "^1.11.1"
+  },
+  "devDependencies": {
+    "@actions-sdk/rollup-builder": "latest",
+    "actions-kit": "latest"
+  }
+}
