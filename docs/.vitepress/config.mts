@@ -13,6 +13,7 @@ const defaultSidebar = [
 	},
 	{
 		text: "Builders",
+		link: "/builders/",
 		items: [
 			{
 				text: "ESBuild",
