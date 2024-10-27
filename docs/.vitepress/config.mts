@@ -45,6 +45,10 @@ const defaultSidebar = [
 		text: "API",
 		items: [{ text: "Inputs", link: "/api" }],
 	},
+	{
+		text: "Examples",
+		link: "/examples/",
+	}
 ];
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -61,36 +65,8 @@ export default defineConfig({
 		nav: [
 			{ text: "Guide", link: "/guide/" },
 			{ text: "API", link: "/api/" },
-			{
-				text: "Builders",
-				items: [
-					{
-						text: "ESBuild",
-						link: "/builders/esbuild",
-					},
-					{
-						text: "Rolldown",
-						link: "/builders/rolldown",
-					},
-					{
-						text: "Rollup",
-						link: "/builders/rollup",
-					},
-					{
-						text: "Rspack",
-						link: "/builders/rspack",
-					},
-					{
-						text: "Vite",
-						link: "/builders/vite",
-					},
-					{
-						text: "Webpack",
-						link: "/builders/webpack",
-					},
-				],
-			},
 			{ text: "Config", link: "/config/" },
+			{ text: "Examples", link: "/examples" },
 		],
 		sidebar: {
 			"/guide/": defaultSidebar,
