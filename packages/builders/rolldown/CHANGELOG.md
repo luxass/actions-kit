@@ -1,5 +1,13 @@
 # @actions-sdk/rolldown-builder
 
+## 1.0.1
+
+### Patch Changes
+
+- Updated dependencies [[`a13cdbd`](https://github.com/luxass/actions-kit/commit/a13cdbd702cb5499dd5d08c47fd69b7ef1afaa90)]:
+  - unplugin-actions-kit@0.2.1
+  - actions-kit@0.2.1
+
 ## 1.0.0
 
 ### Minor Changes

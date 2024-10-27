@@ -1,5 +1,11 @@
 # create-actions-kit
 
+## 0.2.1
+
+### Patch Changes
+
+- [`a13cdbd`](https://github.com/luxass/actions-kit/commit/a13cdbd702cb5499dd5d08c47fd69b7ef1afaa90) Thanks [@luxass](https://github.com/luxass)! - fix publishing
+
 ## 0.2.0
 
 ### Minor Changes
