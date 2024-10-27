@@ -2,7 +2,8 @@
 
 Build GitHub Actions using Rolldown.
 
-> [!IMPORTANT] > [Rolldown](https://rolldown.rs) is still in a very new bundler, and may not work for all use cases.
+> [!IMPORTANT]  
+> [Rolldown](https://rolldown.rs) is still in a very new bundler, and may not work for all use cases.
 
 ## Installation
 
