@@ -21,5 +21,5 @@ export default defineConfig({
 		await cp("templates", "dist/templates", {
 			recursive: true,
 		});
-	}
+	},
 });

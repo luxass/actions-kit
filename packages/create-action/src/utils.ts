@@ -59,21 +59,21 @@ export function isFolderEmpty(root: string, name: string): boolean {
 }
 
 async function* getFilesGenerator(dir: string): AsyncGenerator<string> {
-  const entries = await readdir(dir, { withFileTypes: true })
-  for (const entry of entries) {
-    const res = join(dir, entry.name)
-    if (entry.isDirectory()) {
-      yield* getFilesGenerator(res)
-    } else {
-      yield res
-    }
-  }
+	const entries = await readdir(dir, { withFileTypes: true });
+	for (const entry of entries) {
+		const res = join(dir, entry.name);
+		if (entry.isDirectory()) {
+			yield* getFilesGenerator(res);
+		} else {
+			yield res;
+		}
+	}
 }
 
 export async function getFiles(path: string): Promise<string[]> {
-	const files: string[] = []
+	const files: string[] = [];
 	for await (const file of getFilesGenerator(path)) {
-		files.push(file)
+		files.push(file);
 	}
-	return files
+	return files;
 }

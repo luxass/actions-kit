@@ -35,14 +35,14 @@ cli
 			if (!projectPath) {
 				const result = await text({
 					message: "What is your project named?",
-          initialValue: "my-new-action",
+					initialValue: "my-new-action",
 				});
 
-        if (isCancel(result)) {
-          process.exit(0);
-        }
+				if (isCancel(result)) {
+					process.exit(0);
+				}
 
-				projectPath = result
+				projectPath = result;
 			}
 
 			if (!projectPath) {
@@ -100,9 +100,9 @@ cli
 					initialValue: "TypeScript",
 				});
 
-        if (isCancel(result)) {
-          process.exit(0);
-        }
+				if (isCancel(result)) {
+					process.exit(0);
+				}
 
 				language = result;
 			}
@@ -139,57 +139,56 @@ cli
 					initialValue: "Rspack",
 				});
 
-        if (isCancel(result)) {
-          process.exit(0);
-        }
+				if (isCancel(result)) {
+					process.exit(0);
+				}
 
-        builder = result;
+				builder = result;
 			}
 
-      const templateName = `with-${builder}`
+			const templateName = `with-${builder}`;
 
-      if (!existsSync(join(import.meta.dirname, "./templates", templateName))) {
-        console.error(
-          `Could not locate the template: ${join(import.meta.dirname, "./templates", templateName)}`
-        )
-        process.exit(1)
-      }
+			if (!existsSync(join(import.meta.dirname, "./templates", templateName))) {
+				console.error(
+					`Could not locate the template: ${join(import.meta.dirname, "./templates", templateName)}`,
+				);
+				process.exit(1);
+			}
 
-      console.log(`using template: ${green(templateName)}`)
+			console.log(`using template: ${green(templateName)}`);
 
-      const templatePath = join(import.meta.dirname, "./templates", templateName, language)
+			const templatePath = join(import.meta.dirname, "./templates", templateName, language);
 
-      if (!existsSync(projectPath)) {
-        console.log(`Creating a new Actions Kit app in ${cyan(appPath)}`);
-        await mkdir(appPath, { recursive: true });
-      }
+			if (!existsSync(projectPath)) {
+				console.log(`Creating a new Actions Kit app in ${cyan(appPath)}`);
+				await mkdir(appPath, { recursive: true });
+			}
 
-      // find all files in the template directory
-      const files = await getFiles(templatePath)
+			// find all files in the template directory
+			const files = await getFiles(templatePath);
 
-      for (const file of files) {
-        const relativePath = file.replace(`${templatePath}/`, "")
-        let destPath = join(appPath, relativePath)
+			for (const file of files) {
+				const relativePath = file.replace(`${templatePath}/`, "");
+				let destPath = join(appPath, relativePath);
 
-        if (relativePath.includes("/")) {
-          const dir = destPath.split("/").slice(0, -1).join("/")
-          await mkdir(dir, { recursive: true })
-        }
+				if (relativePath.includes("/")) {
+					const dir = destPath.split("/").slice(0, -1).join("/");
+					await mkdir(dir, { recursive: true });
+				}
 
-        if (relativePath === "_gitignore") {
-          destPath = destPath.replace("_gitignore", ".gitignore")
-        }
+				if (relativePath === "_gitignore") {
+					destPath = destPath.replace("_gitignore", ".gitignore");
+				}
 
-        await copyFile(file, destPath)
-      }
+				await copyFile(file, destPath);
+			}
 
 			const pkgManager = process.env.npm_config_user_agent ?? "npm";
 
-			console.log("\nDone! 🎉\n")
-			console.log("To get started, run:")
-			console.log(`  cd ${cyan(appName)}`)
-			console.log(`  ${pkgManager} install`)
-
+			console.log("\nDone! 🎉\n");
+			console.log("To get started, run:");
+			console.log(`  cd ${cyan(appName)}`);
+			console.log(`  ${pkgManager} install`);
 		} catch (err) {
 			console.error(err);
 			process.exit(1);
