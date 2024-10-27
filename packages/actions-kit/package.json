@@ -29,34 +29,24 @@
   },
   "exports": {
     ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.mjs"
-      }
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.mjs"
     },
     "./config": {
-      "import": {
-        "types": "./dist/config.d.ts",
-        "default": "./dist/config.mjs"
-      }
+      "types": "./dist/config.d.ts",
+      "default": "./dist/config.mjs"
     },
     "./utils": {
-      "import": {
-        "types": "./dist/utils.d.ts",
-        "default": "./dist/utils.mjs"
-      }
+      "types": "./dist/utils.d.ts",
+      "default": "./dist/utils.mjs"
     },
     "./builder": {
-      "import": {
-        "types": "./dist/builder/index.d.ts",
-        "default": "./dist/builder/index.mjs"
-      }
+      "types": "./dist/builder/index.d.ts",
+      "default": "./dist/builder/index.mjs"
     },
     "./builder-utils": {
-      "import": {
-        "types": "./dist/builder/utils.d.ts",
-        "default": "./dist/builder/utils.mjs"
-      }
+      "types": "./dist/builder/utils.d.ts",
+      "default": "./dist/builder/utils.mjs"
     },
     "./package.json": "./package.json"
   },

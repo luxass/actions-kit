@@ -1,6 +1,5 @@
 export default {
-  load() {
-    return {
-    }
-  },
-}
+	load() {
+		return {};
+	},
+};
