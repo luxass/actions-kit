@@ -6,7 +6,7 @@
       "repo": "luxass/actions-kit"
     }
   ],
-  "commit": ["@changesets/cli/commit", { "skipCI": false }],
+  "commit": false,
   "linked": [],
   "access": "public",
   "baseBranch": "main",
