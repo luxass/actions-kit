@@ -64,9 +64,6 @@ export default function rspackBuilder(options: Configuration = {}) {
 						autocomplete: config.autocomplete,
 					}),
 				],
-				externals: {
-					keytar: "commonjs keytar",
-				},
 			} satisfies Configuration);
 
 			const compiler = rspack(rspackOptions);
