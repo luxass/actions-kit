@@ -1,5 +1,13 @@
 # @actions-sdk/rspack-builder
 
+## 0.2.3
+
+### Patch Changes
+
+- Updated dependencies [[`ae1a6ec`](https://github.com/luxass/actions-kit/commit/ae1a6ec04ad71f0adda06439877d65182719ba9a)]:
+  - unplugin-actions-kit@0.2.3
+  - actions-kit@0.2.4
+
 ## 0.2.2
 
 ### Patch Changes
