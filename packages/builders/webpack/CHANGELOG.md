@@ -1,5 +1,15 @@
 # @actions-sdk/webpack-builder
 
+## 0.2.2
+
+### Patch Changes
+
+- [`efedd0c`](https://github.com/luxass/actions-kit/commit/efedd0cf1448c1d480cddde2ef43a3939b325be6) Thanks [@luxass](https://github.com/luxass)! - run build before publish
+
+- Updated dependencies [[`efedd0c`](https://github.com/luxass/actions-kit/commit/efedd0cf1448c1d480cddde2ef43a3939b325be6)]:
+  - actions-kit@0.2.3
+  - unplugin-actions-kit@0.2.2
+
 ## 0.2.1
 
 ### Patch Changes

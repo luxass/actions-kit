@@ -1,5 +1,11 @@
 # create-actions-kit
 
+## 0.2.2
+
+### Patch Changes
+
+- [`efedd0c`](https://github.com/luxass/actions-kit/commit/efedd0cf1448c1d480cddde2ef43a3939b325be6) Thanks [@luxass](https://github.com/luxass)! - run build before publish
+
 ## 0.2.1
 
 ### Patch Changes

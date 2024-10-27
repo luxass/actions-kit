@@ -1,5 +1,16 @@
 # actions-kit
 
+## 0.2.3
+
+### Patch Changes
+
+- [`efedd0c`](https://github.com/luxass/actions-kit/commit/efedd0cf1448c1d480cddde2ef43a3939b325be6) Thanks [@luxass](https://github.com/luxass)! - run build before publish
+
+- Updated dependencies [[`efedd0c`](https://github.com/luxass/actions-kit/commit/efedd0cf1448c1d480cddde2ef43a3939b325be6)]:
+  - @actions-sdk/action-schema@0.2.1
+  - @actions-sdk/action-utils@0.2.1
+  - unplugin-actions-kit@0.2.2
+
 ## 0.2.2
 
 ### Patch Changes
