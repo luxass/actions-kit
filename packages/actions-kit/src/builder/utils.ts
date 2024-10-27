@@ -55,6 +55,7 @@ export async function inferModuleType(
 	config: ActionsKitConfig,
 	outputFileName: string,
 ): Promise<"esm" | "cjs"> {
+	// TODO: check in package.json
 	if (outputFileName.endsWith(".cjs")) return "cjs";
 	if (outputFileName.endsWith(".mjs")) return "esm";
 	return "cjs";
