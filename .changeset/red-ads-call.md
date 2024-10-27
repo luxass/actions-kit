@@ -9,6 +9,7 @@
 "@actions-sdk/vite-builder": minor
 "@actions-sdk/webpack-builder": minor
 "unplugin-actions-kit": minor
+"create-actions-kit": minor
 ---
 
 rewrote entire codebase for actions-kit
