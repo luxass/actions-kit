@@ -51,7 +51,7 @@ jobs:
         run: pnpm install
 
       - name: Check packages for common errors
-        run: pnpm turbo --filter "./packages/**" lint test typecheck
+        run: pnpm turbo --filter "./packages/**" build lint test typecheck
 
       - name: Create Release
         id: changeset
