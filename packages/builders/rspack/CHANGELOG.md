@@ -1,5 +1,18 @@
 # @actions-sdk/rspack-builder
 
+## 0.2.4
+
+### Patch Changes
+
+- [`ed40536`](https://github.com/luxass/actions-kit/commit/ed4053655413adb0d02686f94eae87a4b3fba668) Thanks [@luxass](https://github.com/luxass)! - remove hardcoded externals
+
+- [`d202c7b`](https://github.com/luxass/actions-kit/commit/d202c7b11ec17f0921b3644d312047e337c19b0b) Thanks [@luxass](https://github.com/luxass)! - prevent nested output folders if main file includes folder
+
+- [#28](https://github.com/luxass/actions-kit/pull/28) [`ed50302`](https://github.com/luxass/actions-kit/commit/ed503020a2181f1fe2e5bc26aae50e2adc8e411e) Thanks [@luxass](https://github.com/luxass)! - use new `inferOutput` builder utility to correctly set the outdir
+
+- Updated dependencies [[`ed50302`](https://github.com/luxass/actions-kit/commit/ed503020a2181f1fe2e5bc26aae50e2adc8e411e)]:
+  - actions-kit@0.2.5
+
 ## 0.2.3
 
 ### Patch Changes

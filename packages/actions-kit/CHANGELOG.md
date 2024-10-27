@@ -1,5 +1,11 @@
 # actions-kit
 
+## 0.2.5
+
+### Patch Changes
+
+- [#28](https://github.com/luxass/actions-kit/pull/28) [`ed50302`](https://github.com/luxass/actions-kit/commit/ed503020a2181f1fe2e5bc26aae50e2adc8e411e) Thanks [@luxass](https://github.com/luxass)! - add new utility for getting output filename and dirname correctly
+
 ## 0.2.4
 
 ### Patch Changes

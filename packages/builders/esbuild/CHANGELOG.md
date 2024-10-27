@@ -1,5 +1,14 @@
 # @actions-sdk/esbuild-builder
 
+## 0.2.4
+
+### Patch Changes
+
+- [#28](https://github.com/luxass/actions-kit/pull/28) [`ed50302`](https://github.com/luxass/actions-kit/commit/ed503020a2181f1fe2e5bc26aae50e2adc8e411e) Thanks [@luxass](https://github.com/luxass)! - use new `inferOutput` builder utility to correctly set the outdir
+
+- Updated dependencies [[`ed50302`](https://github.com/luxass/actions-kit/commit/ed503020a2181f1fe2e5bc26aae50e2adc8e411e)]:
+  - actions-kit@0.2.5
+
 ## 0.2.3
 
 ### Patch Changes
