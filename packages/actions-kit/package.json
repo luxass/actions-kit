@@ -29,32 +29,63 @@
   },
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.mjs"
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
     },
     "./config": {
-      "types": "./dist/config.d.ts",
-      "default": "./dist/config.mjs"
+      "import": {
+        "types": "./dist/config.d.ts",
+        "default": "./dist/config.mjs"
+      },
+      "require": {
+        "types": "./dist/config.d.cts",
+        "default": "./dist/config.cjs"
+      }
     },
     "./utils": {
-      "types": "./dist/utils.d.ts",
-      "default": "./dist/utils.mjs"
+      "import": {
+        "types": "./dist/utils.d.ts",
+        "default": "./dist/utils.mjs"
+      },
+      "require": {
+        "types": "./dist/utils.d.cts",
+        "default": "./dist/utils.cjs"
+      }
     },
     "./builder": {
-      "types": "./dist/builder/index.d.ts",
-      "default": "./dist/builder/index.mjs"
+      "import": {
+        "types": "./dist/builder/index.d.ts",
+        "default": "./dist/builder/index.mjs"
+      },
+      "require": {
+        "types": "./dist/builder/index.d.cts",
+        "default": "./dist/builder/index.cjs"
+      }
     },
     "./builder-utils": {
-      "types": "./dist/builder/utils.d.ts",
-      "default": "./dist/builder/utils.mjs"
+      "import": {
+        "types": "./dist/builder/utils.d.ts",
+        "default": "./dist/builder/utils.mjs"
+      },
+      "require": {
+        "types": "./dist/builder/utils.d.cts",
+        "default": "./dist/builder/utils.cjs"
+      }
     },
     "./package.json": "./package.json"
   },
-  "main": "dist/index.mjs",
+  "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "bin"
   ],
   "scripts": {
     "build": "tsup --tsconfig tsconfig.build.json",
