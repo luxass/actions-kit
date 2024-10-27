@@ -14,12 +14,23 @@ export default function rspackBuilder(options: Configuration = {}) {
 			const outputFileName = await inferOutputFilename(config);
 			const libraryType = await inferModuleType(config, outputFileName);
 
+			let outputDir = resolve(cwd, "dist");
+
+			if (outputFileName.includes("/")) {
+				const [dir] = outputFileName.split("/").slice(0, -1);
+				if (!dir) {
+					throw new Error("invalid output file name");
+				}
+
+				outputDir = resolve(cwd, dir);
+			}
+
 			const rspackOptions = defu(options, {
 				target: "node",
 				mode: "production",
 				entry: "./src/index.ts",
 				output: {
-					path: resolve(cwd, "dist"),
+					path: outputDir,
 					filename: outputFileName,
 					library: {
 						type: libraryType === "esm" ? "module" : "commonjs2",
