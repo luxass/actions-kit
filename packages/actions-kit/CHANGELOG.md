@@ -1,5 +1,11 @@
 # actions-kit
 
+## 0.2.2
+
+### Patch Changes
+
+- [#23](https://github.com/luxass/actions-kit/pull/23) [`46032ce`](https://github.com/luxass/actions-kit/commit/46032ce171655d8a2eb7277238664aa386485b3b) Thanks [@luxass](https://github.com/luxass)! - fix package exports and add missing cli entrypoint for `actions-kit`
+
 ## 0.2.1
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@actions-sdk/rolldown-builder",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Rolldown builder for Actions Kit",
   "type": "module",
   "author": {
