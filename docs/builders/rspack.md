@@ -28,28 +28,26 @@ Set the `builder` in your `actions-kit.config.ts` file:
 
 ```ts [actions-kit.config.ts]
 import { defineConfig } from "actions-kit/config";
+import rspack from "@actions-sdk/rspack-builder";
 
 export default defineConfig({
-  builder: "rspack",
+  builder: rspack({
+    ...rspackOptions,
+  }),
 });
-```
-
-> [!TIP]
-> If you are using TypeScript, you will have to either add `@actions-sdk/rspack-builder/types` to `compilerOptions.types` or add a triple slash directive to the top of your file.
-
-```ts
-/// <reference types="@actions-sdk/rspack-builder/types" />
 ```
 
 ### Customizing Rspack
 
-You can customize the Rspack options by adding an `rspack` key to your `actions-kit.config.ts` file:
+You can customize the Rspack options by passing the options directly into the `rspack` function.
 
 ```ts [actions-kit.config.ts]
 import { defineConfig } from "actions-kit/config";
+import rspack from "@actions-sdk/rspack-builder";
 
 export default defineConfig({
-  builder: "rspack",
-  rspack: {},
+  builder: rspack({
+    ...rspackOptions,
+  }),
 });
 ```

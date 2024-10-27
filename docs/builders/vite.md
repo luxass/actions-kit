@@ -28,30 +28,26 @@ Set the `builder` in your `actions-kit.config.ts` file:
 
 ```ts [actions-kit.config.ts]
 import { defineConfig } from "actions-kit/config";
+import vite from "@actions-sdk/vite-builder";
 
 export default defineConfig({
-  builder: "vite",
+  builder: vite({
+    ...viteOptions,
+  }),
 });
-```
-
-> [!TIP]
-> If you are using TypeScript, you will have to either add `@actions-sdk/vite-builder/types` to `compilerOptions.types` or add a triple slash directive to the top of your file.
-
-```ts
-/// <reference types="@actions-sdk/vite-builder/types" />
 ```
 
 ### Customizing Vite
 
-You can customize the Vite options by adding an `vite` key to your `actions-kit.config.ts` file:
+You can customize the Vite options by passing the options directly into the `vite` function.
 
 ```ts [actions-kit.config.ts]
 import { defineConfig } from "actions-kit/config";
+import vite from "@actions-sdk/vite-builder";
 
 export default defineConfig({
-  builder: "vite",
-  vite: {
+  builder: vite({
     plugins: [],
-  },
+  }),
 });
 ```

@@ -28,28 +28,26 @@ Set the `builder` in your `actions-kit.config.ts` file:
 
 ```ts [actions-kit.config.ts]
 import { defineConfig } from "actions-kit/config";
+import webpack from "@actions-sdk/webpack-builder";
 
 export default defineConfig({
-  builder: "webpack",
+  builder: webpack({
+    ...webpackOptions,
+  }),
 });
-```
-
-> [!TIP]
-> If you are using TypeScript, you will have to either add `@actions-sdk/webpack-builder/types` to `compilerOptions.types` or add a triple slash directive to the top of your file.
-
-```ts
-/// <reference types="@actions-sdk/webpack-builder/types" />
 ```
 
 ### Customizing Webpack
 
-You can customize the Webpack options by adding an `webpack` key to your `actions-kit.config.ts` file:
+You can customize the Webpack options by passing the options directly into the `webpack` function.
 
 ```ts [actions-kit.config.ts]
 import { defineConfig } from "actions-kit/config";
+import webpack from "@actions-sdk/webpack-builder";
 
 export default defineConfig({
-  builder: "webpack",
-  webpack: {},
+  builder: webpack({
+    ...webpackOptions,
+  }),
 });
 ```

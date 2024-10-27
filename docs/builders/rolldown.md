@@ -30,30 +30,26 @@ Set the `builder` in your `actions-kit.config.ts` file:
 
 ```ts [actions-kit.config.ts]
 import { defineConfig } from "actions-kit/config";
+import rolldown from "@actions-sdk/rolldown-builder";
 
 export default defineConfig({
-  builder: "rolldown",
+  builder: rolldown({
+    ...rolldownOptions,
+  }),
 });
-```
-
-> [!TIP]
-> If you are using TypeScript, you will have to either add `@actions-sdk/rolldown-builder/types` to `compilerOptions.types` or add a triple slash directive to the top of your file.
-
-```ts
-/// <reference types="@actions-sdk/rolldown-builder/types" />
 ```
 
 ### Customizing Rolldown
 
-You can customize Rolldown by adding an `rolldown` key to your `actions-kit.config.ts` file:
+You can customize the Rolldown options by passing the options directly into the `rolldown` function.
 
 ```ts [actions-kit.config.ts]
 import { defineConfig } from "actions-kit/config";
+import rolldown from "@actions-sdk/rolldown-builder";
 
 export default defineConfig({
-  builder: "rolldown",
-  rolldown: {
-    plugins: [],
-  },
+  builder: rolldown({
+    ...rolldownOptions,
+  }),
 });
 ```

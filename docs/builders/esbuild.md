@@ -28,36 +28,32 @@ Set the `builder` in your `actions-kit.config.ts` file:
 
 ```ts [actions-kit.config.ts]
 import { defineConfig } from "actions-kit/config";
+import esbuild from "@actions-sdk/esbuild-builder";
 
 export default defineConfig({
-  builder: "esbuild",
+  builder: esbuild({
+    ...esbuildOptions,
+  }),
 });
-```
-
-> [!TIP]
-> If you are using TypeScript, you will have to either add `@actions-sdk/esbuild-builder/types` to `compilerOptions.types` or add a triple slash directive to the top of your file.
-
-```ts
-/// <reference types="@actions-sdk/esbuild-builder/types" />
 ```
 
 ### Customizing ESBuild
 
-You can customize the ESBuild options by adding an `esbuild` key to your `actions-kit.config.ts` file:
+You can customize the ESBuild options by passing the options directly into the `esbuild` function.
 
 > [!NOTE]
 > Not all of ESBuild's options are supported. For a list of the supported options, see [ESBuild Options](#esbuild-options).
 
 ```ts [actions-kit.config.ts]
 import { defineConfig } from "actions-kit/config";
+import esbuild from "@actions-sdk/esbuild-builder";
 
 export default defineConfig({
-  builder: "esbuild",
-  esbuild: {
+  builder: esbuild({
     target: "esnext",
     format: "esm",
     minify: true,
-  },
+  }),
 });
 ```
 
