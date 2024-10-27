@@ -1,6 +1,6 @@
 {
   "name": "create-actions-kit",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A toolkit for GitHub Actions",
   "type": "module",
   "author": {
@@ -40,7 +40,6 @@
     "dev": "tsup --watch",
     "typecheck": "tsc --noEmit"
   },
-
   "devDependencies": {
     "@types/node": "catalog:",
     "tsup": "catalog:",

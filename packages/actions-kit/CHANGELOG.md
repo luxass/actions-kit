@@ -1,0 +1,14 @@
+# actions-kit
+
+## 0.2.0
+
+### Minor Changes
+
+- [`ed62c5c`](https://github.com/luxass/actions-kit/commit/ed62c5c7755ae589636ba1aca5ac11896ca09283) Thanks [@luxass](https://github.com/luxass)! - rewrote entire codebase for actions-kit
+
+### Patch Changes
+
+- Updated dependencies [[`ed62c5c`](https://github.com/luxass/actions-kit/commit/ed62c5c7755ae589636ba1aca5ac11896ca09283)]:
+  - @actions-sdk/action-schema@0.2.0
+  - @actions-sdk/action-utils@0.2.0
+  - unplugin-actions-kit@0.2.0
