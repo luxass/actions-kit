@@ -1,5 +1,7 @@
 packages:
-  - packages/**
+  # don't use /** because then it would match templates also
+  - packages/*
+  - packages/builders/*
   - docs
   - playground
   - examples/*

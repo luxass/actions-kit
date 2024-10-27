@@ -1,11 +1,11 @@
 import { defineConfig } from "actions-kit/config";
-import rspack from "@actions-sdk/rspack-builder";
+import esbuild from "@actions-sdk/esbuild-builder";
 
 export default defineConfig({
 	writeYaml: true,
 	action: {
-		name: "Actions Kit Playground 2",
-		description: "An Action built using Actions Kit",
+		name: "Actions Kit ESBuild Starter",
+		description: "An Action built using Actions Kit with ESBuild Builder",
 		author: "luxass",
 		branding: {
 			color: "purple",
@@ -23,5 +23,5 @@ export default defineConfig({
 			main: "index.cjs",
 		},
 	},
-	builder: rspack({}),
+	builder: esbuild(),
 });

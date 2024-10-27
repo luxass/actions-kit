@@ -1,5 +1,6 @@
 import cac from "cac";
 import { loadConfig } from "./config";
+
 const cli = cac("actions-kit");
 
 cli
@@ -12,7 +13,7 @@ cli
 		try {
 			// load configuration file.
 			const config = await loadConfig(args.cwd, args.config);
-			console.log(config);
+
 			if (config.builder == null) {
 				// todo: fix output
 				throw new Error("No builder found in the configuration file");

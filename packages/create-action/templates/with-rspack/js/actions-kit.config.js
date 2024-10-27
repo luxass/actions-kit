@@ -4,8 +4,8 @@ import rspack from "@actions-sdk/rspack-builder";
 export default defineConfig({
 	writeYaml: true,
 	action: {
-		name: "Actions Kit Playground 2",
-		description: "An Action built using Actions Kit",
+		name: "Actions Kit Rspack Starter",
+		description: "An Action built using Actions Kit with Rspack Builder",
 		author: "luxass",
 		branding: {
 			color: "purple",
@@ -23,5 +23,5 @@ export default defineConfig({
 			main: "index.cjs",
 		},
 	},
-	builder: rspack({}),
+	builder: rspack(),
 });

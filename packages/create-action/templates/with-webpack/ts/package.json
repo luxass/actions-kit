@@ -1,0 +1,16 @@
+{
+  "name": "actions-kit-webpack-ts-starter",
+  "private": true,
+  "scripts": {
+    "build": "actions-kit build"
+  },
+  "dependencies": {
+    "@actions/core": "^1.11.1"
+  },
+  "devDependencies": {
+    "@actions-sdk/webpack-builder": "latest",
+    "actions-kit": "latest",
+    "typescript": "^5.6.3",
+    "@types/node": "^22.8.1"
+  }
+}
