@@ -1,1 +1,1 @@
-# Actions Kit Vite Template 
+# Actions Kit Vite Template

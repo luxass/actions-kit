@@ -1,1 +1,1 @@
-# Actions Kit Webpack Template 
+# Actions Kit Webpack Template

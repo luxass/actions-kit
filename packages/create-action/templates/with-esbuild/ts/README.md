@@ -1,1 +1,1 @@
-# Actions Kit ESBuild Template 
+# Actions Kit ESBuild Template

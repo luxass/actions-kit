@@ -1,1 +1,1 @@
-# Actions Kit Rspack Template 
+# Actions Kit Rspack Template
