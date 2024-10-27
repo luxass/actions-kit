@@ -1,5 +1,6 @@
 import { defineConfig } from "tsup";
 import { cp, rm } from "node:fs/promises";
+import { existsSync } from "node:fs";
 export default defineConfig({
 	entry: ["src/index.ts"],
 	format: ["esm"],
@@ -14,9 +15,11 @@ export default defineConfig({
 	},
 
 	async onSuccess() {
-		await rm("dist/templates", {
-			recursive: true,
-		});
+		if (existsSync("dist/templates")) {
+			await rm("dist/templates", {
+				recursive: true,
+			});
+		}
 
 		await cp("templates", "dist/templates", {
 			recursive: true,
