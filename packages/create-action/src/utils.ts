@@ -1,7 +1,7 @@
+import { blue, green } from "farver";
 import { lstatSync, readdirSync } from "node:fs";
-import { basename, dirname, join, resolve } from "node:path";
-import { green, blue } from "farver";
-import { copyFile, mkdir, readdir } from "node:fs/promises";
+import { readdir } from "node:fs/promises";
+import { join } from "node:path";
 
 export function isFolderEmpty(root: string, name: string): boolean {
 	const validFiles = [
