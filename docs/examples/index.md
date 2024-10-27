@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { data } from './index.data.ts'
 </script>
 
@@ -6,14 +6,9 @@ import { data } from './index.data.ts'
 
 In this section, you can see practical examples to create your application with Hono.
 
-<div v-for="sections of data">
-  <section v-for="category of sections">
-    <h2>{{ category.text }}</h2>
-    <ul v-for="item of category.items">
-      <li><a :href="item.link">{{ item.text }}</a></li>
-    </ul>
-  </section>
-</div>
+<ul v-for="item of data">
+  <li><a :href="item.link">{{ item.title }}</a></li>
+</ul>
 
 ## GitHub repository
 

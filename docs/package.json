@@ -1,6 +1,7 @@
 {
   "name": "@actions-sdk/docs",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
