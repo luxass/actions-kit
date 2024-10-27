@@ -19,6 +19,7 @@ it("expect no `actions-kit.d.ts` file generated if plugin not in use", async () 
 				fileName: "bundle",
 				name: "bundle",
 			},
+			outDir: join(testdirPath, "dist"),
 			rollupOptions: {
 				external: ["@actions/core"],
 			},
@@ -58,6 +59,7 @@ it("expect `actions-kit.d.ts` to be generated", async () => {
 				fileName: "bundle",
 				name: "bundle",
 			},
+			outDir: join(testdirPath, "dist"),
 			rollupOptions: {
 				external: ["@actions/core"],
 			},
@@ -104,6 +106,7 @@ describe("augmentations", () => {
 					fileName: "bundle",
 					name: "bundle",
 				},
+				outDir: join(testdirPath, "dist"),
 				rollupOptions: {
 					external: ["@actions/core"],
 				},
@@ -151,6 +154,7 @@ describe("augmentations", () => {
 					fileName: "bundle",
 					name: "bundle",
 				},
+				outDir: join(testdirPath, "dist"),
 				rollupOptions: {
 					external: ["@actions/core"],
 				},
@@ -198,6 +202,7 @@ describe("augmentations", () => {
 					fileName: "bundle",
 					name: "bundle",
 				},
+				outDir: join(testdirPath, "dist"),
 				rollupOptions: {
 					external: ["@actions/core"],
 				},
@@ -245,6 +250,7 @@ describe("augmentations", () => {
 					fileName: "bundle",
 					name: "bundle",
 				},
+				outDir: join(testdirPath, "dist"),
 				rollupOptions: {
 					external: ["@actions/core"],
 				},
@@ -296,6 +302,7 @@ describe("inject", () => {
 					fileName: "bundle",
 					name: "bundle",
 				},
+				outDir: join(testdirPath, "dist"),
 				rollupOptions: {
 					external: ["@actions/core"],
 				},
@@ -349,6 +356,7 @@ describe("inject", () => {
 							fileName: "bundle",
 							name: "bundle",
 						},
+						outDir: join(testdirPath, "dist"),
 						rollupOptions: {
 							external: ["@actions/core"],
 						},
@@ -378,6 +386,7 @@ describe("inject", () => {
 					fileName: "bundle",
 					name: "bundle",
 				},
+				outDir: join(testdirPath, "dist"),
 				rollupOptions: {
 					external: ["@actions/core"],
 				},
@@ -431,6 +440,7 @@ describe("inject", () => {
 							fileName: "bundle",
 							name: "bundle",
 						},
+						outDir: join(testdirPath, "dist"),
 						rollupOptions: {
 							external: ["@actions/core"],
 						},
@@ -460,6 +470,7 @@ describe("inject", () => {
 					fileName: "bundle",
 					name: "bundle",
 				},
+				outDir: join(testdirPath, "dist"),
 				rollupOptions: {
 					external: ["@actions/core"],
 				},
@@ -511,6 +522,7 @@ describe("inject", () => {
 					fileName: "bundle",
 					name: "bundle",
 				},
+				outDir: join(testdirPath, "dist"),
 				rollupOptions: {
 					external: ["@actions/core"],
 				},
@@ -563,6 +575,7 @@ it("custom output path", async () => {
 				fileName: "bundle",
 				name: "bundle",
 			},
+			outDir: join(testdirPath, "dist"),
 			rollupOptions: {
 				external: ["@actions/core"],
 			},
