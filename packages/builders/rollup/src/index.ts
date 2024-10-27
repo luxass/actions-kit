@@ -1,7 +1,6 @@
 import { rollup } from "rollup";
-
 import { defineBuilder, type BuildOutput } from "actions-kit/builder";
-import { inferModuleType, inferOutputFilename } from "actions-kit/builder-utils";
+import { inferModuleType, inferOutput } from "actions-kit/builder-utils";
 import { defu } from "defu";
 import { stat } from "node:fs/promises";
 import { builtinModules } from "node:module";
@@ -13,8 +12,8 @@ export default function rollupBuilder(options: RollupOptions = {}) {
 	return defineBuilder({
 		name: "rollup",
 		build: async ({ cwd, config }) => {
-			const outputFileName = await inferOutputFilename(config);
-			const libraryType = await inferModuleType(config, outputFileName);
+			const { filename, dir } = await inferOutput(config);
+			const libraryType = await inferModuleType(config, filename);
 
 			const [commonjs, resolve, typescript] = await Promise.all([
 				import("@rollup/plugin-commonjs").then((m) => m.default),
@@ -26,7 +25,7 @@ export default function rollupBuilder(options: RollupOptions = {}) {
 				input: config.build?.input || join(cwd, "src/index.ts"),
 				external: [...builtinModules, ...builtinModules.map((m) => `node:${m}`)],
 				output: {
-					file: join(cwd, "dist", outputFileName),
+					file: join(cwd, dir, filename),
 					format: libraryType,
 					exports: "auto",
 				},
@@ -64,8 +63,8 @@ export default function rollupBuilder(options: RollupOptions = {}) {
 			const result = await builder.write({
 				format: libraryType,
 				sourcemap: false,
-				dir: join(cwd, "dist"),
-				entryFileNames: outputFileName,
+				dir: dir,
+				entryFileNames: filename,
 			});
 
 			const outputs: BuildOutput[] = [];

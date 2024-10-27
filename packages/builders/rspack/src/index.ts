@@ -1,9 +1,9 @@
 import "zod";
 import { defu } from "defu";
 import type { Configuration, Stats } from "@rspack/core";
-import { join, resolve } from "node:path";
+import { join } from "node:path";
 import { defineBuilder, type BuildOutput } from "actions-kit/builder";
-import { inferModuleType, inferOutputFilename } from "actions-kit/builder-utils";
+import { inferModuleType, inferOutput } from "actions-kit/builder-utils";
 import { rspack } from "@rspack/core";
 import RspackActionsKit from "unplugin-actions-kit/rspack";
 
@@ -11,27 +11,16 @@ export default function rspackBuilder(options: Configuration = {}) {
 	return defineBuilder({
 		name: "rspack",
 		build: async ({ cwd, config }) => {
-			const outputFileName = await inferOutputFilename(config);
-			const libraryType = await inferModuleType(config, outputFileName);
-
-			let outputDir = resolve(cwd, "dist");
-
-			if (outputFileName.includes("/")) {
-				const [dir] = outputFileName.split("/").slice(0, -1);
-				if (!dir) {
-					throw new Error("invalid output file name");
-				}
-
-				outputDir = resolve(cwd, dir);
-			}
+			const { filename, dir } = await inferOutput(config);
+			const libraryType = await inferModuleType(config, filename);
 
 			const rspackOptions = defu(options, {
 				target: "node",
 				mode: "production",
 				entry: "./src/index.ts",
 				output: {
-					path: outputDir,
-					filename: outputFileName,
+					path: dir,
+					filename: filename,
 					library: {
 						type: libraryType === "esm" ? "module" : "commonjs2",
 					},

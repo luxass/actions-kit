@@ -4,6 +4,27 @@ import Yaml from "js-yaml";
 import { ACTION_SCHEMA, type Action } from "@actions-sdk/action-schema";
 import type { ActionsKitConfig } from "../config";
 
+export async function inferOutput(config: ActionsKitConfig): Promise<{
+	filename: string;
+	dir: string;
+}> {
+	let filename = await inferOutputFilename(config);
+	let dir = join(process.cwd(), "dist");
+
+	if (filename.includes("/")) {
+		const [dirName] = filename.split("/").slice(0, -1);
+		if (!dirName) {
+			throw new Error("invalid output file name");
+		}
+
+		filename = filename.replace(`${dirName}/`, "");
+
+		dir = join(process.cwd(), dirName);
+	}
+
+	return { filename, dir };
+}
+
 export async function inferOutputFilename(config: ActionsKitConfig): Promise<string> {
 	if (
 		config.action != null &&

@@ -93,15 +93,15 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "zod": "catalog:",
+    "@actions-sdk/action-schema": "workspace:*",
+    "@actions-sdk/action-utils": "workspace:*",
+    "c12": "catalog:",
     "cac": "catalog:",
     "consola": "catalog:",
     "defu": "catalog:",
-    "unplugin-actions-kit": "workspace:*",
-    "@actions-sdk/action-utils": "workspace:*",
-    "@actions-sdk/action-schema": "workspace:*",
     "js-yaml": "catalog:",
-    "c12": "catalog:"
+    "unplugin-actions-kit": "workspace:*",
+    "zod": "catalog:"
   },
   "devDependencies": {
     "@types/js-yaml": "catalog:",

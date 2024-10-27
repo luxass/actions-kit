@@ -11,4 +11,4 @@ inputs:
     description: Your name
 runs:
   using: node20
-  main: index.cjs
+  main: dist/index.cjs
