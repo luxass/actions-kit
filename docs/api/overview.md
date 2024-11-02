@@ -31,10 +31,7 @@ If you are using Actions Kit, you can import the utility functions directly from
 
 ```ts
 // for all utility functions
-import * aku from "actions-kit/utils";
-
-// for specific utility functions
-import { isPr } from "actions-kit/utils/events";
+import * as aku from "actions-kit/utils";
 ```
 
 Otherwise, you can import the functions directly from the package:
