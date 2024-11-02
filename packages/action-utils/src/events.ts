@@ -7,7 +7,7 @@ import { existsSync, readFileSync } from "node:fs";
  *
  * @example
  * ```ts
- * import { isRelease } from "@actions-sdk/utils/events";
+ * import { isRelease } from "@actions-sdk/action-utils/events";
  *
  * if (isRelease()) {
  *   console.log("This is a release event");
@@ -25,7 +25,7 @@ export function isRelease(): boolean {
  *
  * @example
  * ```ts
- * import { isPush } from "@actions-sdk/utils/events";
+ * import { isPush } from "@actions-sdk/action-utils/events";
  *
  * if (isPush()) {
  *   console.log("This is a push event");
@@ -43,7 +43,7 @@ export function isPush(): boolean {
  *
  * @example
  * ```ts
- * import { isPr } from "@actions-sdk/utils/events";
+ * import { isPr } from "@actions-sdk/action-utils/events";
  *
  * if (isPr()) {
  *   console.log("This is a pull request event");
@@ -64,7 +64,7 @@ export function isPr(): boolean {
  *
  * @example
  * ```ts
- * import { isIssue } from "@actions-sdk/utils/events";
+ * import { isIssue } from "@actions-sdk/action-utils/events";
  *
  * if (isIssue()) {
  *   console.log("This is an issue event");
@@ -82,7 +82,7 @@ export function isIssue(): boolean {
  *
  * @example
  * ```ts
- * import { isCron } from "@actions-sdk/utils/events";
+ * import { isCron } from "@actions-sdk/action-utils/events";
  *
  * if (isCron()) {
  *   console.log("This is a cron event");
@@ -100,7 +100,7 @@ export function isCron(): boolean {
  *
  * @example
  * ```ts
- * import { isCustomEvent } from "@actions-sdk/utils/events";
+ * import { isCustomEvent } from "@actions-sdk/action-utils/events";
  *
  * if (isCustomEvent()) {
  *   console.log("This is a custom event");
@@ -118,7 +118,7 @@ export function isCustomEvent(): boolean {
  *
  * @example
  * ```ts
- * import { isWorkflowDispatch } from "@actions-sdk/utils/events";
+ * import { isWorkflowDispatch } from "@actions-sdk/action-utils/events";
  *
  * if (isWorkflowDispatch()) {
  *   console.log("This is a manual event");
@@ -136,7 +136,7 @@ export function isWorkflowDispatch(): boolean {
  *
  * @example
  * ```ts
- * import { isWorkflowRun } from "@actions-sdk/utils/events";
+ * import { isWorkflowRun } from "@actions-sdk/action-utils/events";
  *
  * if (isWorkflowRun()) {
  *   console.log("This is a workflow run event");
@@ -154,7 +154,7 @@ export function isWorkflowRun(): boolean {
  *
  * @example
  * ```ts
- * import { isCreateTag } from "@actions-sdk/utils/events";
+ * import { isCreateTag } from "@actions-sdk/action-utils/events";
  *
  * if (isCreateTag()) {
  *   console.log("This is a create tag event");
@@ -172,7 +172,7 @@ export function isCreateTag(): boolean {
  *
  * @example
  * ```ts
- * import { getPayload } from "@actions-sdk/utils/events";
+ * import { getPayload } from "@actions-sdk/action-utils/events";
  *
  * const payload = getPayload();
  * console.log(payload);
@@ -200,7 +200,7 @@ export function getPayload(): Record<string, any> | null {
  *
  * @example
  * ```ts
- * import { getTagName } from "@actions-sdk/utils/events";
+ * import { getTagName } from "@actions-sdk/action-utils/events";
  *
  * const tagName = getTagName();
  * console.log(`The tag name is: ${tagName}`);
@@ -227,7 +227,7 @@ export function getTagName(): string {
  *
  * @example
  * ```ts
- * import { getSender } from "@actions-sdk/utils/events";
+ * import { getSender } from "@actions-sdk/action-utils/events";
  *
  * const sender = getSender();
  * console.log(`The sender is: ${sender}`);
@@ -249,7 +249,7 @@ export function getSender(): string | null {
  *
  * @example
  * ```ts
- * import { getRepository } from "@actions-sdk/utils/events";
+ * import { getRepository } from "@actions-sdk/action-utils/events";
  *
  * const repository = getRepository();
  * console.log(`The repository is: ${repository}`);

@@ -1,6 +1,6 @@
 # Overview
 
-The `@actions-sdk/utils` is a collection of utility functions that can be used to simplify the development of GitHub Actions.
+The `@actions-sdk/action-utils` is a collection of utility functions that can be used to simplify the development of GitHub Actions.
 
 > [!NOTE]
 > If you are using `actions-kit`, you don't need to install this package yourself. The utility functions are already included in the `actions-kit` package.
@@ -10,19 +10,19 @@ The `@actions-sdk/utils` is a collection of utility functions that can be used t
 ::: code-group
 
 ```bash [pnpm]
-pnpm add @actions-sdk/utils
+pnpm add @actions-sdk/action-utils
 ```
 
 ```bash [yarn]
-yarn add -D @actions-sdk/utils
+yarn add -D @actions-sdk/action-utils
 ```
 
 ```bash [npm]
-npm install -D @actions-sdk/utils
+npm install -D @actions-sdk/action-utils
 ```
 
 ```bash [bun]
-bun install -D @actions-sdk/utils
+bun install -D @actions-sdk/action-utils
 ```
 
 :::
@@ -40,7 +40,7 @@ import { isPr } from "actions-kit/utils/events";
 Otherwise, you can import the functions directly from the package:
 
 ```ts
-import { isPr } from "@actions-sdk/utils";
+import { isPr } from "@actions-sdk/action-utils";
 ```
 
 There are exports available for each entry in the sidebar, which you can use to import the utility functions directly from the package.
