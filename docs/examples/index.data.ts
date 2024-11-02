@@ -1,9 +1,9 @@
-import { examplesSidebar } from '../.vitepress/config'
+import { examplesSidebar } from "../.vitepress/config";
 
 export default {
-  load() {
-    return {
-      examples: examplesSidebar,
-    }
-  },
-}
+	load() {
+		return {
+			examples: examplesSidebar,
+		};
+	},
+};

@@ -43,7 +43,7 @@ const defaultSidebar = [
 		text: "API",
 		collapsed: false,
 		items: [
-			{ text: "Overview", link: "/api/overview"},
+			{ text: "Overview", link: "/api/overview" },
 			{ text: "Inputs", link: "/api/inputs" },
 			{ text: "Events", link: "/api/events" },
 		],
