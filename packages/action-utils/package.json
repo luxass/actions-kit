@@ -55,6 +55,16 @@
         "default": "./dist/events.cjs"
       }
     },
+    "./git": {
+      "import": {
+        "types": "./dist/git.d.ts",
+        "default": "./dist/git.mjs"
+      },
+      "require": {
+        "types": "./dist/git.d.cts",
+        "default": "./dist/git.cjs"
+      }
+    },
     "./package.json": "./package.json"
   },
   "main": "dist/index.cjs",
