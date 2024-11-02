@@ -45,7 +45,7 @@ const defaultSidebar = [
 		items: [
 			{ text: "Overview", link: "/api/overview" },
 			{ text: "Inputs", link: "/api/inputs" },
-			{ text: "Outputs", link: "/api/outputs" },
+			{ text: "Events", link: "/api/events" },
 		],
 	},
 	{

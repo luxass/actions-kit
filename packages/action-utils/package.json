@@ -35,6 +35,36 @@
         "default": "./dist/index.cjs"
       }
     },
+    "./inputs": {
+      "import": {
+        "types": "./dist/inputs.d.ts",
+        "default": "./dist/inputs.mjs"
+      },
+      "require": {
+        "types": "./dist/inputs.d.cts",
+        "default": "./dist/inputs.cjs"
+      }
+    },
+    "./events": {
+      "import": {
+        "types": "./dist/events.d.ts",
+        "default": "./dist/events.mjs"
+      },
+      "require": {
+        "types": "./dist/events.d.cts",
+        "default": "./dist/events.cjs"
+      }
+    },
+    "./git": {
+      "import": {
+        "types": "./dist/git.d.ts",
+        "default": "./dist/git.mjs"
+      },
+      "require": {
+        "types": "./dist/git.d.cts",
+        "default": "./dist/git.cjs"
+      }
+    },
     "./package.json": "./package.json"
   },
   "main": "dist/index.cjs",
