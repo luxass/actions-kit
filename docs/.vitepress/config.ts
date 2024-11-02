@@ -3,7 +3,6 @@ import { groupIconMdPlugin } from "vitepress-plugin-group-icons";
 import { groupIconVitePlugin } from "vitepress-plugin-group-icons";
 
 const defaultSidebar = [
-	{ text: "Introduction", link: "/guide/" },
 	{ text: "Getting Started", link: "/guide/getting-started" },
 	{ text: "Configuration", link: "/guide/configuration" },
 	{
@@ -50,21 +49,7 @@ const defaultSidebar = [
 	},
 	{
 		text: "Examples",
-		link: "/examples/",
-	},
-] satisfies DefaultTheme.SidebarItem[];
-
-export const examplesSidebar = [
-	{
-		text: "Builders",
-		items: [
-			{ text: "With ESBuild", link: "/examples/with-esbuild" },
-			{ text: "With Rolldown", link: "/examples/with-rolldown" },
-			{ text: "With Rollup", link: "/examples/with-rollup" },
-			{ text: "With Rspack", link: "/examples/with-rspack" },
-			{ text: "With Vite", link: "/examples/with-vite" },
-			{ text: "With Webpack", link: "/examples/with-webpack" },
-		],
+		link: "https://github.com/luxass/actions-kit/tree/main/examples",
 	},
 ] satisfies DefaultTheme.SidebarItem[];
 
@@ -96,7 +81,6 @@ export default defineConfig({
 				{ text: "Autocomplete", link: "/config/autocomplete" },
 			],
 			"/api/": defaultSidebar,
-			"/examples/": examplesSidebar,
 		},
 	},
 	markdown: {
