@@ -6,7 +6,7 @@ export default defineConfig({
 	action: {
 		name: "Actions Kit ESBuild Starter",
 		description: "An Action built using Actions Kit with ESBuild Builder",
-		author: "luxass",
+		author: "insert your name here",
 		branding: {
 			color: "purple",
 			icon: "package",

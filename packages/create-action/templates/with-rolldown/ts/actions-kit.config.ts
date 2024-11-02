@@ -6,7 +6,7 @@ export default defineConfig({
 	action: {
 		name: "Actions Kit Rolldown Starter",
 		description: "An Action built using Actions Kit with Rolldown Builder",
-		author: "luxass",
+		author: "insert your name here",
 		branding: {
 			color: "purple",
 			icon: "package",

@@ -6,7 +6,7 @@ export default defineConfig({
 	action: {
 		name: "Actions Kit Rollup Starter",
 		description: "An Action built using Actions Kit with Rollup Builder",
-		author: "luxass",
+		author: "insert your name here",
 		branding: {
 			color: "purple",
 			icon: "package",

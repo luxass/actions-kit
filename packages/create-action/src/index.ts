@@ -183,7 +183,13 @@ cli
 				await copyFile(file, destPath);
 			}
 
-			const pkgManager = process.env.npm_config_user_agent ?? "npm";
+			const pkgUserAgent = process.env.npm_config_user_agent ?? "npm";
+
+			const pkgManager = pkgUserAgent.startsWith("yarn")
+				? "yarn"
+				: pkgUserAgent.startsWith("pnpm")
+					? "pnpm"
+					: "npm";
 
 			console.log("\nDone! 🎉\n");
 			console.log("To get started, run:");
