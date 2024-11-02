@@ -3,7 +3,7 @@ import { inferModuleType, inferOutput } from "actions-kit/builder-utils";
 import { defu } from "defu";
 import type { BuildOptions as ESBuildBuildOptions } from "esbuild";
 import { build } from "esbuild";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
 import ESBuildActionsKit from "unplugin-actions-kit/esbuild";
 import { getESBuildEntryPoint } from "./utils";
 
@@ -60,9 +60,11 @@ export default function esbuildBuilder(options: ESBuildBuildOptions = {}) {
 
 			const output: BuildOutput[] = [];
 			for (const [outputFile, outputMeta] of outputFiles) {
+				// remove dir from filename
+				const fileName = outputFile.replace(`${dirname(outputFile)}/`, "");
 				output.push({
-					name: outputFile,
-					path: join(cwd, outputFile),
+					name: fileName,
+					path: join(dir, fileName),
 					size: outputMeta.bytes,
 				});
 			}

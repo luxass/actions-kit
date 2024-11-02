@@ -1,6 +1,6 @@
 import { stat } from "node:fs/promises";
 import { builtinModules } from "node:module";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
 import { type BuildOutput, defineBuilder } from "actions-kit/builder";
 import { inferModuleType, inferOutput } from "actions-kit/builder-utils";
 import { defu } from "defu";
@@ -61,10 +61,10 @@ export default function rolldownBuilder(options: RolldownOptions = {}) {
 
 			const outputs: BuildOutput[] = [];
 			for (const _result of result.output) {
-				const stats = await stat(join(cwd, "dist", _result.fileName));
+				const stats = await stat(join(dir, _result.fileName));
 				outputs.push({
 					name: _result.fileName,
-					path: join(cwd, "dist", _result.fileName),
+					path: join(dir, _result.fileName),
 					size: stats.size,
 				});
 			}

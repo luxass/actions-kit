@@ -101,7 +101,8 @@
     "defu": "catalog:",
     "js-yaml": "catalog:",
     "unplugin-actions-kit": "workspace:*",
-    "zod": "catalog:"
+    "zod": "catalog:",
+    "farver": "catalog:"
   },
   "devDependencies": {
     "@types/js-yaml": "catalog:",

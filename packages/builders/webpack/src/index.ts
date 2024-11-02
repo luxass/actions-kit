@@ -84,7 +84,7 @@ export default function webpackBuilder(options: Configuration = {}) {
 			for (const asset of assets) {
 				output.push({
 					name: asset.name,
-					path: join(cwd, asset.name),
+					path: join(dir, asset.name),
 					size: asset.size,
 				});
 			}
