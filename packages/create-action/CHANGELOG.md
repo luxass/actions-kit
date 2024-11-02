@@ -1,5 +1,11 @@
 # create-actions-kit
 
+## 0.2.3
+
+### Patch Changes
+
+- [`7858ea6`](https://github.com/luxass/actions-kit/commit/7858ea6f6fc16b6c16d4a94c3dc8a73a8ab6e855) Thanks [@luxass](https://github.com/luxass)! - output the package manager used correctly, instead of just showing user agent
+
 ## 0.2.2
 
 ### Patch Changes
