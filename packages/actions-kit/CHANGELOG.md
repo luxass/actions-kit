@@ -1,5 +1,11 @@
 # actions-kit
 
+## 0.2.7
+
+### Patch Changes
+
+- [#32](https://github.com/luxass/actions-kit/pull/32) [`d13ac04`](https://github.com/luxass/actions-kit/commit/d13ac043b044c46fea1f9e4d5c56ddb8543a8ed6) Thanks [@luxass](https://github.com/luxass)! - show build output in a beautiful way
+
 ## 0.2.6
 
 ### Patch Changes
