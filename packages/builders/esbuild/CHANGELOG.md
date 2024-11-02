@@ -1,5 +1,14 @@
 # @actions-sdk/esbuild-builder
 
+## 0.2.6
+
+### Patch Changes
+
+- [#32](https://github.com/luxass/actions-kit/pull/32) [`cb0ba07`](https://github.com/luxass/actions-kit/commit/cb0ba0748e6aaf27049c152c8f7d562a0c01f54e) Thanks [@luxass](https://github.com/luxass)! - output correct path in build output
+
+- Updated dependencies [[`d13ac04`](https://github.com/luxass/actions-kit/commit/d13ac043b044c46fea1f9e4d5c56ddb8543a8ed6)]:
+  - actions-kit@0.2.7
+
 ## 0.2.5
 
 ### Patch Changes
