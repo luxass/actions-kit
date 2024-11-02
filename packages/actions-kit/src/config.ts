@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { ACTION_SCHEMA } from "@actions-sdk/action-schema";
 import { loadConfig as _loadConfig } from "c12";
+import type { BuildOutput } from "./builder";
 
 const BASE_CONFIG_SCHEMA = z.object({
 	/**
@@ -53,7 +54,7 @@ const CONFIG_SCHEMA = BASE_CONFIG_SCHEMA.extend({
 						config: z.custom<BaseActionsKitConfig>(),
 					}),
 				)
-				.returns(z.any()),
+				.returns(z.custom<Promise<BuildOutput[] | BuildOutput[]>>()),
 		})
 		.optional(),
 });

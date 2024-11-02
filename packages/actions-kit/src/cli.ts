@@ -37,15 +37,19 @@ cli
 
 			const buildTime = Math.round(performance.now() - startTime);
 
-
 			console.info("Build details:");
-			if (config.writeYaml) {
-				console.info(`  - ${blue("action.yml")}`);
-			}
 			for (const file of outputs) {
-				console.info(`  - ${blue(file.name)} (${yellow(`${(file.size / 1024).toFixed(2)} KB`)}) (${yellow(file.size)} bytes)`);
+				// remove cwd from path
+				file.path = file.path.replace(`${args.cwd}/`, "");
+
+				console.info(`  - ${blue(file.path)} (${yellow(`${(file.size / 1024).toFixed(2)} KB`)}) (${yellow(file.size)} bytes)`);
 			}
-			console.info(`\nBuild completed successfully in ${green(`${buildTime}ms`)}`);
+
+			if (config.writeYaml) {
+				console.info(`  - ${blue("action.yml")}\n`);
+			}
+
+			console.info(`Build completed successfully in ${green(`${buildTime}ms`)}`);
 		} catch (err) {
 			console.error(err);
 			process.exit(1);
