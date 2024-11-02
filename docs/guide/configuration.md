@@ -10,6 +10,7 @@ A fully configured `actions-kit.config.ts` file might look like this:
 
 ```ts [actions-kit.config.ts]
 import { defineConfig } from "actions-kit/config";
+import rspack from "@actions-sdk/rspack-builder"
 
 export default defineConfig({
   writeYaml: true,
@@ -34,7 +35,9 @@ export default defineConfig({
     },
   },
   inject: true,
-  builder: "rspack",
+  builder: rspack({
+    
+  }),
 });
 ```
 
