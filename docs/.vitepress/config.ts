@@ -1,20 +1,18 @@
-import { defineConfig } from "vitepress";
+import { defineConfig, type DefaultTheme } from "vitepress";
 import { groupIconMdPlugin } from "vitepress-plugin-group-icons";
 import { groupIconVitePlugin } from "vitepress-plugin-group-icons";
 
 const defaultSidebar = [
-	{
-		text: "Guide",
-		items: [
-			{ text: "Introduction", link: "/guide/" },
-			{ text: "Getting Started", link: "/guide/getting-started" },
-			{ text: "Configuration", link: "/guide/configuration" },
-		],
-	},
+	{ text: "Introduction", link: "/guide/" },
+	{ text: "Getting Started", link: "/guide/getting-started" },
+	{ text: "Configuration", link: "/guide/configuration" },
 	{
 		text: "Builders",
-		link: "/builders/",
 		items: [
+			{
+				text: "Overview",
+				link: "/builders/overview",
+			},
 			{
 				text: "ESBuild",
 				link: "/builders/esbuild",
@@ -43,13 +41,33 @@ const defaultSidebar = [
 	},
 	{
 		text: "API",
-		items: [{ text: "Inputs", link: "/api" }],
+		collapsed: false,
+		items: [
+			{ text: "Overview", link: "/api/overview"},
+			{ text: "Inputs", link: "/api/inputs" },
+			{ text: "Outputs", link: "/api/outputs" },
+		],
 	},
 	{
 		text: "Examples",
 		link: "/examples/",
 	},
-];
+] satisfies DefaultTheme.SidebarItem[];
+
+export const examplesSidebar = [
+	{
+		text: "Builders",
+		items: [
+			{ text: "With ESBuild", link: "/examples/with-esbuild" },
+			{ text: "With Rolldown", link: "/examples/with-rolldown" },
+			{ text: "With Rollup", link: "/examples/with-rollup" },
+			{ text: "With Rspack", link: "/examples/with-rspack" },
+			{ text: "With Vite", link: "/examples/with-vite" },
+			{ text: "With Webpack", link: "/examples/with-webpack" },
+		],
+	},
+] satisfies DefaultTheme.SidebarItem[];
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
 	title: "Actions Kit",
@@ -77,6 +95,8 @@ export default defineConfig({
 				{ text: "Builders", link: "/config/builders" },
 				{ text: "Autocomplete", link: "/config/autocomplete" },
 			],
+			"/api/": defaultSidebar,
+			"/examples/": examplesSidebar,
 		},
 	},
 	markdown: {
