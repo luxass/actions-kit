@@ -8,9 +8,9 @@
   - changed-files:
       - any-glob-to-any-file: packages/action-schema/**
 
-"pkg: actions-utils":
+"pkg: action-utils":
   - changed-files:
-      - any-glob-to-any-file: packages/actions-utils/**
+      - any-glob-to-any-file: packages/action-utils/**
 
 "pkg: actions-kit":
   - changed-files:
