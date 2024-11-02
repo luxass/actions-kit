@@ -66,10 +66,9 @@ export default defineConfig({
 		outline: [2, 5],
 		socialLinks: [{ icon: "github", link: "https://github.com/luxass/actions-kit" }],
 		nav: [
-			{ text: "Guide", link: "/guide/" },
-			{ text: "API", link: "/api/" },
+			{ text: "Guide", link: "/guide/getting-started" },
+			{ text: "API", link: "/api/overview" },
 			{ text: "Config", link: "/config/" },
-			{ text: "Examples", link: "/examples" },
 		],
 		sidebar: {
 			"/guide/": defaultSidebar,
