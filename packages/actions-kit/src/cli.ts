@@ -1,6 +1,7 @@
 import cac from "cac";
 import { loadConfig } from "./config";
 import { overrideYaml } from "./builder";
+import { blue, green, yellow } from "farver";
 
 const cli = cac("actions-kit");
 
@@ -23,16 +24,28 @@ cli
 			}
 
 			const builder = config.builder;
-			console.log("using builder", builder.name);
+			console.log(`using ${blue(builder.name)}`);
 
 			await overrideYaml(args.cwd, config);
 
-			const output = await builder.build({
+			const startTime = performance.now();
+
+			const outputs = await builder.build({
 				cwd: args.cwd,
 				config: config,
 			});
 
-			console.log(output);
+			const buildTime = Math.round(performance.now() - startTime);
+
+
+			console.info("Build details:");
+			if (config.writeYaml) {
+				console.info(`  - ${blue("action.yml")}`);
+			}
+			for (const file of outputs) {
+				console.info(`  - ${blue(file.name)} (${yellow(`${(file.size / 1024).toFixed(2)} KB`)}) (${yellow(file.size)} bytes)`);
+			}
+			console.info(`\nBuild completed successfully in ${green(`${buildTime}ms`)}`);
 		} catch (err) {
 			console.error(err);
 			process.exit(1);

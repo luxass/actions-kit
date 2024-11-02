@@ -26,7 +26,7 @@ export default defineConfig([
 		format: ["esm", "cjs"],
 		dts: true,
 		splitting: true,
-		clean: ["!**/cli.mjs"],
+		clean: ["!**/cli"],
 		target: "es2022",
 		bundle: true,
 		outExtension(ctx) {

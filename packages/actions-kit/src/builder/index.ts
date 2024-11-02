@@ -28,7 +28,6 @@ export async function overrideYaml(cwd: string, config: ActionsKitConfig) {
 		return;
 	}
 
-	console.info("writing action.yml...");
 	const action = config.action;
 
 	if (!action) {
