@@ -1,5 +1,12 @@
 # actions-kit
 
+## 0.2.6
+
+### Patch Changes
+
+- Updated dependencies [[`b346923`](https://github.com/luxass/actions-kit/commit/b3469232f40dd1886130049b1bcc6232632eb420)]:
+  - @actions-sdk/action-utils@0.3.0
+
 ## 0.2.5
 
 ### Patch Changes

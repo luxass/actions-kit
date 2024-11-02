@@ -1,5 +1,11 @@
 # @actions-sdk/action-utils
 
+## 0.3.0
+
+### Minor Changes
+
+- [#30](https://github.com/luxass/actions-kit/pull/30) [`b346923`](https://github.com/luxass/actions-kit/commit/b3469232f40dd1886130049b1bcc6232632eb420) Thanks [@luxass](https://github.com/luxass)! - introduce new utility functions
+
 ## 0.2.1
 
 ### Patch Changes
