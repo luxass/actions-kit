@@ -1,3 +1,1 @@
-export {
-	getValidatedInput,
-} from "./utils"
+export { getValidatedInput } from "./utils";
