@@ -42,7 +42,9 @@ cli
 				// remove cwd from path
 				file.path = file.path.replace(`${args.cwd}/`, "");
 
-				console.info(`  - ${blue(file.path)} (${yellow(`${(file.size / 1024).toFixed(2)} KB`)}) (${yellow(file.size)} bytes)`);
+				console.info(
+					`  - ${blue(file.path)} (${yellow(`${(file.size / 1024).toFixed(2)} KB`)}) (${yellow(file.size)} bytes)`,
+				);
 			}
 
 			if (config.writeYaml) {

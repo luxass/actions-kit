@@ -52,7 +52,7 @@ export default function viteBuilder(options: InlineConfig = {}) {
 						autocomplete: config.autocomplete,
 					}),
 				],
-				logLevel: "warn"
+				logLevel: "warn",
 			} satisfies InlineConfig);
 
 			const output = await build(viteOptions);
