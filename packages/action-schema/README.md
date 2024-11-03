@@ -6,13 +6,13 @@
 ## Installation
 
 ```bash
-pnpm install @actions-sdk/actions-schema
+pnpm install @actions-sdk/action-schema
 ```
 
 ## Usage
 
 ```ts
-import { ACTION_SCHEMA } from "@actions-sdk/actions-schema";
+import { ACTION_SCHEMA } from "@actions-sdk/action-schema";
 
 const action = {
   name: "Actions Kit Playground 2",
@@ -44,7 +44,7 @@ console.log(result);
 
 Published under [MIT License](./LICENSE).
 
-[npm-version-src]: https://img.shields.io/npm/v/@actions-sdk/actions-schema?style=flat&colorA=18181B&colorB=4169E1
-[npm-version-href]: https://npmjs.com/package/@actions-sdk/actions-schema
-[npm-downloads-src]: https://img.shields.io/npm/dm/@actions-sdk/actions-schema?style=flat&colorA=18181B&colorB=4169E1
-[npm-downloads-href]: https://npmjs.com/package/@actions-sdk/actions-schema
+[npm-version-src]: https://img.shields.io/npm/v/@actions-sdk/action-schema?style=flat&colorA=18181B&colorB=4169E1
+[npm-version-href]: https://npmjs.com/package/@actions-sdk/action-schema
+[npm-downloads-src]: https://img.shields.io/npm/dm/@actions-sdk/action-schema?style=flat&colorA=18181B&colorB=4169E1
+[npm-downloads-href]: https://npmjs.com/package/@actions-sdk/action-schema
