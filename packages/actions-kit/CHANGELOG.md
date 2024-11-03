@@ -1,5 +1,14 @@
 # actions-kit
 
+## 0.2.8
+
+### Patch Changes
+
+- [#36](https://github.com/luxass/actions-kit/pull/36) [`9ca4648`](https://github.com/luxass/actions-kit/commit/9ca4648bfb02d0a576e21bfb5b6f9e73bf613563) Thanks [@luxass](https://github.com/luxass)! - remove zod dependency and make validator function generic
+
+- Updated dependencies [[`9ca4648`](https://github.com/luxass/actions-kit/commit/9ca4648bfb02d0a576e21bfb5b6f9e73bf613563)]:
+  - @actions-sdk/action-utils@0.4.0
+
 ## 0.2.7
 
 ### Patch Changes
