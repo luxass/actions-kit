@@ -69,7 +69,6 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "zod": "catalog:",
     "@actions/core": "catalog:"
   },
   "devDependencies": {

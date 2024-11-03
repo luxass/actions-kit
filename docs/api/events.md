@@ -5,6 +5,7 @@ Available under `@actions-sdk/action-utils/events`.
 This module contains utility functions for working with GitHub Actions events.
 
 ## Functions
+
 ### `isBranchProtectionRule`
 
 Checks if the current event is a branch protection rule event.

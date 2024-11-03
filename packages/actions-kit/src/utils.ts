@@ -1,10 +1,4 @@
-export {
-	getSafeValidatedInput,
-	getSafeValidatedInputAsync,
-	getValidatedInput,
-	getValidatedInputAsync,
-} from "@actions-sdk/action-utils/inputs";
-
+export { getValidatedInput } from "@actions-sdk/action-utils/inputs";
 export {
 	getPayload,
 	isBranchProtectionRule,
@@ -41,5 +35,5 @@ export {
 	isWatch,
 	isWorkflowCall,
 	isWorkflowDispatch,
-	isWorkflowRun
+	isWorkflowRun,
 } from "@actions-sdk/action-utils/events";

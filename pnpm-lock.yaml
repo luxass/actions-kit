@@ -303,9 +303,6 @@ importers:
       '@actions/core':
         specifier: 'catalog:'
         version: 1.11.1
-      zod:
-        specifier: 'catalog:'
-        version: 3.23.8
     devDependencies:
       '@types/node':
         specifier: 'catalog:'

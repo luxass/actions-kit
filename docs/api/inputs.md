@@ -1,41 +1,50 @@
-# Inputs
+# Events
 
-## `getSafeValidatedInput`
+Available under `@actions-sdk/action-utils/inputs`.
 
-```typescript
-import { getSafeValidatedInput } from "actions-kit";
-import { z } from "zod";
+This module contains utility functions for working with GitHub Actions inputs.
 
-const input = getSafeValidatedInput("input-name", z.string());
-// safely parses the input using `safeParse`
+## Functions
+
+### `getValidatedInput`
+
+Gets the value of an input and validates it.
+
+::: code-group
+
+```ts [vanilla]
+import { getValidatedInput } from "@actions-sdk/action-utils/inputs";
+
+const input = getValidatedInput("name", (data) => {
+  if (data === "luxass") {
+    return data;
+  }
+
+  throw new Error("Invalid input");
+});
 ```
 
-## `getValidatedInput`
-
-```typescript
-import { getValidatedInput } from "actions-kit";
+```ts [zod]
+import { getValidatedInput } from "@actions-sdk/action-utils/inputs";
 import { z } from "zod";
 
-const input = getValidatedInput("input-name", z.string());
-// throws if the input is not valid
+const NameSchema = z.string().nonempty();
+
+const inputSafeParse = getValidatedInput("name", NameSchema.safeParse);
+const inputParse = getValidatedInput("name", NameSchema.parse);
+
+const inputSafeParseAsync = await getValidatedInput("name", NameSchema.safeParseAsync);
+const inputParseAsync = await getValidatedInput("name", NameSchema.parseAsync);
 ```
 
-## `getSafeValidatedInputAsync`
+```ts [valibot]
+import { getValidatedInput } from "@actions-sdk/action-utils/inputs";
+import * as v from "valibot";
 
-```typescript
-import { getSafeValidatedInputAsync } from "actions-kit";
-import { z } from "zod";
+const NameSchema = v.string()
 
-const input = await getSafeValidatedInputAsync("input-name", z.string());
-// safely parses the input using `safeParseAsync`
+const input = getValidatedInput("name", NameSchema.parse);
 ```
 
-## `getValidatedInputAsync`
+::: 
 
-```typescript
-import { getValidatedInputAsync } from "actions-kit";
-import { z } from "zod";
-
-const input = getValidatedInputAsync("input-name", z.string());
-// throws if the input is not valid
-```
