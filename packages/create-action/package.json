@@ -8,7 +8,7 @@
     "email": "lucasnrgaard@gmail.com",
     "url": "https://luxass.dev"
   },
-  "packageManager": "pnpm@9.14.2",
+  "packageManager": "pnpm@9.15.1",
   "license": "MIT",
   "homepage": "https://github.com/luxass/actions-kit",
   "repository": {
@@ -45,7 +45,7 @@
     "tsup": "catalog:",
     "typescript": "catalog:",
     "cac": "catalog:",
-    "@clack/prompts": "^0.8.0",
+    "@clack/prompts": "^0.9.0",
     "farver": "catalog:"
   },
   "engines": {
