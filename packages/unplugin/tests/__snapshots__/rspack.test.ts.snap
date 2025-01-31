@@ -3,45 +3,6 @@
 exports[`augmentations > expect no augmentation when \`autocomplete\` is disabled 1`] = `
 "(() => { // webpackBootstrap
 "use strict";
-var __webpack_modules__ = ({});
-/************************************************************************/
-// The module cache
-var __webpack_module_cache__ = {};
-
-// The require function
-function __webpack_require__(moduleId) {
-
-// Check if module is in cache
-var cachedModule = __webpack_module_cache__[moduleId];
-if (cachedModule !== undefined) {
-return cachedModule.exports;
-}
-// Create a new module (and put it into the cache)
-var module = (__webpack_module_cache__[moduleId] = {
-exports: {}
-});
-// Execute the module function
-__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-
-// Return the exports of the module
-return module.exports;
-
-}
-
-/************************************************************************/
-// webpack/runtime/rspack_version
-(() => {
-__webpack_require__.rv = function () {
-	return "1.0.14";
-};
-
-})();
-// webpack/runtime/rspack_unique_id
-(() => {
-__webpack_require__.ruid = "bundler=rspack@1.0.14";
-
-})();
-/************************************************************************/
 
 ;// CONCATENATED MODULE: external "@actions/core"
 const core_namespaceObject = require("@actions/core");
@@ -218,45 +179,6 @@ exports[`augmentations > expect no augmentation when \`autocomplete\` is disable
 exports[`augmentations > expect no augmentations 1`] = `
 "(() => { // webpackBootstrap
 "use strict";
-var __webpack_modules__ = ({});
-/************************************************************************/
-// The module cache
-var __webpack_module_cache__ = {};
-
-// The require function
-function __webpack_require__(moduleId) {
-
-// Check if module is in cache
-var cachedModule = __webpack_module_cache__[moduleId];
-if (cachedModule !== undefined) {
-return cachedModule.exports;
-}
-// Create a new module (and put it into the cache)
-var module = (__webpack_module_cache__[moduleId] = {
-exports: {}
-});
-// Execute the module function
-__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-
-// Return the exports of the module
-return module.exports;
-
-}
-
-/************************************************************************/
-// webpack/runtime/rspack_version
-(() => {
-__webpack_require__.rv = function () {
-	return "1.0.14";
-};
-
-})();
-// webpack/runtime/rspack_unique_id
-(() => {
-__webpack_require__.ruid = "bundler=rspack@1.0.14";
-
-})();
-/************************************************************************/
 
 ;// CONCATENATED MODULE: external "@actions/core"
 const core_namespaceObject = require("@actions/core");
@@ -428,45 +350,6 @@ declare module "@actions/core" {
 exports[`augmentations > expect only inputs to be augmented 1`] = `
 "(() => { // webpackBootstrap
 "use strict";
-var __webpack_modules__ = ({});
-/************************************************************************/
-// The module cache
-var __webpack_module_cache__ = {};
-
-// The require function
-function __webpack_require__(moduleId) {
-
-// Check if module is in cache
-var cachedModule = __webpack_module_cache__[moduleId];
-if (cachedModule !== undefined) {
-return cachedModule.exports;
-}
-// Create a new module (and put it into the cache)
-var module = (__webpack_module_cache__[moduleId] = {
-exports: {}
-});
-// Execute the module function
-__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-
-// Return the exports of the module
-return module.exports;
-
-}
-
-/************************************************************************/
-// webpack/runtime/rspack_version
-(() => {
-__webpack_require__.rv = function () {
-	return "1.0.14";
-};
-
-})();
-// webpack/runtime/rspack_unique_id
-(() => {
-__webpack_require__.ruid = "bundler=rspack@1.0.14";
-
-})();
-/************************************************************************/
 
 ;// CONCATENATED MODULE: external "@actions/core"
 const core_namespaceObject = require("@actions/core");
@@ -649,45 +532,6 @@ declare module "@actions/core" {
 exports[`augmentations > expect only outputs to be augmented 1`] = `
 "(() => { // webpackBootstrap
 "use strict";
-var __webpack_modules__ = ({});
-/************************************************************************/
-// The module cache
-var __webpack_module_cache__ = {};
-
-// The require function
-function __webpack_require__(moduleId) {
-
-// Check if module is in cache
-var cachedModule = __webpack_module_cache__[moduleId];
-if (cachedModule !== undefined) {
-return cachedModule.exports;
-}
-// Create a new module (and put it into the cache)
-var module = (__webpack_module_cache__[moduleId] = {
-exports: {}
-});
-// Execute the module function
-__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-
-// Return the exports of the module
-return module.exports;
-
-}
-
-/************************************************************************/
-// webpack/runtime/rspack_version
-(() => {
-__webpack_require__.rv = function () {
-	return "1.0.14";
-};
-
-})();
-// webpack/runtime/rspack_unique_id
-(() => {
-__webpack_require__.ruid = "bundler=rspack@1.0.14";
-
-})();
-/************************************************************************/
 
 ;// CONCATENATED MODULE: external "@actions/core"
 const core_namespaceObject = require("@actions/core");
@@ -863,45 +707,6 @@ declare module "@actions/core" {
 exports[`custom output path 1`] = `
 "(() => { // webpackBootstrap
 "use strict";
-var __webpack_modules__ = ({});
-/************************************************************************/
-// The module cache
-var __webpack_module_cache__ = {};
-
-// The require function
-function __webpack_require__(moduleId) {
-
-// Check if module is in cache
-var cachedModule = __webpack_module_cache__[moduleId];
-if (cachedModule !== undefined) {
-return cachedModule.exports;
-}
-// Create a new module (and put it into the cache)
-var module = (__webpack_module_cache__[moduleId] = {
-exports: {}
-});
-// Execute the module function
-__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-
-// Return the exports of the module
-return module.exports;
-
-}
-
-/************************************************************************/
-// webpack/runtime/rspack_version
-(() => {
-__webpack_require__.rv = function () {
-	return "1.0.14";
-};
-
-})();
-// webpack/runtime/rspack_unique_id
-(() => {
-__webpack_require__.ruid = "bundler=rspack@1.0.14";
-
-})();
-/************************************************************************/
 
 ;// CONCATENATED MODULE: external "@actions/core"
 const core_namespaceObject = require("@actions/core");
@@ -1089,45 +894,6 @@ declare module "@actions/core" {
 exports[`expect \`actions-kit.d.ts\` to be generated 1`] = `
 "(() => { // webpackBootstrap
 "use strict";
-var __webpack_modules__ = ({});
-/************************************************************************/
-// The module cache
-var __webpack_module_cache__ = {};
-
-// The require function
-function __webpack_require__(moduleId) {
-
-// Check if module is in cache
-var cachedModule = __webpack_module_cache__[moduleId];
-if (cachedModule !== undefined) {
-return cachedModule.exports;
-}
-// Create a new module (and put it into the cache)
-var module = (__webpack_module_cache__[moduleId] = {
-exports: {}
-});
-// Execute the module function
-__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-
-// Return the exports of the module
-return module.exports;
-
-}
-
-/************************************************************************/
-// webpack/runtime/rspack_version
-(() => {
-__webpack_require__.rv = function () {
-	return "1.0.14";
-};
-
-})();
-// webpack/runtime/rspack_unique_id
-(() => {
-__webpack_require__.ruid = "bundler=rspack@1.0.14";
-
-})();
-/************************************************************************/
 
 ;// CONCATENATED MODULE: external "@actions/core"
 const core_namespaceObject = require("@actions/core");
@@ -1315,45 +1081,6 @@ declare module "@actions/core" {
 exports[`expect no \`actions-kit.d.ts\` file generated if plugin not in use 1`] = `
 "(() => { // webpackBootstrap
 "use strict";
-var __webpack_modules__ = ({});
-/************************************************************************/
-// The module cache
-var __webpack_module_cache__ = {};
-
-// The require function
-function __webpack_require__(moduleId) {
-
-// Check if module is in cache
-var cachedModule = __webpack_module_cache__[moduleId];
-if (cachedModule !== undefined) {
-return cachedModule.exports;
-}
-// Create a new module (and put it into the cache)
-var module = (__webpack_module_cache__[moduleId] = {
-exports: {}
-});
-// Execute the module function
-__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-
-// Return the exports of the module
-return module.exports;
-
-}
-
-/************************************************************************/
-// webpack/runtime/rspack_version
-(() => {
-__webpack_require__.rv = function () {
-	return "1.0.14";
-};
-
-})();
-// webpack/runtime/rspack_unique_id
-(() => {
-__webpack_require__.ruid = "bundler=rspack@1.0.14";
-
-})();
-/************************************************************************/
 
 ;// CONCATENATED MODULE: external "@actions/core"
 const core_namespaceObject = require("@actions/core");
@@ -1517,45 +1244,6 @@ run().catch(function(err) {
 exports[`inject > expect \`ACTION_INPUTS\` & \`ACTION_OUTPUTS\` in global scope 1`] = `
 "(() => { // webpackBootstrap
 "use strict";
-var __webpack_modules__ = ({});
-/************************************************************************/
-// The module cache
-var __webpack_module_cache__ = {};
-
-// The require function
-function __webpack_require__(moduleId) {
-
-// Check if module is in cache
-var cachedModule = __webpack_module_cache__[moduleId];
-if (cachedModule !== undefined) {
-return cachedModule.exports;
-}
-// Create a new module (and put it into the cache)
-var module = (__webpack_module_cache__[moduleId] = {
-exports: {}
-});
-// Execute the module function
-__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-
-// Return the exports of the module
-return module.exports;
-
-}
-
-/************************************************************************/
-// webpack/runtime/rspack_version
-(() => {
-__webpack_require__.rv = function () {
-	return "1.0.14";
-};
-
-})();
-// webpack/runtime/rspack_unique_id
-(() => {
-__webpack_require__.ruid = "bundler=rspack@1.0.14";
-
-})();
-/************************************************************************/
 
 ;// CONCATENATED MODULE: external "@actions/core"
 const core_namespaceObject = require("@actions/core");
@@ -1760,45 +1448,6 @@ declare module "@actions/core" {
 exports[`inject > expect \`ACTION_INPUTS\` in global scope 1`] = `
 "(() => { // webpackBootstrap
 "use strict";
-var __webpack_modules__ = ({});
-/************************************************************************/
-// The module cache
-var __webpack_module_cache__ = {};
-
-// The require function
-function __webpack_require__(moduleId) {
-
-// Check if module is in cache
-var cachedModule = __webpack_module_cache__[moduleId];
-if (cachedModule !== undefined) {
-return cachedModule.exports;
-}
-// Create a new module (and put it into the cache)
-var module = (__webpack_module_cache__[moduleId] = {
-exports: {}
-});
-// Execute the module function
-__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-
-// Return the exports of the module
-return module.exports;
-
-}
-
-/************************************************************************/
-// webpack/runtime/rspack_version
-(() => {
-__webpack_require__.rv = function () {
-	return "1.0.14";
-};
-
-})();
-// webpack/runtime/rspack_unique_id
-(() => {
-__webpack_require__.ruid = "bundler=rspack@1.0.14";
-
-})();
-/************************************************************************/
 
 ;// CONCATENATED MODULE: external "@actions/core"
 const core_namespaceObject = require("@actions/core");
@@ -1991,45 +1640,6 @@ declare module "@actions/core" {
 exports[`inject > expect \`ACTION_OUTPUTS\` in global scope 1`] = `
 "(() => { // webpackBootstrap
 "use strict";
-var __webpack_modules__ = ({});
-/************************************************************************/
-// The module cache
-var __webpack_module_cache__ = {};
-
-// The require function
-function __webpack_require__(moduleId) {
-
-// Check if module is in cache
-var cachedModule = __webpack_module_cache__[moduleId];
-if (cachedModule !== undefined) {
-return cachedModule.exports;
-}
-// Create a new module (and put it into the cache)
-var module = (__webpack_module_cache__[moduleId] = {
-exports: {}
-});
-// Execute the module function
-__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-
-// Return the exports of the module
-return module.exports;
-
-}
-
-/************************************************************************/
-// webpack/runtime/rspack_version
-(() => {
-__webpack_require__.rv = function () {
-	return "1.0.14";
-};
-
-})();
-// webpack/runtime/rspack_unique_id
-(() => {
-__webpack_require__.ruid = "bundler=rspack@1.0.14";
-
-})();
-/************************************************************************/
 
 ;// CONCATENATED MODULE: external "@actions/core"
 const core_namespaceObject = require("@actions/core");
@@ -2213,45 +1823,6 @@ declare module "@actions/core" {
 exports[`inject > expect no change in global scope 1`] = `
 "(() => { // webpackBootstrap
 "use strict";
-var __webpack_modules__ = ({});
-/************************************************************************/
-// The module cache
-var __webpack_module_cache__ = {};
-
-// The require function
-function __webpack_require__(moduleId) {
-
-// Check if module is in cache
-var cachedModule = __webpack_module_cache__[moduleId];
-if (cachedModule !== undefined) {
-return cachedModule.exports;
-}
-// Create a new module (and put it into the cache)
-var module = (__webpack_module_cache__[moduleId] = {
-exports: {}
-});
-// Execute the module function
-__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-
-// Return the exports of the module
-return module.exports;
-
-}
-
-/************************************************************************/
-// webpack/runtime/rspack_version
-(() => {
-__webpack_require__.rv = function () {
-	return "1.0.14";
-};
-
-})();
-// webpack/runtime/rspack_unique_id
-(() => {
-__webpack_require__.ruid = "bundler=rspack@1.0.14";
-
-})();
-/************************************************************************/
 
 ;// CONCATENATED MODULE: external "@actions/core"
 const core_namespaceObject = require("@actions/core");

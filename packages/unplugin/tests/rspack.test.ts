@@ -42,6 +42,15 @@ async function rspack(testdirPath: string, config: Configuration): Promise<Stats
 				...config.module,
 			},
 			...config,
+			experiments: {
+				...config.experiments,
+				rspackFuture: {
+					...config.experiments?.rspackFuture,
+					bundlerInfo: {
+						force: false
+					}
+				}
+			}
 		});
 
 		compiler.run((err, stats) => {
