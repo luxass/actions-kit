@@ -253,7 +253,7 @@ describe("inject", () => {
 			],
 		});
 
-		expect(
+		await expect(
 			async () =>
 				await bundle.generate({
 					format: "cjs",
@@ -316,7 +316,7 @@ describe("inject", () => {
 			],
 		});
 
-		expect(
+		await expect(
 			async () =>
 				await bundle.generate({
 					format: "cjs",
