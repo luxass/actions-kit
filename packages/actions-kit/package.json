@@ -8,7 +8,7 @@
     "email": "lucasnrgaard@gmail.com",
     "url": "https://luxass.dev"
   },
-  "packageManager": "pnpm@9.15.3",
+  "packageManager": "pnpm@9.15.4",
   "license": "MIT",
   "homepage": "https://github.com/luxass/actions-kit",
   "repository": {
@@ -99,10 +99,10 @@
     "cac": "catalog:",
     "consola": "catalog:",
     "defu": "catalog:",
+    "farver": "catalog:",
     "js-yaml": "catalog:",
     "unplugin-actions-kit": "workspace:*",
-    "zod": "catalog:",
-    "farver": "catalog:"
+    "zod": "catalog:"
   },
   "devDependencies": {
     "@types/js-yaml": "catalog:",

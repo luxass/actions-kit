@@ -5,12 +5,12 @@
     "build": "actions-kit build"
   },
   "dependencies": {
+    "@actions-sdk/rspack-builder": "workspace:*",
     "@actions/core": "catalog:",
-    "actions-kit": "workspace:*",
-    "@actions-sdk/rspack-builder": "workspace:*"
+    "actions-kit": "workspace:*"
   },
   "devDependencies": {
-    "typescript": "catalog:",
-    "@types/node": "catalog:"
+    "@types/node": "catalog:",
+    "typescript": "catalog:"
   }
 }

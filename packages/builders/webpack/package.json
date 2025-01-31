@@ -8,7 +8,7 @@
     "email": "lucasnrgaard@gmail.com",
     "url": "https://luxass.dev"
   },
-  "packageManager": "pnpm@9.15.3",
+  "packageManager": "pnpm@9.15.4",
   "license": "MIT",
   "homepage": "https://github.com/luxass/actions-kit",
   "repository": {
@@ -54,17 +54,17 @@
     "actions-kit": "workspace:*"
   },
   "dependencies": {
-    "defu": "catalog:",
-    "unplugin-actions-kit": "workspace:*",
     "@swc/core": "catalog:",
-    "swc-loader": "catalog:"
+    "defu": "catalog:",
+    "swc-loader": "catalog:",
+    "unplugin-actions-kit": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "catalog:",
+    "actions-kit": "workspace:*",
     "tsup": "catalog:",
     "typescript": "catalog:",
     "vitest": "catalog:",
-    "webpack": "catalog:",
-    "actions-kit": "workspace:*"
+    "webpack": "catalog:"
   }
 }

@@ -2,7 +2,7 @@
   "name": "@actions-sdk/monorepo",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@9.15.3",
+  "packageManager": "pnpm@9.15.4",
   "scripts": {
     "build": "turbo run build --filter \"./packages/**\" --concurrency=15",
     "build:all": "turbo run build --concurrency=15",
@@ -19,11 +19,11 @@
   },
   "devDependencies": {
     "@biomejs/biome": "catalog:",
-    "@types/node": "catalog:",
-    "typescript": "catalog:",
-    "vitest": "catalog:",
-    "turbo": "catalog:",
     "@changesets/changelog-github": "catalog:",
-    "@changesets/cli": "catalog:"
+    "@changesets/cli": "catalog:",
+    "@types/node": "catalog:",
+    "turbo": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
   }
 }
