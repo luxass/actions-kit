@@ -258,7 +258,7 @@ describe("inject", () => {
 
 		expect(testdirPath).toBeDefined();
 
-		expect(
+		await expect(
 			async () =>
 				await rollup({
 					input: join(testdirPath, "index.ts"),
@@ -320,7 +320,7 @@ describe("inject", () => {
 
 		expect(testdirPath).toBeDefined();
 
-		expect(
+		await expect(
 			async () =>
 				await rollup({
 					input: join(testdirPath, "index.ts"),
