@@ -2,7 +2,7 @@
   "name": "@actions-sdk/monorepo",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@9.15.6",
+  "packageManager": "pnpm@10.5.0",
   "scripts": {
     "build": "turbo run build --filter \"./packages/**\" --concurrency=15",
     "build:all": "turbo run build --concurrency=15",
