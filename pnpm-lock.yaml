@@ -103,8 +103,8 @@ catalogs:
       specifier: ^3.0.4
       version: 3.0.7
     vitest-testdirs:
-      specifier: ^3.0.0
-      version: 3.0.1
+      specifier: ^4.0.0
+      version: 4.0.0
     webpack:
       specifier: ^5.97.1
       version: 5.98.0
@@ -635,7 +635,7 @@ importers:
         version: 3.0.7(@types/node@22.13.5)(jiti@2.4.2)(terser@5.39.0)
       vitest-testdirs:
         specifier: 'catalog:'
-        version: 3.0.1(vitest@3.0.7(@types/node@22.13.5)(jiti@2.4.2)(terser@5.39.0))
+        version: 4.0.0(vitest@3.0.7(@types/node@22.13.5)(jiti@2.4.2)(terser@5.39.0))
       webpack:
         specifier: 'catalog:'
         version: 5.98.0(@swc/core@1.10.18)(esbuild@0.25.0)
@@ -3332,9 +3332,9 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
-  testdirs@2.0.0:
-    resolution: {integrity: sha512-RkQWhq6sfg1FEnLnNfHQTOd9UKzfW/l4gD1Fq3yWaMVFjy5p+GGoWHqmPweK8sJhuMsCqXhUuq9t5HROSRazdw==}
-    engines: {node: '>=18'}
+  testdirs@3.0.0:
+    resolution: {integrity: sha512-2G7stHEavnUbvsS9LyGieuVyUVNVXAgeMfqiUtebmA63yJSgC6JBv3eTk3rmmDfrjB8wv1z+45Bn/awEI6e/yw==}
+    engines: {node: '>=20'}
 
   thenify-all@1.6.0:
     resolution: {integrity: sha512-RNxQH/qI8/t3thXJDwcstUO4zeqo64+Uy/+sNVRBx4Xn2OX+OZ9oP+iJnNFqplFra2ZUVeKCSa2oVWi3T4uVmA==}
@@ -3645,9 +3645,9 @@ packages:
       postcss:
         optional: true
 
-  vitest-testdirs@3.0.1:
-    resolution: {integrity: sha512-NA7sJ4inGSVX6W3FzmCqEWJUJ4hhLM68ZQBCbrV5VLI3gSRKXrAjAsLwEi9GOz7YLXpQFEgVJgLAK7HHPoHYHA==}
-    engines: {node: '>=18'}
+  vitest-testdirs@4.0.0:
+    resolution: {integrity: sha512-gfX3bh5B3iqPioz0PudaJc/sPT7kuoRKUDK3Dng5k7/4O5usb3jV1/563lxshQUJO56JU1XELQFhHdQbHUqBbg==}
+    engines: {node: '>=20'}
     peerDependencies:
       vitest: '>=2.0.5 <4.0.0'
 
@@ -6258,7 +6258,7 @@ snapshots:
       commander: 2.20.3
       source-map-support: 0.5.21
 
-  testdirs@2.0.0: {}
+  testdirs@3.0.0: {}
 
   thenify-all@1.6.0:
     dependencies:
@@ -6545,9 +6545,9 @@ snapshots:
       - typescript
       - universal-cookie
 
-  vitest-testdirs@3.0.1(vitest@3.0.7(@types/node@22.13.5)(jiti@2.4.2)(terser@5.39.0)):
+  vitest-testdirs@4.0.0(vitest@3.0.7(@types/node@22.13.5)(jiti@2.4.2)(terser@5.39.0)):
     dependencies:
-      testdirs: 2.0.0
+      testdirs: 3.0.0
       vitest: 3.0.7(@types/node@22.13.5)(jiti@2.4.2)(terser@5.39.0)
 
   vitest@3.0.7(@types/node@22.13.5)(jiti@2.4.2)(terser@5.39.0):
