@@ -24,7 +24,7 @@ catalog:
   esbuild: ^0.25.0
   farver: ^0.4.0
   js-yaml: ^4.1.0
-  rolldown: 1.0.0-beta.3
+  rolldown: 1.0.0-beta.21
   rollup: ^4.32.1
   swc-loader: ^0.2.6
   ts-loader: ^9.5.2
