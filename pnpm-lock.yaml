@@ -109,8 +109,8 @@ catalogs:
       specifier: ^5.97.1
       version: 5.98.0
     zod:
-      specifier: ^3.24.1
-      version: 3.24.2
+      specifier: ^4.0.0
+      version: 4.0.5
 
 importers:
 
@@ -283,7 +283,7 @@ importers:
     dependencies:
       zod:
         specifier: 'catalog:'
-        version: 3.24.2
+        version: 4.0.5
     devDependencies:
       '@types/node':
         specifier: 'catalog:'
@@ -348,7 +348,7 @@ importers:
         version: link:../unplugin
       zod:
         specifier: 'catalog:'
-        version: 3.24.2
+        version: 4.0.5
     devDependencies:
       '@types/js-yaml':
         specifier: 'catalog:'
@@ -469,7 +469,7 @@ importers:
         version: link:../../unplugin
       zod:
         specifier: 'catalog:'
-        version: 3.24.2
+        version: 4.0.5
     devDependencies:
       '@rspack/core':
         specifier: 'catalog:'
@@ -586,7 +586,7 @@ importers:
         version: 2.2.0
       zod:
         specifier: 'catalog:'
-        version: 3.24.2
+        version: 4.0.5
     devDependencies:
       '@actions/core':
         specifier: 'catalog:'
@@ -3713,8 +3713,8 @@ packages:
     resolution: {integrity: sha512-si7QWI6zUMq56bESFvagtmzMdGOtoxfR+Sez11Mobfc7tm+VkUckk9bW2UeffTGVUbOksxmSw0AA2gs8g71NCQ==}
     engines: {node: '>=12'}
 
-  zod@3.24.2:
-    resolution: {integrity: sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==}
+  zod@4.0.5:
+    resolution: {integrity: sha512-/5UuuRPStvHXu7RS+gmvRf4NXrNxpSllGwDnCBcJZtQsKrviYXm54yDGV2KYNLT5kq0lHGcl7lqWJLgSaG+tgA==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -6684,6 +6684,6 @@ snapshots:
       string-width: 5.1.2
       strip-ansi: 7.1.0
 
-  zod@3.24.2: {}
+  zod@4.0.5: {}
 
   zwitch@2.0.4: {}
