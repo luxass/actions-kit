@@ -4,7 +4,10 @@ linkWorkspacePackages: true
 engineStrict: true
 
 packages:
-  - packages/**
+  # if we combine packages/* & packages/builders/*, tne it tries to
+  # install templates inside the create-action package.
+  - packages/*
+  - packages/builders/*
   - docs
   - playground
   - examples/*

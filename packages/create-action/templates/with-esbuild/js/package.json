@@ -9,9 +9,6 @@
   },
   "devDependencies": {
     "@actions-sdk/esbuild-builder": "latest",
-    "@luxass/eslint-config": "catalog:linting",
-    "actions-kit": "latest",
-    "eslint": "catalog:linting",
-    "tsdown": "catalog:dev"
+    "actions-kit": "latest"
   }
 }
