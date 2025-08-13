@@ -22,7 +22,19 @@ export const baseConfig = {
   },
 } satisfies TSDownOptions;
 
-export function createTsdownConfig(overrides: Partial<TSDownOptions> = {}) {
+export function createTsdownConfig(
+  overrides: Partial<TSDownOptions> | Partial<TSDownOptions>[] = {},
+) {
+  if (Array.isArray(overrides)) {
+    return defineConfig(
+      overrides.map((override) => ({
+        ...baseConfig,
+        ...override,
+        entry: override.entry || ["./src/index.ts"],
+      })),
+    );
+  }
+
   return defineConfig({
     ...baseConfig,
     ...overrides,
