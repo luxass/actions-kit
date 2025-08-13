@@ -4,8 +4,7 @@ linkWorkspacePackages: true
 engineStrict: true
 
 packages:
-  - packages/*
-  - packages/builders/*
+  - packages/**
   - docs
   - playground
   - examples/*
