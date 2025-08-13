@@ -4,7 +4,7 @@ import { rm, cp } from "node:fs/promises";
 
 export default createTsdownConfig({
   entry: [
-    "./src/**/*.ts",
+    "./src/index.ts",
   ],
   format: "esm",
   async onSuccess() {
