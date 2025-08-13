@@ -29,60 +29,30 @@
   },
   "exports": {
     ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.mjs"
-      },
-      "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
-      }
-    },
-    "./config": {
-      "import": {
-        "types": "./dist/config.d.ts",
-        "default": "./dist/config.mjs"
-      },
-      "require": {
-        "types": "./dist/config.d.cts",
-        "default": "./dist/config.cjs"
-      }
-    },
-    "./utils": {
-      "import": {
-        "types": "./dist/utils.d.ts",
-        "default": "./dist/utils.mjs"
-      },
-      "require": {
-        "types": "./dist/utils.d.cts",
-        "default": "./dist/utils.cjs"
-      }
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
     "./builder": {
-      "import": {
-        "types": "./dist/builder/index.d.ts",
-        "default": "./dist/builder/index.mjs"
-      },
-      "require": {
-        "types": "./dist/builder/index.d.cts",
-        "default": "./dist/builder/index.cjs"
-      }
+      "import": "./dist/builder/index.js",
+      "require": "./dist/builder/index.cjs"
     },
-    "./builder-utils": {
-      "import": {
-        "types": "./dist/builder/utils.d.ts",
-        "default": "./dist/builder/utils.mjs"
-      },
-      "require": {
-        "types": "./dist/builder/utils.d.cts",
-        "default": "./dist/builder/utils.cjs"
-      }
+    "./builder/utils": {
+      "import": "./dist/builder/utils.js",
+      "require": "./dist/builder/utils.cjs"
+    },
+    "./config": {
+      "import": "./dist/config.js",
+      "require": "./dist/config.cjs"
+    },
+    "./utils": {
+      "import": "./dist/utils.js",
+      "require": "./dist/utils.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.cts",
   "files": [
     "dist",
     "bin"
@@ -113,6 +83,7 @@
     "@types/js-yaml": "catalog:",
     "@types/node": "catalog:",
     "eslint": "catalog:linting",
+    "publint": "catalog:dev",
     "tsdown": "catalog:dev",
     "tsup": "catalog:",
     "typescript": "catalog:",

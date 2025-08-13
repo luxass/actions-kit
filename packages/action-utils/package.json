@@ -26,40 +26,22 @@
   ],
   "exports": {
     ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.mjs"
-      },
-      "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
-      }
-    },
-    "./inputs": {
-      "import": {
-        "types": "./dist/inputs.d.ts",
-        "default": "./dist/inputs.mjs"
-      },
-      "require": {
-        "types": "./dist/inputs.d.cts",
-        "default": "./dist/inputs.cjs"
-      }
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
     "./events": {
-      "import": {
-        "types": "./dist/events.d.ts",
-        "default": "./dist/events.mjs"
-      },
-      "require": {
-        "types": "./dist/events.d.cts",
-        "default": "./dist/events.cjs"
-      }
+      "import": "./dist/events.js",
+      "require": "./dist/events.cjs"
+    },
+    "./inputs": {
+      "import": "./dist/inputs.js",
+      "require": "./dist/inputs.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.cts",
   "files": [
     "dist"
   ],
@@ -79,6 +61,7 @@
     "@luxass/eslint-config": "catalog:linting",
     "@types/node": "catalog:",
     "eslint": "catalog:linting",
+    "publint": "catalog:dev",
     "tsdown": "catalog:dev",
     "tsup": "catalog:",
     "typescript": "catalog:",

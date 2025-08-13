@@ -72,6 +72,7 @@
     "@types/node": "catalog:",
     "actions-kit": "workspace:*",
     "eslint": "catalog:linting",
+    "publint": "catalog:dev",
     "rollup": "catalog:",
     "tsdown": "catalog:dev",
     "tsup": "catalog:",

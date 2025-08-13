@@ -4,10 +4,10 @@ import { rm, cp } from "node:fs/promises";
 
 export default createTsdownConfig({
   entry: [
-    "./src/index.ts",
+    "./src/**/*.ts",
   ],
   format: "esm",
-  async onSuccess(config, signal) {
+  async onSuccess() {
     if (existsSync("dist/templates")) {
 			await rm("dist/templates", {
 				recursive: true,

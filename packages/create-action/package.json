@@ -24,9 +24,10 @@
     "github actions",
     "toolkit"
   ],
-  "main": "./create-actions-kit.mjs",
+  "main": "./dist/index.js",
   "exports": {
-    ".": "./create-actions-kit.mjs"
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
   },
   "bin": {
     "create-actions-kit": "./create-actions-kit.mjs"
@@ -51,11 +52,14 @@
     "cac": "catalog:",
     "eslint": "catalog:linting",
     "farver": "catalog:",
+    "publint": "catalog:dev",
     "tsdown": "catalog:dev",
     "tsup": "catalog:",
     "typescript": "catalog:"
   },
   "engines": {
     "node": "^18.17.1 || ^20.3.0 || >=21.0.0"
-  }
+  },
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts"
 }
