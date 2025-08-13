@@ -15,11 +15,11 @@
     "test:watch": "vitest"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "catalog:",
-    "@changesets/cli": "catalog:",
-    "@types/node": "catalog:",
-    "turbo": "catalog:",
-    "typescript": "catalog:",
-    "vitest": "catalog:"
+    "@changesets/changelog-github": "catalog:monorepo",
+    "@changesets/cli": "catalog:monorepo",
+    "@types/node": "catalog:types",
+    "turbo": "catalog:monorepo",
+    "typescript": "catalog:dev",
+    "vitest": "catalog:testing"
   }
 }

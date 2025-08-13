@@ -1,15 +1,20 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "ui": "stream",
   "globalDependencies": ["**/.env.*local"],
-  "globalPassThroughEnv": ["NODE", "NODE_ENV", "CI"],
+  "globalPassThroughEnv": [
+    "NODE",
+    "NODE_ENV",
+    "CI"
+  ],
   "tasks": {
     "topo": {
       "dependsOn": ["^topo"]
     },
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
+      "outputs": [
+        "dist/**"
+      ]
     },
     "lint": {
       "dependsOn": ["^topo", "^build"],
@@ -31,9 +36,6 @@
     "test": {
       "cache": false,
       "dependsOn": []
-    },
-    "test:watch": {
-      "cache": false
     }
   }
 }

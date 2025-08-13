@@ -9,8 +9,11 @@
   },
   "devDependencies": {
     "@actions-sdk/vite-builder": "latest",
+    "@luxass/eslint-config": "catalog:linting",
     "@types/node": "^22.8.1",
     "actions-kit": "latest",
+    "eslint": "catalog:linting",
+    "tsdown": "catalog:dev",
     "typescript": "^5.7.3"
   }
 }

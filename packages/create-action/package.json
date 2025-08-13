@@ -36,16 +36,21 @@
     "create-actions-kit.mjs"
   ],
   "scripts": {
-    "build": "tsup --tsconfig tsconfig.build.json",
-    "dev": "tsup --watch",
+    "build": "tsdown --tsconfig=./tsconfig.build.json",
+    "dev": "tsdown --watch",
+    "clean": "git clean -xdf dist node_modules",
+    "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@actions-kit/tsconfig": "workspace:*",
     "@clack/prompts": "^0.10.0",
+    "@luxass/eslint-config": "catalog:linting",
     "@types/node": "catalog:",
     "cac": "catalog:",
+    "eslint": "catalog:linting",
     "farver": "catalog:",
+    "tsdown": "catalog:dev",
     "tsup": "catalog:",
     "typescript": "catalog:"
   },

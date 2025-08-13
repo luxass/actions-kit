@@ -88,8 +88,10 @@
     "bin"
   ],
   "scripts": {
-    "build": "tsup --tsconfig tsconfig.build.json",
-    "dev": "tsup --watch",
+    "build": "tsdown --tsconfig=./tsconfig.build.json",
+    "dev": "tsdown --watch",
+    "clean": "git clean -xdf dist node_modules",
+    "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -105,11 +107,14 @@
     "zod": "catalog:"
   },
   "devDependencies": {
+    "@actions-kit/tsconfig": "workspace:*",
+    "@luxass/eslint-config": "catalog:linting",
     "@types/js-yaml": "catalog:",
     "@types/node": "catalog:",
+    "eslint": "catalog:linting",
+    "tsdown": "catalog:dev",
     "tsup": "catalog:",
     "typescript": "catalog:",
-    "vitest": "catalog:",
-    "@actions-kit/tsconfig": "workspace:*"
+    "vitest": "catalog:"
   }
 }
