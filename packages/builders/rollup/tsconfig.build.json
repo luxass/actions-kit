@@ -1,4 +1,5 @@
 {
-  "extends": ["../../../tsconfig.base.build.json"],
-  "include": ["src/**/*.ts"]
+  "extends": "@ucdjs/tsconfig/base.build",
+  "include": ["src"],
+  "exclude": ["dist"]
 }

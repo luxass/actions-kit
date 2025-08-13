@@ -1,9 +1,16 @@
+preferWorkspacePackages: true
+saveWorkspaceProtocol: false
+linkWorkspacePackages: true
+engineStrict: true
+
 packages:
   - packages/*
   - packages/builders/*
   - docs
   - playground
   - examples/*
+  - tooling/*
+
 catalog:
   '@actions/core': ^1.11.1
   '@biomejs/biome': ^1.9.4

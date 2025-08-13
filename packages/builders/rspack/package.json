@@ -59,6 +59,7 @@
     "zod": "catalog:"
   },
   "devDependencies": {
+    "@actions-kit/tsconfig": "workspace:*",
     "@rspack/core": "catalog:",
     "@types/node": "catalog:",
     "actions-kit": "workspace:*",

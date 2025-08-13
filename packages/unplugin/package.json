@@ -153,6 +153,7 @@
     "zod": "catalog:"
   },
   "devDependencies": {
+    "@actions-kit/tsconfig": "workspace:*",
     "@actions/core": "catalog:",
     "@biomejs/biome": "catalog:",
     "@rollup/plugin-typescript": "catalog:",

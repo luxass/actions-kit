@@ -41,6 +41,7 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
+    "@actions-kit/tsconfig": "workspace:*",
     "@clack/prompts": "^0.10.0",
     "@types/node": "catalog:",
     "cac": "catalog:",

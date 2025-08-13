@@ -50,17 +50,18 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "rollup": "catalog:",
-    "@rollup/plugin-typescript": "catalog:",
-    "@rollup/plugin-node-resolve": "catalog:",
     "@rollup/plugin-commonjs": "catalog:",
-    "actions-kit": "workspace:*"
+    "@rollup/plugin-node-resolve": "catalog:",
+    "@rollup/plugin-typescript": "catalog:",
+    "actions-kit": "workspace:*",
+    "rollup": "catalog:"
   },
   "dependencies": {
     "defu": "catalog:",
     "unplugin-actions-kit": "workspace:*"
   },
   "devDependencies": {
+    "@actions-kit/tsconfig": "workspace:*",
     "@rollup/plugin-commonjs": "catalog:",
     "@rollup/plugin-node-resolve": "catalog:",
     "@rollup/plugin-typescript": "catalog:",

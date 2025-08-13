@@ -50,8 +50,8 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "webpack": "catalog:",
-    "actions-kit": "workspace:*"
+    "actions-kit": "workspace:*",
+    "webpack": "catalog:"
   },
   "dependencies": {
     "@swc/core": "catalog:",
@@ -60,6 +60,7 @@
     "unplugin-actions-kit": "workspace:*"
   },
   "devDependencies": {
+    "@actions-kit/tsconfig": "workspace:*",
     "@types/node": "catalog:",
     "actions-kit": "workspace:*",
     "tsup": "catalog:",

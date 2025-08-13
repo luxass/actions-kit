@@ -109,6 +109,7 @@
     "@types/node": "catalog:",
     "tsup": "catalog:",
     "typescript": "catalog:",
-    "vitest": "catalog:"
+    "vitest": "catalog:",
+    "@actions-kit/tsconfig": "workspace:*"
   }
 }

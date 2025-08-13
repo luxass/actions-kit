@@ -285,6 +285,9 @@ importers:
         specifier: 'catalog:'
         version: 3.24.2
     devDependencies:
+      '@actions-kit/tsconfig':
+        specifier: workspace:*
+        version: link:../../tooling/tsconfig
       '@types/node':
         specifier: 'catalog:'
         version: 22.13.5
@@ -304,6 +307,9 @@ importers:
         specifier: 'catalog:'
         version: 1.11.1
     devDependencies:
+      '@actions-kit/tsconfig':
+        specifier: workspace:*
+        version: link:../../tooling/tsconfig
       '@types/node':
         specifier: 'catalog:'
         version: 22.13.5
@@ -350,6 +356,9 @@ importers:
         specifier: 'catalog:'
         version: 3.24.2
     devDependencies:
+      '@actions-kit/tsconfig':
+        specifier: workspace:*
+        version: link:../../tooling/tsconfig
       '@types/js-yaml':
         specifier: 'catalog:'
         version: 4.0.9
@@ -375,6 +384,9 @@ importers:
         specifier: workspace:*
         version: link:../../unplugin
     devDependencies:
+      '@actions-kit/tsconfig':
+        specifier: workspace:*
+        version: link:../../../tooling/tsconfig
       '@types/node':
         specifier: 'catalog:'
         version: 22.13.5
@@ -403,6 +415,9 @@ importers:
         specifier: workspace:*
         version: link:../../unplugin
     devDependencies:
+      '@actions-kit/tsconfig':
+        specifier: workspace:*
+        version: link:../../../tooling/tsconfig
       '@types/node':
         specifier: 'catalog:'
         version: 22.13.5
@@ -431,6 +446,9 @@ importers:
         specifier: workspace:*
         version: link:../../unplugin
     devDependencies:
+      '@actions-kit/tsconfig':
+        specifier: workspace:*
+        version: link:../../../tooling/tsconfig
       '@rollup/plugin-commonjs':
         specifier: 'catalog:'
         version: 28.0.2(rollup@4.34.8)
@@ -471,6 +489,9 @@ importers:
         specifier: 'catalog:'
         version: 3.24.2
     devDependencies:
+      '@actions-kit/tsconfig':
+        specifier: workspace:*
+        version: link:../../../tooling/tsconfig
       '@rspack/core':
         specifier: 'catalog:'
         version: 1.2.5
@@ -499,6 +520,9 @@ importers:
         specifier: workspace:*
         version: link:../../unplugin
     devDependencies:
+      '@actions-kit/tsconfig':
+        specifier: workspace:*
+        version: link:../../../tooling/tsconfig
       '@types/node':
         specifier: 'catalog:'
         version: 22.13.5
@@ -533,6 +557,9 @@ importers:
         specifier: workspace:*
         version: link:../../unplugin
     devDependencies:
+      '@actions-kit/tsconfig':
+        specifier: workspace:*
+        version: link:../../../tooling/tsconfig
       '@types/node':
         specifier: 'catalog:'
         version: 22.13.5
@@ -554,6 +581,9 @@ importers:
 
   packages/create-action:
     devDependencies:
+      '@actions-kit/tsconfig':
+        specifier: workspace:*
+        version: link:../../tooling/tsconfig
       '@clack/prompts':
         specifier: ^0.10.0
         version: 0.10.0
@@ -588,6 +618,9 @@ importers:
         specifier: 'catalog:'
         version: 3.24.2
     devDependencies:
+      '@actions-kit/tsconfig':
+        specifier: workspace:*
+        version: link:../../tooling/tsconfig
       '@actions/core':
         specifier: 'catalog:'
         version: 1.11.1
@@ -652,12 +685,17 @@ importers:
         specifier: workspace:*
         version: link:../packages/actions-kit
     devDependencies:
+      '@actions-kit/tsconfig':
+        specifier: workspace:*
+        version: link:../tooling/tsconfig
       '@types/node':
         specifier: 'catalog:'
         version: 22.13.5
       typescript:
         specifier: 'catalog:'
         version: 5.7.3
+
+  tooling/tsconfig: {}
 
 packages:
 
@@ -3239,6 +3277,7 @@ packages:
   source-map@0.8.0-beta.0:
     resolution: {integrity: sha512-2ymg6oRBpebeZi9UUNsgQ89bhx01TcTkmNTGnNO88imTmbSgy4nfujrgVEFKWpMTEGA11EDkTt7mqObTPdigIA==}
     engines: {node: '>= 8'}
+    deprecated: The work that was done in this beta branch won't be included in future versions
 
   space-separated-tokens@2.0.2:
     resolution: {integrity: sha512-PEGlAwrG8yXGXRjW32fGbg66JAlOAwbObuqVoJpv/mRgoWDQfgH1wDPvtzWyUSNAXBGSk8h755YDbbcEy3SH2Q==}

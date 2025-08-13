@@ -50,14 +50,15 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "rolldown": "catalog:",
-    "actions-kit": "workspace:*"
+    "actions-kit": "workspace:*",
+    "rolldown": "catalog:"
   },
   "dependencies": {
     "defu": "catalog:",
     "unplugin-actions-kit": "workspace:*"
   },
   "devDependencies": {
+    "@actions-kit/tsconfig": "workspace:*",
     "@types/node": "catalog:",
     "actions-kit": "workspace:*",
     "rolldown": "catalog:",
