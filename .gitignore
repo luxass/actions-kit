@@ -3,3 +3,4 @@ dist
 .vitest-testdirs
 docs/.vitepress/cache
 .turbo
+.cache

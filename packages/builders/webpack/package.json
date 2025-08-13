@@ -63,6 +63,7 @@
   },
   "devDependencies": {
     "@actions-kit/tsconfig": "workspace:*",
+    "@actions-kit/tsdown-config": "workspace:*",
     "@luxass/eslint-config": "catalog:linting",
     "@types/node": "catalog:",
     "actions-kit": "workspace:*",

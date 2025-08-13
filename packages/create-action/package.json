@@ -44,6 +44,7 @@
   },
   "devDependencies": {
     "@actions-kit/tsconfig": "workspace:*",
+    "@actions-kit/tsdown-config": "workspace:*",
     "@clack/prompts": "^0.10.0",
     "@luxass/eslint-config": "catalog:linting",
     "@types/node": "catalog:",
