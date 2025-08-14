@@ -2,17 +2,21 @@
   "name": "@actions-sdk/rolldown-example",
   "private": true,
   "scripts": {
-    "build": "actions-kit build"
+    "build": "actions-kit build",
+    "typecheck": "tsc --noEmit",
+    "clean": "git clean -xdf dist node_modules .cache"
   },
   "dependencies": {
-    "@actions/core": "catalog:"
+    "@actions/core": "catalog:actions"
   },
   "devDependencies": {
     "@actions-kit/tsconfig": "workspace:*",
     "@actions-sdk/action-utils": "workspace:*",
     "@actions-sdk/rolldown-builder": "workspace:*",
+    "@luxass/eslint-config": "catalog:linting",
     "@types/node": "catalog:types",
     "actions-kit": "workspace:*",
+    "eslint": "catalog:linting",
     "typescript": "catalog:dev"
   }
 }

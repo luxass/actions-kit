@@ -51,12 +51,12 @@
   "devDependencies": {
     "@actions-kit/tsconfig": "workspace:*",
     "@actions-kit/tsdown-config": "workspace:*",
-    "@clack/prompts": "catalog:",
+    "@clack/prompts": "catalog:prod",
     "@luxass/eslint-config": "catalog:linting",
     "@types/node": "catalog:types",
-    "cac": "catalog:",
+    "cac": "catalog:prod",
     "eslint": "catalog:linting",
-    "farver": "catalog:",
+    "farver": "catalog:prod",
     "publint": "catalog:dev",
     "tsdown": "catalog:dev",
     "typescript": "catalog:dev"

@@ -5,10 +5,10 @@
     "build": "actions-kit build"
   },
   "dependencies": {
-    "@actions/core": "catalog:"
+    "@actions/core": "catalog:actions"
   },
   "devDependencies": {
-    "@actions-sdk/vite-builder": "latest",
-    "actions-kit": "latest"
+    "@actions-sdk/vite-builder": "catalog:templates",
+    "actions-kit": "catalog:templates"
   }
 }

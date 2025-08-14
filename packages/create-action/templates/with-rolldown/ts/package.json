@@ -5,12 +5,12 @@
     "build": "actions-kit build"
   },
   "dependencies": {
-    "@actions/core": "catalog:"
+    "@actions/core": "catalog:actions"
   },
   "devDependencies": {
-    "@actions-sdk/rolldown-builder": "latest",
+    "@actions-sdk/rolldown-builder": "catalog:templates",
     "@types/node": "catalog:types",
-    "actions-kit": "latest",
+    "actions-kit": "catalog:templates",
     "typescript": "catalog:dev"
   }
 }

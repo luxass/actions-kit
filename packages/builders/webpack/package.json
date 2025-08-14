@@ -47,12 +47,12 @@
   },
   "peerDependencies": {
     "actions-kit": "workspace:*",
-    "webpack": "catalog:"
+    "webpack": "catalog:builders"
   },
   "dependencies": {
-    "@swc/core": "catalog:",
-    "defu": "catalog:",
-    "swc-loader": "catalog:",
+    "@swc/core": "catalog:builders",
+    "defu": "catalog:prod",
+    "swc-loader": "catalog:builders",
     "unplugin-actions-kit": "workspace:*"
   },
   "devDependencies": {
@@ -66,6 +66,6 @@
     "tsdown": "catalog:dev",
     "typescript": "catalog:dev",
     "vitest": "catalog:testing",
-    "webpack": "catalog:"
+    "webpack": "catalog:builders"
   }
 }

@@ -37,7 +37,7 @@ function _interopNamespaceDefault(e) {
 
 var core__namespace = /*#__PURE__*/_interopNamespaceDefault(core);
 
-async function run() {
+async function run(): Promise<void> {
     const type = core__namespace.getInput("type");
     const whoToGreet = core__namespace.getInput("who-to-greet");
     const message = \`Hello \${whoToGreet}!\`;
@@ -94,7 +94,7 @@ function _interopNamespaceDefault(e) {
 
 var core__namespace = /*#__PURE__*/_interopNamespaceDefault(core);
 
-async function run() {
+async function run(): Promise<void> {
     core__namespace.info("hello world!");
 }
 run().catch((err) => {
@@ -148,7 +148,7 @@ function _interopNamespaceDefault(e) {
 
 var core__namespace = /*#__PURE__*/_interopNamespaceDefault(core);
 
-async function run() {
+async function run(): Promise<void> {
     const type = core__namespace.getInput("type");
     const whoToGreet = core__namespace.getInput("who-to-greet");
     const message = \`Hello \${whoToGreet}!\`;
@@ -208,7 +208,7 @@ function _interopNamespaceDefault(e) {
 
 var core__namespace = /*#__PURE__*/_interopNamespaceDefault(core);
 
-async function run() {
+async function run(): Promise<void> {
     core__namespace.setOutput("message", "Hello, World!");
 }
 run().catch((err) => {
@@ -242,7 +242,7 @@ function _interopNamespaceDefault(e) {
 
 var core__namespace = /*#__PURE__*/_interopNamespaceDefault(core);
 
-async function run() {
+async function run(): Promise<void> {
     const type = core__namespace.getInput("type");
     const whoToGreet = core__namespace.getInput("who-to-greet");
     const message = \`Hello \${whoToGreet}!\`;
@@ -307,7 +307,7 @@ function _interopNamespaceDefault(e) {
 
 var core__namespace = /*#__PURE__*/_interopNamespaceDefault(core);
 
-async function run() {
+async function run(): Promise<void> {
     const type = core__namespace.getInput("type");
     const whoToGreet = core__namespace.getInput("who-to-greet");
     const message = \`Hello \${whoToGreet}!\`;
@@ -372,7 +372,7 @@ function _interopNamespaceDefault(e) {
 
 var core__namespace = /*#__PURE__*/_interopNamespaceDefault(core);
 
-async function run() {
+async function run(): Promise<void> {
     const type = core__namespace.getInput("type");
     const whoToGreet = core__namespace.getInput("who-to-greet");
     const message = \`Hello \${whoToGreet}!\`;
@@ -449,7 +449,7 @@ var core__namespace = /*#__PURE__*/_interopNamespaceDefault(core);
 
 globalThis.ACTION_INPUTS = {"type":"type","who-to-greet":"who-to-greet"};
 globalThis.ACTION_OUTPUTS = {"message":"message"};
-async function run() {
+async function run(): Promise<void> {
     const type = core__namespace.getInput("type");
     const whoToGreet = core__namespace.getInput("who-to-greet");
     const message = \`Hello \${whoToGreet}!\`;
@@ -517,7 +517,7 @@ function _interopNamespaceDefault(e) {
 var core__namespace = /*#__PURE__*/_interopNamespaceDefault(core);
 
 globalThis.ACTION_INPUTS = {"type":"type","who-to-greet":"who-to-greet"};
-async function run() {
+async function run(): Promise<void> {
     const type = core__namespace.getInput("type");
     const whoToGreet = core__namespace.getInput("who-to-greet");
     const message = \`Hello \${whoToGreet}!\`;
@@ -583,7 +583,7 @@ function _interopNamespaceDefault(e) {
 var core__namespace = /*#__PURE__*/_interopNamespaceDefault(core);
 
 globalThis.ACTION_OUTPUTS = {"message":"message"};
-async function run() {
+async function run(): Promise<void> {
     core__namespace.setOutput("message", "Hello, World!");
 }
 run().catch((err) => {
@@ -641,7 +641,7 @@ function _interopNamespaceDefault(e) {
 
 var core__namespace = /*#__PURE__*/_interopNamespaceDefault(core);
 
-async function run() {
+async function run(): Promise<void> {
     const type = core__namespace.getInput("type");
     const whoToGreet = core__namespace.getInput("who-to-greet");
     const message = \`Hello \${whoToGreet}!\`;

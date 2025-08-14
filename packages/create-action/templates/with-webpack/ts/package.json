@@ -5,12 +5,12 @@
     "build": "actions-kit build"
   },
   "dependencies": {
-    "@actions/core": "catalog:"
+    "@actions/core": "catalog:actions"
   },
   "devDependencies": {
-    "@actions-sdk/webpack-builder": "latest",
+    "@actions-sdk/webpack-builder": "catalog:templates",
     "@types/node": "catalog:types",
-    "actions-kit": "latest",
+    "actions-kit": "catalog:templates",
     "typescript": "catalog:dev"
   }
 }

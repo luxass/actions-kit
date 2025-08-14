@@ -47,10 +47,10 @@
   },
   "peerDependencies": {
     "actions-kit": "workspace:*",
-    "rolldown": "catalog:"
+    "rolldown": "catalog:builders"
   },
   "dependencies": {
-    "defu": "catalog:",
+    "defu": "catalog:prod",
     "unplugin-actions-kit": "workspace:*"
   },
   "devDependencies": {
@@ -61,7 +61,7 @@
     "actions-kit": "workspace:*",
     "eslint": "catalog:linting",
     "publint": "catalog:dev",
-    "rolldown": "catalog:",
+    "rolldown": "catalog:builders",
     "tsdown": "catalog:dev",
     "typescript": "catalog:dev",
     "vitest": "catalog:testing"

@@ -1,11 +1,4 @@
-preferWorkspacePackages: true
-saveWorkspaceProtocol: false
-linkWorkspacePackages: true
-engineStrict: true
-
 packages:
-  # if we combine packages/* & packages/builders/*, tne it tries to
-  # install templates inside the create-action package.
   - packages/*
   - packages/builders/*
   - docs
@@ -14,56 +7,69 @@ packages:
   - tooling/*
 
 catalogs:
-  monorepo:
-    "@changesets/changelog-github": ^0.5.1
-    "@changesets/cli": ^2.29.5
-    turbo: ^2.5.5
-
-  testing:
-    "@vitest/coverage-v8": ^3.2.4
-    vitest: ^3.2.4
-    vitest-testdirs: ^4.1.1
-
-  linting:
-    "@luxass/eslint-config": ^5.3.0
-    eslint: ^9.33.0
-    eslint-plugin-format: ^1.0.1
-
-  types:
-    "@types/node": ^22.16.5
-    "@types/js-yaml": ^4.0.9
-
+  actions:
+    '@actions/core': ^1.11.1
+  builders:
+    '@rollup/plugin-commonjs': ^28.0.6
+    '@rollup/plugin-node-resolve': ^16.0.1
+    '@rollup/plugin-typescript': ^12.1.4
+    '@rspack/core': ^1.4.11
+    '@swc/core': ^1.13.3
+    esbuild: ^0.25.9
+    rolldown: 1.0.0-beta.32
+    rollup: ^4.46.2
+    swc-loader: ^0.2.6
+    vite: ^7.1.2
+    webpack: ^5.101.1
   dev:
+    publint: ^0.3.12
     tsdown: ^0.14.1
     typescript: ^5.9.2
-    publint: ^0.3.12
-
   docs:
     vitepress: ^1.6.4
     vitepress-plugin-group-icons: ^1.6.3
+  linting:
+    '@luxass/eslint-config': 5.3.0
+    eslint: 9.33.0
+    eslint-plugin-format: ^1.0.1
+  monorepo:
+    '@changesets/changelog-github': ^0.5.1
+    '@changesets/cli': ^2.29.5
+    turbo: ^2.5.5
+  prod:
+    '@clack/prompts': ^0.11.0
+    c12: ^3.2.0
+    cac: ^6.7.14
+    consola: ^3.4.2
+    defu: ^6.1.4
+    farver: ^0.4.2
+    zod: ^4.0.17
+  templates:
+    '@actions-sdk/esbuild-builder': latest
+    '@actions-sdk/rolldown-builder': latest
+    '@actions-sdk/rollup-builder': latest
+    '@actions-sdk/rspack-builder': latest
+    '@actions-sdk/vite-builder': latest
+    '@actions-sdk/webpack-builder': latest
+    actions-kit: latest
+  testing:
+    '@vitest/coverage-v8': ^3.2.4
+    vitest: ^3.2.4
+    vitest-testdirs: ^4.1.1
+  types:
+    '@types/js-yaml': ^4.0.9
+    '@types/node': ^22.16.5
+  unplugin:
+    '@rollup/pluginutils': ^5.2.0
+    js-yaml: ^4.1.0
+    ts-loader: ^9.5.2
+    tslib: ^2.8.1
+    unplugin: ^2.3.5
 
-catalog:
-  '@actions/core': ^1.11.1
-  '@clack/prompts': ^0.11.0
-  '@rollup/plugin-commonjs': ^28.0.6
-  '@rollup/plugin-node-resolve': ^16.0.1
-  '@rollup/plugin-typescript': ^12.1.4
-  '@rollup/pluginutils': ^5.2.0
-  '@rspack/core': ^1.4.11
-  '@swc/core': ^1.13.3
-  c12: ^3.2.0
-  cac: ^6.7.14
-  consola: ^3.4.2
-  defu: ^6.1.4
-  esbuild: ^0.25.9
-  farver: ^0.4.2
-  js-yaml: ^4.1.0
-  rolldown: 1.0.0-beta.32
-  rollup: ^4.46.2
-  swc-loader: ^0.2.6
-  ts-loader: ^9.5.2
-  tslib: ^2.8.1
-  unplugin: ^2.3.5
-  vite: ^7.1.2
-  webpack: ^5.101.1
-  zod: ^4.0.17
+engineStrict: true
+
+linkWorkspacePackages: true
+
+preferWorkspacePackages: true
+
+saveWorkspaceProtocol: false

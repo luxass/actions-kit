@@ -8,7 +8,7 @@ exports[`augmentations > expect no augmentation when \`autocomplete\` is disable
 const core_namespaceObject = require("@actions/core");
 ;// ./.vitest-testdirs/vitest-webpack-augmentations-expect-no-augmentation-when-autocomplete-is-disabled/index.ts
 
-async function run() {
+async function run(): Promise<void> {
     const type = core_namespaceObject.getInput("type");
     const whoToGreet = core_namespaceObject.getInput("who-to-greet");
     const message = \`Hello \${whoToGreet}!\`;
@@ -48,7 +48,7 @@ exports[`augmentations > expect no augmentations 1`] = `
 const core_namespaceObject = require("@actions/core");
 ;// ./.vitest-testdirs/vitest-webpack-augmentations-expect-no-augmentations/index.ts
 
-async function run() {
+async function run(): Promise<void> {
     core_namespaceObject.info("hello world!");
 }
 run().catch((err) => {
@@ -84,7 +84,7 @@ exports[`augmentations > expect only inputs to be augmented 1`] = `
 const core_namespaceObject = require("@actions/core");
 ;// ./.vitest-testdirs/vitest-webpack-augmentations-expect-only-inputs-to-be-augmented/index.ts
 
-async function run() {
+async function run(): Promise<void> {
     const type = core_namespaceObject.getInput("type");
     const whoToGreet = core_namespaceObject.getInput("who-to-greet");
     const message = \`Hello \${whoToGreet}!\`;
@@ -130,7 +130,7 @@ exports[`augmentations > expect only outputs to be augmented 1`] = `
 const core_namespaceObject = require("@actions/core");
 ;// ./.vitest-testdirs/vitest-webpack-augmentations-expect-only-outputs-to-be-augmented/index.ts
 
-async function run() {
+async function run(): Promise<void> {
     core_namespaceObject.setOutput("message", "Hello, World!");
 }
 run().catch((err) => {
@@ -170,7 +170,7 @@ exports[`custom output path 1`] = `
 const core_namespaceObject = require("@actions/core");
 ;// ./.vitest-testdirs/vitest-webpack-custom-output-path/index.ts
 
-async function run() {
+async function run(): Promise<void> {
     const type = core_namespaceObject.getInput("type");
     const whoToGreet = core_namespaceObject.getInput("who-to-greet");
     const message = \`Hello \${whoToGreet}!\`;
@@ -221,7 +221,7 @@ exports[`expect \`actions-kit.d.ts\` to be generated 1`] = `
 const core_namespaceObject = require("@actions/core");
 ;// ./.vitest-testdirs/vitest-webpack-expect-actions-kit-d-ts-to-be-generated/index.ts
 
-async function run() {
+async function run(): Promise<void> {
     const type = core_namespaceObject.getInput("type");
     const whoToGreet = core_namespaceObject.getInput("who-to-greet");
     const message = \`Hello \${whoToGreet}!\`;
@@ -272,7 +272,7 @@ exports[`expect no \`actions-kit.d.ts\` file generated if plugin not in use 1`] 
 const core_namespaceObject = require("@actions/core");
 ;// ./.vitest-testdirs/vitest-webpack-expect-no-actions-kit-d-ts-file-generated-if-plugin-not-in-use/index.ts
 
-async function run() {
+async function run(): Promise<void> {
     const type = core_namespaceObject.getInput("type");
     const whoToGreet = core_namespaceObject.getInput("who-to-greet");
     const message = \`Hello \${whoToGreet}!\`;
@@ -302,7 +302,7 @@ globalThis.ACTION_INPUTS = { "type": "type", "who-to-greet": "who-to-greet" };
 globalThis.ACTION_OUTPUTS = { "message": "message" };
 ;
 
-async function run() {
+async function run(): Promise<void> {
     const type = core_namespaceObject.getInput("type");
     const whoToGreet = core_namespaceObject.getInput("who-to-greet");
     const message = \`Hello \${whoToGreet}!\`;
@@ -366,7 +366,7 @@ const core_namespaceObject = require("@actions/core");
 globalThis.ACTION_INPUTS = { "type": "type", "who-to-greet": "who-to-greet" };
 ;
 
-async function run() {
+async function run(): Promise<void> {
     const type = core_namespaceObject.getInput("type");
     const whoToGreet = core_namespaceObject.getInput("who-to-greet");
     const message = \`Hello \${whoToGreet}!\`;
@@ -421,7 +421,7 @@ const core_namespaceObject = require("@actions/core");
 globalThis.ACTION_OUTPUTS = { "message": "message" };
 ;
 
-async function run() {
+async function run(): Promise<void> {
     core_namespaceObject.setOutput("message", "Hello, World!");
 }
 run().catch((err) => {
@@ -467,7 +467,7 @@ exports[`inject > expect no change in global scope 1`] = `
 const core_namespaceObject = require("@actions/core");
 ;// ./.vitest-testdirs/vitest-webpack-inject-expect-no-change-in-global-scope/index.ts
 
-async function run() {
+async function run(): Promise<void> {
     const type = core_namespaceObject.getInput("type");
     const whoToGreet = core_namespaceObject.getInput("who-to-greet");
     const message = \`Hello \${whoToGreet}!\`;

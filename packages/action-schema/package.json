@@ -45,7 +45,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "zod": "catalog:"
+    "zod": "catalog:prod"
   },
   "devDependencies": {
     "@actions-kit/tsconfig": "workspace:*",

@@ -46,28 +46,28 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@rollup/plugin-commonjs": "catalog:",
-    "@rollup/plugin-node-resolve": "catalog:",
-    "@rollup/plugin-typescript": "catalog:",
+    "@rollup/plugin-commonjs": "catalog:builders",
+    "@rollup/plugin-node-resolve": "catalog:builders",
+    "@rollup/plugin-typescript": "catalog:builders",
     "actions-kit": "workspace:*",
-    "rollup": "catalog:"
+    "rollup": "catalog:builders"
   },
   "dependencies": {
-    "defu": "catalog:",
+    "defu": "catalog:prod",
     "unplugin-actions-kit": "workspace:*"
   },
   "devDependencies": {
     "@actions-kit/tsconfig": "workspace:*",
     "@actions-kit/tsdown-config": "workspace:*",
     "@luxass/eslint-config": "catalog:linting",
-    "@rollup/plugin-commonjs": "catalog:",
-    "@rollup/plugin-node-resolve": "catalog:",
-    "@rollup/plugin-typescript": "catalog:",
+    "@rollup/plugin-commonjs": "catalog:builders",
+    "@rollup/plugin-node-resolve": "catalog:builders",
+    "@rollup/plugin-typescript": "catalog:builders",
     "@types/node": "catalog:types",
     "actions-kit": "workspace:*",
     "eslint": "catalog:linting",
     "publint": "catalog:dev",
-    "rollup": "catalog:",
+    "rollup": "catalog:builders",
     "tsdown": "catalog:dev",
     "typescript": "catalog:dev",
     "vitest": "catalog:testing"

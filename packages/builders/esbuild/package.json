@@ -47,10 +47,10 @@
   },
   "peerDependencies": {
     "actions-kit": "workspace:*",
-    "esbuild": "catalog:"
+    "esbuild": "catalog:builders"
   },
   "dependencies": {
-    "defu": "catalog:",
+    "defu": "catalog:prod",
     "unplugin-actions-kit": "workspace:*"
   },
   "devDependencies": {
@@ -59,7 +59,7 @@
     "@luxass/eslint-config": "catalog:linting",
     "@types/node": "catalog:types",
     "actions-kit": "workspace:*",
-    "esbuild": "catalog:",
+    "esbuild": "catalog:builders",
     "eslint": "catalog:linting",
     "publint": "catalog:dev",
     "tsdown": "catalog:dev",

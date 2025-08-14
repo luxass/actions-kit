@@ -113,32 +113,32 @@
     }
   },
   "dependencies": {
-    "@rollup/pluginutils": "catalog:",
-    "js-yaml": "catalog:",
-    "unplugin": "catalog:",
-    "zod": "catalog:"
+    "@rollup/pluginutils": "catalog:unplugin",
+    "js-yaml": "catalog:unplugin",
+    "unplugin": "catalog:unplugin",
+    "zod": "catalog:prod"
   },
   "devDependencies": {
     "@actions-kit/tsconfig": "workspace:*",
     "@actions-kit/tsdown-config": "workspace:*",
-    "@actions/core": "catalog:",
+    "@actions/core": "catalog:actions",
     "@luxass/eslint-config": "catalog:linting",
-    "@rollup/plugin-typescript": "catalog:",
-    "@rspack/core": "catalog:",
+    "@rollup/plugin-typescript": "catalog:builders",
+    "@rspack/core": "catalog:builders",
     "@types/js-yaml": "catalog:types",
     "@types/node": "catalog:types",
-    "esbuild": "catalog:",
+    "esbuild": "catalog:builders",
     "eslint": "catalog:linting",
     "publint": "catalog:dev",
-    "rolldown": "catalog:",
-    "rollup": "catalog:",
-    "ts-loader": "catalog:",
+    "rolldown": "catalog:builders",
+    "rollup": "catalog:builders",
+    "ts-loader": "catalog:unplugin",
     "tsdown": "catalog:dev",
-    "tslib": "catalog:",
+    "tslib": "catalog:unplugin",
     "typescript": "catalog:dev",
-    "vite": "catalog:",
+    "vite": "catalog:builders",
     "vitest": "catalog:testing",
     "vitest-testdirs": "catalog:testing",
-    "webpack": "catalog:"
+    "webpack": "catalog:builders"
   }
 }

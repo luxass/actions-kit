@@ -67,14 +67,14 @@
   "dependencies": {
     "@actions-sdk/action-schema": "workspace:*",
     "@actions-sdk/action-utils": "workspace:*",
-    "c12": "catalog:",
-    "cac": "catalog:",
-    "consola": "catalog:",
-    "defu": "catalog:",
-    "farver": "catalog:",
-    "js-yaml": "catalog:",
+    "c12": "catalog:prod",
+    "cac": "catalog:prod",
+    "consola": "catalog:prod",
+    "defu": "catalog:prod",
+    "farver": "catalog:prod",
+    "js-yaml": "catalog:unplugin",
     "unplugin-actions-kit": "workspace:*",
-    "zod": "catalog:"
+    "zod": "catalog:prod"
   },
   "devDependencies": {
     "@actions-kit/tsconfig": "workspace:*",
