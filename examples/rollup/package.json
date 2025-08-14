@@ -8,10 +8,11 @@
     "@actions/core": "catalog:"
   },
   "devDependencies": {
+    "@actions-kit/tsconfig": "workspace:*",
     "@actions-sdk/action-utils": "workspace:*",
     "@actions-sdk/rollup-builder": "workspace:*",
-    "@types/node": "catalog:",
+    "@types/node": "catalog:types",
     "actions-kit": "workspace:*",
-    "typescript": "catalog:"
+    "typescript": "catalog:dev"
   }
 }

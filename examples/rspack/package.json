@@ -2,16 +2,19 @@
   "name": "@actions-sdk/rspack-example",
   "private": true,
   "scripts": {
-    "build": "actions-kit build"
+    "build": "actions-kit build",
+    "typecheck": "tsc --noEmit",
+    "clean": "git clean -xdf dist node_modules .cache"
   },
   "dependencies": {
     "@actions/core": "catalog:"
   },
   "devDependencies": {
+    "@actions-kit/tsconfig": "workspace:*",
     "@actions-sdk/action-utils": "workspace:*",
     "@actions-sdk/rspack-builder": "workspace:*",
-    "@types/node": "catalog:",
+    "@types/node": "catalog:types",
     "actions-kit": "workspace:*",
-    "typescript": "catalog:"
+    "typescript": "catalog:dev"
   }
 }

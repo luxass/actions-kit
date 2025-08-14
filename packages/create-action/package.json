@@ -8,7 +8,7 @@
     "email": "lucasnrgaard@gmail.com",
     "url": "https://luxass.dev"
   },
-  "packageManager": "pnpm@10.5.0",
+  "packageManager": "pnpm@10.14.0",
   "license": "MIT",
   "homepage": "https://github.com/luxass/actions-kit",
   "repository": {
@@ -53,13 +53,12 @@
     "@actions-kit/tsdown-config": "workspace:*",
     "@clack/prompts": "catalog:",
     "@luxass/eslint-config": "catalog:linting",
-    "@types/node": "catalog:",
+    "@types/node": "catalog:types",
     "cac": "catalog:",
     "eslint": "catalog:linting",
     "farver": "catalog:",
     "publint": "catalog:dev",
     "tsdown": "catalog:dev",
-    "tsup": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:dev"
   }
 }

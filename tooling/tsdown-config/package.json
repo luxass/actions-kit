@@ -12,7 +12,8 @@
   ],
   "scripts": {
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "clean": "git clean -xdf dist node_modules .cache"
   },
   "dependencies": {
     "tsdown": "catalog:dev"

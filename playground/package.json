@@ -10,8 +10,8 @@
     "actions-kit": "workspace:*"
   },
   "devDependencies": {
-    "@types/node": "catalog:",
-    "typescript": "catalog:",
-    "@actions-kit/tsconfig": "workspace:*"
+    "@actions-kit/tsconfig": "workspace:*",
+    "@types/node": "catalog:types",
+    "typescript": "catalog:dev"
   }
 }
