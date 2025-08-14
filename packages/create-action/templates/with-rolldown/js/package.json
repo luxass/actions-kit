@@ -8,7 +8,7 @@
     "@actions/core": "catalog:"
   },
   "devDependencies": {
-    "@actions-sdk/rolldown-builder": "catalog:",
-    "actions-kit": "catalog:"
+    "@actions-sdk/rolldown-builder": "latest",
+    "actions-kit": "latest"
   }
 }

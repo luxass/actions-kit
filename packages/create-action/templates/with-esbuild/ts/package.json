@@ -8,9 +8,9 @@
     "@actions/core": "catalog:"
   },
   "devDependencies": {
-    "@actions-sdk/esbuild-builder": "catalog:",
+    "@actions-sdk/esbuild-builder": "latest",
     "@types/node": "catalog:types",
-    "actions-kit": "catalog:",
+    "actions-kit": "latest",
     "typescript": "catalog:dev"
   }
 }

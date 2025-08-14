@@ -8,9 +8,9 @@
     "@actions/core": "catalog:"
   },
   "devDependencies": {
-    "@actions-sdk/rspack-builder": "catalog:",
+    "@actions-sdk/rspack-builder": "latest",
     "@types/node": "catalog:types",
-    "actions-kit": "catalog:",
+    "actions-kit": "latest",
     "typescript": "catalog:dev"
   }
 }

@@ -8,9 +8,9 @@
     "@actions/core": "catalog:"
   },
   "devDependencies": {
-    "@actions-sdk/rolldown-builder": "catalog:",
+    "@actions-sdk/rolldown-builder": "latest",
     "@types/node": "catalog:types",
-    "actions-kit": "catalog:",
+    "actions-kit": "latest",
     "typescript": "catalog:dev"
   }
 }

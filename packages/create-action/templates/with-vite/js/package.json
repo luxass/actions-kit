@@ -8,7 +8,7 @@
     "@actions/core": "catalog:"
   },
   "devDependencies": {
-    "@actions-sdk/vite-builder": "catalog:",
-    "actions-kit": "catalog:"
+    "@actions-sdk/vite-builder": "latest",
+    "actions-kit": "latest"
   }
 }

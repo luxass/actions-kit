@@ -30,7 +30,7 @@ catalogs:
     eslint-plugin-format: ^1.0.1
 
   types:
-    "@types/node": ^22.0.0
+    "@types/node": ^22.16.5
     "@types/js-yaml": ^4.0.9
 
   dev:

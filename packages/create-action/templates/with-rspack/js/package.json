@@ -8,7 +8,7 @@
     "@actions/core": "catalog:"
   },
   "devDependencies": {
-    "@actions-sdk/rspack-builder": "catalog:",
-    "actions-kit": "catalog:"
+    "@actions-sdk/rspack-builder": "catalog:latest",
+    "actions-kit": "catalog:latest"
   }
 }
