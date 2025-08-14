@@ -1,4 +1,4 @@
-import type { BuildOutput } from "actions-kit/builder";
+import type { Builder, BuildOutput } from "actions-kit/builder";
 import type { InlineConfig } from "vite";
 import { stat } from "node:fs/promises";
 import { join } from "node:path";
@@ -8,7 +8,7 @@ import { defu } from "defu";
 import ViteActionsKit from "unplugin-actions-kit/vite";
 import { build } from "vite";
 
-export default function viteBuilder(options: InlineConfig = {}) {
+export default function viteBuilder(options: InlineConfig = {}): Builder {
   return defineBuilder({
     name: "vite",
     build: async ({ cwd, config }) => {
@@ -33,7 +33,7 @@ export default function viteBuilder(options: InlineConfig = {}) {
                 || warning.code === "CIRCULAR_DEPENDENCY"
                 || warning.code === "EMPTY_BUNDLE"
               ) {
-
+                console.error(warning);
               }
 
               // TODO: pretty print warnings

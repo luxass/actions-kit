@@ -1,4 +1,4 @@
-import type { BuildOutput } from "actions-kit/builder";
+import type { Builder, BuildOutput } from "actions-kit/builder";
 import type { RolldownOptions } from "rolldown";
 import { stat } from "node:fs/promises";
 import { builtinModules } from "node:module";
@@ -9,7 +9,7 @@ import { defu } from "defu";
 import { rolldown } from "rolldown";
 import RolldownActionsKit from "unplugin-actions-kit/rolldown";
 
-export default function rolldownBuilder(options: RolldownOptions = {}) {
+export default function rolldownBuilder(options: RolldownOptions = {}): Builder {
   return defineBuilder({
     name: "rolldown",
     build: async ({ cwd, config }) => {
@@ -39,7 +39,7 @@ export default function rolldownBuilder(options: RolldownOptions = {}) {
             || warning.code === "CIRCULAR_DEPENDENCY"
             || warning.code === "EMPTY_BUNDLE"
           ) {
-
+            console.error(warning);
           }
 
           // TODO: pretty print warnings

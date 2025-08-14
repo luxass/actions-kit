@@ -1,4 +1,4 @@
-import type { BuildOutput } from "actions-kit/builder";
+import type { Builder, BuildOutput } from "actions-kit/builder";
 import type { Configuration, Stats } from "webpack";
 import { join } from "node:path";
 import { defineBuilder } from "actions-kit/builder";
@@ -7,7 +7,7 @@ import { defu } from "defu";
 import WebpackActionsKit from "unplugin-actions-kit/webpack";
 import { webpack } from "webpack";
 
-export default function webpackBuilder(options: Configuration = {}) {
+export default function webpackBuilder(options: Configuration = {}): Builder {
   return defineBuilder({
     name: "webpack",
     build: async ({ cwd, config }) => {
@@ -66,7 +66,7 @@ export default function webpackBuilder(options: Configuration = {}) {
           } else {
             resolve(stats as unknown as Stats);
           }
-        })
+        });
       });
 
       if (!stats) {

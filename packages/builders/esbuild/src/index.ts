@@ -1,4 +1,4 @@
-import type { BuildOutput } from "actions-kit/builder";
+import type { Builder, BuildOutput } from "actions-kit/builder";
 import type { BuildOptions as ESBuildBuildOptions } from "esbuild";
 import { dirname, join } from "node:path";
 import { defineBuilder } from "actions-kit/builder";
@@ -8,7 +8,7 @@ import { build } from "esbuild";
 import ESBuildActionsKit from "unplugin-actions-kit/esbuild";
 import { getESBuildEntryPoint } from "./utils";
 
-export default function esbuildBuilder(options: ESBuildBuildOptions = {}) {
+export default function esbuildBuilder(options: ESBuildBuildOptions = {}): Builder {
   return defineBuilder({
     name: "esbuild",
     build: async ({ cwd, config }) => {
@@ -28,22 +28,22 @@ export default function esbuildBuilder(options: ESBuildBuildOptions = {}) {
           // metafile should always be true
           metafile: true,
         },
-				{
-				  entryPoints: [entryPoints],
-				  platform: "node",
-				  target: "node20",
-				  format: libraryType,
-				  bundle: true,
-				  outfile: join(dir, filename),
-				  metafile: true,
-				  plugins: [
-				    ESBuildActionsKit({
-				      actionPath: join(cwd, "./action.yml"),
-				      inject: config.inject,
-				      autocomplete: config.autocomplete,
-				    }),
-				  ],
-				} satisfies ESBuildBuildOptions,
+        {
+          entryPoints: [entryPoints],
+          platform: "node",
+          target: "node20",
+          format: libraryType,
+          bundle: true,
+          outfile: join(dir, filename),
+          metafile: true,
+          plugins: [
+            ESBuildActionsKit({
+              actionPath: join(cwd, "./action.yml"),
+              inject: config.inject,
+              autocomplete: config.autocomplete,
+            }),
+          ],
+        } satisfies ESBuildBuildOptions,
       );
 
       const result = await build(

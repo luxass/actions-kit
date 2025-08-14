@@ -1,5 +1,5 @@
 import type { Configuration, Stats } from "@rspack/core";
-import type { BuildOutput } from "actions-kit/builder";
+import type { Builder, BuildOutput } from "actions-kit/builder";
 import { join } from "node:path";
 import { rspack } from "@rspack/core";
 import { defineBuilder } from "actions-kit/builder";
@@ -8,7 +8,7 @@ import { defu } from "defu";
 import RspackActionsKit from "unplugin-actions-kit/rspack";
 import "zod";
 
-export default function rspackBuilder(options: Configuration = {}) {
+export default function rspackBuilder(options: Configuration = {}): Builder {
   return defineBuilder({
     name: "rspack",
     build: async ({ cwd, config }) => {
