@@ -55,15 +55,19 @@ export default function webpackBuilder(options: Configuration = {}) {
 
       const compiler = webpack(webpackOptions);
 
-      const stats = await new Promise<Stats | undefined>((resolve, reject) =>
+      const stats = await new Promise<Stats | undefined>((resolve, reject) => {
+        if (compiler == null) {
+          return reject(new Error("webpack compiler is not defined"));
+        }
+
         compiler.run((err, stats) => {
           if (err) {
             reject(err);
           } else {
             resolve(stats as unknown as Stats);
           }
-        }),
-      );
+        })
+      });
 
       if (!stats) {
         throw new Error("could not build");
