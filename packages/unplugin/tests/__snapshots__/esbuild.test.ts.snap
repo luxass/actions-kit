@@ -38,7 +38,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 var core = __toESM(require("@actions/core"), 1);
-async function run(): Promise<void> {
+async function run() {
   const type = core.getInput("type");
   const whoToGreet = core.getInput("who-to-greet");
   const message = \`Hello \${whoToGreet}!\`;
@@ -96,7 +96,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 var core = __toESM(require("@actions/core"), 1);
-async function run(): Promise<void> {
+async function run() {
   core.info("hello world!");
 }
 run().catch((err) => {
@@ -151,7 +151,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 var core = __toESM(require("@actions/core"), 1);
-async function run(): Promise<void> {
+async function run() {
   const type = core.getInput("type");
   const whoToGreet = core.getInput("who-to-greet");
   const message = \`Hello \${whoToGreet}!\`;
@@ -212,7 +212,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 var core = __toESM(require("@actions/core"), 1);
-async function run(): Promise<void> {
+async function run() {
   core.setOutput("message", "Hello, World!");
 }
 run().catch((err) => {
@@ -271,7 +271,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 var core = __toESM(require("@actions/core"), 1);
-async function run(): Promise<void> {
+async function run() {
   const type = core.getInput("type");
   const whoToGreet = core.getInput("who-to-greet");
   const message = \`Hello \${whoToGreet}!\`;
@@ -337,7 +337,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 var core = __toESM(require("@actions/core"), 1);
-async function run(): Promise<void> {
+async function run() {
   const type = core.getInput("type");
   const whoToGreet = core.getInput("who-to-greet");
   const message = \`Hello \${whoToGreet}!\`;
@@ -379,7 +379,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 var core = __toESM(require("@actions/core"), 1);
-async function run(): Promise<void> {
+async function run() {
   const type = core.getInput("type");
   const whoToGreet = core.getInput("who-to-greet");
   const message = \`Hello \${whoToGreet}!\`;
@@ -458,7 +458,7 @@ var core = __toESM(require("@actions/core"), 1);
 globalThis.ACTION_INPUTS = { "type": "type", "who-to-greet": "who-to-greet" };
 globalThis.ACTION_OUTPUTS = { "message": "message" };
 ;
-async function run(): Promise<void> {
+async function run() {
   const type = core.getInput("type");
   const whoToGreet = core.getInput("who-to-greet");
   const message = \`Hello \${whoToGreet}!\`;
@@ -529,7 +529,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 var core = __toESM(require("@actions/core"), 1);
 globalThis.ACTION_INPUTS = { "type": "type", "who-to-greet": "who-to-greet" };
 ;
-async function run(): Promise<void> {
+async function run() {
   const type = core.getInput("type");
   const whoToGreet = core.getInput("who-to-greet");
   const message = \`Hello \${whoToGreet}!\`;
@@ -598,7 +598,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 var core = __toESM(require("@actions/core"), 1);
 globalThis.ACTION_OUTPUTS = { "message": "message" };
 ;
-async function run(): Promise<void> {
+async function run() {
   core.setOutput("message", "Hello, World!");
 }
 run().catch((err) => {
@@ -658,7 +658,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 var core = __toESM(require("@actions/core"), 1);
-async function run(): Promise<void> {
+async function run() {
   const type = core.getInput("type");
   const whoToGreet = core.getInput("who-to-greet");
   const message = \`Hello \${whoToGreet}!\`;

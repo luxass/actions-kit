@@ -19,6 +19,7 @@ const packages = [
 const nonPrefixedPackages = [
   "actions-kit",
   "unplugin-actions-kit",
+  "unplugin-actions-kit/*",
 ]
 
 const isBuilderPackage = (pkg: string) => builderPackages.includes(pkg);
