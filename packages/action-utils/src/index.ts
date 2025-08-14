@@ -1,2 +1,2 @@
-export * from "./inputs";
 export * from "./events";
+export * from "./inputs";

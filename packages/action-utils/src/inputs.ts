@@ -16,11 +16,11 @@ type InferValidatorReturn<T> = T extends (data: unknown) => infer R ? R : never;
  */
 // biome-ignore lint/suspicious/noExplicitAny: any is used to allow any parame
 export function getValidatedInput<T extends ValidatorFunction<any>>(
-	inputName: string,
-	validatorFn: T,
-	options?: InputOptions,
+  inputName: string,
+  validatorFn: T,
+  options?: InputOptions,
 ): InferValidatorReturn<T> {
-	const raw = getInput(inputName, options);
+  const raw = getInput(inputName, options);
 
-	return validatorFn(raw);
+  return validatorFn(raw);
 }

@@ -12,6 +12,9 @@ catalogs:
     '@biomejs/biome':
       specifier: ^1.9.4
       version: 1.9.4
+    '@clack/prompts':
+      specifier: ^0.10.0
+      version: 0.10.0
     '@rollup/plugin-commonjs':
       specifier: ^28.0.2
       version: 28.0.2
@@ -151,6 +154,9 @@ importers:
       '@types/node':
         specifier: catalog:types
         version: 22.13.5
+      eslint:
+        specifier: catalog:linting
+        version: 9.33.0(jiti@2.4.2)
       turbo:
         specifier: catalog:monorepo
         version: 2.5.5
@@ -746,7 +752,7 @@ importers:
         specifier: workspace:*
         version: link:../../tooling/tsdown-config
       '@clack/prompts':
-        specifier: ^0.10.0
+        specifier: 'catalog:'
         version: 0.10.0
       '@luxass/eslint-config':
         specifier: catalog:linting

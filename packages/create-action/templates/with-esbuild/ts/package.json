@@ -5,12 +5,12 @@
     "build": "actions-kit build"
   },
   "dependencies": {
-    "@actions/core": "^1.11.1"
+    "@actions/core": "catalog:"
   },
   "devDependencies": {
-    "@actions-sdk/esbuild-builder": "latest",
-    "@types/node": "^22.8.1",
-    "actions-kit": "latest",
-    "typescript": "^5.7.3"
+    "@actions-sdk/esbuild-builder": "catalog:",
+    "@types/node": "catalog:types",
+    "actions-kit": "catalog:",
+    "typescript": "catalog:dev"
   }
 }

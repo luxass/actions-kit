@@ -3,6 +3,7 @@ import { createTsdownConfig } from "@actions-kit/tsdown-config";
 export default createTsdownConfig({
   entry: [
     "src/index.ts",
-    "src/inputs.ts", "src/events.ts"
+    "src/inputs.ts",
+    "src/events.ts",
   ],
 });

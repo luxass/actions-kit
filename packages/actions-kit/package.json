@@ -24,9 +24,6 @@
     "github actions",
     "toolkit"
   ],
-  "bin": {
-    "actions-kit": "./bin/actions-kit.mjs"
-  },
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -53,9 +50,12 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.cts",
+  "bin": {
+    "actions-kit": "./bin/actions-kit.mjs"
+  },
   "files": [
-    "dist",
-    "bin"
+    "bin",
+    "dist"
   ],
   "scripts": {
     "build": "tsdown --tsconfig=./tsconfig.build.json",

@@ -24,18 +24,23 @@
     "github actions",
     "toolkit"
   ],
-  "main": "./dist/index.js",
   "exports": {
     ".": "./dist/index.js",
     "./package.json": "./package.json"
   },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "bin": {
     "create-actions-kit": "./create-actions-kit.mjs"
   },
   "files": [
-    "dist",
-    "create-actions-kit.mjs"
+    "create-actions-kit.mjs",
+    "dist"
   ],
+  "engines": {
+    "node": "^18.17.1 || ^20.3.0 || >=21.0.0"
+  },
   "scripts": {
     "build": "tsdown --tsconfig=./tsconfig.build.json",
     "dev": "tsdown --watch",
@@ -46,7 +51,7 @@
   "devDependencies": {
     "@actions-kit/tsconfig": "workspace:*",
     "@actions-kit/tsdown-config": "workspace:*",
-    "@clack/prompts": "^0.10.0",
+    "@clack/prompts": "catalog:",
     "@luxass/eslint-config": "catalog:linting",
     "@types/node": "catalog:",
     "cac": "catalog:",
@@ -56,10 +61,5 @@
     "tsdown": "catalog:dev",
     "tsup": "catalog:",
     "typescript": "catalog:"
-  },
-  "engines": {
-    "node": "^18.17.1 || ^20.3.0 || >=21.0.0"
-  },
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts"
+  }
 }

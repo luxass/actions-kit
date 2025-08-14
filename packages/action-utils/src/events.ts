@@ -15,7 +15,7 @@ import { existsSync, readFileSync } from "node:fs";
  * ```
  */
 export function isBranchProtectionRule(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "branch_protection_rule";
+  return process.env.GITHUB_EVENT_NAME === "branch_protection_rule";
 }
 
 /**
@@ -33,7 +33,7 @@ export function isBranchProtectionRule(): boolean {
  * ```
  */
 export function isCheckRun(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "check_run";
+  return process.env.GITHUB_EVENT_NAME === "check_run";
 }
 
 /**
@@ -51,7 +51,7 @@ export function isCheckRun(): boolean {
  * ```
  */
 export function isCheckSuite(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "check_suite";
+  return process.env.GITHUB_EVENT_NAME === "check_suite";
 }
 
 /**
@@ -69,7 +69,7 @@ export function isCheckSuite(): boolean {
  * ```
  */
 export function isCreate(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "create";
+  return process.env.GITHUB_EVENT_NAME === "create";
 }
 
 /**
@@ -87,7 +87,7 @@ export function isCreate(): boolean {
  * ```
  */
 export function isDelete(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "delete";
+  return process.env.GITHUB_EVENT_NAME === "delete";
 }
 
 /**
@@ -105,7 +105,7 @@ export function isDelete(): boolean {
  * ```
  */
 export function isDeployment(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "deployment";
+  return process.env.GITHUB_EVENT_NAME === "deployment";
 }
 
 /**
@@ -123,7 +123,7 @@ export function isDeployment(): boolean {
  * ```
  */
 export function isDeploymentStatus(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "deployment_status";
+  return process.env.GITHUB_EVENT_NAME === "deployment_status";
 }
 
 /**
@@ -141,7 +141,7 @@ export function isDeploymentStatus(): boolean {
  * ```
  */
 export function isDiscussion(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "discussion";
+  return process.env.GITHUB_EVENT_NAME === "discussion";
 }
 
 /**
@@ -159,7 +159,7 @@ export function isDiscussion(): boolean {
  * ```
  */
 export function isDiscussionComment(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "discussion_comment";
+  return process.env.GITHUB_EVENT_NAME === "discussion_comment";
 }
 
 /**
@@ -177,7 +177,7 @@ export function isDiscussionComment(): boolean {
  * ```
  */
 export function isFork(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "fork";
+  return process.env.GITHUB_EVENT_NAME === "fork";
 }
 
 /**
@@ -195,7 +195,7 @@ export function isFork(): boolean {
  * ```
  */
 export function isGollum(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "gollum";
+  return process.env.GITHUB_EVENT_NAME === "gollum";
 }
 
 /**
@@ -213,7 +213,7 @@ export function isGollum(): boolean {
  * ```
  */
 export function isIssueComment(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "issue_comment";
+  return process.env.GITHUB_EVENT_NAME === "issue_comment";
 }
 
 /**
@@ -231,7 +231,7 @@ export function isIssueComment(): boolean {
  * ```
  */
 export function isIssues(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "issues";
+  return process.env.GITHUB_EVENT_NAME === "issues";
 }
 
 /**
@@ -249,7 +249,7 @@ export function isIssues(): boolean {
  * ```
  */
 export function isLabel(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "label";
+  return process.env.GITHUB_EVENT_NAME === "label";
 }
 
 /**
@@ -267,7 +267,7 @@ export function isLabel(): boolean {
  * ```
  */
 export function isMergeGroup(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "merge_group";
+  return process.env.GITHUB_EVENT_NAME === "merge_group";
 }
 
 /**
@@ -285,7 +285,7 @@ export function isMergeGroup(): boolean {
  * ```
  */
 export function isMilestone(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "milestone";
+  return process.env.GITHUB_EVENT_NAME === "milestone";
 }
 
 /**
@@ -303,7 +303,7 @@ export function isMilestone(): boolean {
  * ```
  */
 export function isPageBuild(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "page_build";
+  return process.env.GITHUB_EVENT_NAME === "page_build";
 }
 
 /**
@@ -321,7 +321,7 @@ export function isPageBuild(): boolean {
  * ```
  */
 export function isProject(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "project";
+  return process.env.GITHUB_EVENT_NAME === "project";
 }
 
 /**
@@ -339,7 +339,7 @@ export function isProject(): boolean {
  * ```
  */
 export function isProjectCard(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "project_card";
+  return process.env.GITHUB_EVENT_NAME === "project_card";
 }
 
 /**
@@ -357,7 +357,7 @@ export function isProjectCard(): boolean {
  * ```
  */
 export function isProjectColumn(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "project_column";
+  return process.env.GITHUB_EVENT_NAME === "project_column";
 }
 
 /**
@@ -375,7 +375,7 @@ export function isProjectColumn(): boolean {
  * ```
  */
 export function isPublic(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "public";
+  return process.env.GITHUB_EVENT_NAME === "public";
 }
 
 /**
@@ -393,7 +393,7 @@ export function isPublic(): boolean {
  * ```
  */
 export function isPullRequest(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "pull_request";
+  return process.env.GITHUB_EVENT_NAME === "pull_request";
 }
 
 /**
@@ -411,7 +411,7 @@ export function isPullRequest(): boolean {
  * ```
  */
 export function isPullRequestReview(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "pull_request_review";
+  return process.env.GITHUB_EVENT_NAME === "pull_request_review";
 }
 
 /**
@@ -429,7 +429,7 @@ export function isPullRequestReview(): boolean {
  * ```
  */
 export function isPullRequestReviewComment(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "pull_request_review_comment";
+  return process.env.GITHUB_EVENT_NAME === "pull_request_review_comment";
 }
 
 /**
@@ -447,7 +447,7 @@ export function isPullRequestReviewComment(): boolean {
  * ```
  */
 export function isPullRequestTarget(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "pull_request_target";
+  return process.env.GITHUB_EVENT_NAME === "pull_request_target";
 }
 
 /**
@@ -465,7 +465,7 @@ export function isPullRequestTarget(): boolean {
  * ```
  */
 export function isPush(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "push";
+  return process.env.GITHUB_EVENT_NAME === "push";
 }
 
 /**
@@ -483,7 +483,7 @@ export function isPush(): boolean {
  * ```
  */
 export function isRegistryPackage(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "registry_package";
+  return process.env.GITHUB_EVENT_NAME === "registry_package";
 }
 
 /**
@@ -501,7 +501,7 @@ export function isRegistryPackage(): boolean {
  * ```
  */
 export function isRelease(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "release";
+  return process.env.GITHUB_EVENT_NAME === "release";
 }
 
 /**
@@ -519,7 +519,7 @@ export function isRelease(): boolean {
  * ```
  */
 export function isStatus(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "status";
+  return process.env.GITHUB_EVENT_NAME === "status";
 }
 
 /**
@@ -537,7 +537,7 @@ export function isStatus(): boolean {
  * ```
  */
 export function isWatch(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "watch";
+  return process.env.GITHUB_EVENT_NAME === "watch";
 }
 
 /**
@@ -555,7 +555,7 @@ export function isWatch(): boolean {
  * ```
  */
 export function isWorkflowCall(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "workflow_call";
+  return process.env.GITHUB_EVENT_NAME === "workflow_call";
 }
 
 /**
@@ -573,7 +573,7 @@ export function isWorkflowCall(): boolean {
  * ```
  */
 export function isWorkflowDispatch(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "workflow_dispatch";
+  return process.env.GITHUB_EVENT_NAME === "workflow_dispatch";
 }
 
 /**
@@ -591,7 +591,7 @@ export function isWorkflowDispatch(): boolean {
  * ```
  */
 export function isWorkflowRun(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "workflow_run";
+  return process.env.GITHUB_EVENT_NAME === "workflow_run";
 }
 
 /**
@@ -609,7 +609,7 @@ export function isWorkflowRun(): boolean {
  * ```
  */
 export function isRepositoryDispatch(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "repository_dispatch";
+  return process.env.GITHUB_EVENT_NAME === "repository_dispatch";
 }
 
 /**
@@ -627,7 +627,7 @@ export function isRepositoryDispatch(): boolean {
  * ```
  */
 export function isSchedule(): boolean {
-	return process.env.GITHUB_EVENT_NAME === "schedule";
+  return process.env.GITHUB_EVENT_NAME === "schedule";
 }
 
 /**
@@ -645,14 +645,14 @@ export function isSchedule(): boolean {
  */
 // biome-ignore lint/suspicious/noExplicitAny: fix later
 export function getPayload(): Record<string, any> | null {
-	const eventPath = process.env.GITHUB_EVENT_PATH;
-	if (eventPath == null) {
-		return null;
-	}
+  const eventPath = process.env.GITHUB_EVENT_PATH;
+  if (eventPath == null) {
+    return null;
+  }
 
-	if (!existsSync(eventPath)) {
-		return null;
-	}
+  if (!existsSync(eventPath)) {
+    return null;
+  }
 
-	return JSON.parse(readFileSync(eventPath, { encoding: "utf8" }));
+  return JSON.parse(readFileSync(eventPath, { encoding: "utf8" }));
 }

@@ -5,10 +5,10 @@
     "build": "actions-kit build"
   },
   "dependencies": {
-    "@actions/core": "^1.11.1"
+    "@actions/core": "catalog:"
   },
   "devDependencies": {
-    "@actions-sdk/esbuild-builder": "latest",
-    "actions-kit": "latest"
+    "@actions-sdk/esbuild-builder": "catalog:",
+    "actions-kit": "catalog:"
   }
 }

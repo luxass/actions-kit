@@ -5,10 +5,10 @@
     "build": "actions-kit build"
   },
   "dependencies": {
-    "@actions/core": "^1.11.1"
+    "@actions/core": "catalog:"
   },
   "devDependencies": {
-    "@actions-sdk/rspack-builder": "latest",
-    "actions-kit": "latest"
+    "@actions-sdk/rspack-builder": "catalog:",
+    "actions-kit": "catalog:"
   }
 }
