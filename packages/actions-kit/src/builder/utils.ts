@@ -2,6 +2,7 @@ import type { Action } from "@actions-sdk/action-schema";
 import type { ActionsKitConfig } from "../config";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
+import process from "node:process";
 import { ACTION_SCHEMA } from "@actions-sdk/action-schema";
 import Yaml from "js-yaml";
 

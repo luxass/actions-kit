@@ -1,13 +1,14 @@
 import { existsSync } from "node:fs";
 import { copyFile, mkdir } from "node:fs/promises";
 import { basename, join, resolve } from "node:path";
+import process from "node:process";
 import { isCancel, select, text } from "@clack/prompts";
 import cac from "cac";
 import { cyan, green } from "farver";
 import { version } from "../package.json";
 import { getFiles, isFolderEmpty } from "./utils";
 
-const handleSigTerm = () => process.exit(0);
+const handleSigTerm = (): never => process.exit(0);
 
 process.on("SIGINT", handleSigTerm);
 process.on("SIGTERM", handleSigTerm);
@@ -155,11 +156,13 @@ cli
         process.exit(1);
       }
 
+      // eslint-disable-next-line no-console
       console.log(`using template: ${green(templateName)}`);
 
       const templatePath = join(import.meta.dirname, "./templates", templateName, language);
 
       if (!existsSync(projectPath)) {
+        // eslint-disable-next-line no-console
         console.log(`Creating a new Actions Kit app in ${cyan(appPath)}`);
         await mkdir(appPath, { recursive: true });
       }
@@ -191,9 +194,13 @@ cli
           ? "pnpm"
           : "npm";
 
+      // eslint-disable-next-line no-console
       console.log("\nDone! 🎉\n");
+      // eslint-disable-next-line no-console
       console.log("To get started, run:");
+      // eslint-disable-next-line no-console
       console.log(`  cd ${cyan(appName)}`);
+      // eslint-disable-next-line no-console
       console.log(`  ${pkgManager} install`);
     } catch (err) {
       console.error(err);

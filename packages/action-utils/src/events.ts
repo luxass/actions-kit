@@ -1,4 +1,5 @@
 import { existsSync, readFileSync } from "node:fs";
+import process from "node:process";
 
 /**
  * Checks if the current GitHub event is a `branch_protection_rule` event.

@@ -1,3 +1,4 @@
+import process from "node:process";
 import cac from "cac";
 import { blue, green, yellow } from "farver";
 import { overrideYaml } from "./builder";

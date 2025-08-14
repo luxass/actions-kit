@@ -2,8 +2,8 @@ import type { ActionsKitOptions } from "./types";
 import { z } from "zod";
 
 export const ACTION_SCHEMA = z.object({
-  inputs: z.record(z.unknown()).optional(),
-  outputs: z.record(z.unknown()).optional(),
+  inputs: z.record(z.string(), z.unknown()).optional(),
+  outputs: z.record(z.string(), z.unknown()).optional(),
 });
 
 export function writeTypeInjects(
@@ -63,7 +63,7 @@ export function writeAugmentationTypes(yaml: Record<string, unknown>): string {
       .join(" | ")};\n\n`;
 
     code
-			+= "  export function getInput(name: ActionInputName, options?: core.InputOptions): string;\n\n";
+      += "  export function getInput(name: ActionInputName, options?: core.InputOptions): string;\n\n";
   }
 
   if (yaml.outputs != null) {

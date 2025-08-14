@@ -119,18 +119,18 @@ export const unpluginFactory: UnpluginFactory<ActionsKitOptions | undefined> = (
 
       const inputEntries = Object.entries(yaml.inputs ?? {});
       actionInputs
-				= inputEntries.length > 0
+        = inputEntries.length > 0
           ? Object.fromEntries(inputEntries.map(([name]) => [name, name]))
           : undefined;
 
       const outputEntries = Object.entries(yaml.outputs ?? {});
       actionOutputs
-				= outputEntries.length > 0
+        = outputEntries.length > 0
           ? Object.fromEntries(outputEntries.map(([name]) => [name, name]))
           : undefined;
 
       const outputPath
-				= options.outputPath == null ? dirname(options.actionPath) : options.outputPath;
+        = options.outputPath == null ? dirname(options.actionPath) : options.outputPath;
 
       if (!existsSync(outputPath)) {
         mkdirSync(outputPath, { recursive: true });

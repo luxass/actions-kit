@@ -23,7 +23,7 @@ export interface BuildOptions {
   config: ActionsKitConfig;
 }
 
-export async function overrideYaml(cwd: string, config: ActionsKitConfig) {
+export async function overrideYaml(cwd: string, config: ActionsKitConfig): Promise<void> {
   if (!config?.writeYaml) {
     return;
   }

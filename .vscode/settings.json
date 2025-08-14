@@ -12,4 +12,5 @@
       "pattern": "./tooling/**"
     },
   ],
+  "eslint.useFlatConfig": true
 }

@@ -1,4 +1,5 @@
 import type { BuildOutput } from "./builder";
+import process from "node:process";
 import { ACTION_SCHEMA } from "@actions-sdk/action-schema";
 import { loadConfig as _loadConfig } from "c12";
 import { z } from "zod";
@@ -42,19 +43,26 @@ const BASE_CONFIG_SCHEMA = z.object({
 
 export type BaseActionsKitConfig = z.input<typeof BASE_CONFIG_SCHEMA>;
 
+// eslint-disable-next-line ts/explicit-function-return-type
+function functionSchema<T extends z.core.$ZodFunction>(schema: T) {
+  // @ts-ignore blah blah
+  return z.custom<Parameters<T["implement"]>[0]>((fn) => schema.implement(fn));
+}
+
 const CONFIG_SCHEMA = BASE_CONFIG_SCHEMA.extend({
   builder: z
     .object({
       name: z.string(),
-      build: z
-        .function()
-        .args(
-          z.object({
-            cwd: z.string(),
-            config: z.custom<BaseActionsKitConfig>(),
-          }),
-        )
-        .returns(z.custom<Promise<BuildOutput[] | BuildOutput[]>>()),
+      build: functionSchema(z
+        .function({
+          input: [
+            z.object({
+              cwd: z.string(),
+              config: z.custom<BaseActionsKitConfig>(),
+            }),
+          ],
+          output: z.custom<Promise<BuildOutput[] | BuildOutput[]>>(),
+        })),
     })
     .optional(),
 });

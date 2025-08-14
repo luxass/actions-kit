@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { lstatSync, readdirSync } from "node:fs";
 import { readdir } from "node:fs/promises";
 import { join } from "node:path";
