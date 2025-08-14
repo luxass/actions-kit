@@ -9,11 +9,12 @@ export type ExpressionSyntax = z.infer<typeof EXPRESSION_SYNTAX_SCHEMA>;
 
 export const STRING_CONTAINING_EXPRESSION_SYNTAX_SCHEMA = z
   .string()
+  // eslint-disable-next-line regexp/no-super-linear-backtracking
   .regex(/^.*\$\{\{(.|[\r\n])*\}\}.*$/)
   .describe("A string that contains the expression syntax pattern");
 
 export type StringContainingExpressionSyntax = z.infer<
-	typeof STRING_CONTAINING_EXPRESSION_SYNTAX_SCHEMA
+  typeof STRING_CONTAINING_EXPRESSION_SYNTAX_SCHEMA
 >;
 
 export const PRE_IF_SCHEMA = z
@@ -107,7 +108,7 @@ export const RUNS_COMPOSITE_STEP_SCHEMA = z
     "shell": z.string().optional().describe("The shell where you want to run the command"),
     "uses": z.string().optional().describe("Selects an action to run as part of a step in your job"),
     "with": z
-      .record(z.unknown())
+      .record(z.string(), z.unknown())
       .optional()
       .describe("A map of the input parameters defined by the action"),
     "name": z.string().optional().describe("The name of the composite run step"),
@@ -115,7 +116,7 @@ export const RUNS_COMPOSITE_STEP_SCHEMA = z
     "if": z.string().optional().describe("Defines conditions for step execution"),
     "env": z
       .union([
-        z.record(z.union([z.string(), z.number(), z.boolean()])),
+        z.record(z.string(), z.union([z.string(), z.number(), z.boolean()])),
         STRING_CONTAINING_EXPRESSION_SYNTAX_SCHEMA,
       ])
       .optional()
@@ -153,7 +154,7 @@ export const RUNS_DOCKER_SCHEMA = z
     "image": z.string().describe("The Docker image to use as the container to run the action"),
     "env": z
       .union([
-        z.record(z.union([z.string(), z.number(), z.boolean()])),
+        z.record(z.string(), z.union([z.string(), z.number(), z.boolean()])),
         STRING_CONTAINING_EXPRESSION_SYNTAX_SCHEMA,
       ])
       .optional()

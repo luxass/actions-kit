@@ -1,16 +1,3 @@
 {
-  "[json]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  },
-  "editor.codeActionsOnSave": {
-    "quickFix.biome": "explicit",
-    "source.fixAll.biome": "explicit"
-  },
   "typescript.tsdk": "node_modules/typescript/lib"
 }
