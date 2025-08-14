@@ -14,7 +14,6 @@ type InferValidatorReturn<T> = T extends (data: unknown) => infer R ? R : never;
  * @param {InputOptions} [options] - Optional settings for retrieving the input.
  * @returns {InferValidatorReturn<T>} - The validated input value.
  */
-// biome-ignore lint/suspicious/noExplicitAny: any is used to allow any parame
 export function getValidatedInput<T extends ValidatorFunction<any>>(
   inputName: string,
   validatorFn: T,

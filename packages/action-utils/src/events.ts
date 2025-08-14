@@ -644,7 +644,6 @@ export function isSchedule(): boolean {
  * console.log(payload);
  * ```
  */
-// biome-ignore lint/suspicious/noExplicitAny: fix later
 export function getPayload(): Record<string, any> | null {
   const eventPath = process.env.GITHUB_EVENT_PATH;
   if (eventPath == null) {

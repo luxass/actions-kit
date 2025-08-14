@@ -48,7 +48,6 @@ cli
 
       if (!projectPath) {
         console.error(
-          // biome-ignore lint/style/useTemplate: allowed
           "\nPlease specify the project directory:\n"
           + `  ${cyan(cli.name)} ${green("<project-directory>")}\n`
           + "For example:\n"
