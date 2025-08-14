@@ -1,0 +1,5 @@
+{
+  "extends": "@actions-kit/tsconfig/base.build",
+  "include": ["src"],
+  "exclude": ["dist"]
+}
