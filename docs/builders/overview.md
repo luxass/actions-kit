@@ -20,8 +20,8 @@ Actions Kit makes building your actions a breeze with its powerful set of builde
 Tailor your build process by passing options directly into the builder function. For instance, to switch to the Rollup builder, update your `actions-kit.config.ts` file like this:
 
 ```ts
-import { defineConfig } from "actions-kit/config";
 import rollup from "@actions-sdk/rollup-builder";
+import { defineConfig } from "actions-kit/config";
 
 export default defineConfig({
   builder: rollup({
@@ -61,11 +61,11 @@ bun install actions-kit
 Next, create a builder directory and an index.ts file within it. In this file, you'll import the necessary modules from `actions-kit/builder` and `actions-kit/builder-utils`:
 
 ```ts [custom-builder.ts]
-import type { Builder } from 'actions-kit/builder';
-import { inferOutputFilename } from 'actions-kit/builder-utils';
+import type { Builder } from "actions-kit/builder";
+import { inferOutputFilename } from "actions-kit/builder-utils";
 
 const customBuilder: Builder = {
-  name: 'custom-builder',
+  name: "custom-builder",
   build: async (options) => {
     return [];
   },
@@ -77,8 +77,8 @@ export default customBuilder;
 Finally, configure your custom builder in the actions-kit.config.ts file:
 
 ```ts [actions-kit.config.ts]
-import { defineConfig } from 'actions-kit/config';
-import customBuilder from './custom-builder';
+import { defineConfig } from "actions-kit/config";
+import customBuilder from "./custom-builder";
 
 export default defineConfig({
   builder: customBuilder,

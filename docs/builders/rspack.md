@@ -27,8 +27,8 @@ bun install -D actions-kit @actions-sdk/rspack-builder
 Set the `builder` in your `actions-kit.config.ts` file:
 
 ```ts [actions-kit.config.ts]
-import { defineConfig } from "actions-kit/config";
 import rspack from "@actions-sdk/rspack-builder";
+import { defineConfig } from "actions-kit/config";
 
 export default defineConfig({
   builder: rspack({
@@ -42,8 +42,8 @@ export default defineConfig({
 You can customize the Rspack options by passing the options directly into the `rspack` function.
 
 ```ts [actions-kit.config.ts]
-import { defineConfig } from "actions-kit/config";
 import rspack from "@actions-sdk/rspack-builder";
+import { defineConfig } from "actions-kit/config";
 
 export default defineConfig({
   builder: rspack({

@@ -17,7 +17,7 @@ The `action` configuration is where you define the metadata for your action, suc
 The name of the action.
 
 ```yaml
-name: "My Action"
+name: My Action
 ```
 
 ### `description`
@@ -25,7 +25,7 @@ name: "My Action"
 A short description of the action.
 
 ```yaml
-description: "This is my action"
+description: This is my action
 ```
 
 ### `author`
@@ -33,7 +33,7 @@ description: "This is my action"
 The author of the action.
 
 ```yaml
-author: "luxass"
+author: luxass
 ```
 
 ### `branding`
@@ -46,7 +46,7 @@ The color of the action.
 
 ```yaml
 branding:
-  color: "purple"
+  color: purple
 ```
 
 #### `icon`
@@ -55,7 +55,7 @@ The icon of the action.
 
 ```yaml
 branding:
-  icon: "package"
+  icon: package
 ```
 
 ### `inputs`
@@ -65,9 +65,9 @@ The inputs of the action.
 ```yaml
 inputs:
   name:
-    description: "Your name"
+    description: Your name
     required: true
-    default: "World"
+    default: World
 ```
 
 ### `outputs`
@@ -77,7 +77,7 @@ The outputs of the action.
 ```yaml
 outputs:
   greeting:
-    description: "The greeting message"
+    description: The greeting message
 ```
 
 ### `runs`
@@ -90,7 +90,7 @@ The runtime to use.
 
 ```yaml
 runs:
-  using: "node20"
+  using: node20
 ```
 
 #### `main`
@@ -99,5 +99,5 @@ The main file of the action.
 
 ```yaml
 runs:
-  main: "index.cjs"
+  main: index.cjs
 ```
