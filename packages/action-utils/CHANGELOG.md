@@ -1,5 +1,11 @@
 # @actions-sdk/action-utils
 
+## 0.5.1
+
+### Patch Changes
+
+- [`bade1d0`](https://github.com/luxass/actions-kit/commit/bade1d00ac41fe6e21db65d223b4485662e8c1c2) Thanks [@luxass](https://github.com/luxass)! - OIDC publishing
+
 ## 0.5.0
 
 ### Minor Changes

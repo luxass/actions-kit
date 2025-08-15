@@ -1,5 +1,16 @@
 # actions-kit
 
+## 0.3.1
+
+### Patch Changes
+
+- [`bade1d0`](https://github.com/luxass/actions-kit/commit/bade1d00ac41fe6e21db65d223b4485662e8c1c2) Thanks [@luxass](https://github.com/luxass)! - OIDC publishing
+
+- Updated dependencies [[`bade1d0`](https://github.com/luxass/actions-kit/commit/bade1d00ac41fe6e21db65d223b4485662e8c1c2)]:
+  - @actions-sdk/action-schema@0.3.1
+  - @actions-sdk/action-utils@0.5.1
+  - unplugin-actions-kit@0.3.1
+
 ## 0.3.0
 
 ### Minor Changes
