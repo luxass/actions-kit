@@ -1,5 +1,18 @@
 # actions-kit
 
+## 0.3.0
+
+### Minor Changes
+
+- [`32eb63e`](https://github.com/luxass/actions-kit/commit/32eb63efa29b80f4f08a4b99d6f67625fa5d17f7) Thanks [@luxass](https://github.com/luxass)! - Updated dependencies
+
+### Patch Changes
+
+- Updated dependencies [[`32eb63e`](https://github.com/luxass/actions-kit/commit/32eb63efa29b80f4f08a4b99d6f67625fa5d17f7), [`32eb63e`](https://github.com/luxass/actions-kit/commit/32eb63efa29b80f4f08a4b99d6f67625fa5d17f7), [`32eb63e`](https://github.com/luxass/actions-kit/commit/32eb63efa29b80f4f08a4b99d6f67625fa5d17f7)]:
+  - @actions-sdk/action-schema@0.3.0
+  - @actions-sdk/action-utils@0.5.0
+  - unplugin-actions-kit@0.3.0
+
 ## 0.2.8
 
 ### Patch Changes

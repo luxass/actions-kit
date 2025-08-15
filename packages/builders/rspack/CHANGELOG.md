@@ -1,5 +1,17 @@
 # @actions-sdk/rspack-builder
 
+## 0.3.0
+
+### Minor Changes
+
+- [`4e25912`](https://github.com/luxass/actions-kit/commit/4e2591263cc5bf37f4602b0e93a7d55ad2bafd69) Thanks [@luxass](https://github.com/luxass)! - Updated dependencies to work with newer releases of rspack bundler
+
+### Patch Changes
+
+- Updated dependencies [[`32eb63e`](https://github.com/luxass/actions-kit/commit/32eb63efa29b80f4f08a4b99d6f67625fa5d17f7), [`32eb63e`](https://github.com/luxass/actions-kit/commit/32eb63efa29b80f4f08a4b99d6f67625fa5d17f7)]:
+  - actions-kit@0.3.0
+  - unplugin-actions-kit@0.3.0
+
 ## 0.2.7
 
 ### Patch Changes
