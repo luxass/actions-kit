@@ -1,6 +1,6 @@
 {
   "name": "@actions-sdk/vite-builder",
-  "version": "0.2.7",
+  "version": "0.3.0",
   "description": "Vite builder for Actions Kit",
   "type": "module",
   "author": {
