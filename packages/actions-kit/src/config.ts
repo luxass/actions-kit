@@ -43,6 +43,7 @@ const BASE_CONFIG_SCHEMA = z.object({
 
 export type BaseActionsKitConfig = z.input<typeof BASE_CONFIG_SCHEMA>;
 
+// workaround for the old zod function behavior
 // eslint-disable-next-line ts/explicit-function-return-type
 function functionSchema<T extends z.core.$ZodFunction>(schema: T) {
   // @ts-ignore blah blah
