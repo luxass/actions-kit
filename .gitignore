@@ -4,3 +4,5 @@ dist
 docs/.vitepress/cache
 .turbo
 .cache
+.wrangler
+.dev.vars*

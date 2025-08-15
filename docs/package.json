@@ -5,14 +5,18 @@
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
-    "preview": "vitepress preview"
+    "preview": "vitepress preview",
+    "lint": "eslint ."
   },
   "dependencies": {
     "vitepress": "catalog:docs",
     "vitepress-plugin-group-icons": "catalog:docs"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "catalog:docs",
     "@luxass/eslint-config": "catalog:linting",
-    "eslint": "catalog:linting"
+    "eslint": "catalog:linting",
+    "vite": "catalog:builders",
+    "wrangler": "catalog:docs"
   }
 }
