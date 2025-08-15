@@ -17,8 +17,6 @@
   "ignore": [
     "@actions-sdk/docs",
     "@actions-sdk/*-example",
-    "@actions-sdk/playground",
-    "@actions-kit/tsdown-config",
-    "@actions-kit/tsconfig"
+    "@actions-sdk/playground"
   ]
 }
