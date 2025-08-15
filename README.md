@@ -13,7 +13,7 @@ pnpm install actions-kit
 
 ## 🚀 Usage
 
-Please refer to the documentation: https://actions-kit.pages.dev
+Please refer to the documentation: https://actions-kit.luxass.dev
 
 ## 📄 License
 
