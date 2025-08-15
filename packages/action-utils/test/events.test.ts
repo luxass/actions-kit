@@ -44,7 +44,8 @@ beforeEach(() => {
   vi.clearAllMocks();
 });
 
-describe("gitHub Event Type Checks", () => {
+// eslint-disable-next-line test/prefer-lowercase-title
+describe("GitHub Event Type Checks", () => {
   const eventChecks = [
     { name: "branch_protection_rule", fn: isBranchProtectionRule },
     { name: "check_run", fn: isCheckRun },
