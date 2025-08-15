@@ -1,7 +1,24 @@
 {
+  "$schema": "node_modules/wrangler/config-schema.json",
   "name": "actions-kit",
-  "compatibility_date": "2025-04-03",
+  "compatibility_date": "2025-07-08",
   "assets": {
     "not_found_handling": "single-page-application"
-  }
+  },
+  "observability": {
+    "enabled": true
+  },
+  "placement": {
+    "mode": "smart"
+  },
+  "routes": [
+    {
+      "custom_domain": true,
+      "pattern": "actions-kit.luxass.dev"
+    },
+    {
+      "custom_domain": true,
+      "pattern": "actions-kit.luxass.com"
+    }
+  ]
 }
