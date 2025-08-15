@@ -14,5 +14,11 @@
   "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
     "onlyUpdatePeerDependentsWhenOutOfRange": true
   },
-  "ignore": ["@actions-sdk/docs", "@actions-sdk/*-example", "@actions-sdk/playground"]
+  "ignore": [
+    "@actions-sdk/docs",
+    "@actions-sdk/*-example",
+    "@actions-sdk/playground",
+    "@actions-kit/tsdown-config",
+    "@actions-kit/tsconfig"
+  ]
 }
