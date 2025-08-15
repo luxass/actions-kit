@@ -9,8 +9,8 @@ It is highly recommended to use a configuration file to define the settings for 
 A fully configured `actions-kit.config.ts` file might look like this:
 
 ```ts [actions-kit.config.ts]
+import rspack from "@actions-sdk/rspack-builder";
 import { defineConfig } from "actions-kit/config";
-import rspack from "@actions-sdk/rspack-builder"
 
 export default defineConfig({
   writeYaml: true,
@@ -36,7 +36,7 @@ export default defineConfig({
   },
   inject: true,
   builder: rspack({
-    
+
   }),
 });
 ```

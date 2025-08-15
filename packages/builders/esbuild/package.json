@@ -8,7 +8,7 @@
     "email": "lucasnrgaard@gmail.com",
     "url": "https://luxass.dev"
   },
-  "packageManager": "pnpm@10.5.0",
+  "packageManager": "pnpm@10.14.0",
   "license": "MIT",
   "homepage": "https://github.com/luxass/actions-kit",
   "repository": {
@@ -27,42 +27,43 @@
   ],
   "exports": {
     ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.mjs"
-      },
-      "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
-      }
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.cts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsup --tsconfig tsconfig.build.json",
-    "dev": "tsup --watch",
+    "build": "tsdown --tsconfig=./tsconfig.build.json",
+    "dev": "tsdown --watch",
+    "clean": "git clean -xdf dist node_modules",
+    "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "esbuild": "catalog:",
-    "actions-kit": "workspace:*"
+    "actions-kit": "workspace:*",
+    "esbuild": "catalog:builders"
   },
   "dependencies": {
-    "defu": "catalog:",
+    "defu": "catalog:prod",
     "unplugin-actions-kit": "workspace:*"
   },
   "devDependencies": {
-    "@types/node": "catalog:",
+    "@actions-kit/tsconfig": "workspace:*",
+    "@actions-kit/tsdown-config": "workspace:*",
+    "@luxass/eslint-config": "catalog:linting",
+    "@types/node": "catalog:types",
     "actions-kit": "workspace:*",
-    "esbuild": "catalog:",
-    "tsup": "catalog:",
-    "typescript": "catalog:",
-    "vitest": "catalog:"
+    "esbuild": "catalog:builders",
+    "eslint": "catalog:linting",
+    "publint": "catalog:dev",
+    "tsdown": "catalog:dev",
+    "typescript": "catalog:dev",
+    "vitest": "catalog:testing"
   }
 }

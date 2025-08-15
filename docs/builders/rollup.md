@@ -27,8 +27,8 @@ bun install -D actions-kit @actions-sdk/rollup-builder
 Set the `builder` in your `actions-kit.config.ts` file:
 
 ```ts [actions-kit.config.ts]
-import { defineConfig } from "actions-kit/config";
 import rollup from "@actions-sdk/rollup-builder";
+import { defineConfig } from "actions-kit/config";
 
 export default defineConfig({
   builder: rollup({
@@ -42,8 +42,8 @@ export default defineConfig({
 You can customize the Rollup options by passing the options directly into the `rollup` function.
 
 ```ts [actions-kit.config.ts]
-import { defineConfig } from "actions-kit/config";
 import rollup from "@actions-sdk/rollup-builder";
+import { defineConfig } from "actions-kit/config";
 
 export default defineConfig({
   builder: rollup({

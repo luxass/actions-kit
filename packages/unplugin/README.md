@@ -132,7 +132,7 @@ export default defineConfig({
 
 ### `actionPath`
 
-The path to the `action.yml` or `action.yaml` file.  
+The path to the `action.yml` or `action.yaml` file.
 If not provided, it will look for `action.yml` or `action.yaml` in the root directory.
 
 - **Type:** `string`
@@ -154,7 +154,7 @@ Enable Autocomplete.
 
 ### `outputPath`
 
-The output path for the generated TypeScript file.  
+The output path for the generated TypeScript file.
 If not provided, it will use the directory where the `action.yml` or `action.yaml` file is located.
 
 - **Type:** `string`

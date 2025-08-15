@@ -1,5 +1,5 @@
 {
-  "extends": ["../../tsconfig.base.json"],
-  "include": ["src/**/*.ts"],
-  "exclude": ["templates"]
+  "extends": "@actions-kit/tsconfig/base",
+  "include": ["src"],
+  "exclude": ["dist", "templates"]
 }

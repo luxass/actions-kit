@@ -8,7 +8,7 @@
     "email": "lucasnrgaard@gmail.com",
     "url": "https://luxass.dev"
   },
-  "packageManager": "pnpm@10.5.0",
+  "packageManager": "pnpm@10.14.0",
   "license": "MIT",
   "homepage": "https://github.com/luxass/actions-kit",
   "repository": {
@@ -24,91 +24,68 @@
     "github actions",
     "toolkit"
   ],
-  "bin": {
-    "actions-kit": "./bin/actions-kit.mjs"
-  },
   "exports": {
     ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.mjs"
-      },
-      "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
-      }
-    },
-    "./config": {
-      "import": {
-        "types": "./dist/config.d.ts",
-        "default": "./dist/config.mjs"
-      },
-      "require": {
-        "types": "./dist/config.d.cts",
-        "default": "./dist/config.cjs"
-      }
-    },
-    "./utils": {
-      "import": {
-        "types": "./dist/utils.d.ts",
-        "default": "./dist/utils.mjs"
-      },
-      "require": {
-        "types": "./dist/utils.d.cts",
-        "default": "./dist/utils.cjs"
-      }
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
     "./builder": {
-      "import": {
-        "types": "./dist/builder/index.d.ts",
-        "default": "./dist/builder/index.mjs"
-      },
-      "require": {
-        "types": "./dist/builder/index.d.cts",
-        "default": "./dist/builder/index.cjs"
-      }
+      "import": "./dist/builder/index.js",
+      "require": "./dist/builder/index.cjs"
     },
-    "./builder-utils": {
-      "import": {
-        "types": "./dist/builder/utils.d.ts",
-        "default": "./dist/builder/utils.mjs"
-      },
-      "require": {
-        "types": "./dist/builder/utils.d.cts",
-        "default": "./dist/builder/utils.cjs"
-      }
+    "./builder/utils": {
+      "import": "./dist/builder/utils.js",
+      "require": "./dist/builder/utils.cjs"
+    },
+    "./config": {
+      "import": "./dist/config.js",
+      "require": "./dist/config.cjs"
+    },
+    "./utils": {
+      "import": "./dist/utils.js",
+      "require": "./dist/utils.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.cts",
+  "bin": {
+    "actions-kit": "./bin/actions-kit.mjs"
+  },
   "files": [
-    "dist",
-    "bin"
+    "bin",
+    "dist"
   ],
   "scripts": {
-    "build": "tsup --tsconfig tsconfig.build.json",
-    "dev": "tsup --watch",
+    "build": "tsdown --tsconfig=./tsconfig.build.json",
+    "dev": "tsdown --watch",
+    "clean": "git clean -xdf dist node_modules",
+    "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@actions-sdk/action-schema": "workspace:*",
     "@actions-sdk/action-utils": "workspace:*",
-    "c12": "catalog:",
-    "cac": "catalog:",
-    "consola": "catalog:",
-    "defu": "catalog:",
-    "farver": "catalog:",
-    "js-yaml": "catalog:",
+    "c12": "catalog:prod",
+    "cac": "catalog:prod",
+    "consola": "catalog:prod",
+    "defu": "catalog:prod",
+    "farver": "catalog:prod",
+    "js-yaml": "catalog:unplugin",
     "unplugin-actions-kit": "workspace:*",
-    "zod": "catalog:"
+    "zod": "catalog:prod"
   },
   "devDependencies": {
-    "@types/js-yaml": "catalog:",
-    "@types/node": "catalog:",
-    "tsup": "catalog:",
-    "typescript": "catalog:",
-    "vitest": "catalog:"
+    "@actions-kit/tsconfig": "workspace:*",
+    "@actions-kit/tsdown-config": "workspace:*",
+    "@luxass/eslint-config": "catalog:linting",
+    "@types/js-yaml": "catalog:types",
+    "@types/node": "catalog:types",
+    "eslint": "catalog:linting",
+    "publint": "catalog:dev",
+    "tsdown": "catalog:dev",
+    "typescript": "catalog:dev",
+    "vitest": "catalog:testing"
   }
 }

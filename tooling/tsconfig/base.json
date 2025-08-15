@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json.schemastore.org/tsconfig",
+  "extends": "./base.build.json",
+  "compilerOptions": {
+    "baseUrl": "../..",
+    "paths": {
+      "actions-kit": ["./packages/actions-kit/src/index.ts"],
+      "actions-kit/builder-utils": ["./packages/actions-kit/src/builder/utils.ts"],
+      "@actions-sdk/action-utils": ["./packages/action-utils/src/index.ts"],
+      "@actions-sdk/action-utils/*": ["./packages/action-utils/src/*"],
+      "@actions-sdk/action-schema": ["./packages/action-schema/src/index.ts"],
+      "@actions-sdk/esbuild-builder": ["./packages/builders/esbuild/src/index.ts"],
+      "@actions-sdk/rolldown-builder": ["./packages/builders/rolldown/src/index.ts"],
+      "@actions-sdk/rollup-builder": ["./packages/builders/rollup/src/index.ts"],
+      "@actions-sdk/rspack-builder": ["./packages/builders/rspack/src/index.ts"],
+      "@actions-sdk/vite-builder": ["./packages/builders/vite/src/index.ts"],
+      "@actions-sdk/webpack-builder": ["./packages/builders/webpack/src/index.ts"],
+
+      "unplugin-actions-kit": ["./packages/unplugin/src/index.ts"],
+      "unplugin-actions-kit/*": ["./packages/unplugin/src/*.ts"]
+    }
+  }
+}

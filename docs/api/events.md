@@ -18,7 +18,6 @@ if (isBranchProtectionRule()) {
 }
 ```
 
-
 ### `isCheckRun`
 
 Checks if the current event is a check run event.
@@ -30,7 +29,6 @@ if (isCheckRun()) {
   // do something
 }
 ```
-
 
 ### `isCheckSuite`
 
@@ -44,7 +42,6 @@ if (isCheckSuite()) {
 }
 ```
 
-
 ### `isCreate`
 
 Checks if the current event is a create event.
@@ -56,7 +53,6 @@ if (isCreate()) {
   // do something
 }
 ```
-
 
 ### `isDelete`
 
@@ -70,7 +66,6 @@ if (isDelete()) {
 }
 ```
 
-
 ### `isDeployment`
 
 Checks if the current event is a deployment event.
@@ -82,7 +77,6 @@ if (isDeployment()) {
   // do something
 }
 ```
-
 
 ### `isDeploymentStatus`
 
@@ -96,7 +90,6 @@ if (isDeploymentStatus()) {
 }
 ```
 
-
 ### `isDiscussion`
 
 Checks if the current event is a discussion event.
@@ -108,7 +101,6 @@ if (isDiscussion()) {
   // do something
 }
 ```
-
 
 ### `isDiscussionComment`
 
@@ -122,7 +114,6 @@ if (isDiscussionComment()) {
 }
 ```
 
-
 ### `isFork`
 
 Checks if the current event is a fork event.
@@ -134,7 +125,6 @@ if (isFork()) {
   // do something
 }
 ```
-
 
 ### `isGollum`
 
@@ -148,7 +138,6 @@ if (isGollum()) {
 }
 ```
 
-
 ### `isIssueComment`
 
 Checks if the current event is a issue comment event.
@@ -160,7 +149,6 @@ if (isIssueComment()) {
   // do something
 }
 ```
-
 
 ### `isIssues`
 
@@ -174,7 +162,6 @@ if (isIssues()) {
 }
 ```
 
-
 ### `isLabel`
 
 Checks if the current event is a label event.
@@ -186,7 +173,6 @@ if (isLabel()) {
   // do something
 }
 ```
-
 
 ### `isMergeGroup`
 
@@ -200,7 +186,6 @@ if (isMergeGroup()) {
 }
 ```
 
-
 ### `isMilestone`
 
 Checks if the current event is a milestone event.
@@ -212,7 +197,6 @@ if (isMilestone()) {
   // do something
 }
 ```
-
 
 ### `isPageBuild`
 
@@ -226,7 +210,6 @@ if (isPageBuild()) {
 }
 ```
 
-
 ### `isProject`
 
 Checks if the current event is a project event.
@@ -238,7 +221,6 @@ if (isProject()) {
   // do something
 }
 ```
-
 
 ### `isProjectCard`
 
@@ -252,7 +234,6 @@ if (isProjectCard()) {
 }
 ```
 
-
 ### `isProjectColumn`
 
 Checks if the current event is a project column event.
@@ -264,7 +245,6 @@ if (isProjectColumn()) {
   // do something
 }
 ```
-
 
 ### `isPublic`
 
@@ -278,7 +258,6 @@ if (isPublic()) {
 }
 ```
 
-
 ### `isPullRequest`
 
 Checks if the current event is a pull request event.
@@ -290,7 +269,6 @@ if (isPullRequest()) {
   // do something
 }
 ```
-
 
 ### `isPullRequestReview`
 
@@ -304,7 +282,6 @@ if (isPullRequestReview()) {
 }
 ```
 
-
 ### `isPullRequestReviewComment`
 
 Checks if the current event is a pull request review comment event.
@@ -316,7 +293,6 @@ if (isPullRequestReviewComment()) {
   // do something
 }
 ```
-
 
 ### `isPullRequestTarget`
 
@@ -330,7 +306,6 @@ if (isPullRequestTarget()) {
 }
 ```
 
-
 ### `isPush`
 
 Checks if the current event is a push event.
@@ -342,7 +317,6 @@ if (isPush()) {
   // do something
 }
 ```
-
 
 ### `isRegistryPackage`
 
@@ -356,7 +330,6 @@ if (isRegistryPackage()) {
 }
 ```
 
-
 ### `isRelease`
 
 Checks if the current event is a release event.
@@ -368,7 +341,6 @@ if (isRelease()) {
   // do something
 }
 ```
-
 
 ### `isStatus`
 
@@ -382,7 +354,6 @@ if (isStatus()) {
 }
 ```
 
-
 ### `isWatch`
 
 Checks if the current event is a watch event.
@@ -394,7 +365,6 @@ if (isWatch()) {
   // do something
 }
 ```
-
 
 ### `isWorkflowCall`
 
@@ -408,7 +378,6 @@ if (isWorkflowCall()) {
 }
 ```
 
-
 ### `isWorkflowDispatch`
 
 Checks if the current event is a workflow dispatch event.
@@ -420,7 +389,6 @@ if (isWorkflowDispatch()) {
   // do something
 }
 ```
-
 
 ### `isWorkflowRun`
 
@@ -434,7 +402,6 @@ if (isWorkflowRun()) {
 }
 ```
 
-
 ### `isRepositoryDispatch`
 
 Checks if the current event is a repository dispatch event.
@@ -446,7 +413,6 @@ if (isRepositoryDispatch()) {
   // do something
 }
 ```
-
 
 ### `isSchedule`
 
@@ -468,5 +434,5 @@ Returns the payload of the current event.
 import { getPayload } from "@actions-sdk/action-utils/events";
 
 const payload = getPayload();
-// null if payload is not available 
+// null if payload is not available
 ```

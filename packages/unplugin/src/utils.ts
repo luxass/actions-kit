@@ -1,80 +1,80 @@
-import { z } from "zod";
 import type { ActionsKitOptions } from "./types";
+import { z } from "zod";
 
 export const ACTION_SCHEMA = z.object({
-	inputs: z.record(z.unknown()).optional(),
-	outputs: z.record(z.unknown()).optional(),
+  inputs: z.record(z.string(), z.unknown()).optional(),
+  outputs: z.record(z.string(), z.unknown()).optional(),
 });
 
 export function writeTypeInjects(
-	yaml: z.infer<typeof ACTION_SCHEMA>,
-	options: ActionsKitOptions,
+  yaml: z.infer<typeof ACTION_SCHEMA>,
+  options: ActionsKitOptions,
 ): string {
-	if (options.inject === false || options.inject == null) {
-		return "";
-	}
+  if (options.inject === false || options.inject == null) {
+    return "";
+  }
 
-	let code = "declare global {\n";
+  let code = "declare global {\n";
 
-	if (options.inject === "inputs") {
-		if (yaml.inputs == null) {
-			throw new Error("inputs is not defined in action.yml");
-		}
+  if (options.inject === "inputs") {
+    if (yaml.inputs == null) {
+      throw new Error("inputs is not defined in action.yml");
+    }
 
-		code += writeActionType("ACTION_INPUTS", yaml.inputs);
-	} else if (options.inject === "outputs") {
-		if (yaml.outputs == null) {
-			throw new Error("outputs is not defined in action.yml");
-		}
+    code += writeActionType("ACTION_INPUTS", yaml.inputs);
+  } else if (options.inject === "outputs") {
+    if (yaml.outputs == null) {
+      throw new Error("outputs is not defined in action.yml");
+    }
 
-		code += writeActionType("ACTION_OUTPUTS", yaml.outputs);
-	} else {
-		if (yaml.inputs != null) {
-			code += writeActionType("ACTION_INPUTS", yaml.inputs as Record<string, unknown>);
-		}
+    code += writeActionType("ACTION_OUTPUTS", yaml.outputs);
+  } else {
+    if (yaml.inputs != null) {
+      code += writeActionType("ACTION_INPUTS", yaml.inputs as Record<string, unknown>);
+    }
 
-		if (yaml.outputs != null) {
-			code += writeActionType("ACTION_OUTPUTS", yaml.outputs as Record<string, unknown>);
-		}
-	}
+    if (yaml.outputs != null) {
+      code += writeActionType("ACTION_OUTPUTS", yaml.outputs as Record<string, unknown>);
+    }
+  }
 
-	code += "}";
+  code += "}";
 
-	return code;
+  return code;
 }
 
 function writeActionType(name: string, obj: Record<string, unknown>): string {
-	let code = `  export const ${name} = {\n`;
+  let code = `  export const ${name} = {\n`;
 
-	for (const objName of Object.keys(obj)) {
-		code += `    "${objName}": "${objName}",\n`;
-	}
+  for (const objName of Object.keys(obj)) {
+    code += `    "${objName}": "${objName}",\n`;
+  }
 
-	code += "  };\n\n";
-	return code;
+  code += "  };\n\n";
+  return code;
 }
 
 export function writeAugmentationTypes(yaml: Record<string, unknown>): string {
-	let code = `declare module "@actions/core" {\n\n`;
+  let code = `declare module "@actions/core" {\n\n`;
 
-	if (yaml.inputs != null) {
-		code += `  type ActionInputName = ${Object.keys(yaml.inputs)
-			.map((name) => `"${name}"`)
-			.join(" | ")};\n\n`;
+  if (yaml.inputs != null) {
+    code += `  type ActionInputName = ${Object.keys(yaml.inputs)
+      .map((name) => `"${name}"`)
+      .join(" | ")};\n\n`;
 
-		code +=
-			"  export function getInput(name: ActionInputName, options?: core.InputOptions): string;\n\n";
-	}
+    code
+      += "  export function getInput(name: ActionInputName, options?: core.InputOptions): string;\n\n";
+  }
 
-	if (yaml.outputs != null) {
-		code += `  type ActionOutputName = ${Object.keys(yaml.outputs)
-			.map((name) => `"${name}"`)
-			.join(" | ")};\n\n`;
+  if (yaml.outputs != null) {
+    code += `  type ActionOutputName = ${Object.keys(yaml.outputs)
+      .map((name) => `"${name}"`)
+      .join(" | ")};\n\n`;
 
-		code += "  export function setOutput(name: ActionOutputName, value: any): void;\n\n";
-	}
+    code += "  export function setOutput(name: ActionOutputName, value: any): void;\n\n";
+  }
 
-	code += "\n}";
+  code += "\n}";
 
-	return code;
+  return code;
 }

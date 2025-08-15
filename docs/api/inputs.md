@@ -41,10 +41,9 @@ const inputParseAsync = await getValidatedInput("name", NameSchema.parseAsync);
 import { getValidatedInput } from "@actions-sdk/action-utils/inputs";
 import * as v from "valibot";
 
-const NameSchema = v.string()
+const NameSchema = v.string();
 
 const input = getValidatedInput("name", NameSchema.parse);
 ```
 
-::: 
-
+:::

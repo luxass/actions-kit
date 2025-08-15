@@ -1,143 +1,144 @@
+import type { UnpluginFactory, UnpluginInstance } from "unplugin";
+import type { ActionsKitOptions } from "./types";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import process from "node:process";
 import YAML from "js-yaml";
-import { createUnplugin, type UnpluginFactory, type UnpluginInstance } from "unplugin";
+import { createUnplugin } from "unplugin";
 import { ACTION_SCHEMA, writeAugmentationTypes, writeTypeInjects } from "./utils";
-import type { ActionsKitOptions } from "./types";
 
 /**
  * A unplugin factory, used by Unplugin to create a new plugin instance.
  */
 export const unpluginFactory: UnpluginFactory<ActionsKitOptions | undefined> = (options = {}) => {
-	let entryPoint: string | undefined;
-	let actionInputs: Record<string, string> | undefined;
-	let actionOutputs: Record<string, string> | undefined;
+  let entryPoint: string | undefined;
+  let actionInputs: Record<string, string> | undefined;
+  let actionOutputs: Record<string, string> | undefined;
 
-	const inject = options.inject ?? false;
-	const autocomplete = options.autocomplete ?? true;
+  const inject = options.inject ?? false;
+  const autocomplete = options.autocomplete ?? true;
 
-	return {
-		name: "unplugin-actions-kit",
-		enforce: "pre",
-		resolveId(id, _, options) {
-			if (options.isEntry) {
-				entryPoint = id;
-			}
-			return null;
-		},
-		transformInclude(id) {
-			if (entryPoint == null) {
-				throw new Error("entryPoint is not set");
-			}
+  return {
+    name: "unplugin-actions-kit",
+    enforce: "pre",
+    resolveId(id, _, options) {
+      if (options.isEntry) {
+        entryPoint = id;
+      }
+      return null;
+    },
+    transformInclude(id) {
+      if (entryPoint == null) {
+        throw new Error("entryPoint is not set");
+      }
 
-			if (!join(process.cwd(), entryPoint).endsWith(id)) {
-				return false;
-			}
+      if (!join(process.cwd(), entryPoint).endsWith(id)) {
+        return false;
+      }
 
-			return true;
-		},
-		transform(code, id) {
-			if (entryPoint == null) {
-				throw new Error("entryPoint is not set");
-			}
+      return true;
+    },
+    transform(code, id) {
+      if (entryPoint == null) {
+        throw new Error("entryPoint is not set");
+      }
 
-			let modifiedId = id;
-			if (modifiedId.startsWith("./")) {
-				// remove the "./" prefix
-				modifiedId = modifiedId.slice(2);
-			}
+      let modifiedId = id;
+      if (modifiedId.startsWith("./")) {
+        // remove the "./" prefix
+        modifiedId = modifiedId.slice(2);
+      }
 
-			if (!join(process.cwd(), entryPoint).endsWith(modifiedId)) {
-				return;
-			}
+      if (!join(process.cwd(), entryPoint).endsWith(modifiedId)) {
+        return;
+      }
 
-			if (inject != null && inject !== false) {
-				let injectCode = "";
+      if (inject != null && inject !== false) {
+        let injectCode = "";
 
-				if (inject === "inputs") {
-					if (actionInputs == null) {
-						throw new Error("no `inputs` found in action file.");
-					}
+        if (inject === "inputs") {
+          if (actionInputs == null) {
+            throw new Error("no `inputs` found in action file.");
+          }
 
-					injectCode += `globalThis.ACTION_INPUTS = ${JSON.stringify(actionInputs)};\n`;
-				} else if (inject === "outputs") {
-					if (actionOutputs == null) {
-						throw new Error("no `outputs` found in action file.");
-					}
+          injectCode += `globalThis.ACTION_INPUTS = ${JSON.stringify(actionInputs)};\n`;
+        } else if (inject === "outputs") {
+          if (actionOutputs == null) {
+            throw new Error("no `outputs` found in action file.");
+          }
 
-					injectCode += `globalThis.ACTION_OUTPUTS = ${JSON.stringify(actionOutputs)};\n`;
-				} else {
-					if (actionInputs != null) {
-						injectCode += `globalThis.ACTION_INPUTS = ${JSON.stringify(actionInputs)};\n`;
-					}
+          injectCode += `globalThis.ACTION_OUTPUTS = ${JSON.stringify(actionOutputs)};\n`;
+        } else {
+          if (actionInputs != null) {
+            injectCode += `globalThis.ACTION_INPUTS = ${JSON.stringify(actionInputs)};\n`;
+          }
 
-					if (actionOutputs != null) {
-						injectCode += `globalThis.ACTION_OUTPUTS = ${JSON.stringify(actionOutputs)};\n`;
-					}
-				}
+          if (actionOutputs != null) {
+            injectCode += `globalThis.ACTION_OUTPUTS = ${JSON.stringify(actionOutputs)};\n`;
+          }
+        }
 
-				return `${injectCode};\n${code};`;
-			}
+        return `${injectCode};\n${code};`;
+      }
 
-			return code;
-		},
-		buildStart() {
-			if (options.actionPath == null) {
-				// check if either action.yml or action.yaml exists
-				const actionYmlPath = join(process.cwd(), "action.yml");
-				const actionYamlPath = join(process.cwd(), "action.yaml");
+      return code;
+    },
+    buildStart() {
+      if (options.actionPath == null) {
+        // check if either action.yml or action.yaml exists
+        const actionYmlPath = join(process.cwd(), "action.yml");
+        const actionYamlPath = join(process.cwd(), "action.yaml");
 
-				if (existsSync(actionYmlPath)) {
-					options.actionPath = actionYmlPath;
-				} else if (existsSync(actionYamlPath)) {
-					options.actionPath = actionYamlPath;
-				} else {
-					throw new Error("action.yml or action.yaml is required");
-				}
-			}
+        if (existsSync(actionYmlPath)) {
+          options.actionPath = actionYmlPath;
+        } else if (existsSync(actionYamlPath)) {
+          options.actionPath = actionYamlPath;
+        } else {
+          throw new Error("action.yml or action.yaml is required");
+        }
+      }
 
-			// read the file
-			const parseResult = ACTION_SCHEMA.safeParse(
-				YAML.load(readFileSync(options.actionPath, "utf8")),
-			);
+      // read the file
+      const parseResult = ACTION_SCHEMA.safeParse(
+        YAML.load(readFileSync(options.actionPath, "utf8")),
+      );
 
-			if (!parseResult.success) {
-				throw new Error("action.yml or action.yaml is invalid");
-			}
+      if (!parseResult.success) {
+        throw new Error("action.yml or action.yaml is invalid");
+      }
 
-			const yaml = parseResult.data;
+      const yaml = parseResult.data;
 
-			if (yaml == null) {
-				throw new Error("action.yml or action.yaml is empty");
-			}
+      if (yaml == null) {
+        throw new Error("action.yml or action.yaml is empty");
+      }
 
-			if (typeof yaml !== "object") {
-				throw new TypeError("action.yml or action.yaml is not an object");
-			}
+      if (typeof yaml !== "object") {
+        throw new TypeError("action.yml or action.yaml is not an object");
+      }
 
-			const inputEntries = Object.entries(yaml.inputs ?? {});
-			actionInputs =
-				inputEntries.length > 0
-					? Object.fromEntries(inputEntries.map(([name]) => [name, name]))
-					: undefined;
+      const inputEntries = Object.entries(yaml.inputs ?? {});
+      actionInputs
+        = inputEntries.length > 0
+          ? Object.fromEntries(inputEntries.map(([name]) => [name, name]))
+          : undefined;
 
-			const outputEntries = Object.entries(yaml.outputs ?? {});
-			actionOutputs =
-				outputEntries.length > 0
-					? Object.fromEntries(outputEntries.map(([name]) => [name, name]))
-					: undefined;
+      const outputEntries = Object.entries(yaml.outputs ?? {});
+      actionOutputs
+        = outputEntries.length > 0
+          ? Object.fromEntries(outputEntries.map(([name]) => [name, name]))
+          : undefined;
 
-			const outputPath =
-				options.outputPath == null ? dirname(options.actionPath) : options.outputPath;
+      const outputPath
+        = options.outputPath == null ? dirname(options.actionPath) : options.outputPath;
 
-			if (!existsSync(outputPath)) {
-				mkdirSync(outputPath, { recursive: true });
-			}
+      if (!existsSync(outputPath)) {
+        mkdirSync(outputPath, { recursive: true });
+      }
 
-			writeFileSync(
-				join(outputPath, "actions-kit.d.ts"),
-				/* typescript */ `/* eslint-disable */
+      writeFileSync(
+        join(outputPath, "actions-kit.d.ts"),
+        /* typescript */ `/* eslint-disable */
 // @ts-nocheck
 // generated by 'actions-kit'
 
@@ -147,15 +148,15 @@ ${writeTypeInjects(yaml, options)}
 
 ${autocomplete ? writeAugmentationTypes(yaml) : ""}
 `,
-			);
-		},
-	};
+      );
+    },
+  };
 };
 
 /**
  * The main unplugin instance.
  */
-export const unplugin: UnpluginInstance<ActionsKitOptions | undefined, boolean> =
-	/* #__PURE__ */ createUnplugin(unpluginFactory);
+export const unplugin: UnpluginInstance<ActionsKitOptions | undefined, boolean>
+/* #__PURE__ */ = createUnplugin(unpluginFactory);
 
 export default unplugin;

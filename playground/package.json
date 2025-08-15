@@ -6,11 +6,14 @@
   },
   "dependencies": {
     "@actions-sdk/rspack-builder": "workspace:*",
-    "@actions/core": "catalog:",
+    "@actions/core": "catalog:actions",
     "actions-kit": "workspace:*"
   },
   "devDependencies": {
-    "@types/node": "catalog:",
-    "typescript": "catalog:"
+    "@actions-kit/tsconfig": "workspace:*",
+    "@types/node": "catalog:types",
+    "typescript": "catalog:dev",
+    "eslint": "catalog:linting",
+    "@luxass/eslint-config": "catalog:linting"
   }
 }
