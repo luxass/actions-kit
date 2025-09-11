@@ -31,7 +31,7 @@ catalogs:
     vitepress-plugin-group-icons: ^1.6.3
     wrangler: ^4.30.0
   linting:
-    '@luxass/eslint-config': 5.3.0
+    '@luxass/eslint-config': 5.3.1
     eslint: 9.33.0
     eslint-plugin-format: ^1.0.1
   monorepo:
