@@ -55,8 +55,8 @@ catalogs:
     '@actions-sdk/webpack-builder': latest
     actions-kit: latest
   testing:
-    '@vitest/coverage-v8': ^3.2.4
-    vitest: ^3.2.4
+    '@vitest/coverage-v8': 3.2.4
+    vitest: 3.2.4
     vitest-testdirs: 4.2.0
   types:
     '@types/js-yaml': 4.0.9
