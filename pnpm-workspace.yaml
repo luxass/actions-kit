@@ -60,7 +60,7 @@ catalogs:
     vitest-testdirs: 4.2.0
   types:
     '@types/js-yaml': 4.0.9
-    '@types/node': 22.18.0
+    '@types/node': 24.9.1
   unplugin:
     '@rollup/pluginutils': 5.2.0
     js-yaml: 4.1.0
