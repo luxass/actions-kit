@@ -11,8 +11,8 @@ catalogs:
       version: 1.11.1
   builders:
     '@rollup/plugin-commonjs':
-      specifier: 28.0.6
-      version: 28.0.6
+      specifier: 29.0.0
+      version: 29.0.0
     '@rollup/plugin-node-resolve':
       specifier: 16.0.1
       version: 16.0.1
@@ -616,7 +616,7 @@ importers:
         version: 6.0.1(@vue/compiler-sfc@3.5.13)(eslint@9.36.0(jiti@2.5.1))(typescript@5.9.2)(vitest@4.0.5(@types/debug@4.1.12)(@types/node@22.18.0)(jiti@2.5.1)(terser@5.43.1)(yaml@2.8.1))
       '@rollup/plugin-commonjs':
         specifier: catalog:builders
-        version: 28.0.6(rollup@4.50.0)
+        version: 29.0.0(rollup@4.50.0)
       '@rollup/plugin-node-resolve':
         specifier: catalog:builders
         version: 16.0.1(rollup@4.50.0)
@@ -2038,8 +2038,8 @@ packages:
   '@rolldown/pluginutils@1.0.0-beta.47':
     resolution: {integrity: sha512-8QagwMH3kNCuzD8EWL8R2YPW5e4OrHNSAHRFDdmFqEwEaD/KcNKjVoumo+gP2vW5eKB2UPbM6vTYiGZX0ixLnw==}
 
-  '@rollup/plugin-commonjs@28.0.6':
-    resolution: {integrity: sha512-XSQB1K7FUU5QP+3lOQmVCE3I0FcbbNvmNT4VJSj93iUjayaARrTQeoRdiYQoftAJBLrR9t2agwAd3ekaTgHNlw==}
+  '@rollup/plugin-commonjs@29.0.0':
+    resolution: {integrity: sha512-U2YHaxR2cU/yAiwKJtJRhnyLk7cifnQw0zUpISsocBDoHDJn+HTV74ABqnwr5bEgWUwFZC9oFL6wLe21lHu5eQ==}
     engines: {node: '>=16.0.0 || 14 >= 14.17'}
     peerDependencies:
       rollup: ^2.68.0||^3.0.0||^4.0.0
@@ -5742,7 +5742,7 @@ snapshots:
 
   '@rolldown/pluginutils@1.0.0-beta.47': {}
 
-  '@rollup/plugin-commonjs@28.0.6(rollup@4.50.0)':
+  '@rollup/plugin-commonjs@29.0.0(rollup@4.50.0)':
     dependencies:
       '@rollup/pluginutils': 5.2.0(rollup@4.50.0)
       commondir: 1.0.1
