@@ -63,7 +63,7 @@ catalogs:
     '@types/node': 22.18.0
   unplugin:
     '@rollup/pluginutils': 5.2.0
-    js-yaml: 4.1.0
+    js-yaml: 4.1.1
     ts-loader: 9.5.4
     tslib: 2.8.1
     unplugin: 2.3.10
