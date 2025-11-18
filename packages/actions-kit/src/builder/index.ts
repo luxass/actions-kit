@@ -35,11 +35,15 @@ export async function overrideYaml(cwd: string, config: ActionsKitConfig): Promi
   }
 
   const order = ["name", "description", "author", "branding", "inputs", "outputs", "runs"];
-  const actionYaml = Yaml.stringify(action, {
-    sortMapEntries(a, b) {
-      return order.indexOf(a.key as string) - order.indexOf(b.key as string);
-    },
-  });
+
+  const sortedAction = Object.fromEntries(
+    order.map((key) => [
+      key,
+      action[key as keyof typeof action],
+    ]),
+  );
+
+  const actionYaml = Yaml.stringify(sortedAction);
 
   await writeFile(join(cwd, "action.yml"), actionYaml);
 }

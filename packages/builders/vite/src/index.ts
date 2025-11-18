@@ -18,7 +18,7 @@ export default function viteBuilder(options: InlineConfig = {}): Builder {
       const viteOptions = defu(options, {
         build: {
           minify: false,
-          target: "node20",
+          target: "node24",
           ssr: true,
           rollupOptions: {
             input: ["src/index.ts"],
