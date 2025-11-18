@@ -47,6 +47,11 @@ async function webpack(testdirPath: string, config: Configuration): Promise<Stat
       ...config,
     });
 
+    if (compiler == null) {
+      reject(new Error("Failed to create webpack compiler"));
+      return;
+    }
+
     compiler.run((err, stats) => {
       if (err) {
         reject(err);

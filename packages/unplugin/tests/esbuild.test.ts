@@ -251,7 +251,7 @@ describe("inject", () => {
 
     expect(testdirPath).toBeDefined();
 
-    expect(
+    await expect(
       async () =>
         await build({
           entryPoints: [join(testdirPath, "index.ts")],
