@@ -11,9 +11,9 @@
   },
   "devDependencies": {
     "@actions-kit/tsconfig": "workspace:*",
+    "@luxass/eslint-config": "catalog:linting",
     "@types/node": "catalog:types",
-    "typescript": "catalog:dev",
     "eslint": "catalog:linting",
-    "@luxass/eslint-config": "catalog:linting"
+    "typescript": "catalog:dev"
   }
 }
