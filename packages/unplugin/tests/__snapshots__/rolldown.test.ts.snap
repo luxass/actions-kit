@@ -37,13 +37,13 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 }) : target, mod));
 
 //#endregion
-const __actions_core = __toESM(require("@actions/core"));
+let __actions_core = require("@actions/core");
+__actions_core = __toESM(__actions_core);
 
 //#region .vitest-testdirs/vitest-rolldown-augmentations-expect-no-augmentation-when-autocomplete-is-disabled/index.ts
 async function run() {
 	const type = __actions_core.getInput("type");
-	const whoToGreet = __actions_core.getInput("who-to-greet");
-	const message = \`Hello \${whoToGreet}!\`;
+	const message = \`Hello \${__actions_core.getInput("who-to-greet")}!\`;
 	__actions_core.info(message);
 	if (type === "error") __actions_core.setFailed("This is an error!");
 	__actions_core.setOutput("message", message);
@@ -96,7 +96,8 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 }) : target, mod));
 
 //#endregion
-const __actions_core = __toESM(require("@actions/core"));
+let __actions_core = require("@actions/core");
+__actions_core = __toESM(__actions_core);
 
 //#region .vitest-testdirs/vitest-rolldown-augmentations-expect-no-augmentations/index.ts
 async function run() {
@@ -154,13 +155,13 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 }) : target, mod));
 
 //#endregion
-const __actions_core = __toESM(require("@actions/core"));
+let __actions_core = require("@actions/core");
+__actions_core = __toESM(__actions_core);
 
 //#region .vitest-testdirs/vitest-rolldown-augmentations-expect-only-inputs-to-be-augmented/index.ts
 async function run() {
 	const type = __actions_core.getInput("type");
-	const whoToGreet = __actions_core.getInput("who-to-greet");
-	const message = \`Hello \${whoToGreet}!\`;
+	const message = \`Hello \${__actions_core.getInput("who-to-greet")}!\`;
 	__actions_core.info(message);
 	if (type === "error") __actions_core.setFailed("This is an error!");
 }
@@ -216,7 +217,8 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 }) : target, mod));
 
 //#endregion
-const __actions_core = __toESM(require("@actions/core"));
+let __actions_core = require("@actions/core");
+__actions_core = __toESM(__actions_core);
 
 //#region .vitest-testdirs/vitest-rolldown-augmentations-expect-only-outputs-to-be-augmented/index.ts
 async function run() {
@@ -254,13 +256,13 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 }) : target, mod));
 
 //#endregion
-const __actions_core = __toESM(require("@actions/core"));
+let __actions_core = require("@actions/core");
+__actions_core = __toESM(__actions_core);
 
 //#region .vitest-testdirs/vitest-rolldown-custom-output-path/index.ts
 async function run() {
 	const type = __actions_core.getInput("type");
-	const whoToGreet = __actions_core.getInput("who-to-greet");
-	const message = \`Hello \${whoToGreet}!\`;
+	const message = \`Hello \${__actions_core.getInput("who-to-greet")}!\`;
 	__actions_core.info(message);
 	if (type === "error") __actions_core.setFailed("This is an error!");
 	__actions_core.setOutput("message", message);
@@ -321,13 +323,13 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 }) : target, mod));
 
 //#endregion
-const __actions_core = __toESM(require("@actions/core"));
+let __actions_core = require("@actions/core");
+__actions_core = __toESM(__actions_core);
 
 //#region .vitest-testdirs/vitest-rolldown-expect-actions-kit-d-ts-to-be-generated/index.ts
 async function run() {
 	const type = __actions_core.getInput("type");
-	const whoToGreet = __actions_core.getInput("who-to-greet");
-	const message = \`Hello \${whoToGreet}!\`;
+	const message = \`Hello \${__actions_core.getInput("who-to-greet")}!\`;
 	__actions_core.info(message);
 	if (type === "error") __actions_core.setFailed("This is an error!");
 	__actions_core.setOutput("message", message);
@@ -388,13 +390,13 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 }) : target, mod));
 
 //#endregion
-const __actions_core = __toESM(require("@actions/core"));
+let __actions_core = require("@actions/core");
+__actions_core = __toESM(__actions_core);
 
 //#region .vitest-testdirs/vitest-rolldown-expect-no-actions-kit-d-ts-file-generated-if-plugin-not-in-use/index.ts
 async function run() {
 	const type = __actions_core.getInput("type");
-	const whoToGreet = __actions_core.getInput("who-to-greet");
-	const message = \`Hello \${whoToGreet}!\`;
+	const message = \`Hello \${__actions_core.getInput("who-to-greet")}!\`;
 	__actions_core.info(message);
 	if (type === "error") __actions_core.setFailed("This is an error!");
 	__actions_core.setOutput("message", message);
@@ -465,7 +467,8 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 }) : target, mod));
 
 //#endregion
-const __actions_core = __toESM(require("@actions/core"));
+let __actions_core = require("@actions/core");
+__actions_core = __toESM(__actions_core);
 
 //#region .vitest-testdirs/vitest-rolldown-inject-expect-ACTION_INPUTS-ACTION_OUTPUTS-in-global-scope/index.ts
 globalThis.ACTION_INPUTS = {
@@ -475,8 +478,7 @@ globalThis.ACTION_INPUTS = {
 globalThis.ACTION_OUTPUTS = { "message": "message" };
 async function run() {
 	const type = __actions_core.getInput("type");
-	const whoToGreet = __actions_core.getInput("who-to-greet");
-	const message = \`Hello \${whoToGreet}!\`;
+	const message = \`Hello \${__actions_core.getInput("who-to-greet")}!\`;
 	__actions_core.info(message);
 	if (type === "error") __actions_core.setFailed("This is an error!");
 	__actions_core.setOutput("message", message);
@@ -539,7 +541,8 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 }) : target, mod));
 
 //#endregion
-const __actions_core = __toESM(require("@actions/core"));
+let __actions_core = require("@actions/core");
+__actions_core = __toESM(__actions_core);
 
 //#region .vitest-testdirs/vitest-rolldown-inject-expect-ACTION_INPUTS-in-global-scope/index.ts
 globalThis.ACTION_INPUTS = {
@@ -548,8 +551,7 @@ globalThis.ACTION_INPUTS = {
 };
 async function run() {
 	const type = __actions_core.getInput("type");
-	const whoToGreet = __actions_core.getInput("who-to-greet");
-	const message = \`Hello \${whoToGreet}!\`;
+	const message = \`Hello \${__actions_core.getInput("who-to-greet")}!\`;
 	__actions_core.info(message);
 	if (type === "error") __actions_core.setFailed("This is an error!");
 }
@@ -610,7 +612,8 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 }) : target, mod));
 
 //#endregion
-const __actions_core = __toESM(require("@actions/core"));
+let __actions_core = require("@actions/core");
+__actions_core = __toESM(__actions_core);
 
 //#region .vitest-testdirs/vitest-rolldown-inject-expect-ACTION_OUTPUTS-in-global-scope/index.ts
 globalThis.ACTION_OUTPUTS = { "message": "message" };
@@ -673,13 +676,13 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 }) : target, mod));
 
 //#endregion
-const __actions_core = __toESM(require("@actions/core"));
+let __actions_core = require("@actions/core");
+__actions_core = __toESM(__actions_core);
 
 //#region .vitest-testdirs/vitest-rolldown-inject-expect-no-change-in-global-scope/index.ts
 async function run() {
 	const type = __actions_core.getInput("type");
-	const whoToGreet = __actions_core.getInput("who-to-greet");
-	const message = \`Hello \${whoToGreet}!\`;
+	const message = \`Hello \${__actions_core.getInput("who-to-greet")}!\`;
 	__actions_core.info(message);
 	if (type === "error") __actions_core.setFailed("This is an error!");
 	__actions_core.setOutput("message", message);
