@@ -1,6 +1,6 @@
 {
   "name": "@actions-sdk/rollup-builder",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Rollup builder for Actions Kit",
   "type": "module",
   "author": {
