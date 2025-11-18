@@ -1,6 +1,6 @@
 {
   "name": "@actions-sdk/action-schema",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Zod Schema for GitHub Actions",
   "type": "module",
   "author": {
