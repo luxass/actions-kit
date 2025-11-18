@@ -4,7 +4,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import process from "node:process";
 import { ACTION_SCHEMA } from "@actions-sdk/action-schema";
-import Yaml from "js-yaml";
+import Yaml from "yaml";
 
 export async function inferOutput(config: ActionsKitConfig): Promise<{
   filename: string;
@@ -62,12 +62,12 @@ async function readYaml(path: string): Promise<Action | null> {
   try {
     const content = await readFile(path, "utf8");
 
-    const yaml = Yaml.load(content);
+    const yaml = Yaml.parse(content);
 
     const action = await ACTION_SCHEMA.parseAsync(yaml);
     return action;
   } catch (err) {
-    if (err instanceof Yaml.YAMLException) {
+    if (err instanceof Yaml.YAMLParseError) {
       throw new TypeError(`Error parsing ${path}: ${err.message}`);
     }
     return null;

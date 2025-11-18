@@ -9,6 +9,7 @@ packages:
 catalogs:
   actions:
     '@actions/core': 1.11.1
+
   builders:
     '@rollup/plugin-commonjs': 29.0.0
     '@rollup/plugin-node-resolve': 16.0.3
@@ -21,23 +22,28 @@ catalogs:
     swc-loader: 0.2.6
     vite: 7.2.2
     webpack: 5.102.1
+
   dev:
     publint: 0.3.15
     tsdown: 0.16.5
     typescript: 5.9.3
+
   docs:
     '@cloudflare/vite-plugin': 1.14.2
     vitepress: 1.6.4
     vitepress-plugin-group-icons: 1.6.5
     wrangler: 4.47.0
+
   linting:
     '@luxass/eslint-config': 6.0.3
     eslint: 9.39.1
     eslint-plugin-format: 1.0.2
+
   monorepo:
     '@changesets/changelog-github': 0.5.1
     '@changesets/cli': 2.29.7
     turbo: 2.6.1
+
   prod:
     '@clack/prompts': 0.11.0
     c12: 3.3.2
@@ -46,6 +52,7 @@ catalogs:
     defu: 6.1.4
     farver: 0.4.2
     zod: 4.1.12
+
   templates:
     '@actions-sdk/esbuild-builder': latest
     '@actions-sdk/rolldown-builder': latest
@@ -54,16 +61,18 @@ catalogs:
     '@actions-sdk/vite-builder': latest
     '@actions-sdk/webpack-builder': latest
     actions-kit: latest
+
   testing:
     '@vitest/coverage-v8': 4.0.10
     vitest: 4.0.10
     vitest-testdirs: 4.3.0
+
   types:
-    '@types/js-yaml': 4.0.9
     '@types/node': 22.18.0
+
   unplugin:
     '@rollup/pluginutils': 5.3.0
-    js-yaml: 4.1.0
+    yaml: 2.8.1
     ts-loader: 9.5.4
     tslib: 2.8.1
     unplugin: 2.3.10
@@ -74,6 +83,7 @@ linkWorkspacePackages: true
 
 overrides:
   vite: catalog:builders
+  rolldown: catalog:builders
 
 patchedDependencies:
   '@changesets/assemble-release-plan@6.0.9': patches/@changesets__assemble-release-plan@6.0.9.patch

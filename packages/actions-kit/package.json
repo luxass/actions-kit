@@ -26,29 +26,29 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/index.js",
+      "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     },
     "./builder": {
-      "import": "./dist/builder/index.js",
+      "import": "./dist/builder/index.mjs",
       "require": "./dist/builder/index.cjs"
     },
     "./builder/utils": {
-      "import": "./dist/builder/utils.js",
+      "import": "./dist/builder/utils.mjs",
       "require": "./dist/builder/utils.cjs"
     },
     "./config": {
-      "import": "./dist/config.js",
+      "import": "./dist/config.mjs",
       "require": "./dist/config.cjs"
     },
     "./utils": {
-      "import": "./dist/utils.js",
+      "import": "./dist/utils.mjs",
       "require": "./dist/utils.cjs"
     },
     "./package.json": "./package.json"
   },
   "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.cts",
   "bin": {
     "actions-kit": "./bin/actions-kit.mjs"
@@ -72,15 +72,14 @@
     "consola": "catalog:prod",
     "defu": "catalog:prod",
     "farver": "catalog:prod",
-    "js-yaml": "catalog:unplugin",
     "unplugin-actions-kit": "workspace:*",
+    "yaml": "catalog:unplugin",
     "zod": "catalog:prod"
   },
   "devDependencies": {
     "@actions-kit/tsconfig": "workspace:*",
     "@actions-kit/tsdown-config": "workspace:*",
     "@luxass/eslint-config": "catalog:linting",
-    "@types/js-yaml": "catalog:types",
     "@types/node": "catalog:types",
     "eslint": "catalog:linting",
     "publint": "catalog:dev",

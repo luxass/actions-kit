@@ -3,8 +3,8 @@ import type { ActionsKitOptions } from "./types";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import process from "node:process";
-import YAML from "js-yaml";
 import { createUnplugin } from "unplugin";
+import YAML from "yaml";
 import { ACTION_SCHEMA, writeAugmentationTypes, writeTypeInjects } from "./utils";
 
 /**
@@ -100,7 +100,7 @@ export const unpluginFactory: UnpluginFactory<ActionsKitOptions | undefined> = (
 
       // read the file
       const parseResult = ACTION_SCHEMA.safeParse(
-        YAML.load(readFileSync(options.actionPath, "utf8")),
+        YAML.parse(readFileSync(options.actionPath, "utf8")),
       );
 
       if (!parseResult.success) {
