@@ -24,6 +24,6 @@ export default defineConfig({
     },
   },
   builder: esbuild({
-    format: "esm",
+    format: "cjs",
   }),
 });
