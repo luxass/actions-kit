@@ -41,7 +41,7 @@ const aliases = packages
       return acc;
     }, {});
 
-const hiddenLogs = []
+const hiddenLogs: string[] = []
 
 const packageProjects = packages
   .map((dir) => {
