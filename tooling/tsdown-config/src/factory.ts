@@ -1,4 +1,4 @@
-import type { Options as TSDownOptions } from "tsdown";
+import type { UserConfig } from "tsdown";
 import { defineConfig } from "tsdown";
 
 export const baseConfig = {
@@ -20,10 +20,10 @@ export const baseConfig = {
       return defaultHandler(warning);
     },
   },
-} satisfies TSDownOptions;
+} satisfies UserConfig;
 
 export function createTsdownConfig(
-  overrides: Partial<TSDownOptions> | Partial<TSDownOptions>[] = {},
+  overrides: Partial<UserConfig> | Partial<UserConfig>[] = {},
 ) {
   if (Array.isArray(overrides)) {
     return defineConfig(
