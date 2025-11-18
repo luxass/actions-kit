@@ -19,7 +19,7 @@ export default defineConfig({
 			},
 		},
 		runs: {
-			using: "node20",
+			using: "node24",
 			main: "dist/index.cjs",
 		},
 	},

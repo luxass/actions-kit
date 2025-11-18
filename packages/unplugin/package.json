@@ -8,7 +8,7 @@
     "email": "lucasnrgaard@gmail.com",
     "url": "https://luxass.dev"
   },
-  "packageManager": "pnpm@10.15.1",
+  "packageManager": "pnpm@10.22.0",
   "license": "MIT",
   "homepage": "https://github.com/luxass/actions-kit",
   "repository": {
@@ -33,45 +33,45 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/index.js",
+      "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     },
     "./esbuild": {
-      "import": "./dist/esbuild.js",
+      "import": "./dist/esbuild.mjs",
       "require": "./dist/esbuild.cjs"
     },
     "./rolldown": {
-      "import": "./dist/rolldown.js",
+      "import": "./dist/rolldown.mjs",
       "require": "./dist/rolldown.cjs"
     },
     "./rollup": {
-      "import": "./dist/rollup.js",
+      "import": "./dist/rollup.mjs",
       "require": "./dist/rollup.cjs"
     },
     "./rspack": {
-      "import": "./dist/rspack.js",
+      "import": "./dist/rspack.mjs",
       "require": "./dist/rspack.cjs"
     },
     "./types": {
-      "import": "./dist/types.js",
+      "import": "./dist/types.mjs",
       "require": "./dist/types.cjs"
     },
     "./utils": {
-      "import": "./dist/utils.js",
+      "import": "./dist/utils.mjs",
       "require": "./dist/utils.cjs"
     },
     "./vite": {
-      "import": "./dist/vite.js",
+      "import": "./dist/vite.mjs",
       "require": "./dist/vite.cjs"
     },
     "./webpack": {
-      "import": "./dist/webpack.js",
+      "import": "./dist/webpack.mjs",
       "require": "./dist/webpack.cjs"
     },
     "./package.json": "./package.json"
   },
   "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.cts",
   "files": [
     "dist"
@@ -114,8 +114,8 @@
   },
   "dependencies": {
     "@rollup/pluginutils": "catalog:unplugin",
-    "js-yaml": "catalog:unplugin",
     "unplugin": "catalog:unplugin",
+    "yaml": "catalog:unplugin",
     "zod": "catalog:prod"
   },
   "devDependencies": {
@@ -125,7 +125,6 @@
     "@luxass/eslint-config": "catalog:linting",
     "@rollup/plugin-typescript": "catalog:builders",
     "@rspack/core": "catalog:builders",
-    "@types/js-yaml": "catalog:types",
     "@types/node": "catalog:types",
     "esbuild": "catalog:builders",
     "eslint": "catalog:linting",

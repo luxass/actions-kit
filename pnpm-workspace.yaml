@@ -9,43 +9,50 @@ packages:
 catalogs:
   actions:
     '@actions/core': 1.11.1
+
   builders:
     '@rollup/plugin-commonjs': 29.0.0
-    '@rollup/plugin-node-resolve': 16.0.1
-    '@rollup/plugin-typescript': 12.1.4
-    '@rspack/core': 1.5.2
-    '@swc/core': 1.13.5
-    esbuild: 0.25.9
-    rolldown: 1.0.0-beta.34
-    rollup: 4.50.0
+    '@rollup/plugin-node-resolve': 16.0.3
+    '@rollup/plugin-typescript': 12.3.0
+    '@rspack/core': 1.6.3
+    '@swc/core': 1.15.2
+    esbuild: 0.27.0
+    rolldown: 1.0.0-beta.50
+    rollup: 4.53.2
     swc-loader: 0.2.6
-    vite: 7.1.12
-    webpack: 5.101.3
+    vite: 7.2.2
+    webpack: 5.102.1
+
   dev:
-    publint: 0.3.12
-    tsdown: 0.14.2
-    typescript: 5.9.2
+    publint: 0.3.15
+    tsdown: 0.16.5
+    typescript: 5.9.3
+
   docs:
-    '@cloudflare/vite-plugin': 1.12.2
+    '@cloudflare/vite-plugin': 1.14.2
     vitepress: 1.6.4
-    vitepress-plugin-group-icons: 1.6.3
-    wrangler: 4.33.2
+    vitepress-plugin-group-icons: 1.6.5
+    wrangler: 4.47.0
+
   linting:
-    '@luxass/eslint-config': 6.0.1
-    eslint: 9.38.0
+    '@luxass/eslint-config': 6.0.3
+    eslint: 9.39.1
     eslint-plugin-format: 1.0.2
+
   monorepo:
     '@changesets/changelog-github': 0.5.1
-    '@changesets/cli': 2.29.6
-    turbo: 2.5.6
+    '@changesets/cli': 2.29.7
+    turbo: 2.6.1
+
   prod:
     '@clack/prompts': 0.11.0
-    c12: 3.2.0
+    c12: 3.3.2
     cac: 6.7.14
     consola: 3.4.2
     defu: 6.1.4
     farver: 0.4.2
-    zod: 4.1.5
+    zod: 4.1.12
+
   templates:
     '@actions-sdk/esbuild-builder': latest
     '@actions-sdk/rolldown-builder': latest
@@ -54,16 +61,18 @@ catalogs:
     '@actions-sdk/vite-builder': latest
     '@actions-sdk/webpack-builder': latest
     actions-kit: latest
+
   testing:
-    '@vitest/coverage-v8': 4.0.5
-    vitest: 4.0.5
-    vitest-testdirs: 4.2.0
+    '@vitest/coverage-v8': 4.0.10
+    vitest: 4.0.10
+    vitest-testdirs: 4.3.0
+
   types:
-    '@types/js-yaml': 4.0.9
     '@types/node': 22.18.0
+
   unplugin:
-    '@rollup/pluginutils': 5.2.0
-    js-yaml: 4.1.0
+    '@rollup/pluginutils': 5.3.0
+    yaml: 2.8.1
     ts-loader: 9.5.4
     tslib: 2.8.1
     unplugin: 2.3.10
@@ -74,6 +83,7 @@ linkWorkspacePackages: true
 
 overrides:
   vite: catalog:builders
+  rolldown: catalog:builders
 
 patchedDependencies:
   '@changesets/assemble-release-plan@6.0.9': patches/@changesets__assemble-release-plan@6.0.9.patch

@@ -31,7 +31,7 @@ export default function esbuildBuilder(options: ESBuildBuildOptions = {}): Build
         {
           entryPoints: [entryPoints],
           platform: "node",
-          target: "node20",
+          target: "node24",
           format: libraryType,
           bundle: true,
           outfile: join(dir, filename),

@@ -2,5 +2,5 @@ name: GitHub Action Fixture (Yaml)
 description: A GitHub Action Fixture (Yaml)
 
 runs:
-  using: node20
+  using: node24
   main: dist/index.js

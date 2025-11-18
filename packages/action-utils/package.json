@@ -8,7 +8,7 @@
     "email": "lucasnrgaard@gmail.com",
     "url": "https://luxass.dev"
   },
-  "packageManager": "pnpm@10.15.1",
+  "packageManager": "pnpm@10.22.0",
   "license": "MIT",
   "homepage": "https://github.com/luxass/actions-kit",
   "repository": {
@@ -26,21 +26,21 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/index.js",
+      "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     },
     "./events": {
-      "import": "./dist/events.js",
+      "import": "./dist/events.mjs",
       "require": "./dist/events.cjs"
     },
     "./inputs": {
-      "import": "./dist/inputs.js",
+      "import": "./dist/inputs.mjs",
       "require": "./dist/inputs.cjs"
     },
     "./package.json": "./package.json"
   },
   "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.cts",
   "files": [
     "dist"

@@ -8,7 +8,7 @@
     "email": "lucasnrgaard@gmail.com",
     "url": "https://luxass.dev"
   },
-  "packageManager": "pnpm@10.15.1",
+  "packageManager": "pnpm@10.22.0",
   "license": "MIT",
   "homepage": "https://github.com/luxass/actions-kit",
   "repository": {
@@ -25,12 +25,12 @@
     "toolkit"
   ],
   "exports": {
-    ".": "./dist/index.js",
+    ".": "./dist/index.mjs",
     "./package.json": "./package.json"
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
   "bin": {
     "create-actions-kit": "./create-actions-kit.mjs"
   },

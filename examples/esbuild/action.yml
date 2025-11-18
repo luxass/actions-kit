@@ -6,9 +6,9 @@ branding:
   icon: package
 inputs:
   name:
+    description: Your name
     required: true
     default: World
-    description: Your name
 runs:
-  using: node20
+  using: node24
   main: dist/index.cjs

@@ -30,7 +30,7 @@ const action = {
     },
   },
   runs: {
-    using: "node20",
+    using: "node24",
     main: "index.cjs",
   },
 };

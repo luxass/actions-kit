@@ -90,7 +90,7 @@ The runtime to use.
 
 ```yaml
 runs:
-  using: node20
+  using: node24
 ```
 
 #### `main`

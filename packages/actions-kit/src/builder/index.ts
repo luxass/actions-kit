@@ -1,7 +1,7 @@
 import type { ActionsKitConfig } from "../config";
 import { writeFile } from "node:fs/promises";
 import { join } from "node:path";
-import Yaml from "js-yaml";
+import Yaml from "yaml";
 
 export function defineBuilder(builder: Builder): Builder {
   return builder;
@@ -34,12 +34,16 @@ export async function overrideYaml(cwd: string, config: ActionsKitConfig): Promi
     throw new Error("action is required.");
   }
 
-  const actionYaml = Yaml.dump(action, {
-    sortKeys(a, b) {
-      const order = ["name", "description", "author", "branding", "inputs", "outputs", "runs"];
-      return order.indexOf(a) - order.indexOf(b);
-    },
-  });
+  const order = ["name", "description", "author", "branding", "inputs", "outputs", "runs"];
+
+  const sortedAction = Object.fromEntries(
+    order.map((key) => [
+      key,
+      action[key as keyof typeof action],
+    ]),
+  );
+
+  const actionYaml = Yaml.stringify(sortedAction);
 
   await writeFile(join(cwd, "action.yml"), actionYaml);
 }
