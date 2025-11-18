@@ -4,7 +4,7 @@
   "private": true,
   "packageManager": "pnpm@10.22.0",
   "scripts": {
-    "build": "turbo run build --filter \"./packages/*\" --concurrency=15",
+    "build": "turbo run build --filter \"./packages/**\" --concurrency=15",
     "build:docs": "turbo run build --filter \"./docs\"",
     "build:examples": "turbo run build --filter \"./examples\" --concurrency=15",
     "dev:docs": "turbo run dev --filter \"./docs\"",
