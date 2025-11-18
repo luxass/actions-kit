@@ -9,13 +9,13 @@ export default createTsdownConfig([
     exports: true,
   },
   {
-    entry: [
-      "src/index.ts",
-      "src/config.ts",
-      "src/utils.ts",
-      "src/builder/index.ts",
-      "src/builder/utils.ts",
-    ],
+    entry: {
+      "index": "src/index.ts",
+      "config": "src/config.ts",
+      "utils": "src/utils.ts",
+      "builder": "src/builder/index.ts",
+      "builder-utils": "src/builder/utils.ts",
+    },
     format: ["esm", "cjs"],
     clean: ["!**/cli"],
     publint: true,

@@ -30,12 +30,12 @@
       "require": "./dist/index.cjs"
     },
     "./builder": {
-      "import": "./dist/builder/index.mjs",
-      "require": "./dist/builder/index.cjs"
+      "import": "./dist/builder.mjs",
+      "require": "./dist/builder.cjs"
     },
-    "./builder/utils": {
-      "import": "./dist/builder/utils.mjs",
-      "require": "./dist/builder/utils.cjs"
+    "./builder-utils": {
+      "import": "./dist/builder-utils.mjs",
+      "require": "./dist/builder-utils.cjs"
     },
     "./config": {
       "import": "./dist/config.mjs",
