@@ -88,7 +88,7 @@ export type CompositeOutputsSchema = z.infer<typeof COMPOSITE_OUTPUTS_SCHEMA>;
 export const RUNS_JAVASCRIPT_SCHEMA = z
   .object({
     "using": z
-      .enum(["node12", "node16", "node20"])
+      .enum(["node12", "node16", "node20", "node24"])
       .describe("The application used to execute the code"),
     "main": z.string().describe("The file that contains your action code"),
     "pre": z.string().optional().describe("Allows you to run a script at the start of a job"),
