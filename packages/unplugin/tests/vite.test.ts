@@ -346,7 +346,7 @@ describe("inject", () => {
 
     expect(testdirPath).toBeDefined();
 
-    expect(
+    await expect(
       async () =>
         await build({
           build: {
