@@ -68,7 +68,7 @@ catalogs:
     vitest-testdirs: 4.3.0
 
   types:
-    '@types/node': 22.18.0
+    '@types/node': 24.10.1
 
   unplugin:
     '@rollup/pluginutils': 5.3.0
