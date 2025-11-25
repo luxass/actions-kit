@@ -14,14 +14,14 @@ catalogs:
     '@rollup/plugin-commonjs': 29.0.0
     '@rollup/plugin-node-resolve': 16.0.3
     '@rollup/plugin-typescript': 12.3.0
-    '@rspack/core': 1.6.3
+    '@rspack/core': 1.6.4
     '@swc/core': 1.15.2
     esbuild: 0.27.0
     rolldown: 1.0.0-beta.50
     rollup: 4.53.2
     swc-loader: 0.2.6
     vite: 7.2.2
-    webpack: 5.102.1
+    webpack: 5.103.0
 
   dev:
     publint: 0.3.15
@@ -29,10 +29,10 @@ catalogs:
     typescript: 5.9.3
 
   docs:
-    '@cloudflare/vite-plugin': 1.14.2
+    '@cloudflare/vite-plugin': 1.15.0
     vitepress: 1.6.4
     vitepress-plugin-group-icons: 1.6.5
-    wrangler: 4.47.0
+    wrangler: 4.49.0
 
   linting:
     '@luxass/eslint-config': 6.0.3
