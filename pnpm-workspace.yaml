@@ -63,8 +63,8 @@ catalogs:
     actions-kit: latest
 
   testing:
-    '@vitest/coverage-v8': 4.0.10
-    vitest: 4.0.10
+    '@vitest/coverage-v8': 4.0.13
+    vitest: 4.0.13
     vitest-testdirs: 4.3.0
 
   types:
