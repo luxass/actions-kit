@@ -36,8 +36,8 @@ catalogs:
 
   linting:
     '@luxass/eslint-config': 6.0.3
-    eslint: 9.39.1
-    eslint-plugin-format: 1.0.2
+    eslint: 9.39.2
+    eslint-plugin-format: 1.3.1
 
   monorepo:
     '@changesets/changelog-github': 0.5.1
