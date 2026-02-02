@@ -20,7 +20,7 @@ catalogs:
     rolldown: 1.0.0-beta.50
     rollup: 4.53.2
     swc-loader: 0.2.6
-    vite: 7.2.4
+    vite: 7.3.1
     webpack: 5.103.0
 
   dev:
