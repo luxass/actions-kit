@@ -101,8 +101,8 @@ catalogs:
       version: 4.1.12
   testing:
     vitest:
-      specifier: 4.0.13
-      version: 4.0.13
+      specifier: 4.1.7
+      version: 4.1.7
     vitest-testdirs:
       specifier: 4.3.0
       version: 4.3.0
@@ -160,7 +160,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: catalog:testing
-        version: 4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)
+        version: 4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
 
   docs:
     dependencies:
@@ -176,7 +176,7 @@ importers:
         version: 1.15.0(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))(workerd@1.20260111.0)(wrangler@4.59.1)
       '@luxass/eslint-config':
         specifier: catalog:linting
-        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
+        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)))
       eslint:
         specifier: catalog:linting
         version: 9.39.2(jiti@2.6.1)
@@ -204,7 +204,7 @@ importers:
         version: link:../../packages/builders/esbuild
       '@luxass/eslint-config':
         specifier: catalog:linting
-        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
+        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)))
       '@types/node':
         specifier: catalog:types
         version: 24.10.1
@@ -235,7 +235,7 @@ importers:
         version: link:../../packages/builders/rolldown
       '@luxass/eslint-config':
         specifier: catalog:linting
-        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
+        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)))
       '@types/node':
         specifier: catalog:types
         version: 24.10.1
@@ -266,7 +266,7 @@ importers:
         version: link:../../packages/builders/rollup
       '@luxass/eslint-config':
         specifier: catalog:linting
-        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
+        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)))
       '@types/node':
         specifier: catalog:types
         version: 24.10.1
@@ -297,7 +297,7 @@ importers:
         version: link:../../packages/builders/rspack
       '@luxass/eslint-config':
         specifier: catalog:linting
-        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
+        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)))
       '@types/node':
         specifier: catalog:types
         version: 24.10.1
@@ -328,7 +328,7 @@ importers:
         version: link:../../packages/builders/vite
       '@luxass/eslint-config':
         specifier: catalog:linting
-        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
+        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)))
       '@types/node':
         specifier: catalog:types
         version: 24.10.1
@@ -359,7 +359,7 @@ importers:
         version: link:../../packages/builders/webpack
       '@luxass/eslint-config':
         specifier: catalog:linting
-        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
+        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)))
       '@types/node':
         specifier: catalog:types
         version: 24.10.1
@@ -387,7 +387,7 @@ importers:
         version: link:../../tooling/tsdown-config
       '@luxass/eslint-config':
         specifier: catalog:linting
-        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
+        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)))
       '@types/node':
         specifier: catalog:types
         version: 24.10.1
@@ -399,13 +399,13 @@ importers:
         version: 0.3.15
       tsdown:
         specifier: catalog:dev
-        version: 0.16.5(ms@2.1.3)(publint@0.3.15)(synckit@0.11.11)(typescript@5.9.3)
+        version: 0.16.5(publint@0.3.15)(synckit@0.11.11)(typescript@5.9.3)
       typescript:
         specifier: catalog:dev
         version: 5.9.3
       vitest:
         specifier: catalog:testing
-        version: 4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)
+        version: 4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
 
   packages/action-utils:
     dependencies:
@@ -421,7 +421,7 @@ importers:
         version: link:../../tooling/tsdown-config
       '@luxass/eslint-config':
         specifier: catalog:linting
-        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
+        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)))
       '@types/node':
         specifier: catalog:types
         version: 24.10.1
@@ -433,13 +433,13 @@ importers:
         version: 0.3.15
       tsdown:
         specifier: catalog:dev
-        version: 0.16.5(ms@2.1.3)(publint@0.3.15)(synckit@0.11.11)(typescript@5.9.3)
+        version: 0.16.5(publint@0.3.15)(synckit@0.11.11)(typescript@5.9.3)
       typescript:
         specifier: catalog:dev
         version: 5.9.3
       vitest:
         specifier: catalog:testing
-        version: 4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)
+        version: 4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
 
   packages/actions-kit:
     dependencies:
@@ -482,7 +482,7 @@ importers:
         version: link:../../tooling/tsdown-config
       '@luxass/eslint-config':
         specifier: catalog:linting
-        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
+        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)))
       '@types/node':
         specifier: catalog:types
         version: 24.10.1
@@ -494,13 +494,13 @@ importers:
         version: 0.3.15
       tsdown:
         specifier: catalog:dev
-        version: 0.16.5(ms@2.1.3)(publint@0.3.15)(synckit@0.11.11)(typescript@5.9.3)
+        version: 0.16.5(publint@0.3.15)(synckit@0.11.11)(typescript@5.9.3)
       typescript:
         specifier: catalog:dev
         version: 5.9.3
       vitest:
         specifier: catalog:testing
-        version: 4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)
+        version: 4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
 
   packages/builders/esbuild:
     dependencies:
@@ -519,7 +519,7 @@ importers:
         version: link:../../../tooling/tsdown-config
       '@luxass/eslint-config':
         specifier: catalog:linting
-        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
+        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)))
       '@types/node':
         specifier: catalog:types
         version: 24.10.1
@@ -537,13 +537,13 @@ importers:
         version: 0.3.15
       tsdown:
         specifier: catalog:dev
-        version: 0.16.5(ms@2.1.3)(publint@0.3.15)(synckit@0.11.11)(typescript@5.9.3)
+        version: 0.16.5(publint@0.3.15)(synckit@0.11.11)(typescript@5.9.3)
       typescript:
         specifier: catalog:dev
         version: 5.9.3
       vitest:
         specifier: catalog:testing
-        version: 4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)
+        version: 4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
 
   packages/builders/rolldown:
     dependencies:
@@ -562,7 +562,7 @@ importers:
         version: link:../../../tooling/tsdown-config
       '@luxass/eslint-config':
         specifier: catalog:linting
-        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
+        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)))
       '@types/node':
         specifier: catalog:types
         version: 24.10.1
@@ -580,13 +580,13 @@ importers:
         version: 1.0.0-beta.50
       tsdown:
         specifier: catalog:dev
-        version: 0.16.5(ms@2.1.3)(publint@0.3.15)(synckit@0.11.11)(typescript@5.9.3)
+        version: 0.16.5(publint@0.3.15)(synckit@0.11.11)(typescript@5.9.3)
       typescript:
         specifier: catalog:dev
         version: 5.9.3
       vitest:
         specifier: catalog:testing
-        version: 4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)
+        version: 4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
 
   packages/builders/rollup:
     dependencies:
@@ -605,7 +605,7 @@ importers:
         version: link:../../../tooling/tsdown-config
       '@luxass/eslint-config':
         specifier: catalog:linting
-        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
+        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)))
       '@rollup/plugin-commonjs':
         specifier: catalog:builders
         version: 29.0.0(rollup@4.53.2)
@@ -632,13 +632,13 @@ importers:
         version: 4.53.2
       tsdown:
         specifier: catalog:dev
-        version: 0.16.5(ms@2.1.3)(publint@0.3.15)(synckit@0.11.11)(typescript@5.9.3)
+        version: 0.16.5(publint@0.3.15)(synckit@0.11.11)(typescript@5.9.3)
       typescript:
         specifier: catalog:dev
         version: 5.9.3
       vitest:
         specifier: catalog:testing
-        version: 4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)
+        version: 4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
 
   packages/builders/rspack:
     dependencies:
@@ -660,7 +660,7 @@ importers:
         version: link:../../../tooling/tsdown-config
       '@luxass/eslint-config':
         specifier: catalog:linting
-        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
+        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)))
       '@rspack/core':
         specifier: catalog:builders
         version: 1.6.4
@@ -678,13 +678,13 @@ importers:
         version: 0.3.15
       tsdown:
         specifier: catalog:dev
-        version: 0.16.5(ms@2.1.3)(publint@0.3.15)(synckit@0.11.11)(typescript@5.9.3)
+        version: 0.16.5(publint@0.3.15)(synckit@0.11.11)(typescript@5.9.3)
       typescript:
         specifier: catalog:dev
         version: 5.9.3
       vitest:
         specifier: catalog:testing
-        version: 4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)
+        version: 4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
 
   packages/builders/vite:
     dependencies:
@@ -703,7 +703,7 @@ importers:
         version: link:../../../tooling/tsdown-config
       '@luxass/eslint-config':
         specifier: catalog:linting
-        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
+        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)))
       '@types/node':
         specifier: catalog:types
         version: 24.10.1
@@ -718,7 +718,7 @@ importers:
         version: 0.3.15
       tsdown:
         specifier: catalog:dev
-        version: 0.16.5(ms@2.1.3)(publint@0.3.15)(synckit@0.11.11)(typescript@5.9.3)
+        version: 0.16.5(publint@0.3.15)(synckit@0.11.11)(typescript@5.9.3)
       typescript:
         specifier: catalog:dev
         version: 5.9.3
@@ -727,7 +727,7 @@ importers:
         version: 7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)
       vitest:
         specifier: catalog:testing
-        version: 4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)
+        version: 4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
 
   packages/builders/webpack:
     dependencies:
@@ -752,7 +752,7 @@ importers:
         version: link:../../../tooling/tsdown-config
       '@luxass/eslint-config':
         specifier: catalog:linting
-        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
+        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)))
       '@types/node':
         specifier: catalog:types
         version: 24.10.1
@@ -767,13 +767,13 @@ importers:
         version: 0.3.15
       tsdown:
         specifier: catalog:dev
-        version: 0.16.5(ms@2.1.3)(publint@0.3.15)(synckit@0.11.11)(typescript@5.9.3)
+        version: 0.16.5(publint@0.3.15)(synckit@0.11.11)(typescript@5.9.3)
       typescript:
         specifier: catalog:dev
         version: 5.9.3
       vitest:
         specifier: catalog:testing
-        version: 4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)
+        version: 4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
       webpack:
         specifier: catalog:builders
         version: 5.103.0(@swc/core@1.15.2)
@@ -791,7 +791,7 @@ importers:
         version: 0.11.0
       '@luxass/eslint-config':
         specifier: catalog:linting
-        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
+        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)))
       '@types/node':
         specifier: catalog:types
         version: 24.10.1
@@ -809,7 +809,7 @@ importers:
         version: 0.3.15
       tsdown:
         specifier: catalog:dev
-        version: 0.16.5(ms@2.1.3)(publint@0.3.15)(synckit@0.11.11)(typescript@5.9.3)
+        version: 0.16.5(publint@0.3.15)(synckit@0.11.11)(typescript@5.9.3)
       typescript:
         specifier: catalog:dev
         version: 5.9.3
@@ -840,7 +840,7 @@ importers:
         version: 1.11.1
       '@luxass/eslint-config':
         specifier: catalog:linting
-        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
+        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)))
       '@rollup/plugin-typescript':
         specifier: catalog:builders
         version: 12.3.0(rollup@4.53.2)(tslib@2.8.1)(typescript@5.9.3)
@@ -870,7 +870,7 @@ importers:
         version: 9.5.4(typescript@5.9.3)(webpack@5.103.0(esbuild@0.27.0))
       tsdown:
         specifier: catalog:dev
-        version: 0.16.5(ms@2.1.3)(publint@0.3.15)(synckit@0.11.11)(typescript@5.9.3)
+        version: 0.16.5(publint@0.3.15)(synckit@0.11.11)(typescript@5.9.3)
       tslib:
         specifier: catalog:unplugin
         version: 2.8.1
@@ -882,10 +882,10 @@ importers:
         version: 7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)
       vitest:
         specifier: catalog:testing
-        version: 4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)
+        version: 4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
       vitest-testdirs:
         specifier: catalog:testing
-        version: 4.3.0(vitest@4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
+        version: 4.3.0(vitest@4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)))
       webpack:
         specifier: catalog:builders
         version: 5.103.0(esbuild@0.27.0)
@@ -907,7 +907,7 @@ importers:
         version: link:../tooling/tsconfig
       '@luxass/eslint-config':
         specifier: catalog:linting
-        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
+        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)))
       '@types/node':
         specifier: catalog:types
         version: 24.10.1
@@ -924,14 +924,14 @@ importers:
     dependencies:
       tsdown:
         specifier: catalog:dev
-        version: 0.16.5(ms@2.1.3)(publint@0.3.15)(synckit@0.11.11)(typescript@5.9.3)
+        version: 0.16.5(publint@0.3.15)(synckit@0.11.11)(typescript@5.9.3)
     devDependencies:
       '@actions-kit/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@luxass/eslint-config':
         specifier: catalog:linting
-        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
+        version: 6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)))
       eslint:
         specifier: catalog:linting
         version: 9.39.2(jiti@2.6.1)
@@ -2425,8 +2425,8 @@ packages:
   '@speed-highlight/core@1.2.7':
     resolution: {integrity: sha512-0dxmVj4gxg3Jg879kvFS/msl4s9F3T9UXC1InxgOf7t5NvcPD97u/WTA5vL/IxWHMn7qSxBozqrnnE2wvl1m8g==}
 
-  '@standard-schema/spec@1.0.0':
-    resolution: {integrity: sha512-m2bOd0f2RT9k8QJx1JN85cZYyH1RqFBdlwtkSlf4tBDYLCiiZnv1fIIwacK6cqwXavOydf0NPToMQgpKq+dVlA==}
+  '@standard-schema/spec@1.1.0':
+    resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
 
   '@stylistic/eslint-plugin@5.5.0':
     resolution: {integrity: sha512-IeZF+8H0ns6prg4VrkhgL+yrvDXWDH2cKchrbh80ejG9dQgZWp10epHMbgRuQvgchLII/lfh6Xn3lu6+6L86Hw==}
@@ -2631,6 +2631,7 @@ packages:
 
   '@ungap/structured-clone@1.2.0':
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
+    deprecated: Potential CWE-502 - Update to 1.3.1 or higher
 
   '@vitejs/plugin-vue@5.2.1':
     resolution: {integrity: sha512-cxh314tzaWwOLqVes2gnnCtvBDcM1UMdn+iFR+UjAn411dPT3tOmqrJjbMd7koZpMAmBM/GqeV4n9ge7JSiJJQ==}
@@ -2652,11 +2653,11 @@ packages:
       vitest:
         optional: true
 
-  '@vitest/expect@4.0.13':
-    resolution: {integrity: sha512-zYtcnNIBm6yS7Gpr7nFTmq8ncowlMdOJkWLqYvhr/zweY6tFbDkDi8BPPOeHxEtK1rSI69H7Fd4+1sqvEGli6w==}
+  '@vitest/expect@4.1.7':
+    resolution: {integrity: sha512-1R+tw0ortHEbZDGMymm+pN7/AFQ/RkFFdtd7EN+VBpynKmLbP8A3rpEXdshBJ7+8hQ9zBJh/i1s0yKNtxAnU7w==}
 
-  '@vitest/mocker@4.0.13':
-    resolution: {integrity: sha512-eNCwzrI5djoauklwP1fuslHBjrbR8rqIVbvNlAnkq1OTa6XT+lX68mrtPirNM9TnR69XUPt4puBCx2Wexseylg==}
+  '@vitest/mocker@4.1.7':
+    resolution: {integrity: sha512-vY7nuamKgfvpA1Koa3oYIw/k7D6kZnpGyNMZW8loow2bsBYla1TFdqTaXncWdRn4pgwNs+90RhnXhJScDwQeJA==}
     peerDependencies:
       msw: ^2.4.9
       vite: 7.2.4
@@ -2666,20 +2667,20 @@ packages:
       vite:
         optional: true
 
-  '@vitest/pretty-format@4.0.13':
-    resolution: {integrity: sha512-ooqfze8URWbI2ozOeLDMh8YZxWDpGXoeY3VOgcDnsUxN0jPyPWSUvjPQWqDGCBks+opWlN1E4oP1UYl3C/2EQA==}
+  '@vitest/pretty-format@4.1.7':
+    resolution: {integrity: sha512-umgCarTOYQWIaDMvGDRZij+6b9oVeLIyJzfN+AS88e0ZOU3QTgNNSTtjQOpcvWr3np1N0j4WgZj+sb3oYBDscw==}
 
-  '@vitest/runner@4.0.13':
-    resolution: {integrity: sha512-9IKlAru58wcVaWy7hz6qWPb2QzJTKt+IOVKjAx5vb5rzEFPTL6H4/R9BMvjZ2ppkxKgTrFONEJFtzvnyEpiT+A==}
+  '@vitest/runner@4.1.7':
+    resolution: {integrity: sha512-BapjmAQ2aI78WdMEfeUWivnfVzB+VPGwWRQcJE0OUq7qEeEcBsCSf+0T5iREBNE5nBb4wA5Ya0W6IA+sghdEFw==}
 
-  '@vitest/snapshot@4.0.13':
-    resolution: {integrity: sha512-hb7Usvyika1huG6G6l191qu1urNPsq1iFc2hmdzQY3F5/rTgqQnwwplyf8zoYHkpt7H6rw5UfIw6i/3qf9oSxQ==}
+  '@vitest/snapshot@4.1.7':
+    resolution: {integrity: sha512-ZacLzja+TmJeZ1h14xW2FB/WpeimUD3haBXQPyJqxvo8jQTmfeA8zv58mtjN2C7EHXZDYVcVYdYmAxjkWVvKCw==}
 
-  '@vitest/spy@4.0.13':
-    resolution: {integrity: sha512-hSu+m4se0lDV5yVIcNWqjuncrmBgwaXa2utFLIrBkQCQkt+pSwyZTPFQAZiiF/63j8jYa8uAeUZ3RSfcdWaYWw==}
+  '@vitest/spy@4.1.7':
+    resolution: {integrity: sha512-kbkI5LMWakyuTIvs6fUJ5qdIVb1XVKsYJAT4OJ938cHMROYMSfmoQdZy0aaAnjbbc8F61vkoTqz/Az+/HiIu5Q==}
 
-  '@vitest/utils@4.0.13':
-    resolution: {integrity: sha512-ydozWyQ4LZuu8rLp47xFUWis5VOKMdHjXCWhs1LuJsTNKww+pTHQNK4e0assIB9K80TxFyskENL6vCu3j34EYA==}
+  '@vitest/utils@4.1.7':
+    resolution: {integrity: sha512-T532WBu791cBxJlCl6SO+J14l81DQx6uQHm1bQbmCDY7nqlEIgkza/UFnSBNaUtSf41unldDFjdOBYEQC4b5Hw==}
 
   '@vue/compiler-core@3.5.13':
     resolution: {integrity: sha512-oOdAkwqUfW1WqpwSYJce06wvt6HljgY3fGeM9NcVA1HaYOij3mZG9Rkysn0OHuyUAGMbEbARIpsG+LPVlBJ5/Q==}
@@ -2969,8 +2970,8 @@ packages:
   ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
 
-  chai@6.2.1:
-    resolution: {integrity: sha512-p4Z49OGG5W/WBCPSS/dH3jQ73kD6tiMmUM+bckNK6Jr5JHMG3k9bg/BvKR8lKmtVBKmOiuVaV2ws8s9oSbwysg==}
+  chai@6.2.2:
+    resolution: {integrity: sha512-NUPRluOfOiTKBKvWPtSD4PhFvWCqOi0BGStNWs57X9js7XGTprSmFoz5F0tWhR4WPjNeR9jXqdC7/UpSJTnlRg==}
     engines: {node: '>=18'}
 
   chalk@4.1.2:
@@ -3054,6 +3055,9 @@ packages:
   consola@3.4.2:
     resolution: {integrity: sha512-5IKcdX0nnYavi6G7TtOhwkYzyjfJlatbjMjuLSfE2kYT5pMDOilZ4OvMhi637CcDICTmz3wARPoyhqyX1Y+XvA==}
     engines: {node: ^14.18.0 || >=16.10.0}
+
+  convert-source-map@2.0.0:
+    resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
 
   cookie@1.0.2:
     resolution: {integrity: sha512-9Kr/j4O16ISv8zBBhJoi4bXOYNTkFLOqSL3UDB0njXxCXNezjeyVrJyGOWtgfs/q2km1gwBcfH8q1yEGoMYunA==}
@@ -3177,6 +3181,9 @@ packages:
 
   es-module-lexer@1.7.0:
     resolution: {integrity: sha512-jEQoCwk8hyb2AZziIOLhDqpm5+2ww5uIE6lkO/6jcOCusfk6LhMHpXXfBLXTZ7Ydyt0j4VoUQv6uGNYbdW+kBA==}
+
+  es-module-lexer@2.1.0:
+    resolution: {integrity: sha512-n27zTYMjYu1aj4MjCWzSP7G9r75utsaoc8m61weK+W8JMBGGQybd43GstCXZ3WNmSFtGT9wi59qQTW6mhTR5LQ==}
 
   esbuild@0.25.9:
     resolution: {integrity: sha512-CRbODhYyQx3qp7ZEwzxOk4JBqmD/seJrzPa/cGjY1VtIn5E09Oi9/dB4JwctnfZ8Q8iT7rioVv5k/FNT/uf54g==}
@@ -3421,8 +3428,8 @@ packages:
     resolution: {integrity: sha512-eNTPlAD67BmP31LDINZ3U7HSF8l57TxOY2PmBJ1shpCvpnxBF93mWCE8YHBnXs8qiUZJc9WDcWIeC3a2HIAMfw==}
     engines: {node: '>=6'}
 
-  expect-type@1.2.2:
-    resolution: {integrity: sha512-JhFGDVJ7tmDJItKhYgJCGLOWjuK9vPxiXoUFLwLDc99NlmklilbiQJwoctZtt13+xMw91MCk/REan6MWHqDjyA==}
+  expect-type@1.3.0:
+    resolution: {integrity: sha512-knvyeauYhqjOYvQ66MznSMs83wmHrCycNEN6Ao+2AeYEfxUIkuiVxdEa1qlGEPK+We3n0THiDciYSsCcgW/DoA==}
     engines: {node: '>=12.0.0'}
 
   exsolve@1.0.8:
@@ -3986,13 +3993,8 @@ packages:
   object-deep-merge@2.0.0:
     resolution: {integrity: sha512-3DC3UMpeffLTHiuXSy/UG4NOIYTLlY9u3V82+djSCLYClWobZiS4ivYzpIUWrRY/nfsJ8cWsKyG3QfyLePmhvg==}
 
-  obug@2.0.0:
-    resolution: {integrity: sha512-dpSQuPXoKUjulinHmXjZV1YIRhOLEqBl1J6PYi9mRQR2dYcSK+OULRr+GuT1vufk2f40mtIOqmSL/aTikjmq5Q==}
-    peerDependencies:
-      ms: ^2.0.0
-    peerDependenciesMeta:
-      ms:
-        optional: true
+  obug@2.1.1:
+    resolution: {integrity: sha512-uTqF9MuPraAQ+IsnPf366RG4cP9RtUi7MLO1N3KEc+wb0a6yKpeL0lmk2IB1jY5KHPAlTc6T/JRdC/YqxHNwkQ==}
 
   ohash@2.0.11:
     resolution: {integrity: sha512-RdR9FQrFwNBNXAr4GixM8YaRZRJ5PUWbKYbE5eOsrwAjJW0q2REGcf79oYPsLyskQCZG1PLN+S/K1V00joZAoQ==}
@@ -4354,8 +4356,8 @@ packages:
   stackback@0.0.2:
     resolution: {integrity: sha512-1XMJE5fQo1jGH6Y/7ebnwPOBEkIEnT4QF32d5R1+VXdXveM0IBMJt8zfaxX1P3QhVwrYe+576+jkANtSS2mBbw==}
 
-  std-env@3.10.0:
-    resolution: {integrity: sha512-5GS12FdOZNliM5mAOxFRg7Ir0pWz8MdpYm6AY6VPkGpbA7ZzmbzNcBJQ0GPvvyWgcY7QAhCgf9Uy89I03faLkg==}
+  std-env@4.1.0:
+    resolution: {integrity: sha512-Rq7ybcX2RuC55r9oaPVEW7/xu3tj8u4GeBYHBWCychFtzMIr86A7e3PPEBPT37sHStKX3+TiX/Fr/ACmJLVlLQ==}
 
   stoppable@1.1.0:
     resolution: {integrity: sha512-KXDYZ9dszj6bzvnEMRYvxgeTHU74QBFL54XKtP3nyMuJ81CFYtABZ3bAzL2EdFUaEwJOBOgENyFj3R7oTzDyyw==}
@@ -4463,8 +4465,8 @@ packages:
     resolution: {integrity: sha512-j2Zq4NyQYG5XMST4cbs02Ak8iJUdxRM0XI5QyxXuZOzKOINmWurp3smXu3y5wDcJrptwpSjgXHzIQxR0omXljQ==}
     engines: {node: '>=12.0.0'}
 
-  tinyrainbow@3.0.3:
-    resolution: {integrity: sha512-PSkbLUoxOFRzJYjjxHJt9xro7D+iilgMX/C9lawzVuYiIdcihh9DXmVibBe8lmcFrRi/VzlPjBxbN7rH24q8/Q==}
+  tinyrainbow@3.1.0:
+    resolution: {integrity: sha512-Bf+ILmBgretUrdJxzXM0SgXLZ3XfiaUuOj/IKQHuTXip+05Xn+uyEYdVg0kYDipTBcLrCVyUzAPz7QmArb0mmw==}
     engines: {node: '>=14.0.0'}
 
   to-regex-range@5.0.1:
@@ -4719,27 +4721,27 @@ packages:
     peerDependencies:
       vitest: '>=3.0.0 <4.0.0 || >=4.0.0 <5.0.0'
 
-  vitest@4.0.13:
-    resolution: {integrity: sha512-QSD4I0fN6uZQfftryIXuqvqgBxTvJ3ZNkF6RWECd82YGAYAfhcppBLFXzXJHQAAhVFyYEuFTrq6h0hQqjB7jIQ==}
+  vitest@4.1.7:
+    resolution: {integrity: sha512-flYyaFd2CgoCoU+0UKt3pxksgC+S02iTDN0n3LtqaMeXsI9SBcdNujc2k0DeFLzUn/0k538yNjOSdwgCqcrwJA==}
     engines: {node: ^20.0.0 || ^22.0.0 || >=24.0.0}
     hasBin: true
     peerDependencies:
       '@edge-runtime/vm': '*'
       '@opentelemetry/api': ^1.9.0
-      '@types/debug': ^4.1.12
       '@types/node': ^20.0.0 || ^22.0.0 || >=24.0.0
-      '@vitest/browser-playwright': 4.0.13
-      '@vitest/browser-preview': 4.0.13
-      '@vitest/browser-webdriverio': 4.0.13
-      '@vitest/ui': 4.0.13
+      '@vitest/browser-playwright': 4.1.7
+      '@vitest/browser-preview': 4.1.7
+      '@vitest/browser-webdriverio': 4.1.7
+      '@vitest/coverage-istanbul': 4.1.7
+      '@vitest/coverage-v8': 4.1.7
+      '@vitest/ui': 4.1.7
       happy-dom: '*'
       jsdom: '*'
+      vite: 7.2.4
     peerDependenciesMeta:
       '@edge-runtime/vm':
         optional: true
       '@opentelemetry/api':
-        optional: true
-      '@types/debug':
         optional: true
       '@types/node':
         optional: true
@@ -4748,6 +4750,10 @@ packages:
       '@vitest/browser-preview':
         optional: true
       '@vitest/browser-webdriverio':
+        optional: true
+      '@vitest/coverage-istanbul':
+        optional: true
+      '@vitest/coverage-v8':
         optional: true
       '@vitest/ui':
         optional: true
@@ -5801,7 +5807,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@luxass/eslint-config@6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))':
+  '@luxass/eslint-config@6.0.3(@vue/compiler-sfc@3.5.13)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)))':
     dependencies:
       '@antfu/install-pkg': 1.1.0
       '@clack/prompts': 0.11.0
@@ -5810,7 +5816,7 @@ snapshots:
       '@stylistic/eslint-plugin': 5.5.0(eslint@9.39.2(jiti@2.6.1))
       '@typescript-eslint/eslint-plugin': 8.46.3(@typescript-eslint/parser@8.46.3(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
       '@typescript-eslint/parser': 8.46.3(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
-      '@vitest/eslint-plugin': 1.4.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
+      '@vitest/eslint-plugin': 1.4.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)))
       eslint: 9.39.2(jiti@2.6.1)
       eslint-config-flat-gitignore: 2.1.0(eslint@9.39.2(jiti@2.6.1))
       eslint-flat-config-utils: 2.1.4
@@ -6180,7 +6186,7 @@ snapshots:
 
   '@speed-highlight/core@1.2.7': {}
 
-  '@standard-schema/spec@1.0.0': {}
+  '@standard-schema/spec@1.1.0': {}
 
   '@stylistic/eslint-plugin@5.5.0(eslint@9.39.2(jiti@2.6.1))':
     dependencies:
@@ -6404,55 +6410,57 @@ snapshots:
       vite: 7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)
       vue: 3.5.13(typescript@5.9.3)
 
-  '@vitest/eslint-plugin@1.4.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))':
+  '@vitest/eslint-plugin@1.4.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)))':
     dependencies:
       '@typescript-eslint/scope-manager': 8.46.3
       '@typescript-eslint/utils': 8.46.3(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
       eslint: 9.39.2(jiti@2.6.1)
     optionalDependencies:
       typescript: 5.9.3
-      vitest: 4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)
+      vitest: 4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/expect@4.0.13':
+  '@vitest/expect@4.1.7':
     dependencies:
-      '@standard-schema/spec': 1.0.0
+      '@standard-schema/spec': 1.1.0
       '@types/chai': 5.2.2
-      '@vitest/spy': 4.0.13
-      '@vitest/utils': 4.0.13
-      chai: 6.2.1
-      tinyrainbow: 3.0.3
+      '@vitest/spy': 4.1.7
+      '@vitest/utils': 4.1.7
+      chai: 6.2.2
+      tinyrainbow: 3.1.0
 
-  '@vitest/mocker@4.0.13(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))':
+  '@vitest/mocker@4.1.7(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))':
     dependencies:
-      '@vitest/spy': 4.0.13
+      '@vitest/spy': 4.1.7
       estree-walker: 3.0.3
       magic-string: 0.30.21
     optionalDependencies:
       vite: 7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)
 
-  '@vitest/pretty-format@4.0.13':
+  '@vitest/pretty-format@4.1.7':
     dependencies:
-      tinyrainbow: 3.0.3
+      tinyrainbow: 3.1.0
 
-  '@vitest/runner@4.0.13':
+  '@vitest/runner@4.1.7':
     dependencies:
-      '@vitest/utils': 4.0.13
+      '@vitest/utils': 4.1.7
       pathe: 2.0.3
 
-  '@vitest/snapshot@4.0.13':
+  '@vitest/snapshot@4.1.7':
     dependencies:
-      '@vitest/pretty-format': 4.0.13
+      '@vitest/pretty-format': 4.1.7
+      '@vitest/utils': 4.1.7
       magic-string: 0.30.21
       pathe: 2.0.3
 
-  '@vitest/spy@4.0.13': {}
+  '@vitest/spy@4.1.7': {}
 
-  '@vitest/utils@4.0.13':
+  '@vitest/utils@4.1.7':
     dependencies:
-      '@vitest/pretty-format': 4.0.13
-      tinyrainbow: 3.0.3
+      '@vitest/pretty-format': 4.1.7
+      convert-source-map: 2.0.0
+      tinyrainbow: 3.1.0
 
   '@vue/compiler-core@3.5.13':
     dependencies:
@@ -6776,7 +6784,7 @@ snapshots:
 
   ccount@2.0.1: {}
 
-  chai@6.2.1: {}
+  chai@6.2.2: {}
 
   chalk@4.1.2:
     dependencies:
@@ -6842,6 +6850,8 @@ snapshots:
   confbox@0.2.2: {}
 
   consola@3.4.2: {}
+
+  convert-source-map@2.0.0: {}
 
   cookie@1.0.2: {}
 
@@ -6926,6 +6936,8 @@ snapshots:
   error-stack-parser-es@1.0.5: {}
 
   es-module-lexer@1.7.0: {}
+
+  es-module-lexer@2.1.0: {}
 
   esbuild@0.25.9:
     optionalDependencies:
@@ -7289,7 +7301,7 @@ snapshots:
 
   exit-hook@2.2.1: {}
 
-  expect-type@1.2.2: {}
+  expect-type@1.3.0: {}
 
   exsolve@1.0.8: {}
 
@@ -8026,9 +8038,7 @@ snapshots:
 
   object-deep-merge@2.0.0: {}
 
-  obug@2.0.0(ms@2.1.3):
-    optionalDependencies:
-      ms: 2.1.3
+  obug@2.1.1: {}
 
   ohash@2.0.11: {}
 
@@ -8229,7 +8239,7 @@ snapshots:
 
   rfdc@1.4.1: {}
 
-  rolldown-plugin-dts@0.17.8(ms@2.1.3)(rolldown@1.0.0-beta.50)(typescript@5.9.3):
+  rolldown-plugin-dts@0.17.8(rolldown@1.0.0-beta.50)(typescript@5.9.3):
     dependencies:
       '@babel/generator': 7.28.5
       '@babel/parser': 7.28.5
@@ -8239,12 +8249,11 @@ snapshots:
       dts-resolver: 2.1.3
       get-tsconfig: 4.13.0
       magic-string: 0.30.21
-      obug: 2.0.0(ms@2.1.3)
+      obug: 2.1.1
       rolldown: 1.0.0-beta.50
     optionalDependencies:
       typescript: 5.9.3
     transitivePeerDependencies:
-      - ms
       - oxc-resolver
 
   rolldown@1.0.0-beta.50:
@@ -8447,7 +8456,7 @@ snapshots:
 
   stackback@0.0.2: {}
 
-  std-env@3.10.0: {}
+  std-env@4.1.0: {}
 
   stoppable@1.1.0: {}
 
@@ -8542,7 +8551,7 @@ snapshots:
       fdir: 6.5.0(picomatch@4.0.3)
       picomatch: 4.0.3
 
-  tinyrainbow@3.0.3: {}
+  tinyrainbow@3.1.0: {}
 
   to-regex-range@5.0.1:
     dependencies:
@@ -8582,7 +8591,7 @@ snapshots:
       typescript: 5.9.3
       webpack: 5.103.0(esbuild@0.27.0)
 
-  tsdown@0.16.5(ms@2.1.3)(publint@0.3.15)(synckit@0.11.11)(typescript@5.9.3):
+  tsdown@0.16.5(publint@0.3.15)(synckit@0.11.11)(typescript@5.9.3):
     dependencies:
       ansis: 4.2.0
       cac: 6.7.14
@@ -8590,9 +8599,9 @@ snapshots:
       diff: 8.0.2
       empathic: 2.0.0
       hookable: 5.5.3
-      obug: 2.0.0(ms@2.1.3)
+      obug: 2.1.1
       rolldown: 1.0.0-beta.50
-      rolldown-plugin-dts: 0.17.8(ms@2.1.3)(rolldown@1.0.0-beta.50)(typescript@5.9.3)
+      rolldown-plugin-dts: 0.17.8(rolldown@1.0.0-beta.50)(typescript@5.9.3)
       semver: 7.7.3
       tinyexec: 1.0.2
       tinyglobby: 0.2.15
@@ -8605,7 +8614,6 @@ snapshots:
     transitivePeerDependencies:
       - '@ts-macro/tsc'
       - '@typescript/native-preview'
-      - ms
       - oxc-resolver
       - synckit
       - vue-tsc
@@ -8804,49 +8812,37 @@ snapshots:
       - universal-cookie
       - yaml
 
-  vitest-testdirs@4.3.0(vitest@4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)):
+  vitest-testdirs@4.3.0(vitest@4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))):
     dependencies:
       testdirs: 4.0.0
-      vitest: 4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)
+      vitest: 4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
 
-  vitest@4.0.13(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3):
+  vitest@4.1.7(@types/node@24.10.1)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)):
     dependencies:
-      '@vitest/expect': 4.0.13
-      '@vitest/mocker': 4.0.13(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
-      '@vitest/pretty-format': 4.0.13
-      '@vitest/runner': 4.0.13
-      '@vitest/snapshot': 4.0.13
-      '@vitest/spy': 4.0.13
-      '@vitest/utils': 4.0.13
-      debug: 4.4.3
-      es-module-lexer: 1.7.0
-      expect-type: 1.2.2
+      '@vitest/expect': 4.1.7
+      '@vitest/mocker': 4.1.7(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))
+      '@vitest/pretty-format': 4.1.7
+      '@vitest/runner': 4.1.7
+      '@vitest/snapshot': 4.1.7
+      '@vitest/spy': 4.1.7
+      '@vitest/utils': 4.1.7
+      es-module-lexer: 2.1.0
+      expect-type: 1.3.0
       magic-string: 0.30.21
+      obug: 2.1.1
       pathe: 2.0.3
       picomatch: 4.0.3
-      std-env: 3.10.0
+      std-env: 4.1.0
       tinybench: 2.9.0
-      tinyexec: 0.3.2
+      tinyexec: 1.0.2
       tinyglobby: 0.2.15
-      tinyrainbow: 3.0.3
+      tinyrainbow: 3.1.0
       vite: 7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)
       why-is-node-running: 2.3.0
     optionalDependencies:
-      '@types/debug': 4.1.12
       '@types/node': 24.10.1
     transitivePeerDependencies:
-      - jiti
-      - less
-      - lightningcss
       - msw
-      - sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - tsx
-      - yaml
 
   vue-eslint-parser@10.2.0(eslint@9.39.2(jiti@2.6.1)):
     dependencies:
