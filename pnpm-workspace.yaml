@@ -64,7 +64,7 @@ catalogs:
 
   testing:
     '@vitest/coverage-v8': 4.0.13
-    vitest: 4.0.13
+    vitest: 4.1.11
     vitest-testdirs: 4.3.0
 
   types:
