@@ -26,7 +26,7 @@ catalogs:
   dev:
     publint: 0.3.15
     tsdown: 0.16.5
-    typescript: 5.9.3
+    typescript: 7.0.2
 
   docs:
     '@cloudflare/vite-plugin': 1.15.0
