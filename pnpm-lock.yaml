@@ -121,8 +121,8 @@ catalogs:
       specifier: 2.8.1
       version: 2.8.1
     unplugin:
-      specifier: 2.3.10
-      version: 2.3.10
+      specifier: 3.4.0
+      version: 3.4.0
     yaml:
       specifier: 2.8.3
       version: 2.8.3
@@ -821,7 +821,7 @@ importers:
         version: 5.3.0(rollup@4.53.2)
       unplugin:
         specifier: catalog:unplugin
-        version: 2.3.10
+        version: 3.4.0(@rspack/core@1.6.4)(esbuild@0.27.0)(rolldown@1.0.0-beta.50)(rollup@4.53.2)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))(webpack@5.103.0(esbuild@0.27.0))
       yaml:
         specifier: catalog:unplugin
         version: 2.8.3
@@ -4091,8 +4091,8 @@ packages:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
 
-  picomatch@4.0.3:
-    resolution: {integrity: sha512-5gTmgEY/sqK6gFXLIsQNH19lWb4ebPDLA4SdLP7dsWkIXHWlG66oPuVvXSGFPppYZz8ZDZq0dYYrbHfBCVUb1Q==}
+  picomatch@4.0.7:
+    resolution: {integrity: sha512-qcJu88Q2IWqJsDD529JKMdwGm/dvInW4HvQnRwiH9JtihJvzGOscDtHE3x1pBKeUOTysQ8kVmLnJ2kJu7yhcGA==}
     engines: {node: '>=12'}
 
   pify@4.0.1:
@@ -4623,9 +4623,41 @@ packages:
     resolution: {integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==}
     engines: {node: '>= 4.0.0'}
 
-  unplugin@2.3.10:
-    resolution: {integrity: sha512-6NCPkv1ClwH+/BGE9QeoTIl09nuiAt0gS28nn1PvYXsGKRwM2TCbFA2QiilmehPDTXIe684k4rZI1yl3A1PCUw==}
-    engines: {node: '>=18.12.0'}
+  unplugin@3.4.0:
+    resolution: {integrity: sha512-9skdIFlCsPdFV7wUfZxNsFInlW+7nJmGu2gkTu0OUhF56aXGsHab9x52/QhdJ4lC7ZDPWTxbiC4ANqVlsuaW3w==}
+    engines: {node: ^20.19.0 || >=22.12.0}
+    peerDependencies:
+      '@farmfe/core': '*'
+      '@rsbuild/core': '*'
+      '@rspack/core': '*'
+      bun-types-no-globals: '*'
+      esbuild: '*'
+      rolldown: 1.0.0-beta.50
+      rollup: '*'
+      unloader: '*'
+      vite: 7.2.4
+      webpack: '*'
+    peerDependenciesMeta:
+      '@farmfe/core':
+        optional: true
+      '@rsbuild/core':
+        optional: true
+      '@rspack/core':
+        optional: true
+      bun-types-no-globals:
+        optional: true
+      esbuild:
+        optional: true
+      rolldown:
+        optional: true
+      rollup:
+        optional: true
+      unloader:
+        optional: true
+      vite:
+        optional: true
+      webpack:
+        optional: true
 
   unrun@0.2.10:
     resolution: {integrity: sha512-IcQCpGp3oawzr2ANNmMCh2XNssrDueQvoOfC/ranG4Enq0vVCCLfen+sJTaLYKR22vxZttF2KvvaubgbUadTqA==}
@@ -5983,10 +6015,10 @@ snapshots:
       '@rollup/pluginutils': 5.3.0(rollup@4.53.2)
       commondir: 1.0.1
       estree-walker: 2.0.2
-      fdir: 6.5.0(picomatch@4.0.3)
+      fdir: 6.5.0(picomatch@4.0.7)
       is-reference: 1.2.1
       magic-string: 0.30.21
-      picomatch: 4.0.3
+      picomatch: 4.0.7
     optionalDependencies:
       rollup: 4.53.2
 
@@ -6013,7 +6045,7 @@ snapshots:
     dependencies:
       '@types/estree': 1.0.8
       estree-walker: 2.0.2
-      picomatch: 4.0.3
+      picomatch: 4.0.7
     optionalDependencies:
       rollup: 4.53.2
 
@@ -6192,7 +6224,7 @@ snapshots:
       eslint-visitor-keys: 4.2.1
       espree: 10.4.0
       estraverse: 5.3.0
-      picomatch: 4.0.3
+      picomatch: 4.0.7
 
   '@swc/core-darwin-arm64@1.15.2':
     optional: true
@@ -7325,9 +7357,9 @@ snapshots:
     dependencies:
       format: 0.2.2
 
-  fdir@6.5.0(picomatch@4.0.3):
+  fdir@6.5.0(picomatch@4.0.7):
     optionalDependencies:
-      picomatch: 4.0.3
+      picomatch: 4.0.7
 
   file-entry-cache@8.0.0:
     dependencies:
@@ -8113,7 +8145,7 @@ snapshots:
 
   picomatch@2.3.1: {}
 
-  picomatch@4.0.3: {}
+  picomatch@4.0.7: {}
 
   pify@4.0.1: {}
 
@@ -8541,8 +8573,8 @@ snapshots:
 
   tinyglobby@0.2.15:
     dependencies:
-      fdir: 6.5.0(picomatch@4.0.3)
-      picomatch: 4.0.3
+      fdir: 6.5.0(picomatch@4.0.7)
+      picomatch: 4.0.7
 
   tinyrainbow@3.0.3: {}
 
@@ -8571,7 +8603,7 @@ snapshots:
 
   ts-declaration-location@1.0.7(typescript@5.9.3):
     dependencies:
-      picomatch: 4.0.3
+      picomatch: 4.0.7
       typescript: 5.9.3
 
   ts-loader@9.5.4(typescript@5.9.3)(webpack@5.103.0(esbuild@0.27.0)):
@@ -8693,12 +8725,18 @@ snapshots:
 
   universalify@0.1.2: {}
 
-  unplugin@2.3.10:
+  unplugin@3.4.0(@rspack/core@1.6.4)(esbuild@0.27.0)(rolldown@1.0.0-beta.50)(rollup@4.53.2)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3))(webpack@5.103.0(esbuild@0.27.0)):
     dependencies:
       '@jridgewell/remapping': 2.3.5
-      acorn: 8.15.0
-      picomatch: 4.0.3
+      picomatch: 4.0.7
       webpack-virtual-modules: 0.6.2
+    optionalDependencies:
+      '@rspack/core': 1.6.4
+      esbuild: 0.27.0
+      rolldown: 1.0.0-beta.50
+      rollup: 4.53.2
+      vite: 7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3)
+      webpack: 5.103.0(esbuild@0.27.0)
 
   unrun@0.2.10(synckit@0.11.11):
     dependencies:
@@ -8732,8 +8770,8 @@ snapshots:
   vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.3):
     dependencies:
       esbuild: 0.25.9
-      fdir: 6.5.0(picomatch@4.0.3)
-      picomatch: 4.0.3
+      fdir: 6.5.0(picomatch@4.0.7)
+      picomatch: 4.0.7
       postcss: 8.5.6
       rollup: 4.53.2
       tinyglobby: 0.2.15
@@ -8825,7 +8863,7 @@ snapshots:
       expect-type: 1.2.2
       magic-string: 0.30.21
       pathe: 2.0.3
-      picomatch: 4.0.3
+      picomatch: 4.0.7
       std-env: 3.10.0
       tinybench: 2.9.0
       tinyexec: 0.3.2
