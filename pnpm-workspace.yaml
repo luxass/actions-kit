@@ -14,7 +14,7 @@ catalogs:
     '@rollup/plugin-commonjs': 29.0.0
     '@rollup/plugin-node-resolve': 16.0.3
     '@rollup/plugin-typescript': 12.3.0
-    '@rspack/core': 1.6.4
+    '@rspack/core': 2.2.9
     '@swc/core': 1.15.2
     esbuild: 0.27.0
     rolldown: 1.0.0-beta.50
