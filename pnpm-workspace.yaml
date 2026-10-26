@@ -21,7 +21,7 @@ catalogs:
     rollup: 4.53.2
     swc-loader: 0.2.6
     vite: 7.2.4
-    webpack: 5.103.0
+    webpack: 5.104.1
 
   dev:
     publint: 0.3.15
